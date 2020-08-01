@@ -40,13 +40,14 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2xlbWVudGlnb25ldCIsImEiOiJjazl2Z2hzcmkwYmF6M21zN3RqcHg5anU4In0.blXhwZzYBGSm6fJe0z0e-Q'
         var customData;
         var imap;
-        let lon = getQueryVariable('lon', 2.3579127);
-        let lat = getQueryVariable('lat', 48.8762027);
+        let lon = getQueryVariable('lon', 2.35877);
+        let lat = getQueryVariable('lat', 48.87694);
         const map = window.map = new mapboxgl.Map({
             container: "map",
             zoom: 18,
             center: [lon, lat],
             pitch: 60,
+            bearing: -60,
             style: 'mapbox://styles/mapbox/streets-v10'
         });
 
