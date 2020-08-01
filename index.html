@@ -40,10 +40,13 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2xlbWVudGlnb25ldCIsImEiOiJjazl2Z2hzcmkwYmF6M21zN3RqcHg5anU4In0.blXhwZzYBGSm6fJe0z0e-Q'
         var customData;
         var imap;
+        let lon = getQueryVariable('lon', 2.3579127);
+        let lat = getQueryVariable('lat', 48.8762027);
         const map = window.map = new mapboxgl.Map({
             container: "map",
             zoom: 18,
-            center: [getQueryVariable('lon'), getQueryVariable('lat')],
+            center: [lon, lat],
+            pitch: 60,
             style: 'mapbox://styles/mapbox/streets-v10'
         });
 
@@ -128,7 +131,7 @@
                 
         }
 
-        function getQueryVariable(variable) {
+        function getQueryVariable(variable, defaultValue) {
             var query = window.location.search.substring(1);
             var vars = query.split('&');
             for (var i = 0; i < vars.length; i++) {
@@ -138,6 +141,7 @@
                 }
             }
             console.log('Query variable %s not found', variable);
+            return defaultValue;
         }
 
     </script>
