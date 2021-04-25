@@ -5,16 +5,35 @@
 <head>
     <meta charset="utf-8" />
     <title>OpenIndoor examples list</title>
+    <style>
+        body {
+          margin: 0px;
+          padding: 0px;
+        }
+        .container {
+            width: 100%;
+            min-height: 567px;
+            padding: 0px;
+            border: 3px solid #FF0000;
+        }
+        .container .content {
+            background-color: #008080;
+        }
+        .container .sidebar {
+            background-color: #000000;
+            width: 160px;
+        }
+    </style>
 </head>
 
 <body>
-    <table>
+    <table class="container">
         <tr>
-            <td style='width: 200;'>
+            <td class="sidebar">
                 <p><a href="example_01.html" target="iframe_example">example_01</a></p>
                 <p><a href="mapboxium.html" target="iframe_example">mapboxium</a></p>
             </td>
-            <td style='width: 100%;'>
+            <td class="content">
                 <iframe src="example_01.html" name="iframe_example"></iframe>
             </td>
         </tr>
