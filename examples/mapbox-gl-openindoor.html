@@ -46,10 +46,14 @@
             hash: true
         });
 
+        // const openIndoor = new OpenIndoor(map, {
+        //     sourceId: "indoor",
+        //     layerId: "osm-indoor",
+        //     layersSrc: "https://open-indoor.github.io/style/indoorLayers.json"
+        // });
         const openIndoor = new OpenIndoor(map, {
             sourceId: "indoor",
-            layerId: "osm-indoor",
-            layersSrc: "https://open-indoor.github.io/style/indoorLayers.json"
+            layerId: "osm-indoor"
         });
         // layerSrc: "https://app.openindoor.io/style/indoor/indoorLayers.json"
         map.addControl(openIndoor);
