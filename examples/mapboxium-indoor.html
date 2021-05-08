@@ -44,14 +44,13 @@
         }
 
 
-        blankStyle = {
+        mapStyle = {
             "version": 8,
             "name": "Blank",
             "center": [0, 0],
             "zoom": 0,
             "sources": {},
-            // "sprite": "file://roblabs.com/sprite",
-            // "glyphs": "file://roblabs.com/fonts/mapbox/{fontstack}/{range}.pbf",
+            "glyphs": "file://roblabs.com/fonts/mapbox/{fontstack}/{range}.pbf",
             "layers": [
                 { "id": "background", "type": "background", "paint": { "background-color": "rgba(255,255,255,1)" } },
                 {
@@ -88,15 +87,13 @@
 
 
         mapboxgl.accessToken = '';
-
         let map = new mapboxgl.Map({
             'container': 'map',
             // center: [0, 0],
             // zoom: 0,
             'center': [2.3596569, 48.8765734],
             'zoom': 17,
-            'style': blankStyle,
-            'glyphs': "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf"
+            'style': mapStyle
         });
 
         map.on('click', 'fire', function (e) {
@@ -204,7 +201,7 @@
             //     'type': 'geojson',
             //     'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
             // });
-            // map.addSource('building', {
+            // map.add  ('building', {
             //     'type': 'geojson',
             //     'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
             // });
