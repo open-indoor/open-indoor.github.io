@@ -169,7 +169,11 @@
 
 
         map.on('load', function () {
-            map.addSource('maine', {
+            map.addSource('indoor', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
+            });
+            map.addSource('building', {
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
             });
