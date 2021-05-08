@@ -60,12 +60,13 @@
         mapboxgl.accessToken = '';
 
         let map = new mapboxgl.Map({
-            container: 'map',
+            'container': 'map',
             // center: [0, 0],
             // zoom: 0,
-            center: [2.3596569, 48.8765734],
-            zoom: 17,
-            style: blankStyle
+            'center': [2.3596569, 48.8765734],
+            'zoom': 17,
+            'style': blankStyle,
+            'glyphs': "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf"
         });
 
         map.on('click', 'fire', function (e) {
