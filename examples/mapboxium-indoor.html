@@ -177,7 +177,7 @@
                 return response.json().then(function (json) {
                     console.log("json:", json)
                     layers = json
-                    for(layer in layers) {
+                    for(layer of layers) {
                         map.addLayer(layer)
                     }
                 });
