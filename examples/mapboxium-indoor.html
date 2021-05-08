@@ -69,6 +69,7 @@
                         'fill-color': '#088',
                         'fill-opacity': 0.8
                     }
+                }
                 //     {
                 //         "id": "circle-id",
                 //         "type": "circle",
@@ -120,7 +121,6 @@
                 .setHTML(e.features[0].properties.name)
                 .addTo(map);
         });
-
 
         map.addControl(new mapboxgl.NavigationControl());
         map.addControl(new mapboxgl.FullscreenControl());
