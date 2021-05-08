@@ -47,38 +47,47 @@
             "name": "Blank",
             "center": [0, 0],
             "zoom": 0,
-            "sources": {},
+            "sources": {
+                'gareDeLEstSource': {
+                    'type': 'geojson',
+                    'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
+                }
+            },
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
             "layers": [
-                { "id": "background", "type": "background", "paint": { "background-color": "rgba(255,255,255,1)" } },
-            //     {
-            //         "id": "circle-id",
-            //         "type": "circle",
-            //         "source": {
-            //             "type": "geojson",
-            //             "data": nullIsland
-            //         },
-            //         "paint": {
-            //             'circle-opacity': 0.8,
-            //             'circle-color': 'rgb(255, 0, 0)'
-            //         }
-            //     },
-            //     {
-            //         "id": "nullislandgrid",
-            //         "type": "line",
-            //         "source": {
-            //             "type": "geojson",
-            //             "data": nullIslandGrid
-            //         },
-            //         "layout": {
-            //             "line-join": "round",
-            //             "line-cap": "round"
-            //         },
-            //         "paint": {
-            //             "line-color": "black",
-            //             "line-width": 1
-            //         }
-            //     }
+                {
+                    "id": "background",
+                    "type": "background",
+                    "paint": { "background-color": "rgba(255,255,255,1)" }
+                },
+                //     {
+                //         "id": "circle-id",
+                //         "type": "circle",
+                //         "source": {
+                //             "type": "geojson",
+                //             "data": nullIsland
+                //         },
+                //         "paint": {
+                //             'circle-opacity': 0.8,
+                //             'circle-color': 'rgb(255, 0, 0)'
+                //         }
+                //     },
+                //     {
+                //         "id": "nullislandgrid",
+                //         "type": "line",
+                //         "source": {
+                //             "type": "geojson",
+                //             "data": nullIslandGrid
+                //         },
+                //         "layout": {
+                //             "line-join": "round",
+                //             "line-cap": "round"
+                //         },
+                //         "paint": {
+                //             "line-color": "black",
+                //             "line-width": 1
+                //         }
+                //     }
             ],
             "id": "blank"
         }
@@ -195,10 +204,10 @@
 
 
             // map.on('load', function () {
-            map.addSource('indoor', {
-                'type': 'geojson',
-                'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
-            });
+            // map.addSource('gareDeLEstSource', {
+            //     'type': 'geojson',
+            //     'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
+            // });
             // map.add  ('building', {
             //     'type': 'geojson',
             //     'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
@@ -213,9 +222,9 @@
             //     });
             // });
             map.addLayer({
-                'id': 'maine',
+                'id': 'gareDeLEstLayer',
                 'type': 'fill',
-                'source': 'indoor',
+                'source': 'gareDeLEstSource',
                 'layout': {},
                 'paint': {
                     'fill-color': '#088',
