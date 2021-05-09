@@ -104,6 +104,29 @@
                         "line-color": "black",
                         "line-width": 1
                     }
+                },
+                {
+                    "id": "indoor-room-extrusion",
+                    "source": "indoor",
+                    "type": "fill-extrusion",
+                    "minzoom": 19,
+                    "filter": [
+                        "all",
+                        [
+                            "==",
+                            [
+                                "get",
+                                "indoor"
+                            ],
+                            "room"
+                        ]
+                    ],
+                    "paint": {
+                        "fill-extrusion-color": "#fddaa0",
+                        "fill-extrusion-height": 3,
+                        "fill-extrusion-base": 0,
+                        "fill-extrusion-opacity": 0.5
+                    }
                 }
                 // {
                 //     "id": "indoor-room-extrusion",
