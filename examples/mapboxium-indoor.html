@@ -272,6 +272,10 @@
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
             });
+            map.addSource('building', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
+            });
 
             // map.add  ('building', {
             //     'type': 'geojson',
@@ -287,138 +291,138 @@
                     }
                 });
             });
-        //     map.addLayer({
-        //         "id": "indoor-room-extrusion",
-        //         "source": "indoor",
-        //         "type": "fill-extrusion",
-        //         "minzoom": 19,
-        //         "filter": [
-        //             "all",
-        //             [
-        //                 "==",
-        //                 [
-        //                     "get",
-        //                     "indoor"
-        //                 ],
-        //                 "room"
-        //             ]
-        //         ],
-        //         "paint": {
-        //             "fill-extrusion-color": "#fddaa0",
-        //             "fill-extrusion-height": 3,
-        //             "fill-extrusion-base": 0,
-        //             "fill-extrusion-opacity": 0.5
-        //         }
-        //     });
-        //     map.addLayer({
-        //         "id": "poi-indoor-room",
-        //         "type": "symbol",
-        //         "source": "indoor",
-        //         "minzoom": 19,
-        //         "interactive": true,
-        //         "filter": [
-        //             "all",
-        //             [
-        //                 "==",
-        //                 [
-        //                     "get",
-        //                     "indoor"
-        //                 ],
-        //                 "room"
-        //             ]
-        //         ],
-        //         "layout": {
-        //             "text-line-height": 1.2,
-        //             "icon-size": {
-        //                 "base": 1,
-        //                 "stops": [
-        //                     [
-        //                         17,
-        //                         0.5
-        //                     ],
-        //                     [
-        //                         20,
-        //                         1
-        //                     ]
-        //                 ]
-        //             },
-        //             "text-size": {
-        //                 "base": 1,
-        //                 "stops": [
-        //                     [
-        //                         17,
-        //                         11
-        //                     ],
-        //                     [
-        //                         20,
-        //                         13
-        //                     ]
-        //                 ]
-        //             },
-        //             "text-allow-overlap": false,
-        //             "icon-image": "",
-        //             "icon-anchor": "center",
-        //             "text-ignore-placement": false,
-        //             "text-max-angle": 38,
-        //             "symbol-spacing": 250,
-        //             "text-font": [
-        //                 "Open Sans Regular"
-        //             ],
-        //             "symbol-placement": "point",
-        //             "text-padding": 2,
-        //             "visibility": "visible",
-        //             "text-offset": [
-        //                 0,
-        //                 1
-        //             ],
-        //             "icon-optional": false,
-        //             "text-rotation-alignment": "viewport",
-        //             "text-anchor": "top",
-        //             "text-field": "{name}",
-        //             "text-letter-spacing": 0.02,
-        //             "text-max-width": 8,
-        //             "icon-allow-overlap": true
-        //         },
-        //         "paint": {
-        //             "text-color": "#65513d",
-        //             "text-halo-color": "#ffffff",
-        //             "text-halo-width": 1,
-        //             "text-opacity": {
-        //                 "base": 1,
-        //                 "stops": [
-        //                     [
-        //                         17,
-        //                         0
-        //                     ],
-        //                     [
-        //                         17.5,
-        //                         0.5
-        //                     ],
-        //                     [
-        //                         19,
-        //                         1
-        //                     ]
-        //                 ]
-        //             },
-        //             "icon-opacity": {
-        //                 "base": 1,
-        //                 "stops": [
-        //                     [
-        //                         17,
-        //                         0
-        //                     ],
-        //                     [
-        //                         17.5,
-        //                         0.5
-        //                     ],
-        //                     [
-        //                         19,
-        //                         1
-        //                     ]
-        //                 ]
-        //             }
-        //         }
-        //     });
+            //     map.addLayer({
+            //         "id": "indoor-room-extrusion",
+            //         "source": "indoor",
+            //         "type": "fill-extrusion",
+            //         "minzoom": 19,
+            //         "filter": [
+            //             "all",
+            //             [
+            //                 "==",
+            //                 [
+            //                     "get",
+            //                     "indoor"
+            //                 ],
+            //                 "room"
+            //             ]
+            //         ],
+            //         "paint": {
+            //             "fill-extrusion-color": "#fddaa0",
+            //             "fill-extrusion-height": 3,
+            //             "fill-extrusion-base": 0,
+            //             "fill-extrusion-opacity": 0.5
+            //         }
+            //     });
+            //     map.addLayer({
+            //         "id": "poi-indoor-room",
+            //         "type": "symbol",
+            //         "source": "indoor",
+            //         "minzoom": 19,
+            //         "interactive": true,
+            //         "filter": [
+            //             "all",
+            //             [
+            //                 "==",
+            //                 [
+            //                     "get",
+            //                     "indoor"
+            //                 ],
+            //                 "room"
+            //             ]
+            //         ],
+            //         "layout": {
+            //             "text-line-height": 1.2,
+            //             "icon-size": {
+            //                 "base": 1,
+            //                 "stops": [
+            //                     [
+            //                         17,
+            //                         0.5
+            //                     ],
+            //                     [
+            //                         20,
+            //                         1
+            //                     ]
+            //                 ]
+            //             },
+            //             "text-size": {
+            //                 "base": 1,
+            //                 "stops": [
+            //                     [
+            //                         17,
+            //                         11
+            //                     ],
+            //                     [
+            //                         20,
+            //                         13
+            //                     ]
+            //                 ]
+            //             },
+            //             "text-allow-overlap": false,
+            //             "icon-image": "",
+            //             "icon-anchor": "center",
+            //             "text-ignore-placement": false,
+            //             "text-max-angle": 38,
+            //             "symbol-spacing": 250,
+            //             "text-font": [
+            //                 "Open Sans Regular"
+            //             ],
+            //             "symbol-placement": "point",
+            //             "text-padding": 2,
+            //             "visibility": "visible",
+            //             "text-offset": [
+            //                 0,
+            //                 1
+            //             ],
+            //             "icon-optional": false,
+            //             "text-rotation-alignment": "viewport",
+            //             "text-anchor": "top",
+            //             "text-field": "{name}",
+            //             "text-letter-spacing": 0.02,
+            //             "text-max-width": 8,
+            //             "icon-allow-overlap": true
+            //         },
+            //         "paint": {
+            //             "text-color": "#65513d",
+            //             "text-halo-color": "#ffffff",
+            //             "text-halo-width": 1,
+            //             "text-opacity": {
+            //                 "base": 1,
+            //                 "stops": [
+            //                     [
+            //                         17,
+            //                         0
+            //                     ],
+            //                     [
+            //                         17.5,
+            //                         0.5
+            //                     ],
+            //                     [
+            //                         19,
+            //                         1
+            //                     ]
+            //                 ]
+            //             },
+            //             "icon-opacity": {
+            //                 "base": 1,
+            //                 "stops": [
+            //                     [
+            //                         17,
+            //                         0
+            //                     ],
+            //                     [
+            //                         17.5,
+            //                         0.5
+            //                     ],
+            //                     [
+            //                         19,
+            //                         1
+            //                     ]
+            //                 ]
+            //             }
+            //         }
+            //     });
         });
         // return Generators.observe(change => {
         //     map.on('mousemove', e => {
