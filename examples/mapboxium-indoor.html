@@ -59,6 +59,10 @@
                 'nullIsland': {
                     "type": "geojson",
                     "data": nullIsland
+                },
+                'nullIslandGrid': {
+                    "type": "geojson",
+                    "data": nullIslandGrid
                 }
 
             },
@@ -86,6 +90,19 @@
                     "paint": {
                         'circle-opacity': 0.8,
                         'circle-color': 'rgb(255, 0, 0)'
+                    }
+                },
+                {
+                    "id": "nullislandgrid",
+                    "type": "line",
+                    "source": 'nullIslandGrid',
+                    "layout": {
+                        "line-join": "round",
+                        "line-cap": "round"
+                    },
+                    "paint": {
+                        "line-color": "black",
+                        "line-width": 1
                     }
                 }
                 // {
@@ -168,37 +185,37 @@
         map.addControl(new mapboxgl.FullscreenControl());
 
         map.on('load', function () {
-            map.addLayer({
-                "id": "circle-id",
-                "type": "circle",
-                "source": {
-                    "type": "geojson",
-                    "data": nullIsland
-                },
-                "paint": {
-                    'circle-opacity': 0.8,
-                    'circle-color': 'rgb(255, 0, 0)'
-                }
-            });
+            // map.addLayer({
+            //     "id": "circle-id",
+            //     "type": "circle",
+            //     "source": {
+            //         "type": "geojson",
+            //         "data": nullIsland
+            //     },
+            //     "paint": {
+            //         'circle-opacity': 0.8,
+            //         'circle-color': 'rgb(255, 0, 0)'
+            //     }
+            // });
 
 
             // Null Island grid line
-            map.addLayer({
-                "id": "nullislandgrid",
-                "type": "line",
-                "source": {
-                    "type": "geojson",
-                    "data": nullIslandGrid
-                },
-                "layout": {
-                    "line-join": "round",
-                    "line-cap": "round"
-                },
-                "paint": {
-                    "line-color": "black",
-                    "line-width": 1
-                }
-            });
+            // map.addLayer({
+            //     "id": "nullislandgrid",
+            //     "type": "line",
+            //     "source": {
+            //         "type": "geojson",
+            //         "data": nullIslandGrid
+            //     },
+            //     "layout": {
+            //         "line-join": "round",
+            //         "line-cap": "round"
+            //     },
+            //     "paint": {
+            //         "line-color": "black",
+            //         "line-width": 1
+            //     }
+            // });
 
 
 
