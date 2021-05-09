@@ -55,6 +55,10 @@
                 'indoor': {
                     'type': 'geojson',
                     'data': 'https://open-indoor.github.io/gare-de-l-est.geojson'
+                },
+                'nullIsland': {
+                    "type": "geojson",
+                    "data": nullIsland
                 }
 
             },
@@ -75,6 +79,15 @@
                         'fill-opacity': 0.8
                     }
                 },
+                {
+                    "id": "circle-id",
+                    "type": "circle",
+                    "source": 'nullIsland',
+                    "paint": {
+                        'circle-opacity': 0.8,
+                        'circle-color': 'rgb(255, 0, 0)'
+                    }
+                }
                 // {
                 //     "id": "indoor-room-extrusion",
                 //     "source-layer": "osm-indoor",
