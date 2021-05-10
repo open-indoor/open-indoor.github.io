@@ -118,7 +118,18 @@
                 {
                     "id": "simple-tiles",
                     "type": "raster",
-                    "source": "raster-tiles"
+                    "source": "raster-tiles",
+                    "minzoom": 0,
+                    "maxzoom": 19,
+                    "raster-opacity": [
+                        "interpolate",
+                        ["linear"],
+                        ["zoom"],
+                        18,
+                        1,
+                        19,
+                        0
+                    ]
                 }
             ],
             "id": "blank"
