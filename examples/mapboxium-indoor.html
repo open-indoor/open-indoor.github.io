@@ -160,11 +160,9 @@
         }
 
 
-        mapboxgl.accessToken = '';
-        let map = new mapboxgl.Map({
+        // mapboxgl.accessToken = '';
+        let map = new maplibregl.Map({
             'container': 'map',
-            // center: [0, 0],
-            // zoom: 0,
             'center': [2.3596569, 48.8765734],
             'zoom': 17,
             'style': mapStyle
@@ -173,14 +171,14 @@
         map.on('click', 'fire', function (e) {
             console.log(e.features[0].properties);
 
-            new mapboxgl.Popup()
+            new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(e.features[0].properties.name)
                 .addTo(map);
         });
 
-        map.addControl(new mapboxgl.NavigationControl());
-        map.addControl(new mapboxgl.FullscreenControl());
+        map.addControl(new maplibregl.NavigationControl());
+        map.addControl(new maplibregl.FullscreenControl());
 
         map.on('load', function () {
             // map.addLayer({
