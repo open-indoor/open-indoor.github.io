@@ -100,7 +100,7 @@
             var features = map.queryRenderedFeatures(e.point);
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(features[0].properties)
+                .setHTML(JSON.stringify(features[0].properties))
                 .addTo(map);
         });
 
