@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <title>Draw GeoJSON points</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.css" rel="stylesheet" /> -->
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
@@ -56,16 +54,6 @@
                     "id": "background",
                     "type": "background",
                     "paint": { "background-color": "rgba(255,255,255,1)" }
-                },
-                {
-                    'id': 'gareDeLEstLayer',
-                    'type': 'fill',
-                    'source': 'gareDeLEstSource',
-                    'layout': {},
-                    'paint': {
-                        'fill-color': '#088',
-                        'fill-opacity': 0.8
-                    }
                 },
                 {
                     "id": "simple-tiles",
