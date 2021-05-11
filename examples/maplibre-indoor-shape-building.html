@@ -97,12 +97,10 @@
         });
 
         map.on('click', function (e) {
-            // console.log(e.features[0].properties);
-
+            var features = map.queryRenderedFeatures(e.point);
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
-                // .setHTML(e.features[0].properties.name)
-                .setHTML("coucou")
+                .setHTML(features[0].properties)
                 .addTo(map);
         });
 
