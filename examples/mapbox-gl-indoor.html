@@ -37,18 +37,49 @@
 
     <script>
 
-        mapboxgl.accessToken = 'pk.eyJ1IjoiY2xlbWVudGlnb25ldCIsImEiOiJjazl2Z2hzcmkwYmF6M21zN3RqcHg5anU4In0.blXhwZzYBGSm6fJe0z0e-Q'
+        // mapboxgl.accessToken = 'pk.eyJ1IjoiY2xlbWVudGlnb25ldCIsImEiOiJjazl2Z2hzcmkwYmF6M21zN3RqcHg5anU4In0.blXhwZzYBGSm6fJe0z0e-Q'
         var customData;
         var imap;
         let lon = getQueryVariable('lon', 2.35877);
         let lat = getQueryVariable('lat', 48.87694);
+
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                }
+            },
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [
+                {
+                    "id": "background",
+                    "type": "background",
+                    "paint": { "background-color": "rgba(255,255,255,1)" }
+                }
+            ],
+            "id": "blank"
+        }
+
         const map = window.map = new mapboxgl.Map({
             container: "map",
             zoom: 20,
             center: [lon, lat],
             pitch: 60,
             bearing: -60,
-            style: 'mapbox://styles/mapbox/streets-v10'
+            style: mapStyle
         });
 
         // Create the indoor handler
