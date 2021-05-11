@@ -18,7 +18,27 @@
       ]
     ],
     "paint": {
-      "fill-extrusion-color": "#fcffe4",
+      "fill-extrusion-color": [
+        "case",
+        [
+          "==",
+          [
+            "feature-state",
+            "hover"
+          ],
+          null
+        ],
+        "#fcffe4",
+        [
+          "boolean",
+          [
+            "feature-state",
+            "hover"
+          ]
+        ],
+        "#00ff00",
+        "#fcffe4"
+      ],
       "fill-extrusion-height": [
         "interpolate",
         [
