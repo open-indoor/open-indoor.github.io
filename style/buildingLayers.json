@@ -18,8 +18,8 @@
       ]
     ],
     "paint": {
-        "fill-extrusion-color": "#fcffe4",
-        "fill-extrusion-height": [
+      "fill-extrusion-color": "#fcffe4",
+      "fill-extrusion-height": [
         "interpolate",
         [
           "linear"
@@ -39,6 +39,21 @@
             [
               "get",
               "height"
+            ]
+          ],
+          [
+            "has",
+            "levels"
+          ],
+          [
+            "to-number",
+            [
+              "*",
+              3,
+              [
+                "get",
+                "levels"
+              ]
             ]
           ],
           40
