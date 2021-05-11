@@ -118,7 +118,7 @@
         }
         function loadIndoor(){
             // Retrieve the geojson from the path and add the map
-            // fetch('https://raw.githubusercontent.com/openindoor-space/openindoor-space.github.io/master/gare-de-l-est.geojson')
+            // fetch('https://open-indoor.github.io/data/gare-de-l-est.geojson')
             let bb = map.getBounds();
             let bbox = `bbox:${bb.getSouth()},${bb.getWest()},${bb.getNorth()},${bb.getEast()}`
             let url = `https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:25][${bbox}];(way["indoor"]["indoor"!="yes"];relation["indoor"]["indoor"!="yes"];way["buildingpart"~"room|verticalpassage|corridor"];relation["buildingpart"~"room|verticalpassage|corridor"];node[~"amenity|shop|railway|highway|door|entrance"~"."];way[~"amenity|shop|railway|highway|building:levels"~"."];relation[~"amenity|shop|railway|highway|building:levels"~"."];);out body;>;out skel qt;`
