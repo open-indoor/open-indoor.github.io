@@ -7,8 +7,8 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.css" rel="stylesheet" /> -->
-    <script src="https://unpkg.com/maplibre-gl@1.14.0-rc.1/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@1.14.0-rc.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
         body {
             margin: 0;
@@ -27,23 +27,6 @@
 <body>
     <div id="map"></div>
     <script>
-
-
-        nullIsland = {
-            "type": "FeatureCollection", "features":
-                [{ "type": "Feature", "geometry": { "type": "Point", "coordinates": [0, 0] }, "properties": {} }]
-        }
-
-        nullIslandGrid = {
-            "type": "FeatureCollection", "features": [
-                { "type": "Feature", "properties": { "wgs84Degrees": "0° 0' 0\" N", "wgs84Decimal": "0.000000" }, "geometry": { "type": "LineString", "coordinates": [[-180, 0], [180, 0]] } },
-                { "type": "Feature", "properties": { "wgs84Degrees": "0° 0' 0\" N", "wgs84Decimal": "0.000000" }, "geometry": { "type": "LineString", "coordinates": [[-180, 0], [180, 0]] } },
-                { "type": "Feature", "properties": { "wgs84Degrees": "0° 0' 0\" E", "wgs84Decimal": "0.000000" }, "geometry": { "type": "LineString", "coordinates": [[0, -85.05115], [0, 85.05115]] } },
-                { "type": "Feature", "properties": { "wgs84Degrees": "0° 0' 0\" E", "wgs84Decimal": "0.000000" }, "geometry": { "type": "LineString", "coordinates": [[0, -85.05115], [0, 85.05115]] } }
-            ]
-        }
-
-
         mapStyle = {
             "version": 8,
             "name": "Blank",
@@ -64,16 +47,7 @@
                 'gareDeLEstSource': {
                     'type': 'geojson',
                     'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
-                },
-                'nullIsland': {
-                    "type": "geojson",
-                    "data": nullIsland
-                },
-                'nullIslandGrid': {
-                    "type": "geojson",
-                    "data": nullIslandGrid
                 }
-
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
@@ -91,28 +65,6 @@
                     'paint': {
                         'fill-color': '#088',
                         'fill-opacity': 0.8
-                    }
-                },
-                {
-                    "id": "circle-id",
-                    "type": "circle",
-                    "source": 'nullIsland',
-                    "paint": {
-                        'circle-opacity': 0.8,
-                        'circle-color': 'rgb(255, 0, 0)'
-                    }
-                },
-                {
-                    "id": "nullislandgrid",
-                    "type": "line",
-                    "source": 'nullIslandGrid',
-                    "layout": {
-                        "line-join": "round",
-                        "line-cap": "round"
-                    },
-                    "paint": {
-                        "line-color": "black",
-                        "line-width": 1
                     }
                 },
                 {
