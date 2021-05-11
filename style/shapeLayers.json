@@ -1,0 +1,126 @@
+[
+    {
+        "id": "shape-area-extrusion-indoor-00",
+        "source-layer": "osm-indoor",
+        "source": "shape",
+        "type": "fill-extrusion",
+        "minzoom": 15,
+        "maxzoom": 19,
+        "filter": [
+            "all",
+            [
+                "has",
+                "indoor"
+            ],
+            [
+                "has",
+                "level"
+            ],
+            [
+                "==",
+                [
+                    "index-of",
+                    ";",
+                    [
+                        "get",
+                        "level"
+                    ]
+                ],
+                -1
+            ],
+            [
+                ">=",
+                [
+                    "to-number",
+                    [
+                        "get",
+                        "level"
+                    ]
+                ],
+                0
+            ]
+        ],
+        "paint": {
+            "fill-extrusion-color": [
+                "case",
+                [
+                    "==",
+                    [
+                        "feature-state",
+                        "hover"
+                    ],
+                    null
+                ],
+                "#6a615b",
+                [
+                    "boolean",
+                    [
+                        "feature-state",
+                        "hover"
+                    ]
+                ],
+                "#00ff00",
+                "#6a615b"
+            ],
+            "fill-extrusion-height": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                18,
+                [
+                    "*",
+                    5,
+                    [
+                        "to-number",
+                        [
+                            "get",
+                            "level"
+                        ]
+                    ]
+                ],
+                19,
+                0
+            ],
+            "fill-extrusion-base": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                18,
+                [
+                    "*",
+                    5,
+                    [
+                        "to-number",
+                        [
+                            "get",
+                            "level"
+                        ]
+                    ]
+                ],
+                19,
+                0
+            ],
+            "fill-extrusion-opacity": [
+                "interpolate",
+                [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                15.5,
+                0,
+                16.5,
+                1
+            ]
+        }
+    }
+]

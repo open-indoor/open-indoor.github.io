@@ -168,10 +168,12 @@
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/Presidence.geojson'
             });
-
+            map.addSource('shape', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/data/Presidence.geojson'
+            });
             fetch("/style/indoorLayers.json").then(function (response) {
                 return response.json().then(function (json) {
-                    console.log("json:", json)
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
@@ -179,6 +181,24 @@
                     }
                 });
             });
+            fetch("/style/buildingLayers.json").then(function (response) {
+                return response.json().then(function (json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
+            fetch("/style/shapeLayers.json").then(function (response) {
+                return response.json().then(function (json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });            
         });
 
     </script>
