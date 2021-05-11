@@ -164,6 +164,10 @@
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
             });
+            map.addSource('shape', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
+            });
             map.addSource('building', {
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
@@ -171,7 +175,24 @@
 
             fetch("/style/indoorLayers.json").then(function (response) {
                 return response.json().then(function (json) {
-                    console.log("json:", json)
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
+            fetch("/style/shapeLayers.json").then(function (response) {
+                return response.json().then(function (json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });                   
+            fetch("/style/buildingLayers.json").then(function (response) {
+                return response.json().then(function (json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
