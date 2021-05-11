@@ -160,14 +160,13 @@
 
         map.on('load', function () {
 
-            // map.on('load', function () {
             map.addSource('indoor', {
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
             });
             map.addSource('building', {
                 'type': 'geojson',
-                'data': 'hhttps://open-indoor.github.io/data/gare-de-l-est.geojson'
+                'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
             });
 
             fetch("/style/indoorLayers.json").then(function (response) {
