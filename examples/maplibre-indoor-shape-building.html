@@ -96,7 +96,7 @@
             'style': mapStyle
         });
 
-        map.on('click', 'fire', function (e) {
+        map.on('click', function (e) {
             console.log(e.features[0].properties);
 
             new maplibregl.Popup()
