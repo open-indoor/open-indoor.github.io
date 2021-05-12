@@ -10,13 +10,6 @@
       [
         "all",
         [
-          "==",
-          [
-            "geometry-type"
-          ],
-          "LineString"
-        ],
-        [
           "any",
           [
             "has",
