@@ -7,14 +7,26 @@
     "minzoom": 14,
     "maxzoom": 19,
     "filter": [
-      "any",
       [
-        "has",
-        "building:part"
-      ],
-      [
-        "has",
-        "building"
+        "all",
+        [
+          "==",
+          [
+            "geometry-type"
+          ],
+          "Polygon"
+        ],
+        [
+          "any",
+          [
+            "has",
+            "building:part"
+          ],
+          [
+            "has",
+            "building"
+          ]
+        ]
       ]
     ],
     "paint": {
