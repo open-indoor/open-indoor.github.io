@@ -14,7 +14,7 @@
           [
             "geometry-type"
           ],
-          "Polygon"
+          "LineString"
         ],
         [
           "any",
