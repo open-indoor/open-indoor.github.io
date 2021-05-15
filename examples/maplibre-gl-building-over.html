@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Building selection</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    mapStyle = {
+      "version": 8,
+      "name": "Blank",
+      "center": [0, 0],
+      "zoom": 0,
+      "sources": {
+        "raster-tiles": {
+          "type": "raster",
+          "tiles": [
+            "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          ],
+          "tileSize": 256,
+          "minzoom": 0,
+          "maxzoom": 19
+        },
+        'indoor': {
+          'type': 'geojson',
+          'data': 'https://open-indoor.github.io/data/Presidence.geojson'
+        },
+        'shape': {
+          'type': 'geojson',
+          'data': 'https://open-indoor.github.io/data/Presidence.geojson'
+        },
+        'building': {
+          'type': 'geojson',
+          'data': 'https://open-indoor.github.io/data/Presidence.geojson',
+          'generateId': true
+        }
+      },
+      "sprite": "https://open-indoor.github.io/sprite/sprite",
+      "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+      "layers": [
+        {
+          "id": "background",
+          "type": "background",
+          "paint": { "background-color": "rgba(255,255,255,1)" }
+        },
+        {
+          "id": "simple-tiles",
+          "type": "raster",
+          "source": "raster-tiles",
+          "minzoom": 0,
+          "maxzoom": 19,
+          "raster-opacity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            18,
+            1,
+            19,
+            0
+          ]
+        }
+      ],
+      "id": "blank"
+    }
+    const map = new maplibregl.Map({
+      'container': 'map',
+      'center': [-1.7030681187784467, 48.11947479723537],
+      // ("https://app.openindoor.io/style/openindoorStyle_france.json"),
+      hash: true,
+      zoom: 18,
+      style: mapStyle
+    });
+    let hoveredBuildingIds = [];
+    let oldBuildingIds = null;
+
+    map.on('mousemove', 'building-part-extrusion', function (e) {
+
+      oldBuildingIds = [...hoveredBuildingIds];
+      hoveredBuildingIds = e.features.reduce((ids, feature) => {
+        if ('id' in feature) {
+          ids.push(feature.id);
+        }
+        return ids;
+      }, []);
+      for (oldId of oldBuildingIds) {
+        map.setFeatureState(
+          { source: 'building', id: oldId },
+          { hover: false }
+        );
+      }
+      for (hoverId of hoveredBuildingIds) {
+        map.setFeatureState(
+          { source: 'building', id: hoverId },
+          { hover: true }
+        );
+      }
+    });
+    map.addControl(new maplibregl.NavigationControl());
+    map.addControl(new maplibregl.FullscreenControl());
+
+    map.on('load', function () {
+      fetch("https://open-indoor.github.io/style/shapeLayers.json").then(function (response) {
+        return response.json().then(function (layers) {
+          for (layer of layers) {
+            delete layer['source-layer']
+            map.addLayer(layer)
+          }
+        });
+      });
+      fetch("https://open-indoor.github.io/style/buildingLayers.json").then(function (response) {
+        return response.json().then(function (layers) {
+          for (layer of layers) {
+            delete layer['source-layer']
+            map.addLayer(layer)
+          }
+        });
+      });
+      fetch("https://open-indoor.github.io/style/indoorLayers.json").then(function (response) {
+        return response.json().then(function (layers) {
+          indoorLayers = []
+          for (layer of layers) {
+            delete layer['source-layer']
+            indoorLayers.push(layer)
+          }
+          for (layer of indoorLayers) {
+            map.addLayer(layer)
+          }
+          const openIndoor = new OpenIndoor(map, {
+            sourceId: "indoor",
+            layers: indoorLayers
+          });
+          map.addControl(openIndoor);
+
+        });
+
+      });
+
+    });
+  </script>
+</body>
+
+</html>
