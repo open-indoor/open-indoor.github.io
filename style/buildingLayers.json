@@ -19,10 +19,6 @@
         "any",
         [
           "has",
-          "building:part"
-        ],
-        [
-          "has",
           "building"
         ]
       ]
