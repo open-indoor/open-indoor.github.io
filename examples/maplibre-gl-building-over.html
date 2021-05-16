@@ -146,12 +146,6 @@
           for (layer of indoorLayers) {
             map.addLayer(layer)
           }
-          const openIndoor = new OpenIndoor(map, {
-            sourceId: "indoor",
-            layers: indoorLayers
-          });
-          map.addControl(openIndoor);
-
         });
 
       });
