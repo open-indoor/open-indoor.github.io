@@ -90,29 +90,25 @@
       zoom: 18,
       style: mapStyle
     });
-    let hoveredBuildingIds = [];
-    let oldBuildingIds = null;
+    let hoveredBuildingId = undefined;
+    let oldBuildingId = undefined;
 
     map.on('mousemove', 'building-part-extrusion', function (e) {
 
-      oldBuildingIds = [...hoveredBuildingIds];
-      hoveredBuildingIds = e.features.reduce((ids, feature) => {
-        if ('id' in feature) {
-          ids.push(feature.id);
+      if (e.features.length >= 1 && 'id' in e.features[0] && e.features[0].id !== oldBuildingId) {
+        if (oldBuildingId !== undefined) {
+          map.setFeatureState(
+            { source: 'building', id: oldBuildingId },
+            { hover: false }
+          );
         }
-        return ids;
-      }, []);
-      for (oldId of oldBuildingIds) {
+        hoveredBuildingId = e.features[0].id;
+        console.log('active:', hoveredBuildingId)
         map.setFeatureState(
-          { source: 'building', id: oldId },
-          { hover: false }
-        );
-      }
-      for (hoverId of hoveredBuildingIds) {
-        map.setFeatureState(
-          { source: 'building', id: hoverId },
+          { source: 'building', id: hoveredBuildingId },
           { hover: true }
         );
+        oldBuildingId = hoveredBuildingId;
       }
     });
     map.addControl(new maplibregl.NavigationControl());
@@ -146,7 +142,7 @@
             map.addLayer(layer)
           }
         });
-        
+
       });
     });
   </script>
