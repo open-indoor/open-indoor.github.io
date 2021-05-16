@@ -127,7 +127,7 @@
           }
         });
       });
-      fetch("https://open-indoor.github.io/style/buildingLayers.json").then(function (response) {
+      fetch("https://raw.githubusercontent.com/open-indoor/open-indoor.github.io/master/style/buildingLayers.json").then(function (response) {
         return response.json().then(function (layers) {
           for (layer of layers) {
             delete layer['source-layer']
