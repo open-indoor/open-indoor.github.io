@@ -13,7 +13,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -29,7 +29,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -45,7 +45,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "main",
-                "level": "1",
+                "level": 1,
                 "width": "2.0"
             }
         },
@@ -61,7 +61,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "main",
-                "level": "1",
+                "level": 1,
                 "width": "2.0"
             }
         },
@@ -77,7 +77,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "main",
-                "level": "1",
+                "level": 1,
                 "width": "2.0"
             }
         },
@@ -93,7 +93,7 @@
             "properties": {
                 "door": "sliding",
                 "entrance": "main",
-                "level": "1",
+                "level": 1,
                 "width": "2.5"
             }
         },
@@ -109,7 +109,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "0",
+                "level": 0,
                 "width": "1.9"
             }
         },
@@ -124,7 +124,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "2.50"
             }
         },
@@ -140,7 +140,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -156,7 +156,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -172,7 +172,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -188,7 +188,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.8"
             }
         },
@@ -204,7 +204,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "main",
-                "level": "1",
+                "level": 1,
                 "width": "2.0"
             }
         },
@@ -220,7 +220,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "2",
+                "level": 2,
                 "width": "1.5"
             }
         },
@@ -235,7 +235,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "1.46"
             }
         },
@@ -251,7 +251,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "service",
-                "level": "0",
+                "level": 0,
                 "width": "1.8"
             }
         },
@@ -267,7 +267,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "service",
-                "level": "0",
+                "level": 0,
                 "width": "1.6"
             }
         },
@@ -282,7 +282,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "1.5"
             }
         },
@@ -297,7 +297,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -312,7 +312,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -327,7 +327,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -341,7 +341,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -356,7 +356,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -386,7 +386,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -401,7 +401,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -416,7 +416,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "1.3"
             }
         },
@@ -431,7 +431,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -446,7 +446,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -475,7 +475,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -490,7 +490,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -505,7 +505,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -520,7 +520,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -535,7 +535,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -550,7 +550,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "1.6"
             }
         },
@@ -565,7 +565,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -580,7 +580,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -594,7 +594,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "0",
+                "level": 0,
                 "width": "0.93"
             }
         },
@@ -609,7 +609,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -623,7 +623,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0.5"
+                "level": 0.5
             }
         },
         {
@@ -637,7 +637,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0.5"
+                "level": 0.5
             }
         },
         {
@@ -652,7 +652,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.6"
             }
         },
@@ -668,7 +668,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.2"
             }
         },
@@ -683,7 +683,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.93"
             }
         },
@@ -698,7 +698,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -712,7 +712,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -727,7 +727,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -742,7 +742,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -757,7 +757,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -772,7 +772,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -787,7 +787,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -802,7 +802,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.8"
             }
         },
@@ -817,7 +817,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "0.83"
             }
         },
@@ -848,7 +848,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "emergency",
-                "level": "1",
+                "level": 1,
                 "width": "1.4"
             }
         },
@@ -863,7 +863,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "1.60"
             }
         },
@@ -878,7 +878,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -893,7 +893,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.6"
             }
         },
@@ -909,7 +909,7 @@
             "properties": {
                 "door": "hinged",
                 "entrance": "yes",
-                "level": "1",
+                "level": 1,
                 "width": "1.6"
             }
         },
@@ -924,7 +924,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "1",
+                "level": 1,
                 "width": "1.6"
             }
         },
@@ -939,7 +939,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -953,7 +953,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -967,7 +967,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1.5"
+                "level": 1.5
             }
         },
         {
@@ -981,7 +981,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "1.5"
+                "level": 1.5
             }
         },
         {
@@ -995,7 +995,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.93"
             }
         },
@@ -1010,7 +1010,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.93"
             }
         },
@@ -1025,7 +1025,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.93"
             }
         },
@@ -1040,7 +1040,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.93"
             }
         },
@@ -1055,7 +1055,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.93"
             }
         },
@@ -1070,7 +1070,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -1084,7 +1084,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -1098,7 +1098,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "2",
+                "level": 2,
                 "width": "0.63"
             }
         },
@@ -1128,7 +1128,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -1142,7 +1142,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -1156,7 +1156,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "2.5"
+                "level": 2.5
             }
         },
         {
@@ -1170,7 +1170,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "2.5"
+                "level": 2.5
             }
         },
         {
@@ -1229,7 +1229,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1244,7 +1244,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1259,7 +1259,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1274,7 +1274,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1289,7 +1289,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1304,7 +1304,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1424,7 +1424,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1514,7 +1514,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "1.26"
             }
         },
@@ -1589,7 +1589,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1604,7 +1604,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1664,7 +1664,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1694,7 +1694,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1709,7 +1709,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1754,7 +1754,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1769,7 +1769,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1814,7 +1814,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1844,7 +1844,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1859,7 +1859,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1874,7 +1874,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1889,7 +1889,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "3",
+                "level": 3,
                 "width": "0.93"
             }
         },
@@ -1904,7 +1904,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -1918,7 +1918,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -1932,7 +1932,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3.5"
+                "level": 3.5
             }
         },
         {
@@ -1946,7 +1946,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3.5"
+                "level": 3.5
             }
         },
         {
@@ -1960,7 +1960,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2020,7 +2020,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2050,7 +2050,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2080,7 +2080,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2110,7 +2110,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2125,7 +2125,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2140,7 +2140,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2155,7 +2155,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2170,7 +2170,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2200,7 +2200,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2215,7 +2215,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2230,7 +2230,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "1.06"
             }
         },
@@ -2260,7 +2260,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2275,7 +2275,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2290,7 +2290,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2305,7 +2305,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2320,7 +2320,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2335,7 +2335,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2350,7 +2350,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "4",
+                "level": 4,
                 "width": "0.93"
             }
         },
@@ -2365,7 +2365,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2380,7 +2380,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2395,7 +2395,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -2409,7 +2409,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2424,7 +2424,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2439,7 +2439,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2454,7 +2454,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2469,7 +2469,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -2483,7 +2483,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2498,7 +2498,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2513,7 +2513,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2528,7 +2528,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.83"
             }
         },
@@ -2543,7 +2543,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2558,7 +2558,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2573,7 +2573,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2588,7 +2588,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2618,7 +2618,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2738,7 +2738,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2753,7 +2753,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2783,7 +2783,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2798,7 +2798,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2813,7 +2813,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2828,7 +2828,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2843,7 +2843,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2858,7 +2858,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "5",
+                "level": 5,
                 "width": "0.93"
             }
         },
@@ -2873,7 +2873,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -2887,7 +2887,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -2901,7 +2901,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "4.5"
+                "level": 4.5
             }
         },
         {
@@ -2915,7 +2915,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "4.5"
+                "level": 4.5
             }
         },
         {
@@ -2929,7 +2929,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -2944,7 +2944,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -2959,7 +2959,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -2974,7 +2974,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -2989,7 +2989,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3004,7 +3004,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3019,7 +3019,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3034,7 +3034,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3049,7 +3049,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -3063,7 +3063,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3078,7 +3078,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3093,7 +3093,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3108,7 +3108,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.83"
             }
         },
@@ -3123,7 +3123,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3138,7 +3138,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3153,7 +3153,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.83"
             }
         },
@@ -3168,7 +3168,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3183,7 +3183,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3198,7 +3198,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3213,7 +3213,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3228,7 +3228,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3243,7 +3243,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3258,7 +3258,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3273,7 +3273,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3288,7 +3288,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3303,7 +3303,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3318,7 +3318,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3333,7 +3333,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3348,7 +3348,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "6",
+                "level": 6,
                 "width": "0.93"
             }
         },
@@ -3363,7 +3363,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -3377,7 +3377,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -3391,7 +3391,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "5.5"
+                "level": 5.5
             }
         },
         {
@@ -3405,7 +3405,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "5.5"
+                "level": 5.5
             }
         },
         {
@@ -3419,7 +3419,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -3433,7 +3433,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.06"
             }
         },
@@ -3448,7 +3448,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3463,7 +3463,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.06"
             }
         },
@@ -3478,7 +3478,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.73"
             }
         },
@@ -3493,7 +3493,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.63"
             }
         },
@@ -3508,7 +3508,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.16"
             }
         },
@@ -3523,7 +3523,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.83"
             }
         },
@@ -3538,7 +3538,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.16"
             }
         },
@@ -3553,7 +3553,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3568,7 +3568,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.86"
             }
         },
@@ -3583,7 +3583,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.16"
             }
         },
@@ -3598,7 +3598,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.83"
             }
         },
@@ -3613,7 +3613,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3628,7 +3628,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3643,7 +3643,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.83"
             }
         },
@@ -3658,7 +3658,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3673,7 +3673,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "1.66"
             }
         },
@@ -3688,7 +3688,7 @@
             },
             "properties": {
                 "door": "hinged",
-                "level": "7",
+                "level": 7,
                 "width": "0.93"
             }
         },
@@ -3703,7 +3703,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -3717,7 +3717,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -3731,7 +3731,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "6.5"
+                "level": 6.5
             }
         },
         {
@@ -3745,7 +3745,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "6.5"
+                "level": 6.5
             }
         },
         {
@@ -5669,7 +5669,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -5754,7 +5754,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "stairs"
             }
         },
@@ -5875,7 +5875,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6003,7 +6003,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6023,7 +6023,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6043,7 +6043,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6071,7 +6071,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6092,7 +6092,7 @@
             "properties": {
                 "door": "overhead",
                 "entrance": "service",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6116,7 +6116,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6144,7 +6144,7 @@
             },
             "properties": {
                 "door": "no",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6288,7 +6288,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -6701,7 +6701,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "garage"
             }
         },
@@ -6754,7 +6754,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "archive"
             }
         },
@@ -7173,7 +7173,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -7230,7 +7230,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "utility"
             }
         },
@@ -7283,7 +7283,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -7319,7 +7319,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -7359,7 +7359,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -7415,7 +7415,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -7464,7 +7464,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -7536,7 +7536,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -7608,7 +7608,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -7653,7 +7653,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT 3",
                 "room": "technical"
             }
@@ -7771,7 +7771,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT CF1",
                 "room": "technical"
             }
@@ -7809,7 +7809,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT CF2",
                 "room": "technical"
             }
@@ -7883,7 +7883,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "name": "Messagerie"
             }
         },
@@ -8355,7 +8355,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "name": "Salle courrier"
             }
         },
@@ -8376,7 +8376,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -8442,7 +8442,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -8470,7 +8470,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "0.5"
+                "level": 0.5
             }
         },
         {
@@ -8522,7 +8522,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "0-7"
+                "level": "0;7"
             }
         },
         {
@@ -8558,7 +8558,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "0-7"
+                "level": "0;7"
             }
         },
         {
@@ -8655,7 +8655,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "entrance"
             }
         },
@@ -8728,7 +8728,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "toilets"
             }
         },
@@ -8801,7 +8801,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -8881,7 +8881,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "reception"
             }
         },
@@ -8982,7 +8982,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9002,7 +9002,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9022,7 +9022,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9042,7 +9042,7 @@
             },
             "properties": {
                 "door": "sliding",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9066,7 +9066,7 @@
             },
             "properties": {
                 "door": "sliding",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9086,7 +9086,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9198,7 +9198,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "stairs"
             }
         },
@@ -9223,7 +9223,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9247,7 +9247,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9271,7 +9271,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9463,7 +9463,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9515,7 +9515,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "office"
             }
         },
@@ -9580,7 +9580,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "technical"
             }
         },
@@ -9629,7 +9629,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "name": "PC Sécurité",
                 "room": "central_control"
             }
@@ -9696,7 +9696,7 @@
             "properties": {
                 "highway": "steps",
                 "incline": "up",
-                "level": "1-3"
+                "level": "1;3"
             }
         },
         {
@@ -9741,7 +9741,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9782,7 +9782,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -9810,7 +9810,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1.5"
+                "level": 1.5
             }
         },
         {
@@ -9838,7 +9838,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -9874,7 +9874,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "1-7"
+                "level": "1;7"
             }
         },
         {
@@ -9942,7 +9942,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "copier"
             }
         },
@@ -9963,7 +9963,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10253,7 +10253,7 @@
             "properties": {
                 "area": "library",
                 "indoor": "area",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10413,7 +10413,7 @@
             },
             "properties": {
                 "indoor": "area",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10445,7 +10445,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10497,7 +10497,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10549,7 +10549,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10601,7 +10601,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "archive"
             }
         },
@@ -10658,7 +10658,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "toilets"
             }
         },
@@ -10746,7 +10746,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -10774,7 +10774,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "2.5"
+                "level": 2.5
             }
         },
         {
@@ -10802,7 +10802,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -10866,7 +10866,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -10930,7 +10930,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -10995,7 +10995,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -11120,7 +11120,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -11281,7 +11281,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -11449,7 +11449,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -11601,7 +11601,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "stairs"
             }
         },
@@ -11886,7 +11886,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -12078,7 +12078,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -12282,7 +12282,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -12506,7 +12506,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -12566,7 +12566,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "copier"
             }
         },
@@ -12615,7 +12615,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -12676,7 +12676,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -12737,7 +12737,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -12818,7 +12818,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 301"
             }
         },
@@ -12911,7 +12911,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 302"
             }
         },
@@ -12992,7 +12992,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 303"
             }
         },
@@ -13077,7 +13077,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 304"
             }
         },
@@ -13138,7 +13138,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 305"
             }
         },
@@ -13203,7 +13203,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 306"
             }
         },
@@ -13276,7 +13276,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 307"
             }
         },
@@ -13353,7 +13353,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 308"
             }
         },
@@ -13430,7 +13430,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 309"
             }
         },
@@ -13539,7 +13539,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 310"
             }
         },
@@ -13672,7 +13672,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 311"
             }
         },
@@ -13733,7 +13733,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 312"
             }
         },
@@ -13806,7 +13806,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 313"
             }
         },
@@ -13887,7 +13887,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 314"
             }
         },
@@ -13944,7 +13944,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 315"
             }
         },
@@ -13997,7 +13997,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 316"
             }
         },
@@ -14050,7 +14050,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 317"
             }
         },
@@ -14135,7 +14135,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 318"
             }
         },
@@ -14216,7 +14216,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 319"
             }
         },
@@ -14317,7 +14317,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 320"
             }
         },
@@ -14398,7 +14398,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 321"
             }
         },
@@ -14471,7 +14471,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 322"
             }
         },
@@ -14532,7 +14532,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 323"
             }
         },
@@ -14605,7 +14605,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 324"
             }
         },
@@ -14676,7 +14676,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -14704,7 +14704,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -14728,7 +14728,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -14756,7 +14756,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -14784,7 +14784,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "3.5"
+                "level": 3.5
             }
         },
         {
@@ -14852,7 +14852,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "kitchen"
             }
         },
@@ -14933,7 +14933,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "copier"
             }
         },
@@ -15010,7 +15010,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -15074,7 +15074,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilets"
             }
         },
@@ -15139,7 +15139,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilets"
             }
         },
@@ -15240,7 +15240,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -15409,7 +15409,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -15569,7 +15569,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -15789,7 +15789,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -16081,7 +16081,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -16141,7 +16141,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "storage"
             }
         },
@@ -16198,7 +16198,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "copier"
             }
         },
@@ -16583,7 +16583,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -16631,7 +16631,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilet"
             }
         },
@@ -16692,7 +16692,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -16753,7 +16753,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -16842,7 +16842,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 401"
             }
         },
@@ -16919,7 +16919,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 402"
             }
         },
@@ -17004,7 +17004,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 403"
             }
         },
@@ -17069,7 +17069,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 404"
             }
         },
@@ -17126,7 +17126,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 406"
             }
         },
@@ -17187,7 +17187,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 407"
             }
         },
@@ -17276,7 +17276,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 408"
             }
         },
@@ -17385,7 +17385,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 409"
             }
         },
@@ -17426,7 +17426,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 410"
             }
         },
@@ -17503,7 +17503,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 411"
             }
         },
@@ -17600,7 +17600,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 412"
             }
         },
@@ -17673,7 +17673,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 413"
             }
         },
@@ -17734,7 +17734,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 414"
             }
         },
@@ -17807,7 +17807,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 415"
             }
         },
@@ -17908,7 +17908,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 416"
             }
         },
@@ -17981,7 +17981,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 417"
             }
         },
@@ -18062,7 +18062,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 418"
             }
         },
@@ -18147,7 +18147,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 419"
             }
         },
@@ -18248,7 +18248,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 420"
             }
         },
@@ -18337,7 +18337,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 422"
             }
         },
@@ -18406,7 +18406,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 423"
             }
         },
@@ -18487,7 +18487,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 424 bis"
             }
         },
@@ -18552,7 +18552,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 424"
             }
         },
@@ -18625,7 +18625,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -18689,7 +18689,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -18754,7 +18754,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -18823,7 +18823,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "central_control"
             }
         },
@@ -18912,7 +18912,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "archive"
             }
         },
@@ -19073,7 +19073,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19241,7 +19241,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19277,7 +19277,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19533,7 +19533,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19809,7 +19809,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19853,7 +19853,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19905,7 +19905,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -19953,7 +19953,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -20002,7 +20002,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilet"
             }
         },
@@ -20379,7 +20379,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -20435,7 +20435,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "archive"
             }
         },
@@ -20488,7 +20488,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -20540,7 +20540,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -20625,7 +20625,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 500"
             }
         },
@@ -20714,7 +20714,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 501"
             }
         },
@@ -20791,7 +20791,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 502"
             }
         },
@@ -20872,7 +20872,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 503"
             }
         },
@@ -20933,7 +20933,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 504"
             }
         },
@@ -20998,7 +20998,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 505"
             }
         },
@@ -21071,7 +21071,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 506"
             }
         },
@@ -21152,7 +21152,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 507"
             }
         },
@@ -21229,7 +21229,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 508"
             }
         },
@@ -21302,7 +21302,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 509"
             }
         },
@@ -21499,7 +21499,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 510"
             }
         },
@@ -21560,7 +21560,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 512"
             }
         },
@@ -21609,7 +21609,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 513"
             }
         },
@@ -21690,7 +21690,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 514"
             }
         },
@@ -21795,7 +21795,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 515"
             }
         },
@@ -21876,7 +21876,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 517"
             }
         },
@@ -21957,7 +21957,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 518"
             }
         },
@@ -22042,7 +22042,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 519"
             }
         },
@@ -22115,7 +22115,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 520"
             }
         },
@@ -22196,7 +22196,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 521"
             }
         },
@@ -22317,7 +22317,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 522"
             }
         },
@@ -22338,7 +22338,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -22404,7 +22404,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -22428,7 +22428,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -22456,7 +22456,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -22484,7 +22484,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "4.5"
+                "level": 4.5
             }
         },
         {
@@ -22540,7 +22540,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -22597,7 +22597,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -22662,7 +22662,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "copier"
             }
         },
@@ -22727,7 +22727,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -22792,7 +22792,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -22869,7 +22869,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -22969,7 +22969,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "archive"
             }
         },
@@ -22994,7 +22994,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -23154,7 +23154,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -23322,7 +23322,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -23358,7 +23358,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -23386,7 +23386,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -23594,7 +23594,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "terrace"
             }
         },
@@ -23855,7 +23855,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24095,7 +24095,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24147,7 +24147,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24191,7 +24191,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24251,7 +24251,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "utility"
             }
         },
@@ -24300,7 +24300,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -24677,7 +24677,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24729,7 +24729,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -24781,7 +24781,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -24834,7 +24834,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "kitchen"
             }
         },
@@ -24907,7 +24907,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 601"
             }
         },
@@ -24988,7 +24988,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 602"
             }
         },
@@ -25065,7 +25065,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 603"
             }
         },
@@ -25142,7 +25142,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 604"
             }
         },
@@ -25199,7 +25199,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 605"
             }
         },
@@ -25252,7 +25252,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 606"
             }
         },
@@ -25313,7 +25313,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 607"
             }
         },
@@ -25374,7 +25374,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 608"
             }
         },
@@ -25463,7 +25463,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 609"
             }
         },
@@ -25552,7 +25552,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 610"
             }
         },
@@ -25721,7 +25721,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 611"
             }
         },
@@ -25838,7 +25838,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 612"
             }
         },
@@ -25919,7 +25919,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 613"
             }
         },
@@ -26004,7 +26004,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 614"
             }
         },
@@ -26061,7 +26061,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 615"
             }
         },
@@ -26130,7 +26130,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 616"
             }
         },
@@ -26199,7 +26199,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 617"
             }
         },
@@ -26272,7 +26272,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 618"
             }
         },
@@ -26349,7 +26349,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 619"
             }
         },
@@ -26418,7 +26418,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 620"
             }
         },
@@ -26479,7 +26479,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 621"
             }
         },
@@ -26576,7 +26576,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 622"
             }
         },
@@ -26643,7 +26643,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -26667,7 +26667,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -26695,7 +26695,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "5.5"
+                "level": 5.5
             }
         },
         {
@@ -26723,7 +26723,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -26779,7 +26779,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "storage"
             }
         },
@@ -26852,7 +26852,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "toilets"
             }
         },
@@ -26933,7 +26933,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "toilet"
             }
         },
@@ -27054,7 +27054,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "stairs"
             }
         },
@@ -27179,7 +27179,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "terrace"
             }
         },
@@ -27312,7 +27312,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27444,7 +27444,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "terrace"
             }
         },
@@ -27469,7 +27469,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27497,7 +27497,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27525,7 +27525,7 @@
             },
             "properties": {
                 "indoor": "wall",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27769,7 +27769,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27809,7 +27809,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27857,7 +27857,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -27909,7 +27909,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "kitchen"
             }
         },
@@ -28022,7 +28022,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "ref": "P 710",
                 "room": "conference"
             }
@@ -28184,7 +28184,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "name": "Salle des conseils",
                 "room": "conference"
             }
@@ -28322,7 +28322,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "name": "Salle des thèses",
                 "room": "conference"
             }
@@ -28390,7 +28390,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -28414,7 +28414,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -28438,7 +28438,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -28466,7 +28466,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "6.5"
+                "level": 6.5
             }
         },
         {
@@ -28732,7 +28732,7 @@
                 "covered": "yes",
                 "highway": "steps",
                 "incline": "down",
-                "level": "1",
+                "level": 1,
                 "step_count": "1"
             }
         },
@@ -28815,7 +28815,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28859,7 +28859,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28883,7 +28883,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28907,7 +28907,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28935,7 +28935,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28963,7 +28963,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -28991,7 +28991,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -29023,7 +29023,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -29059,7 +29059,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -29079,7 +29079,7 @@
             },
             "properties": {
                 "highway": "footway",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -29101,7 +29101,7 @@
                 "covered": "yes",
                 "highway": "footway",
                 "incline": "1%",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -29123,7 +29123,7 @@
                 "covered": "yes",
                 "highway": "footway",
                 "incline": "0%",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -30988,7 +30988,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -31077,7 +31077,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "stairs"
             }
         },
@@ -31202,7 +31202,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -31334,7 +31334,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -31482,7 +31482,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -31903,7 +31903,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "garage"
             }
         },
@@ -31960,7 +31960,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "archive"
             }
         },
@@ -32387,7 +32387,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -32448,7 +32448,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "utility"
             }
         },
@@ -32505,7 +32505,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -32549,7 +32549,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -32609,7 +32609,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -32662,7 +32662,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -32738,7 +32738,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "0"
+                "level": 0
             }
         },
         {
@@ -32814,7 +32814,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "room": "technical"
             }
         },
@@ -32863,7 +32863,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT 3",
                 "room": "technical"
             }
@@ -32985,7 +32985,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT CF1",
                 "room": "technical"
             }
@@ -33027,7 +33027,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "ref": "LT CF2",
                 "room": "technical"
             }
@@ -33105,7 +33105,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "name": "Messagerie"
             }
         },
@@ -33586,7 +33586,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "0",
+                "level": 0,
                 "name": "Salle courrier"
             }
         },
@@ -33643,7 +33643,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "0-7"
+                "level": "0;7"
             }
         },
         {
@@ -33683,7 +33683,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "0-7"
+                "level": "0;7"
             }
         },
         {
@@ -33747,7 +33747,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "entrance"
             }
         },
@@ -33824,7 +33824,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "toilets"
             }
         },
@@ -33901,7 +33901,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -33985,7 +33985,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "reception"
             }
         },
@@ -34090,7 +34090,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -34206,7 +34206,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "stairs"
             }
         },
@@ -34493,7 +34493,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -34689,7 +34689,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "1"
+                "level": 1
             }
         },
         {
@@ -34745,7 +34745,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "office"
             }
         },
@@ -34814,7 +34814,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "room": "technical"
             }
         },
@@ -34867,7 +34867,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "1",
+                "level": 1,
                 "name": "PC Sécurité",
                 "room": "central_control"
             }
@@ -34909,7 +34909,7 @@
             },
             "properties": {
                 "highway": "elevator",
-                "level": "1-7"
+                "level": "1;7"
             }
         },
         {
@@ -34981,7 +34981,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "copier"
             }
         },
@@ -35280,7 +35280,7 @@
             "properties": {
                 "area": "library",
                 "indoor": "area",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -35444,7 +35444,7 @@
             },
             "properties": {
                 "indoor": "area",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -35500,7 +35500,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2"
+                "level": 2
             }
         },
         {
@@ -35556,7 +35556,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "archive"
             }
         },
@@ -35617,7 +35617,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "2",
+                "level": 2,
                 "room": "toilets"
             }
         },
@@ -35686,7 +35686,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -35754,7 +35754,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -35823,7 +35823,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -35952,7 +35952,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -36117,7 +36117,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -36289,7 +36289,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -36445,7 +36445,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "stairs"
             }
         },
@@ -36686,7 +36686,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -36882,7 +36882,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -37090,7 +37090,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -37318,7 +37318,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "3"
+                "level": 3
             }
         },
         {
@@ -37382,7 +37382,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "copier"
             }
         },
@@ -37435,7 +37435,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "toilet"
             }
         },
@@ -37500,7 +37500,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -37565,7 +37565,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "room": "archive"
             }
         },
@@ -37650,7 +37650,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 301"
             }
         },
@@ -37747,7 +37747,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 302"
             }
         },
@@ -37832,7 +37832,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 303"
             }
         },
@@ -37921,7 +37921,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 304"
             }
         },
@@ -37986,7 +37986,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 305"
             }
         },
@@ -38055,7 +38055,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 306"
             }
         },
@@ -38132,7 +38132,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 307"
             }
         },
@@ -38213,7 +38213,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 308"
             }
         },
@@ -38294,7 +38294,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 309"
             }
         },
@@ -38407,7 +38407,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 310"
             }
         },
@@ -38544,7 +38544,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 311"
             }
         },
@@ -38609,7 +38609,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 312"
             }
         },
@@ -38686,7 +38686,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 313"
             }
         },
@@ -38771,7 +38771,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 314"
             }
         },
@@ -38832,7 +38832,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 315"
             }
         },
@@ -38889,7 +38889,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 316"
             }
         },
@@ -38946,7 +38946,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 317"
             }
         },
@@ -39035,7 +39035,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 318"
             }
         },
@@ -39120,7 +39120,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 319"
             }
         },
@@ -39225,7 +39225,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 320"
             }
         },
@@ -39310,7 +39310,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 321"
             }
         },
@@ -39387,7 +39387,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 322"
             }
         },
@@ -39452,7 +39452,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 323"
             }
         },
@@ -39529,7 +39529,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "3",
+                "level": 3,
                 "ref": "P 324"
             }
         },
@@ -39602,7 +39602,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "kitchen"
             }
         },
@@ -39687,7 +39687,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "copier"
             }
         },
@@ -39768,7 +39768,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -39836,7 +39836,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilets"
             }
         },
@@ -39905,7 +39905,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilets"
             }
         },
@@ -40010,7 +40010,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -40183,7 +40183,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -40347,7 +40347,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -40571,7 +40571,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -40867,7 +40867,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -40931,7 +40931,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "storage"
             }
         },
@@ -40992,7 +40992,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "copier"
             }
         },
@@ -41381,7 +41381,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "4"
+                "level": 4
             }
         },
         {
@@ -41433,7 +41433,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "toilet"
             }
         },
@@ -41498,7 +41498,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -41563,7 +41563,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "room": "archive"
             }
         },
@@ -41656,7 +41656,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 401"
             }
         },
@@ -41737,7 +41737,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 402"
             }
         },
@@ -41826,7 +41826,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 403"
             }
         },
@@ -41895,7 +41895,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 404"
             }
         },
@@ -41956,7 +41956,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 406"
             }
         },
@@ -42021,7 +42021,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 407"
             }
         },
@@ -42114,7 +42114,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 408"
             }
         },
@@ -42227,7 +42227,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 409"
             }
         },
@@ -42272,7 +42272,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 410"
             }
         },
@@ -42353,7 +42353,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 411"
             }
         },
@@ -42454,7 +42454,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 412"
             }
         },
@@ -42531,7 +42531,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 413"
             }
         },
@@ -42596,7 +42596,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 414"
             }
         },
@@ -42673,7 +42673,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 415"
             }
         },
@@ -42778,7 +42778,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 416"
             }
         },
@@ -42855,7 +42855,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 417"
             }
         },
@@ -42940,7 +42940,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 418"
             }
         },
@@ -43029,7 +43029,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 419"
             }
         },
@@ -43134,7 +43134,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 420"
             }
         },
@@ -43227,7 +43227,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 422"
             }
         },
@@ -43300,7 +43300,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 423"
             }
         },
@@ -43385,7 +43385,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 424 bis"
             }
         },
@@ -43454,7 +43454,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "4",
+                "level": 4,
                 "ref": "P 424"
             }
         },
@@ -43531,7 +43531,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -43599,7 +43599,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -43668,7 +43668,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -43741,7 +43741,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "central_control"
             }
         },
@@ -43834,7 +43834,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "archive"
             }
         },
@@ -43999,7 +43999,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44171,7 +44171,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44211,7 +44211,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44471,7 +44471,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44719,7 +44719,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44767,7 +44767,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44823,7 +44823,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -44875,7 +44875,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -44928,7 +44928,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilet"
             }
         },
@@ -45309,7 +45309,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -45369,7 +45369,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "archive"
             }
         },
@@ -45426,7 +45426,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5"
+                "level": 5
             }
         },
         {
@@ -45482,7 +45482,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "room": "toilets"
             }
         },
@@ -45571,7 +45571,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 500"
             }
         },
@@ -45664,7 +45664,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 501"
             }
         },
@@ -45745,7 +45745,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 502"
             }
         },
@@ -45830,7 +45830,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 503"
             }
         },
@@ -45895,7 +45895,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 504"
             }
         },
@@ -45964,7 +45964,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 505"
             }
         },
@@ -46041,7 +46041,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 506"
             }
         },
@@ -46126,7 +46126,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 507"
             }
         },
@@ -46207,7 +46207,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 508"
             }
         },
@@ -46284,7 +46284,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 509"
             }
         },
@@ -46485,7 +46485,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 510"
             }
         },
@@ -46550,7 +46550,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 512"
             }
         },
@@ -46603,7 +46603,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 513"
             }
         },
@@ -46688,7 +46688,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 514"
             }
         },
@@ -46797,7 +46797,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 515"
             }
         },
@@ -46882,7 +46882,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 517"
             }
         },
@@ -46967,7 +46967,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 518"
             }
         },
@@ -47056,7 +47056,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 519"
             }
         },
@@ -47133,7 +47133,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 520"
             }
         },
@@ -47218,7 +47218,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 521"
             }
         },
@@ -47343,7 +47343,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "5",
+                "level": 5,
                 "ref": "P 522"
             }
         },
@@ -47404,7 +47404,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -47465,7 +47465,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -47534,7 +47534,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "copier"
             }
         },
@@ -47603,7 +47603,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -47672,7 +47672,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -47753,7 +47753,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -47857,7 +47857,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "archive"
             }
         },
@@ -48022,7 +48022,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -48194,7 +48194,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -48234,7 +48234,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -48446,7 +48446,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "terrace"
             }
         },
@@ -48711,7 +48711,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -48955,7 +48955,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -49011,7 +49011,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -49059,7 +49059,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -49123,7 +49123,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "utility"
             }
         },
@@ -49176,7 +49176,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -49557,7 +49557,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -49613,7 +49613,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6"
+                "level": 6
             }
         },
         {
@@ -49669,7 +49669,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "toilet"
             }
         },
@@ -49726,7 +49726,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "room": "kitchen"
             }
         },
@@ -49803,7 +49803,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 601"
             }
         },
@@ -49888,7 +49888,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 602"
             }
         },
@@ -49969,7 +49969,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 603"
             }
         },
@@ -50050,7 +50050,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 604"
             }
         },
@@ -50111,7 +50111,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 605"
             }
         },
@@ -50168,7 +50168,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 606"
             }
         },
@@ -50233,7 +50233,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 607"
             }
         },
@@ -50298,7 +50298,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 608"
             }
         },
@@ -50391,7 +50391,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 609"
             }
         },
@@ -50484,7 +50484,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 610"
             }
         },
@@ -50657,7 +50657,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 611"
             }
         },
@@ -50778,7 +50778,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 612"
             }
         },
@@ -50863,7 +50863,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 613"
             }
         },
@@ -50952,7 +50952,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 614"
             }
         },
@@ -51013,7 +51013,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 615"
             }
         },
@@ -51086,7 +51086,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 616"
             }
         },
@@ -51159,7 +51159,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 617"
             }
         },
@@ -51236,7 +51236,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 618"
             }
         },
@@ -51317,7 +51317,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 619"
             }
         },
@@ -51390,7 +51390,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 620"
             }
         },
@@ -51455,7 +51455,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 621"
             }
         },
@@ -51556,7 +51556,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "6",
+                "level": 6,
                 "ref": "P 622"
             }
         },
@@ -51617,7 +51617,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "storage"
             }
         },
@@ -51694,7 +51694,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "toilets"
             }
         },
@@ -51779,7 +51779,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "toilet"
             }
         },
@@ -51904,7 +51904,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "stairs"
             }
         },
@@ -52033,7 +52033,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "terrace"
             }
         },
@@ -52170,7 +52170,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -52306,7 +52306,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "terrace"
             }
         },
@@ -52555,7 +52555,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -52599,7 +52599,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -52651,7 +52651,7 @@
             },
             "properties": {
                 "indoor": "corridor",
-                "level": "7"
+                "level": 7
             }
         },
         {
@@ -52707,7 +52707,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "room": "kitchen"
             }
         },
@@ -52824,7 +52824,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "ref": "P 710",
                 "room": "conference"
             }
@@ -52990,7 +52990,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "name": "Salle des conseils",
                 "room": "conference"
             }
@@ -53132,7 +53132,7 @@
             },
             "properties": {
                 "indoor": "room",
-                "level": "7",
+                "level": 7,
                 "name": "Salle des thèses",
                 "room": "conference"
             }
