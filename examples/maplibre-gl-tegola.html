@@ -41,22 +41,7 @@
                     "tileSize": 256,
                     "minzoom": 0,
                     "maxzoom": 19
-                },
-                'indoor': {
-                    'type': 'vector',
-                    "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
-                    "tolerance": 0
-                },
-                'shape': {
-                    'type': 'vector',
-                    "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
-                    "tolerance": 0
-                },
-                'building': {
-                    'type': 'vector',
-                    "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
-                    "tolerance": 0
-                },
+                }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
@@ -109,12 +94,29 @@
         map.addControl(new maplibregl.FullscreenControl());
 
         map.on('load', function () {
+
+            map.addSource('indoor', {
+                'type': 'vector',
+                "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                "tolerance": 0
+            });
+            map.addSource('shape', {
+                'type': 'vector',
+                "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                "tolerance": 0
+            });
+            map.addSource('building', {
+                'type': 'vector',
+                "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                "tolerance": 0
+            });
+
             fetch("/style/indoorLayers.json").then(function (response) {
                 return response.json().then(function (json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source']='indoor'
-                        layer['source-layer']='buildings'
+                        layer['source'] = 'indoor'
+                        layer['source-layer'] = 'buildings'
                         map.addLayer(layer)
                     }
                 });
@@ -123,8 +125,8 @@
                 return response.json().then(function (json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source']='shape'
-                        layer['source-layer']='buildings'
+                        layer['source'] = 'shape'
+                        layer['source-layer'] = 'buildings'
                         map.addLayer(layer)
                     }
                 });
@@ -133,8 +135,8 @@
                 return response.json().then(function (json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source']='building'
-                        layer['source-layer']='buildings'
+                        layer['source'] = 'building'
+                        layer['source-layer'] = 'buildings'
                         map.addLayer(layer)
                     }
                 });
