@@ -96,7 +96,7 @@
 
         map.on('sourcedata', function () {
             let sourceId = "openindoor"
-            if (map.isSourceLoaded(sourceId)) {
+            if (map.getSource(sourceId) &&  map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
                 console.log('features to detect levels:', features);
