@@ -1442,7 +1442,7 @@
             ]
         ],
         "paint": {
-            "line-width": 5,
+            "line-width": 10,
             "line-color": "#00ff00"
         }
     }
