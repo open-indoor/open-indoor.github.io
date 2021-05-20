@@ -131,13 +131,13 @@
                 "maxzoom": 19,
                 "filter": [
                     "all",
-                    [
-                        "==",
-                        [
-                            "geometry-type"
-                        ],
-                        "Polygon"
-                    ],
+                    // [
+                    //     "==",
+                    //     [
+                    //         "geometry-type"
+                    //     ],
+                    //     "Polygon"
+                    // ],
                     [
                         "any",
                         [
@@ -188,21 +188,6 @@
                                 [
                                     "get",
                                     "height"
-                                ]
-                            ],
-                            [
-                                "has",
-                                "levels"
-                            ],
-                            [
-                                "to-number",
-                                [
-                                    "*",
-                                    3,
-                                    [
-                                        "get",
-                                        "buildings:levels"
-                                    ]
                                 ]
                             ],
                             40
