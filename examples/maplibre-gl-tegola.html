@@ -101,11 +101,6 @@
                 console.log('sourceId:', sourceId);
                 const features = this.map.querySourceFeatures(sourceId);
                 console.log('features to detect levels:', features);
-                for (let feat in features) {
-                    if (('properties' in feat) && ('level' in feat['properties'])) {
-                        console.log('level: ' + feat['properties']['level'])
-                    }
-                }
             }
         });
 
