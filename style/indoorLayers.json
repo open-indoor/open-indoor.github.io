@@ -1382,6 +1382,23 @@
             "fill-extrusion-base": 0,
             "fill-extrusion-opacity": 0.5
         }
+    },    {
+        "id": "indoor-footprint",
+        "source-layer": "osm-indoor",
+        "source": "building",
+        "minzoom": 19,
+        "filter": [
+            "all",
+            [
+                "has",
+                "indoor"
+            ]
+        ],
+        "type": "line",
+        "paint": {
+            "line-color": "#000000",
+            "line-width": 1
+        }
     },
     {
         "id": "indoor-highway-line",
