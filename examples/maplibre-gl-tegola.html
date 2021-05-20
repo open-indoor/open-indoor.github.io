@@ -93,6 +93,21 @@
         map.addControl(new maplibregl.NavigationControl());
         map.addControl(new maplibregl.FullscreenControl());
 
+
+        map.on('sourcedata', function () {
+            let sourceId = "openindoor"
+            if (this.map.isSourceLoaded(this.sourceId)) {
+                // const features = this.map.querySourceFeatures(this.sourceId, { sourceLayer: this.layerId });
+                console.log('sourceId:', sourceId);
+                const features = this.map.querySourceFeatures(sourceId);
+                console.log('features to detect levels:', features);
+                for (let feat in features) {
+                    if (('properties' in feat) && ('level' in feat['properties'])) {
+                        console.log('level: ' + feat['properties']['level'])
+                    }
+                }
+            }
+        }
         map.on('load', function () {
 
             map.addSource('openindoor', {
