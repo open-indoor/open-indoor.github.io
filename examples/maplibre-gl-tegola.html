@@ -130,20 +130,20 @@
                 "type": "fill-extrusion",
                 "filter": [
                     "all",
-                    // [
-                    //     "==",
-                    //     [
-                    //         "geometry-type"
-                    //     ],
-                    //     "Polygon"
-                    // ],
                     [
-                        "any",
+                        "==",
                         [
-                            "has",
-                            "building"
-                        ]
-                    ]
+                            "geometry-type"
+                        ],
+                        "Polygon"
+                    ],
+                    // [
+                    //     "any",
+                    //     [
+                    //         "has",
+                    //         "building"
+                    //     ]
+                    // ]
                 ],
                 "paint": {
                     "fill-extrusion-color": "#fcffe4",
