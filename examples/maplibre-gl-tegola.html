@@ -100,17 +100,26 @@
                 "tiles": ["https://vegeta.openindoor.io/tegola-debian/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
                 "tolerance": 0
             });
-
-            fetch("/style/buildingLayers.json").then(function (response) {
-                return response.json().then(function (json) {
-                    layers = json
-                    for (layer of layers) {
-                        layer['source'] = 'openindoor'
-                        layer['source-layer'] = 'buildings'
-                        map.addLayer(layer)
-                    }
-                });
+            map.addLayer({
+                "id": "buildings",
+                "source": "openindoor",
+                "source-layer": "buildings",
+                "type": "line",
+                "paint": {
+                    "line-color": "#000000",
+                    "line-width": 1
+                }
             });
+            // fetch("/style/buildingLayers.json").then(function (response) {
+            //     return response.json().then(function (json) {
+            //         layers = json
+            //         for (layer of layers) {
+            //             layer['source'] = 'openindoor'
+            //             layer['source-layer'] = 'buildings'
+            //             map.addLayer(layer)
+            //         }
+            //     });
+            // });
         });
     </script>
 
