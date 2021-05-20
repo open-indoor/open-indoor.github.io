@@ -94,16 +94,16 @@
         map.addControl(new maplibregl.FullscreenControl());
 
 
-        map.on('sourcedata', function () {
-            let sourceId = "openindoor"
-            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-                console.log('sourceId:', sourceId);
-                const features = map.querySourceFeatures(sourceId, {
-                    sourceLayer: 'buildings',
-                });
-                console.log('openindoor features loaded:', features);
-            }
-        });
+        // map.on('sourcedata', function () {
+        //     let sourceId = "openindoor"
+        //     if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+        //         console.log('sourceId:', sourceId);
+        //         const features = map.querySourceFeatures(sourceId, {
+        //             sourceLayer: 'buildings',
+        //         });
+        //         console.log('openindoor features loaded:', features);
+        //     }
+        // });
 
         map.on('load', function () {
 
@@ -128,6 +128,23 @@
                 "source": "openindoor",
                 "source-layer": "buildings",
                 "type": "fill-extrusion",
+                "filter": [
+                    "all",
+                    [
+                        "==",
+                        [
+                            "geometry-type"
+                        ],
+                        "Polygon"
+                    ],
+                    [
+                        "any",
+                        [
+                            "has",
+                            "building"
+                        ]
+                    ]
+                ],
                 "paint": {
                     "fill-extrusion-color": "#fcffe4",
                     "fill-extrusion-height": 40,
