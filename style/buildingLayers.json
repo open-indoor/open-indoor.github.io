@@ -69,7 +69,7 @@
           ],
           [
             "has",
-            "levels"
+            "buildings:levels"
           ],
           [
             "to-number",
