@@ -96,9 +96,11 @@
 
         map.on('sourcedata', function () {
             let sourceId = "openindoor"
-            if (map.getSource(sourceId) &&  map.isSourceLoaded(sourceId)) {
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
-                const features = map.querySourceFeatures(sourceId);
+                const features = map.querySourceFeatures(sourceId, {
+                    sourceLayer: 'buildings',
+                });
                 console.log('openindoor features loaded:', features);
             }
         });
