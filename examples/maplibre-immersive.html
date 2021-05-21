@@ -41,6 +41,10 @@
                     "tileSize": 256,
                     "minzoom": 0,
                     "maxzoom": 19
+                },
+                'peupliers': {
+                    'type': 'geojson',
+                    'data': 'https://open-indoor.github.io/data/peupliers.geojson'
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
@@ -57,6 +61,16 @@
                     "id": "simple-tiles",
                     "type": "raster",
                     "source": "raster-tiles"
+                },
+                {
+                    'id': 'peupliersLayer',
+                    'type': 'line',
+                    'source': 'peupliers',
+                    'layout': {},
+                    "paint": {
+                        "line-width": 10,
+                        "line-color": "#00ff00"
+                    }
                 }
             ],
             "id": "blank"
@@ -69,6 +83,16 @@
             'zoom': 19,
             'style': mapStyle
         });
+        // map.on('load', function () {
+        //     map.addSource('indoor', {
+        //         'type': 'geojson',
+        //         'data': 'https://open-indoor.github.io/data/peupliers.geojson'
+        //     });
+        //     map.addLayer(
+
+        //     )
+        // });
+
     </script>
 
 </body>
