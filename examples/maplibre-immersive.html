@@ -108,16 +108,9 @@
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
                         url_ = feature.properties.image;
-                        // new maplibregl.Marker(el)
-                        //     .setLngLat(marker.geometry.coordinates)
-                        //     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                        //         .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-                        //     .addTo(map);
-
-                        // "https://vegeta.openindoor.io/indoor/#photosphere=876543"
                         new maplibregl.Marker()
                             .setLngLat([lon, lat])
-                            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                            .setPopup(new maplibregl.Popup({ offset: 25 }) // add popups
                                 .setHTML('<a href="' + url_ + '">' + url_ + '</a>'))
                             .addTo(map);
                     }
