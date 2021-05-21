@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Raster tiles</title>
+    <title>Immersive page</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
@@ -43,8 +43,8 @@
                     "maxzoom": 19
                 }
             },
-            // "sprite": "https://open-indoor.github.io/sprite/sprite",
-            // "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
             "layers": [
                 {
                     "id": "background",
@@ -63,7 +63,7 @@
         }
         const map = new maplibregl.Map({
             'container': 'map',
-            'center': [2.3596569, 48.8765734],
+            'center': [2.08167, 48.70199],
             'pitch': 60,
             'bearing': -60,
             'zoom': 19,
