@@ -84,14 +84,36 @@
             'style': mapStyle
         });
 
+        // {
+        //     "type": "Feature",
+        //     "geometry": {
+        //         "type": "Point",
+        //         "coordinates": [
+        //             2.0814668,
+        //             48.7021638
+        //         ]
+        //     },
+        //     "properties": {
+        //         "image": "https://vegeta.openindoor.io/indoor/img/PANO_pass.jpg"
+        //     }
+        // },
         map.on('sourcedata', function () {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
                 console.log('peupliers features loaded:', features);
+                for (feature of features) {
+                    if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
+                        lon = feature.geometry.coordinates[0];
+                        lat = feature.geometry.coordinates[1];
+                        new maplibregl.Marker()
+                            .setLngLat([lon, lat])
+                            .addTo(map);
+                    }
+                }
             }
-        });        
+        });
         // map.on('load', function () {
         //     map.addSource('indoor', {
         //         'type': 'geojson',
