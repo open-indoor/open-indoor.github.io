@@ -107,6 +107,11 @@
                     if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
+                        // new maplibregl.Marker(el)
+                        //     .setLngLat(marker.geometry.coordinates)
+                        //     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                        //         .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                        //     .addTo(map);
                         new maplibregl.Marker()
                             .setLngLat([lon, lat])
                             .addTo(map);
