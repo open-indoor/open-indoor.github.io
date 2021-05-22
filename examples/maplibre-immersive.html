@@ -42,17 +42,18 @@
         }
 
         #immersive {
+            background-color: #333;
             /* position: absolute; */
-            top: 0;
-            bottom: 0;
+            /* top: 0;
+            bottom: 0; */
             height: 100%;
             width: 100%;
         }
 
-        #map {
+        #mymap {
             /* position: absolute; */
-            top: 0;
-            bottom: 0;
+            /* top: 0;
+            bottom: 0; */
             height: 100%;
             width: 100%;
         }
@@ -64,11 +65,12 @@
         <div id="immersive">
             Immersive zone
         </div>
-        <div id="map"></div>
+        <div id="mymap"></div>
+        <!-- <div id="map"></div> -->
     </div>
     <script>
         var exploreSplit = Split(
-            ['#immersive', '#map'], {
+            ['#immersive', '#mymap'], {
             sizes: [40, 60],
             direction: 'vertical'
         });
