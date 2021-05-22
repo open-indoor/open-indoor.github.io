@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>OpenIndoor examples list</title>
+    <style>
+        .split {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .gutter {
+            background-color: #eee;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .gutter.gutter-horizontal {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            cursor: col-resize;
+        }
+    </style>
+    <base href="https://open-indoor.github.io/">
+    <script>
+        import Split from 'split.js'
+
+        Split(['#split-0', '#split-1'])
+    </script>
+</head>
+
+<body>
+    <div class="split">
+        <div id="split-0"></div>
+        <div id="split-1"></div>
+    </div>
+</body>
+
+</html>
