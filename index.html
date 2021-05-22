@@ -1,18 +1,20 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <title>OpenIndoor examples list</title>
+    <title>Splitter</title>
+    <base href="https://open-indoor.github.io/">
+    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
     <style>
         html {
             font-family: 'Roboto Mono', monospace;
-            margin:0;
-            padding:0;
-            height:100%;
-            border:none            
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none
         }
+
         body {
             font-size: 16px;
             color: #bbb;
@@ -21,68 +23,113 @@
             padding: 0px;
             background-color: #222;
         }
+
         h1 {
             color: #049EF4;
         }
+
         a {
             font-size: 16px;
         }
-        a:link, a:visited, a:active {
+
+        a:link,
+        a:visited,
+        a:active {
             color: #bbb;
             background-color: transparent;
             text-decoration: none;
-        }        
+        }
+
         a:hover {
             color: #049EF4;
             background-color: transparent;
             text-decoration: none;
         }
-        .container {
-            table-layout: fixed;
-            /* background-color: #0F0; */
-            margin:0;
-            padding:0;
-            height:100%;
-            width: 100%;
-            border:none                    
+
+        /* .split {
+            display: flex;
+            flex-direction: row;
         }
-        .container .sidebar {
-            /* background-color: #222; */
+
+        .gutter {
+            background-color: #eee;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .gutter.gutter-horizontal {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            cursor: col-resize;
+        } */
+        .main {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* .child {
+            background-color: lightgrey;
+        } */
+
+        #pluginlist {
             color: #999;
-            /* color: #049EF4; */
-            vertical-align: top;
-            width: 200px;
+            /* background-color: #000; */
+            height: 100%;
         }
-        .container .content {
+
+        #pluginview {
             background-color: #333;
-            /* width:99%; */
+            height: 100%;
+            width: 100%;
+        }
+
+        .gutter {
+            width: 10px;
+            background-color: #000;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .gutter.gutter-horizontal {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            cursor: col-resize;
         }
     </style>
-    <base href="https://open-indoor.github.io/">
+
 </head>
 
 <body>
-    <table class="container" cellspacing="0" cellpadding="0">
-        <tr>
-            <td class="sidebar">
-                <h1>OpenIndoor</h1>
-                <h2>examples</h2>
-                <!-- <p><a href="examples/mapbox-gl-indoor.html" target="iframe_example">mapbox-gl-indoor</a></p>
-                <p><a href="examples/mapboxium.html" target="iframe_example">mapboxium</a></p> -->
-                <p><a href="examples/maplibre-gl-raster.html" target="iframe_example">maplibre-gl-raster</a></p>
-                <p><a href="examples/maplibre-indoor.html" target="iframe_example">maplibre-indoor</a></p>
-                <p><a href="examples/maplibre-indoor-shape-building.html" target="iframe_example">maplibre-indoor-shape-building</a></p>
-                <p><a href="examples/mapbox-gl-openindoor.html" target="iframe_example">mapbox-gl-openindoor</a></p>
-                <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">maplibre-gl-building-over</a></p>
-                <p><a href="examples/maplibre-gl-tegola.html" target="iframe_example">maplibre-gl-tegola</a></p>
-                <p><a href="examples/maplibre-immersive.html" target="iframe_example">maplibre-immersive</a></p>
-                <p><a href="examples/maplibre-building-footprint.html" target="iframe_example">maplibre-building-footprint</a></p>
-            </td>
-            <td class="content">
-                <iframe src="examples/maplibre-immersive.html" name="iframe_example" frameborder="0" style="width:100%;height:100%;"></iframe>
-            </td>
-        </tr>
-    </table>
-</body>s
-</html>
+    <div class="main">
+        <div id="pluginlist" class="child">
+            <h1>OpenIndoor</h1>
+            <h2>examples</h2>
+            <!-- <p><a href="examples/mapbox-gl-indoor.html" target="iframe_example">mapbox-gl-indoor</a></p>
+            <p><a href="examples/mapboxium.html" target="iframe_example">mapboxium</a></p> -->
+            <p><a href="examples/maplibre-gl-raster.html" target="iframe_example">maplibre-gl-raster</a></p>
+            <p><a href="examples/maplibre-indoor.html" target="iframe_example">maplibre-indoor</a></p>
+            <p><a href="examples/maplibre-indoor-shape-building.html"
+                    target="iframe_example">maplibre-indoor-shape-building</a></p>
+            <p><a href="examples/mapbox-gl-openindoor.html" target="iframe_example">mapbox-gl-openindoor</a></p>
+            <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">maplibre-gl-building-over</a>
+            </p>
+            <p><a href="examples/maplibre-gl-tegola.html" target="iframe_example">maplibre-gl-tegola</a></p>
+            <p><a href="examples/maplibre-immersive.html" target="iframe_example">maplibre-immersive</a></p>
+            <p><a href="examples/maplibre-building-footprint.html"
+                    target="iframe_example">maplibre-building-footprint</a></p>
+            <!-- <p><a href="javascript:load_target('examples/maplibre-gl-tegola.html');">maplibre-gl-tegola</a></p>
+            <p><a href="javascript:load_target('examples/maplibre-immersive.html');">maplibre-immersive</a></p>
+            <p><a href="javascript:load_target('examples/maplibre-building-footprint.html');">maplibre-building-footprint</a></p> -->
+        </div>
+        <div id="pluginview" class="child" name="mainpage">
+            <iframe src="examples/maplibre-immersive.html" name="iframe_example" frameborder="0"
+                style="width:100%;height:100%;"></iframe>
+        </div>
+        <script>
+            var exploreSplit = Split(['#pluginlist', '#pluginview'], { sizes: [20, 80] });
+            // function load_target(html_page) {
+            //     document.getElementById("pluginview").innerHTML = '<object type="text/html" data="' + html_page + '" ></object>';
+            // }
+        </script>
+</body>
 
+</html>
