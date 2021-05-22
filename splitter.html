@@ -24,32 +24,36 @@
             background-color: #222;
         } */
 
-        .split {
-            display: flex;
-            flex-direction: row;
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 10px 1fr;
         }
 
-        .gutter {
-            background-color: #eee;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-
-        .gutter.gutter-horizontal {
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+        .gutter-col {
+            grid-row: 1/-1;
             cursor: col-resize;
+        }
+
+        .gutter-col-1 {
+            grid-column: 1;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="split">
-        <div id="split-0"></div>
-        <div id="split-1"></div>
+    <div class="grid">
+        <div></div>
+        <div class="gutter-col gutter-col-1"></div>
+        <div></div>
     </div>
     <script>
-        Split(['#split-0', '#split-1'])
+        Split({
+            columnGutters: [{
+                track: 1,
+                element: document.querySelector('.gutter-col-1'),
+            }],
+        })
     </script>
 </body>
 
