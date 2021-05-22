@@ -7,10 +7,10 @@
     <base href="https://open-indoor.github.io/">
     <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
     <style>
-        body {
+        /* body {
             height: 100%;
             background-color: #000;
-        }
+        } */
 
         /* .split {
             display: flex;
@@ -27,28 +27,25 @@
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
             cursor: col-resize;
         } */
-        #one {
-            background-color: #f00;
+        .main {
+            height: 100px;
+            display: flex;
         }
 
-        #two {
-            background-color: #00f;
+        .child {
+            background-color: lightgrey;
         }
     </style>
 
 </head>
 
 <body>
-    <div>
-        <div id="one">content one</div>
-        <div id="two">content two</div>
+    <div class="main">
+        <div id="pluginlist" class="child"></div>
+        <div id="pluginview" class="child"></div>
     </div>
     <script>
-        Split(['#one', '#two'], {
-            sizes: [25, 75],
-            gutterSize: 20,
-            gutterAlign: 'end',
-        })
+        var exploreSplit = Split(['#pluginlist', '#pluginview'], { sizes: [20, 80] });
 
     </script>
 </body>
