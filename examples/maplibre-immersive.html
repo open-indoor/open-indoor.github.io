@@ -35,6 +35,11 @@
             user-select: none;
         }
 
+        #flex {
+            display: flex;
+            flex-direction: row;
+        }
+
         #immersive {
             position: absolute;
             top: 0;
@@ -52,8 +57,10 @@
 </head>
 
 <body>
-    <div id="immersive"></div>
-    <div id="map"></div>
+    <div id="flex">
+        <div id="immersive"></div>
+        <div id="map"></div>
+    </div>
     <script>
         var exploreSplit = Split(
             ['#immersive', '#map'], { sizes: [50, 50] }
