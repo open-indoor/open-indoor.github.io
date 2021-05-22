@@ -93,20 +93,28 @@
             <p><a href="examples/mapboxium.html" target="iframe_example">mapboxium</a></p> -->
             <p><a href="examples/maplibre-gl-raster.html" target="iframe_example">maplibre-gl-raster</a></p>
             <p><a href="examples/maplibre-indoor.html" target="iframe_example">maplibre-indoor</a></p>
-            <p><a href="examples/maplibre-indoor-shape-building.html" target="iframe_example">maplibre-indoor-shape-building</a></p>
+            <p><a href="examples/maplibre-indoor-shape-building.html"
+                    target="iframe_example">maplibre-indoor-shape-building</a></p>
             <p><a href="examples/mapbox-gl-openindoor.html" target="iframe_example">mapbox-gl-openindoor</a></p>
-            <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">maplibre-gl-building-over</a></p>
+            <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">maplibre-gl-building-over</a>
+            </p>
             <p><a href="examples/maplibre-gl-tegola.html" target="iframe_example">maplibre-gl-tegola</a></p>
             <p><a href="examples/maplibre-immersive.html" target="iframe_example">maplibre-immersive</a></p>
-            <p><a href="examples/maplibre-building-footprint.html" target="iframe_example">maplibre-building-footprint</a></p>
+            <p><a href="examples/maplibre-building-footprint.html"
+                    target="iframe_example">maplibre-building-footprint</a></p>
 
+
+            <p><a href="javascript:load_target('examples/maplibre-building-footprint.html');">maplibre-building-footprint</a></p>
+            <div name="link"> and <a href="#link">
+            </div>
+            <div id="pluginview" class="child" name="mainpage"></div>
         </div>
-        <div id="pluginview" class="child"></div>
-    </div>
-    <script>
-        var exploreSplit = Split(['#pluginlist', '#pluginview'], { sizes: [20, 80] });
-
-    </script>
+        <script>
+            var exploreSplit = Split(['#pluginlist', '#pluginview'], { sizes: [20, 80] });
+            function load_target(html_page) {
+                document.getElementById("pluginview").innerHTML = '<object type="text/html" data="' + html_page + '" ></object>';
+            }
+        </script>
 </body>
 
 </html>
