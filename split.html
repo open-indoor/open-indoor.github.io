@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Splitter</title>
+    <base href="https://open-indoor.github.io/">
+    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+    <!-- <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script> -->
+    <style>
+        /* html {
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none
+        }
+
+        body {
+            font-size: 16px;
+            color: #bbb;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color: #222;
+        } */
+
+        .split {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .gutter {
+            background-color: #eee;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .gutter.gutter-horizontal {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            cursor: col-resize;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="split">
+        <div id="split-0"></div>
+        <div id="split-1"></div>
+    </div>
+    <script>
+        Split(['#split-0', '#split-1'])
+    </script>
+</body>
+
+</html>
