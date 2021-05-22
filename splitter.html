@@ -7,60 +7,49 @@
     <base href="https://open-indoor.github.io/">
     <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
     <style>
-        * {
-            box-sizing: border-box;
+        html {
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none
         }
 
         body {
-            margin: 0;
-            height: 100vh;
-            font-size: 26px;
-        }
-
-        .content {
-            width: 100%;
+            font-size: 16px;
+            color: #bbb;
             height: 100%;
-            display: flex;
-            justify-items: center;
-            align-items: center;
+            margin: 0px;
+            padding: 0px;
+            background-color: #222;
         }
 
         .split {
-            width: 100%;
-            height: 100%;
-            padding: 30px;
-            border: 1px solid;
-        }
-
-        .a {
-            background: url("dog1.jpg");
-            background-attachment: fixed;
-        }
-
-        .b {
-            background: url("dog2.jpg");
-            background-attachment: fixed;
+            display: flex;
+            flex-direction: row;
         }
 
         .gutter {
-            cursor: e-resize;
-            height: 100%;
-            background: grey;
+            background-color: #eee;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .gutter.gutter-horizontal {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            cursor: col-resize;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="content">
-        <div class="cell a">A</div>
-        <div class="cell b">B</div>
+    <div class="split">
+        <div id="split-0"></div>
+        <div id="split-1"></div>
     </div>
     <script>
-        Split(['.a', '.b'], {
-            gutterSize: 5,
-            sizes: [20, 80]
-        });
+        Split(['#split-0', '#split-1'])
     </script>
 </body>
 
