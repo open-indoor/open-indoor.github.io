@@ -101,17 +101,19 @@
             <p><a href="examples/maplibre-immersive.html" target="iframe_example">maplibre-immersive</a></p>
             <p><a href="examples/maplibre-building-footprint.html"
                     target="iframe_example">maplibre-building-footprint</a></p>
-            <p><a href="javascript:load_target('examples/maplibre-gl-tegola.html');">maplibre-gl-tegola</a></p>
+            <!-- <p><a href="javascript:load_target('examples/maplibre-gl-tegola.html');">maplibre-gl-tegola</a></p>
             <p><a href="javascript:load_target('examples/maplibre-immersive.html');">maplibre-immersive</a></p>
-            <p><a href="javascript:load_target('examples/maplibre-building-footprint.html');">maplibre-building-footprint</a></p>
+            <p><a href="javascript:load_target('examples/maplibre-building-footprint.html');">maplibre-building-footprint</a></p> -->
         </div>
-        <div id="pluginview" class="child" name="mainpage"></div>
-        <script>
+        <div id="pluginview" class="child" name="mainpage">
+            <iframe src="examples/maplibre-immersive.html" name="iframe_example" frameborder="0" style="width:100%;height:100%;"></iframe>
+        </div>
+        <!-- <script>
             var exploreSplit = Split(['#pluginlist', '#pluginview'], { sizes: [20, 80] });
             function load_target(html_page) {
                 document.getElementById("pluginview").innerHTML = '<object type="text/html" data="' + html_page + '" ></object>';
             }
-        </script>
+        </script> -->
 </body>
 
 </html>
