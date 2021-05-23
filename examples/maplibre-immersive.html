@@ -146,10 +146,8 @@
                         const myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
                             .addTo(map)
-                            .on('click', function(e) {
-                                console.log(e);
-                            })
                             .getElement().addEventListener('click', (listener) => {
+                                console.log('feature:', feature)
                                 // console.log('listener:', listener);
                                 // console.log('this:', this);
                                 // console.log('this.id:', this.id);
