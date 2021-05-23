@@ -41,17 +41,17 @@
 <body>
     <div class="grid">
         <div>
-            <!-- <a-scene embedded>
+            <a-scene embedded>
                 <a-sky id="panorama" src="https://vegeta.openindoor.io/indoor/img/PANO_hall.jpg" rotation="0 -130 0">
                 </a-sky>
-            </a-scene> -->
-            <!-- crossorigin="Anonymous" -->
-            <a-scene>
-                <a-assets>
-                    <img id="sky" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
-                </a-assets>
-                <a-sky src="#sky"></a-sky>
             </a-scene>
+            <!-- crossorigin="Anonymous" -->
+            <!-- <a-scene>
+                <a-assets>
+                    <img id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
+                </a-assets>
+                <a-sky src="#panorama"></a-sky>
+            </a-scene> -->
         </div>
         <div id="map"></div>
         <div class="horizontal-gutter"></div>
@@ -146,7 +146,7 @@
                             console.log('load:', url_)
                             // document.getElementById('panorama').src = url_;
                             // a_sky.components.material.material.map.needsUpdate = true
-                            document.querySelector('#sky').setAttribute('src', url_)
+                            document.querySelector('#panorama').setAttribute('src', url_)
 
 
                         });
