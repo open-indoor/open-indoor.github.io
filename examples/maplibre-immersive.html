@@ -128,9 +128,9 @@
             'zoom': 21,
             'style': mapStyle
         });
-        map.on('click', 'state-fills', function (e) {
-            console.log('e.features:', e.features)
-        });
+        // map.on('click', 'state-fills', function (e) {
+        //     console.log('e.features:', e.features)
+        // });
         map.on('sourcedata', function () {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
@@ -146,6 +146,9 @@
                         const myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
                             .addTo(map)
+                            .on('click', function(e) {
+                                console.log(e);
+                            })
                             .getElement().addEventListener('click', (listener) => {
                                 // console.log('listener:', listener);
                                 // console.log('this:', this);
@@ -160,7 +163,12 @@
                 }
             }
         });
-
+        // myLayer.on('click', function (e) {
+        //     resetColors();
+        //     e.layer.feature.properties['old-color'] = e.layer.feature.properties['marker-color'];
+        //     e.layer.feature.properties['marker-color'] = '#ff8888';
+        //     myLayer.setGeoJSON(geoJson);
+        // });
     </script>
 </body>
 
