@@ -62,7 +62,7 @@
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
             }],
-            onDragEnd: function(){
+            onDragEnd: function () {
                 map.resize()
             }
         })
@@ -136,11 +136,12 @@
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
                         url_ = feature.properties.image;
-                        new maplibregl.Marker()
+                        myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
-                            .setPopup(new maplibregl.Popup({ offset: 25 }) // add popups
-                                .setHTML('<a href="' + url_ + '">' + url_ + '</a>'))
                             .addTo(map);
+                        myMarker.getElement().addEventListener('click', () => {
+                            alert("Clicked");
+                        });
                     }
                 }
             }
