@@ -1,76 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <title>Splitter</title>
-    <base href="https://open-indoor.github.io/">
-    <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
-    <style>
-        html,
-        body,
-        .grid {
-            height: 100%;
-            padding: 0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 10px 1fr;
-            grid-template-rows: 1fr 10px 1fr;
-
-        }
-
-        .vertical-gutter {
-            grid-area: 1 / 2 / 4 / 2;
-            border: solid 1px red;
-
-
-        }
-
-        .horizontal-gutter {
-            grid-area: 2 / 1 / 2 / 4;
-            border: solid 1px red;
-
-
-        }
-    </style>
-
+  <meta charset="utf-8">
+  <title>Split panels</title>
+  <script type="text/javascript" src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
 </head>
-
 <body>
-    <div class="grid">
-        <div>
-            HTML
-        </div>
-        <div>
-            CSS
-        </div>
-        <div>
-            JS
-        </div>
-        <div>
-            Result
-        </div>
-        <div class="horizontal-gutter">
-        </div>
-        <div class="vertical-gutter">
-        </div>
-    </div>
-
-    <script>
-        Split({
-            columnGutters: [{
-                track: 1,
-                element: document.querySelector('.vertical-gutter'),
-            }],
-            rowGutters: [{
-                track: 1,
-                element: document.querySelector('.horizontal-gutter'),
-            }]
-        })
-
-    </script>
+  <div class="grid">
+    <div class="column-1"></div>
+    <div class="column-2"></div>
+    <div class="row-1"></div>
+  </div>
 </body>
-
+<script type="text/javascript">
+  window.onload = function() {
+    Split({
+      columnGutters: [{
+        track: 1,
+        element: document.querySelector('.column-1'),
+      }, {
+        track: 2,
+        element: document.querySelector('.column-2'),
+      }],
+      rowGutters: [{
+        track: 1,
+        element: document.querySelector('.row-1'),
+      }]
+    });
+  };
+</script>
 </html>
