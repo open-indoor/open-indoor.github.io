@@ -145,6 +145,7 @@
                             .addTo(map)
                             .getElement().addEventListener('click', (listener) => {
                                 console.log('listener:', listener);
+                                console.log('this:', this);
                                 console.log('load:', feature.properties.image);
                                 // document.getElementById('panorama').src = url_;
                                 // a_sky.components.material.material.map.needsUpdate = true
