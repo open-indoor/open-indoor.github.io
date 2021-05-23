@@ -133,9 +133,10 @@
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 // console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
-                // console.log('peupliers features loaded:', features);
+                // console.log('features loaded:', features);
                 for (feature of features) {
                     if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
+                        console.log('feature loaded:', feature);
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
                         url_ = feature.properties.image;
