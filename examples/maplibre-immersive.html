@@ -143,11 +143,12 @@
                         const myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
                             .addTo(map)
-                            .getElement().addEventListener('click', () => {
-                                console.log('load:', feature.properties.image)
+                            .getElement().addEventListener('click', (listener) => {
+                                console.log('listener:', listener);
+                                console.log('load:', feature.properties.image);
                                 // document.getElementById('panorama').src = url_;
                                 // a_sky.components.material.material.map.needsUpdate = true
-                                document.querySelector('#panorama').setAttribute('src', feature.properties.image)
+                                document.querySelector('#panorama').setAttribute('src', feature.properties.image);
                             });
                     }
                 }
