@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Split panels</title>
-  <script type="text/javascript" src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
+    <meta charset="utf-8">
+    <title>Split panels</title>
+    <script type="text/javascript" src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
 </head>
+
 <body>
-  <div class="grid">
-    <div class="column-1"></div>
-    <div class="column-2"></div>
-    <div class="row-1"></div>
-  </div>
+    <div class="grid">
+        <div class="column-1"></div>
+        <div class="column-2"></div>
+        <div class="row-1"></div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            Split({
+                columnGutters: [{
+                    track: 1,
+                    element: document.querySelector('.column-1'),
+                }, {
+                    track: 2,
+                    element: document.querySelector('.column-2'),
+                }],
+                rowGutters: [{
+                    track: 1,
+                    element: document.querySelector('.row-1'),
+                }]
+            });
+        };
+    </script>
 </body>
-<script type="text/javascript">
-  window.onload = function() {
-    Split({
-      columnGutters: [{
-        track: 1,
-        element: document.querySelector('.column-1'),
-      }, {
-        track: 2,
-        element: document.querySelector('.column-2'),
-      }],
-      rowGutters: [{
-        track: 1,
-        element: document.querySelector('.row-1'),
-      }]
-    });
-  };
-</script>
+
 </html>
