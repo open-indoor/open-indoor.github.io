@@ -48,12 +48,10 @@
 <body>
     <div class="grid">
         <div>
-            HTML
+            <iframe src="" id="iframe_immersive" frameborder="0" style="width:100%;height:100%;"></iframe>
         </div>
         <div id="map"></div>
-
-        <div class="horizontal-gutter">
-        </div>
+        <div class="horizontal-gutter"></div>
     </div>
 
     <script>
@@ -140,7 +138,7 @@
                             .setLngLat([lon, lat])
                             .addTo(map);
                         myMarker.getElement().addEventListener('click', () => {
-                            alert("Clicked");
+                            document.getElementById('iframe_immersive').src = url_;
                         });
                     }
                 }
