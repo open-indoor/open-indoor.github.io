@@ -3,82 +3,73 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Immersive page</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+    <title>Splitter</title>
+    <base href="https://open-indoor.github.io/">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
     <style>
-        html {
-            font-family: 'Roboto Mono', monospace;
+        html,
+        body,
+        .grid {
             margin: 0;
             padding: 0;
             height: 100%;
-            border: none
-        }
-
-        body {
-            font-size: 16px;
-            color: #bbb;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
+            border: none;
             background-color: #222;
         }
 
-        #flex {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
+        .grid {
+            display: grid;
+            grid-template-rows: 1fr 10px 1fr;
         }
 
-        #immersive {
-            background-color: #333;
-            /* position: absolute; */
-            /* top: 0;
-            bottom: 0; */
-            height: 100%;
-            width: 100%;
+        .horizontal-gutter {
+            grid-area: 2 / 1 / 2 / 1;
+            background: rgba(0, 0, 0, 0.4);
         }
 
-        #mymap {
+        #map {
             background-color: #555;
-            /* position: absolute; */
-            /* top: 0;
-            bottom: 0; */
             height: 100%;
             width: 100%;
-        }
-
-        .gutter {
-            height: 10px;
-            background-color: #000;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-
-        .gutter.gutter-vertical {
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
-            cursor: row-resize;
         }
     </style>
 </head>
 
 <body>
-    <div id="flex">
-        <div id="immersive">
-            Immersive zone
+    <div class="grid">
+        <div>
+            <a-scene embedded>
+                <a-sky id="panorama" src="https://vegeta.openindoor.io/indoor/img/PANO_hall.jpg" rotation="0 -130 0">
+                </a-sky>
+            </a-scene>
+            <!-- crossorigin="Anonymous" -->
+            <!-- <a-scene>
+                <a-assets>
+                    <img id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
+                </a-assets>
+                <a-sky src="#panorama"></a-sky>
+            </a-scene> -->
         </div>
-        <div id="mymap"></div>
-        <!-- <div id="map"></div> -->
+        <div id="map"></div>
+        <div class="horizontal-gutter"></div>
     </div>
+
     <script>
-        var exploreSplit = Split(
-            ['#immersive', '#mymap'], {
-            sizes: [40, 60],
-            direction: 'vertical'
-        });
+        // window.THREE.TextureLoader.prototype.crossOrigin = '';
+
+        Split({
+            rowGutters: [{
+                track: 1,
+                element: document.querySelector('.horizontal-gutter'),
+            }],
+            onDragEnd: function () {
+                map.resize()
+            }
+        })
+
         mapStyle = {
             "version": 8,
             "name": "Blank",
@@ -137,43 +128,33 @@
             'zoom': 20,
             'style': mapStyle
         });
-
-        // {
-        //     "type": "Feature",
-        //     "geometry": {
-        //         "type": "Point",
-        //         "coordinates": [
-        //             2.0814668,
-        //             48.7021638
-        //         ]
-        //     },
-        //     "properties": {
-        //         "image": "https://vegeta.openindoor.io/indoor/img/PANO_pass.jpg"
-        //     }
-        // },
         map.on('sourcedata', function () {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-                console.log('sourceId:', sourceId);
+                // console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
-                console.log('peupliers features loaded:', features);
-                for (feature of features) {
+                // console.log('features loaded:', features);
+                for (const feature of features) {
                     if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
+                        console.log('feature loaded:', feature);
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
                         url_ = feature.properties.image;
-                        new maplibregl.Marker()
+                        const myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
-                            .setPopup(new maplibregl.Popup({ offset: 25 }) // add popups
-                                .setHTML('<a href="' + url_ + '">' + url_ + '</a>'))
-                            .addTo(map);
+                            .addTo(map)
+                            .getElement().addEventListener('click', () => {
+                                console.log('load:', url_)
+                                // document.getElementById('panorama').src = url_;
+                                // a_sky.components.material.material.map.needsUpdate = true
+                                document.querySelector('#panorama').setAttribute('src', feature.properties.image)
+                            });
                     }
                 }
             }
         });
 
     </script>
-
 </body>
 
 </html>
