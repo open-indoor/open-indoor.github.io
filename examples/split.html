@@ -134,7 +134,7 @@
                 // console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
                 // console.log('features loaded:', features);
-                for (feature of features) {
+                for (const feature of features) {
                     if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
                         console.log('feature loaded:', feature);
                         lon = feature.geometry.coordinates[0];
@@ -147,7 +147,7 @@
                                 console.log('load:', url_)
                                 // document.getElementById('panorama').src = url_;
                                 // a_sky.components.material.material.map.needsUpdate = true
-                                document.querySelector('#panorama').setAttribute('src', url_)
+                                document.querySelector('#panorama').setAttribute('src', feature.properties.image)
                             });
                     }
                 }
