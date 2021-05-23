@@ -41,9 +41,16 @@
 <body>
     <div class="grid">
         <div>
-            <a-scene embedded>
+            <!-- <a-scene embedded>
                 <a-sky id="panorama" src="https://vegeta.openindoor.io/indoor/img/PANO_hall.jpg" rotation="0 -130 0">
                 </a-sky>
+            </a-scene> -->
+            <!-- crossorigin="Anonymous" -->
+            <a-scene>
+                <a-assets>
+                    <img id="panorama" src="https://vegeta.openindoor.io/indoor/img/PANO_hall.jpg" crossorigin="Anonymous">
+                </a-assets>
+                <a-sky src="#sky"></a-sky>
             </a-scene>
         </div>
         <div id="map"></div>
