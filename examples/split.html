@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Splitter</title>
     <base href="https://open-indoor.github.io/">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
@@ -21,37 +22,28 @@
 
         .grid {
             display: grid;
-            /* grid-template-columns: 1fr 10px 1fr; */
             grid-template-rows: 1fr 10px 1fr;
         }
 
-        /* .vertical-gutter {
-            grid-area: 1 / 2 / 4 / 2;
-            background: rgba(0, 0, 0, 0.2);
-        } */
-
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
-            /* / 3 / 4; */
             background: rgba(0, 0, 0, 0.4);
         }
 
         #map {
             background-color: #555;
-            /* position: absolute; */
-            /* top: 0;
-            bottom: 0; */
             height: 100%;
             width: 100%;
         }
     </style>
-
 </head>
 
 <body>
     <div class="grid">
         <div>
-            <iframe src="" id="iframe_immersive" frameborder="0" style="width:100%;height:100%;"></iframe>
+            <a-scene>
+                <a-sky id="panorama" src="https://vegeta.openindoor.io/indoor/img/PANO_hall.jpg" rotation="0 -130 0"></a-sky>
+            </a-scene>
         </div>
         <div id="map"></div>
         <div class="horizontal-gutter"></div>
@@ -141,7 +133,7 @@
                             .setLngLat([lon, lat])
                             .addTo(map);
                         myMarker.getElement().addEventListener('click', () => {
-                            document.getElementById('iframe_immersive').src = url_;
+                            document.getElementById('panorama').src = url_;
                         });
                     }
                 }
