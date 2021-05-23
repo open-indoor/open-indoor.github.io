@@ -122,9 +122,9 @@
         map.on('sourcedata', function () {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-                console.log('sourceId:', sourceId);
+                // console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId);
-                console.log('peupliers features loaded:', features);
+                // console.log('peupliers features loaded:', features);
                 for (feature of features) {
                     if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
                         lon = feature.geometry.coordinates[0];
@@ -134,7 +134,12 @@
                             .setLngLat([lon, lat])
                             .addTo(map);
                         myMarker.getElement().addEventListener('click', () => {
-                            document.getElementById('panorama').src = url_;
+                            console.log('load:', url_)
+                            // document.getElementById('panorama').src = url_;
+                            // a_sky.components.material.material.map.needsUpdate = true
+                            document.querySelector('#panorama').setAttribute('src', url_)
+
+
                         });
                     }
                 }
