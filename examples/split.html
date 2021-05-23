@@ -8,40 +8,70 @@
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
     <style>
         html {
-            font-family: 'Roboto Mono', monospace;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            border: none
-        }
 
-        body {
-            font-size: 16px;
-            color: #bbb;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-            background-color: #222;
-        }
+            html,
+            body,
+            .grid {
+                height: 100%;
+                padding: 0;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 10px 1fr;
+                grid-template-rows: 1fr 10px 1fr;
+
+            }
+
+            .vertical-gutter {
+                grid-area: 1 / 2 / 4 / 2;
+                border: solid 1px red;
+
+
+            }
+
+            .horizontal-gutter {
+                grid-area: 2 / 1 / 2 / 4;
+                border: solid 1px red;
+
+
+            }
     </style>
 
 </head>
 
 <body>
+    <div class="grid">
+        <div>
+            HTML
+        </div>
+        <div>
+            CSS
+        </div>
+        <div>
+            JS
+        </div>
+        <div>
+            Result
+        </div>
+        <div class="horizontal-gutter">
+        </div>
+        <div class="vertical-gutter">
+        </div>
+    </div>
+
     <script>
         Split({
             columnGutters: [{
                 track: 1,
-                element: document.querySelector('.column-1'),
-            }, {
-                track: 3,
-                element: document.querySelector('.column-3'),
+                element: document.querySelector('.vertical-gutter'),
             }],
             rowGutters: [{
                 track: 1,
-                element: document.querySelector('.row-1'),
+                element: document.querySelector('.horizontal-gutter'),
             }]
         })
+
     </script>
 </body>
 
