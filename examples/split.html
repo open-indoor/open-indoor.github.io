@@ -61,7 +61,10 @@
             rowGutters: [{
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
-            }]
+            }],
+            onDragEnd: function(){
+                map.resize()
+            }
         })
 
         mapStyle = {
