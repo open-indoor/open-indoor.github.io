@@ -128,6 +128,9 @@
             'zoom': 21,
             'style': mapStyle
         });
+        map.on('click', 'state-fills', function (e) {
+            console.log('e.features:', e.features)
+        });
         map.on('sourcedata', function () {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
@@ -144,15 +147,15 @@
                             .setLngLat([lon, lat])
                             .addTo(map)
                             .getElement().addEventListener('click', (listener) => {
-                                console.log('listener:', listener);
-                                console.log('this:', this);
-                                console.log('this.id:', this.id);
-                                console.log('load:', feature.properties.image);
+                                // console.log('listener:', listener);
+                                // console.log('this:', this);
+                                // console.log('this.id:', this.id);
+                                // console.log('load:', feature.properties.image);
                                 // document.getElementById('panorama').src = url_;
                                 // a_sky.components.material.material.map.needsUpdate = true
                                 document.querySelector('#panorama').setAttribute('src', feature.properties.image);
                             });
-                            console.log('myMarker:', myMarker)
+                        console.log('myMarker:', myMarker)
                     }
                 }
             }
