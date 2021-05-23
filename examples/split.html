@@ -140,17 +140,15 @@
                         lon = feature.geometry.coordinates[0];
                         lat = feature.geometry.coordinates[1];
                         url_ = feature.properties.image;
-                        myMarker = new maplibregl.Marker()
+                        const myMarker = new maplibregl.Marker()
                             .setLngLat([lon, lat])
-                            .addTo(map);
-                        myMarker.getElement().addEventListener('click', () => {
-                            console.log('load:', url_)
-                            // document.getElementById('panorama').src = url_;
-                            // a_sky.components.material.material.map.needsUpdate = true
-                            document.querySelector('#panorama').setAttribute('src', url_)
-
-
-                        });
+                            .addTo(map)
+                            .getElement().addEventListener('click', () => {
+                                console.log('load:', url_)
+                                // document.getElementById('panorama').src = url_;
+                                // a_sky.components.material.material.map.needsUpdate = true
+                                document.querySelector('#panorama').setAttribute('src', url_)
+                            });
                     }
                 }
             }
