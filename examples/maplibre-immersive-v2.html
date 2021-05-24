@@ -63,7 +63,7 @@
         <div>
             <!-- <iframe style="width:100%;height:100%;" allowfullscreen="yes" and allowvr="yes"> -->
             <a-scene class="aframebox" embedded>
-                <a-entity camera look-controls rotation-reader position="0 1.6 0"></a-entity>
+                <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0"></a-entity>
                 <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0">
                 </a-sky>
             </a-scene>
@@ -358,12 +358,16 @@
             // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
             // // console.log('A rotate event occurred.');
         });
-        document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
-            if (evt.name !== 'rotation') { return; }
-            // else {
+        // document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
+        //     if (evt.name !== 'rotation') { return; }
+        //     // else {
+        //     console.log("evt:", evt)
+        //     // }
+        //     //   if (evt.newData.y < 180) { // ... }
+        // });
+
+        document.querySelector('#camera').addEventListener('componentchanged', function (evt) {
             console.log("evt:", evt)
-            // }
-            //   if (evt.newData.y < 180) { // ... }
         });
     </script>
 </body>
