@@ -74,7 +74,7 @@
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
             }],
-            onDragEnd: function () {
+            onDrag: function () {
                 map.resize();
                 window.dispatchEvent(new Event('resize'));
 
