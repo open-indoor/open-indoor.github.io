@@ -66,7 +66,11 @@
                 element: document.querySelector('.horizontal-gutter'),
             }],
             onDragEnd: function () {
-                map.resize()
+                map.resize();
+                
+                let aScene = document.querySelector('#panorama');
+                aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
+                aScene.camera.updateProjectionMatrix();
             }
         })
 
@@ -152,39 +156,6 @@
         map.addControl(new maplibregl.NavigationControl());
         map.addControl(new maplibregl.FullscreenControl());
 
-        // map.on('click', 'state-fills', function (e) {
-        //     console.log('e.features:', e.features)
-        // });
-        // map.on('sourcedata', function () {
-        //     let sourceId = "peupliers"
-        //     if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-        //         // console.log('sourceId:', sourceId);
-        //         const features = map.querySourceFeatures(sourceId);
-        //         // console.log('features loaded:', features);
-        //         for (const feature of features) {
-        //             if ((feature.geometry.type === "Point") && ('image' in feature.properties)) {
-        //                 console.log('feature loaded:', feature);
-        //                 lon = feature.geometry.coordinates[0];
-        //                 lat = feature.geometry.coordinates[1];
-        //                 // url_ = feature.properties.image;
-        //                 const myMarker = new maplibregl.Marker()
-        //                     .setLngLat([lon, lat])
-        //                     .addTo(map)
-        //                     .getElement().addEventListener('click', (listener) => {
-        //                         console.log('feature:', feature)
-        //                         // console.log('listener:', listener);
-        //                         // console.log('this:', this);
-        //                         // console.log('this.id:', this.id);
-        //                         // console.log('load:', feature.properties.image);
-        //                         // document.getElementById('panorama').src = url_;
-        //                         // a_sky.components.material.material.map.needsUpdate = true
-        //                         document.querySelector('#panorama').setAttribute('src', feature.properties.image);
-        //                     });
-        //                 console.log('myMarker:', myMarker)
-        //             }
-        //         }
-        //     }
-        // });
         // map.on('click', 'layer-name', e => {
         //     map.setLayoutProperty('layer-name', 'icon-image',
         //         [
