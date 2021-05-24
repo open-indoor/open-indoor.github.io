@@ -42,9 +42,10 @@
     <div class="grid">
         <div>
             <a-scene embedded>
-                <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0">
+                <a-sky id="panorama" style="height: 0; padding-bottom: 60%;" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0">
                 </a-sky>
             </a-scene>
+
             <!-- crossorigin="Anonymous" -->
             <!-- <a-scene>
                 <a-assets>
@@ -67,10 +68,10 @@
             }],
             onDragEnd: function () {
                 map.resize();
-                
-                let aScene = document.querySelector('#panorama');
-                aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
-                aScene.camera.updateProjectionMatrix();
+
+                // let aScene = document.querySelector('#panorama');
+                // aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
+                // aScene.camera.updateProjectionMatrix();
             }
         })
 
