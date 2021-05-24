@@ -28,7 +28,7 @@
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background: rgba(0, 0, 0, 0.4);
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
             cursor: row-resize;
         }
 
@@ -213,7 +213,7 @@
         });
 
         map.addControl(new maplibregl.GeolocateControl());
-        map.addControl(new maplibregl.NavigationControl({'showCompass': false}));
+        map.addControl(new maplibregl.NavigationControl({ 'showCompass': false }));
         map.addControl(new maplibregl.FullscreenControl());
         map.dragRotate.disable();
 
