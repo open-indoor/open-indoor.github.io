@@ -279,7 +279,14 @@
         });
         map.on('click', 'markers', e => {
             console.log("e.features:", e.features);
-            document.querySelector('#panorama').setAttribute('src', e.features[0].properties.image);
+            panorama = document.querySelector('#panorama');
+            panorama.setAttribute('src', e.features[0].properties.image);
+            panorama.addEventListener('load', e => {
+                console.log('load:', e)
+                // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
+                //     img.classList.add('show');
+                // }
+            });
             map.setLayoutProperty(
                 'markers',
                 'icon-image',
