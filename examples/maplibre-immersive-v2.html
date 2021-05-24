@@ -116,16 +116,7 @@
                         "line-width": 1,
                         "line-color": "#000000"
                     }
-                }, {
-                    "id": "markers",
-                    "interactive": true,
-                    "type": "symbol",
-                    "source": "peupliers",
-                    "layout": {
-                        "icon-image": "marker",
-                        'icon-size': 0.25
-                    }
-                },
+                }
                 //  {
                 //     'id': 'points',
                 //     'type': 'symbol',
@@ -224,11 +215,12 @@
 
                     // Add a layer to use the image to represent the data.
                     map.addLayer({
-                        'id': 'points',
-                        'type': 'symbol',
-                        'source': 'point', // reference the data source
-                        'layout': {
-                            'icon-image': 'cat', // reference the image
+                        "id": "markers",
+                        "interactive": true,
+                        "type": "symbol",
+                        "source": "peupliers",
+                        "layout": {
+                            "icon-image": "marker",
                             'icon-size': 0.25
                         }
                     });
