@@ -58,6 +58,43 @@
                 console.log(this.el.object3D.position);
             }
         });
+    </script>
+    <div class="grid">
+        <div>
+            <!-- <iframe style="width:100%;height:100%;" allowfullscreen="yes" and allowvr="yes"> -->
+            <a-scene class="aframebox" embedded>
+                <a-entity camera look-controls rotation-reader position="0 1.6 0"></a-entity>
+                <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0">
+                </a-sky>
+            </a-scene>
+            <!-- </iframe> -->
+
+            <!-- crossorigin="Anonymous" -->
+            <!-- <a-scene>
+                <a-assets>
+                    <img id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
+                </a-assets>
+                <a-sky src="#panorama"></a-sky>
+            </a-scene> -->
+        </div>
+        <div id="map"></div>
+        <div class="horizontal-gutter"></div>
+    </div>
+
+    <script>
+        // window.THREE.TextureLoader.prototype.crossOrigin = '';
+        AFRAME.registerComponent('rotation-reader', {
+            tick: function () {
+                // `this.el` is the element.
+                // `object3D` is the three.js object.
+
+                // `rotation` is a three.js Euler using radians. `quaternion` also available.
+                console.log(this.el.object3D.rotation);
+
+                // `position` is a three.js Vector3.
+                console.log(this.el.object3D.position);
+            }
+        });
         Split({
             rowGutters: [{
                 track: 1,
@@ -322,29 +359,6 @@
             // // console.log('A rotate event occurred.');
         });
     </script>
-
-    <div class="grid">
-        <div>
-            <!-- <iframe style="width:100%;height:100%;" allowfullscreen="yes" and allowvr="yes"> -->
-            <a-scene class="aframebox" embedded>
-                <a-entity camera look-controls rotation-reader position="0 1.6 0"></a-entity>
-                <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0">
-                </a-sky>
-            </a-scene>
-            <!-- </iframe> -->
-
-            <!-- crossorigin="Anonymous" -->
-            <!-- <a-scene>
-            <a-assets>
-                <img id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
-            </a-assets>
-            <a-sky src="#panorama"></a-sky>
-        </a-scene> -->
-        </div>
-        <div id="map"></div>
-        <div class="horizontal-gutter"></div>
-    </div>
-
 </body>
 
 </html>
