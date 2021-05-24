@@ -284,8 +284,8 @@
                 'icon-image',
                 [
                     'match',
-                    ['id'],
-                    e.features[0].id,
+                    ['get', 'image'],
+                    e.features[0].properties.image,
                     'marker_black',
                     'marker_red'
                 ]
