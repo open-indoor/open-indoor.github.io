@@ -149,6 +149,9 @@
             'zoom': 21,
             'style': mapStyle
         });
+        map.addControl(new maplibregl.NavigationControl());
+        map.addControl(new maplibregl.FullscreenControl());
+
         // map.on('click', 'state-fills', function (e) {
         //     console.log('e.features:', e.features)
         // });
