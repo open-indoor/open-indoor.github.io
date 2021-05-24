@@ -61,9 +61,9 @@
                 const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
                 if (this.lastValue !== stringCoords) {
                     console.log(this.el.object3D.rotation);
+                    map.setBearing(this.el.object3D.rotation.y * 360 / Math.PI);
                     this.lastValue = stringCoords;
                 }
-                map.setBearing(this.el.object3D.rotation.y * 360 / Math.PI);
 
             }
         });
