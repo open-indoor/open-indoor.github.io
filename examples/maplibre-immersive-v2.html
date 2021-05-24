@@ -116,7 +116,19 @@
                         "line-width": 1,
                         "line-color": "#000000"
                     }
+                },
+                {
+                    'id': 'peupliersLayer',
+                    'type': "fill-extrusion",
+                    'source': 'peupliers',
+                    'layout': {},
+                    "paint": {
+                        "fill-extrusion-height": 3,
+                        "fill-extrusion-color": "#000000",
+                        "fill-extrusion-opacity": 0.5
+                    }
                 }
+
                 //  {
                 //     'id': 'points',
                 //     'type': 'symbol',
@@ -282,13 +294,13 @@
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', e.features[0].properties.image);
             console.log('loading...')
-            panorama.addEventListener('load', e => {
-                console.log('loaded!')
-                console.log('load:', e)
-                // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
-                //     img.classList.add('show');
-                // }
-            });
+            // panorama.addEventListener('load', e => {
+            //     console.log('loaded!')
+            //     console.log('load:', e)
+            //     // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
+            //     //     img.classList.add('show');
+            //     // }
+            // });
             map.setLayoutProperty(
                 'markers',
                 'icon-image',
