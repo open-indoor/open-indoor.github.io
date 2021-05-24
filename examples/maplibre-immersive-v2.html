@@ -46,18 +46,25 @@
 <body>
     <script>
         // window.THREE.TextureLoader.prototype.crossOrigin = '';
-        // AFRAME.registerComponent('rotation-reader', {
-        //     tick: function () {
-        //         // `this.el` is the element.
-        //         // `object3D` is the three.js object.
+        AFRAME.registerComponent('rotation-reader', {
+            tick: function () {
 
-        //         // `rotation` is a three.js Euler using radians. `quaternion` also available.
-        //         console.log(this.el.object3D.rotation);
+                // // `this.el` is the element.
+                // // `object3D` is the three.js object.
 
-        //         // `position` is a three.js Vector3.
-        //         console.log(this.el.object3D.position);
-        //     }
-        // });
+                // // `rotation` is a three.js Euler using radians. `quaternion` also available.
+                // console.log(this.el.object3D.rotation);
+
+                // // `position` is a three.js Vector3.
+                // console.log(this.el.object3D.position);
+                const newValue = this.el.getAttribute('rotation');
+                const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
+                if (this.lastValue !== stringCoords) {
+                    console.log(this.el.object3D.rotation);
+                    this.lastValue = stringCoords;
+                }
+            }
+        });
     </script>
     <div class="grid">
         <div>
@@ -366,9 +373,9 @@
         //     //   if (evt.newData.y < 180) { // ... }
         // });
 
-        document.querySelector('#camera').addEventListener('componentchanged', function (evt) {
-            console.log("evt:", evt)
-        });
+        // document.querySelector('#camera').addEventListener('componentchanged', function (evt) {
+        //     console.log("evt:", evt)
+        // });
     </script>
 </body>
 
