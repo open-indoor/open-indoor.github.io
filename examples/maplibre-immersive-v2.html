@@ -317,6 +317,10 @@
             //     ]
             // )
         })
+        map.on('rotate', function () {
+            console.log("map.getBearing():", map.getBearing())
+            // console.log('A rotate event occurred.');
+        });
     </script>
 </body>
 
