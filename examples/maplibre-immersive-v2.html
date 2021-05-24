@@ -343,21 +343,21 @@
             //     ]
             // )
         })
-        // map.on('rotate', function () {
-        //     // console.log("map.getBearing():", map.getBearing())
-        //     panorama.setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-        //     // // With three.js
-        //     // el.object3D.rotation.set(
-        //     //     THREE.Math.degToRad(15),
-        //     //     THREE.Math.degToRad(30),
-        //     //     THREE.Math.degToRad(90)
-        //     // );
-        //     // el.object3D.rotation.x += Math.PI;
+        map.on('rotate', function () {
+            // console.log("map.getBearing():", map.getBearing())
+            panorama.setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
+            // // With three.js
+            // el.object3D.rotation.set(
+            //     THREE.Math.degToRad(15),
+            //     THREE.Math.degToRad(30),
+            //     THREE.Math.degToRad(90)
+            // );
+            // el.object3D.rotation.x += Math.PI;
 
-        //     // // With .setAttribute (less recommended).
-        //     // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
-        //     // // console.log('A rotate event occurred.');
-        // });
+            // // With .setAttribute (less recommended).
+            // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
+            // // console.log('A rotate event occurred.');
+        });
         document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
             if (evt.name !== 'rotation') { return; }
             else {
