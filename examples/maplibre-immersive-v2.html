@@ -360,7 +360,9 @@
         // });
         document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
             if (evt.name !== 'rotation') { return; }
-            console.log("evt:", evt)
+            else {
+                console.log("evt:", evt)
+            }
             //   if (evt.newData.y < 180) { // ... }
         });
     </script>
