@@ -111,7 +111,7 @@
             }],
             onDrag: function () {
                 map.resize();
-                // window.dispatchEvent(new Event('resize'));
+                window.dispatchEvent(new Event('resize'));
 
                 // let aScene = document.querySelector('#panorama');
                 // aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
@@ -353,7 +353,7 @@
             // )
         })
         map.on('rotate', function () {
-            // console.log("map.getBearing():", map.getBearing())
+            console.log("map.getBearing():", map.getBearing())
             // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
             document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
             
