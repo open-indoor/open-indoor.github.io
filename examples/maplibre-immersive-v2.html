@@ -282,11 +282,13 @@
             map.setLayoutProperty(
                 'markers',
                 'icon-image',
-                ['match',
-                ['id'],
-                e.features[0].id,
-                'marker_black',
-                'marker_red']
+                [
+                    'match',
+                    ['id'],
+                    e.features[0].id,
+                    'marker_black',
+                    'marker_red'
+                ]
             )
             // map.setLayoutProperty('layer-name', 'icon-image',
             //     [
