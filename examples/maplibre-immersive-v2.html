@@ -61,7 +61,7 @@
                 const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
                 if (this.lastValue !== stringCoords) {
                     console.log(this.el.object3D.rotation);
-                    map.setBearing(-this.el.object3D.rotation.y * 180 / Math.PI);
+                    map.setBearing(this.el.object3D.rotation.y * 180 / Math.PI);
                     this.lastValue = stringCoords;
                 }
 
@@ -80,8 +80,8 @@
                 <!-- </a-camera> -->
                 <!-- <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0" rotation="0 0 0">
                 </a-entity> -->
-                <a-entity id="rig" position="25 10 0" rotation-reader>
-                    <a-entity id="camera" camera look-controls></a-entity>
+                <a-entity id="rig" position="25 10 0">
+                    <a-entity id="camera" camera look-controls rotation-reader></a-entity>
                 </a-entity>
                 <!-- <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0"> -->
                 <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg">
