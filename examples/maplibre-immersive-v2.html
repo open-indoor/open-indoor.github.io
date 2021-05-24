@@ -189,12 +189,12 @@
         map.on('load', function () {
             // Load an image from an external URL.
             map.loadImage(
-                'https://open-indoor.github.io/img/mapbox-marker-icon-20px-blue.png',
+                'https://open-indoor.github.io/img/marker_black.png',
                 function (error, image) {
                     if (error) throw error;
 
                     // Add the image to the map style.
-                    map.addImage('marker', image);
+                    map.addImage('marker_black', image);
 
                     // Add a data source containing one point feature.
                     // map.addSource('point', {
@@ -220,12 +220,23 @@
                         "type": "symbol",
                         "source": "peupliers",
                         "layout": {
-                            "icon-image": "marker"
+                            "icon-image": "marker_blackx"
                         }
                     });
                 }
             );
         });
+        map.on('click', 'markers', e => {
+            console.log("e.features:", e.features);
+            // map.setLayoutProperty('layer-name', 'icon-image',
+            //     [
+            //         'match',
+            //         ['id'], // get the feature id (make sure your data has an id set or use generateIds for GeoJSON sources
+            //         e.features[0].id, 'image-selected', //image when id is the clicked feature id
+            //         'image-default' // default
+            //     ]
+            // )
+        })
     </script>
 </body>
 
