@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Splitter</title>
+    <title>Indoor Immersive</title>
     <base href="https://open-indoor.github.io/">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
@@ -220,6 +220,11 @@
                             [
                                 "has",
                                 "image"
+                            ],
+                            [
+                                "==",
+                                ["geometry-type"],
+                                "Point"
                             ]
                         ],
                         "layout": {
@@ -274,10 +279,13 @@
             );
         });
         map.on('click', 'markers', e => {
-            console.log("e.features:", e.features);
+            // console.log("e.features:", e.features);
+            const feature = e.features[0];
+            const lon = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
-            panorama.setAttribute('src', e.features[0].properties.image);
-            console.log('loading...')
+            panorama.setAttribute('src', feature.properties.image);
+            // console.log('loading...')
             // panorama.addEventListener('load', e => {
             //     console.log('loaded!')
             //     console.log('load:', e)
@@ -291,11 +299,15 @@
                 [
                     'match',
                     ['get', 'image'],
-                    e.features[0].properties.image,
+                    feature.properties.image,
                     'marker_red',
                     'marker_black'
                 ]
             )
+            map.flyTo({
+                center: [lon, lat],
+                essential: true
+            });
             // map.setLayoutProperty('layer-name', 'icon-image',
             //     [
             //         'match',
