@@ -279,6 +279,7 @@
         });
         map.on('click', 'markers', e => {
             console.log("e.features:", e.features);
+            document.querySelector('#panorama').setAttribute('src', e.features[0].properties.image);
             map.setLayoutProperty(
                 'markers',
                 'icon-image',
