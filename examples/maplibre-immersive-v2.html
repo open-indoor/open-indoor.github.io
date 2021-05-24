@@ -76,6 +76,7 @@
             }],
             onDragEnd: function () {
                 map.resize();
+                window.dispatchEvent(new Event('resize'));
 
                 // let aScene = document.querySelector('#panorama');
                 // aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
