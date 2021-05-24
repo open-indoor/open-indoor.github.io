@@ -232,9 +232,62 @@
                     });
                 }
             );
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_red.png',
+                function (error, image) {
+                    if (error) throw error;
+
+                    // Add the image to the map style.
+                    map.addImage('marker_red', image);
+
+                    // Add a data source containing one point feature.
+                    // map.addSource('point', {
+                    //     'type': 'geojson',
+                    //     'data': {
+                    //         'type': 'FeatureCollection',
+                    //         'features': [
+                    //             {
+                    //                 'type': 'Feature',
+                    //                 'geometry': {
+                    //                     'type': 'Point',
+                    //                     'coordinates': [-77.4144, 25.0759]
+                    //                 }
+                    //             }
+                    //         ]
+                    //     }
+                    // });
+
+                    // Add a layer to use the image to represent the data.
+                    // map.addLayer({
+                    //     "id": "markers",
+                    //     "interactive": true,
+                    //     "type": "symbol",
+                    //     "source": "peupliers",
+                    //     "filter": [
+                    //         "all",
+                    //         [
+                    //             "has",
+                    //             "image"
+                    //         ]
+                    //     ],
+                    //     "layout": {
+                    //         "icon-image": "marker_black"
+                    //     }
+                    // });
+                }
+            );
         });
         map.on('click', 'markers', e => {
             console.log("e.features:", e.features);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image',
+                ['match',
+                ['id'],
+                e.features[0].id,
+                'marker_black',
+                'marker_red']
+            )
             // map.setLayoutProperty('layer-name', 'icon-image',
             //     [
             //         'match',
