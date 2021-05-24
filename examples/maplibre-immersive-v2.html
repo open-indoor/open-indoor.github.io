@@ -86,6 +86,10 @@
                     "tileSize": 256,
                     "minzoom": 0,
                     "maxzoom": 19
+                },
+                'peupliers': {
+                    'type': 'geojson',
+                    'data': 'https://open-indoor.github.io/data/peupliers.geojson'
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
@@ -193,10 +197,21 @@
                     map.addImage('marker', image);
 
                     // Add a data source containing one point feature.
-                    map.addSource('peupliers', {
-                        'type': 'geojson',
-                        'data': 'https://open-indoor.github.io/data/peupliers.geojson'
-                    });
+                    // map.addSource('point', {
+                    //     'type': 'geojson',
+                    //     'data': {
+                    //         'type': 'FeatureCollection',
+                    //         'features': [
+                    //             {
+                    //                 'type': 'Feature',
+                    //                 'geometry': {
+                    //                     'type': 'Point',
+                    //                     'coordinates': [-77.4144, 25.0759]
+                    //                 }
+                    //             }
+                    //         ]
+                    //     }
+                    // });
 
                     // Add a layer to use the image to represent the data.
                     map.addLayer({
