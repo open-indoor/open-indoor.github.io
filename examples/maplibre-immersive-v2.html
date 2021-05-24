@@ -76,9 +76,10 @@
                     <a-camera></a-camera>
                 </a-entity> -->
                 <!-- <a-camera id="camera" position="0 2 8" rotate wasd-controls-enabled="false" look> -->
-                    <!-- <a-cursor id="cursor" color="black"></a-cursor> -->
+                <!-- <a-cursor id="cursor" color="black"></a-cursor> -->
                 <!-- </a-camera> -->
-                <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0" rotation="0 0 0"></a-entity>
+                <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0" rotation="0 0 0">
+                </a-entity>
                 <!-- <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0"> -->
                 <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg">
                 </a-sky>
@@ -363,7 +364,14 @@
             console.log("map.getBearing():", map.getBearing());
             // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
             // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-            console.log('document.querySelector(#camera):', document.querySelector('#camera'));
+            // console.log('document.querySelector(#camera):', document.querySelector('#camera'));
+            camera = document.querySelector('#camera');
+            camera.object3D.rotation.set(
+                THREE.Math.degToRad(0),
+                THREE.Math.degToRad(map.getBearing()),
+                THREE.Math.degToRad(0)
+            );
+            camera.object3D.rotation.x += Math.PI;
 
             // // With three.js
             // el.object3D.rotation.set(
