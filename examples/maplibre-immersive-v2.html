@@ -318,7 +318,8 @@
             // )
         })
         map.on('rotate', function () {
-            console.log("map.getBearing():", map.getBearing())
+            // console.log("map.getBearing():", map.getBearing())
+            panorama.setAttribute('rotation', {x: 0, y: map.getBearing(), z: 0});
             // console.log('A rotate event occurred.');
         });
     </script>
