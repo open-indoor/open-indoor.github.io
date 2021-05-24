@@ -72,6 +72,9 @@
         <div>
             <!-- <iframe style="width:100%;height:100%;" allowfullscreen="yes" and allowvr="yes"> -->
             <a-scene class="aframebox" embedded>
+                <!-- <a-entity id='cameraWrapper' position="0 0 0">
+                    <a-camera></a-camera>
+                </a-entity> -->
                 <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0"></a-entity>
                 <!-- <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0"> -->
                 <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg">
@@ -354,9 +357,10 @@
             // )
         })
         map.on('rotate', function () {
-            console.log("map.getBearing():", map.getBearing())
+            console.log("map.getBearing():", map.getBearing());
             // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
             // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
+            console.log('document.querySelector(#camera):', document.querySelector('#camera'));
 
             // // With three.js
             // el.object3D.rotation.set(
