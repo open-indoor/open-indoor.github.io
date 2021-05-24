@@ -281,7 +281,9 @@
             console.log("e.features:", e.features);
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', e.features[0].properties.image);
+            console.log('loading...')
             panorama.addEventListener('load', e => {
+                console.log('loaded!')
                 console.log('load:', e)
                 // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
                 //     img.classList.add('show');
