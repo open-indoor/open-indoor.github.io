@@ -128,7 +128,7 @@
         //     }
         // });
 
-        function centerOn(feature) {
+        function centerOn(map, feature) {
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
@@ -317,7 +317,7 @@
         //     myLayer.setGeoJSON(geoJson);
         // });
         map.on('load', function () {
-            centerOn({
+            centerOn(map, {
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
