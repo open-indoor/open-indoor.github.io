@@ -11,7 +11,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_room_01.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_room_01.jpeg"
             }
         },
         {
@@ -24,7 +24,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_hall.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_hall.jpeg"
             }
         },
         {
@@ -37,7 +37,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_living-room.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_livingroom.jpeg"
             }
         },
         {
@@ -50,7 +50,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_pass.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_pass.jpeg"
             }
         },
         {
@@ -63,7 +63,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_lunch.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_diningroom.jpeg"
             }
         },
         {
@@ -76,7 +76,7 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/PANO_kitchen.jpg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_kitchen.jpeg"
             }
         },
         {
