@@ -102,15 +102,15 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            map.setLayoutProperty(
-                'markers',
-                'icon-image', [
-                    'match', ['get', 'image'],
-                    feature.properties.image,
-                    'marker_red',
-                    'marker_black'
-                ]
-            )
+            // map.setLayoutProperty(
+            //     'markers',
+            //     'icon-image', [
+            //         'match', ['get', 'image'],
+            //         feature.properties.image,
+            //         'marker_red',
+            //         'marker_black'
+            //     ]
+            // );
             map.flyTo({
                 center: [lon, lat],
                 essential: true
@@ -253,6 +253,15 @@
         map.on('click', 'markers', e => {
             const feature = e.features[0];
             centerOn(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
             // const lon = feature.geometry.coordinates[0];
             // const lat = feature.geometry.coordinates[1];
             // panorama = document.querySelector('#panorama');
