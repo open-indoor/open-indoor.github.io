@@ -317,6 +317,20 @@
         //     myLayer.setGeoJSON(geoJson);
         // });
         map.on('load', function () {
+            centerOn({
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        2.0814223,
+                        48.7021734
+                    ]
+                },
+                "properties": {
+                    "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_hall.jpeg"
+                }
+            })
+
             // Load an image from an external URL.
             map.loadImage(
                 'https://open-indoor.github.io/img/marker_black.png',
