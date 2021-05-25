@@ -31,7 +31,7 @@
             background-repeat: no-repeat;
             background-position: 50%;
         }
-        
+
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
@@ -114,6 +114,9 @@
     </div>
 
     <script>
+        function centerOn(feature) {
+            console.log("coucou")
+        }
         // // window.THREE.TextureLoader.prototype.crossOrigin = '';
         // AFRAME.registerComponent('rotation-reader', {
         //     tick: function () {
@@ -339,9 +342,7 @@
                 }
             );
         });
-        function centerOn(feature) {
 
-        }
         map.on('click', 'markers', e => {
             // console.log("e.features:", e.features);
             const feature = e.features[0];
