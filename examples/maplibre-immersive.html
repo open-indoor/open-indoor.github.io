@@ -31,7 +31,7 @@
             background-repeat: no-repeat;
             background-position: 50%;
         }
-        
+
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
@@ -127,6 +127,79 @@
         //         console.log(this.el.object3D.position);
         //     }
         // });
+
+        function centerOn(feature) {
+            const lon = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
+            panorama = document.querySelector('#panorama');
+            panorama.setAttribute('src', feature.properties.image);
+            // console.log('loading...')
+            // panorama.addEventListener('load', e => {
+            //     console.log('loaded!')
+            //     console.log('load:', e)
+            //     // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
+            //     //     img.classList.add('show');
+            //     // }
+            // });
+            map.setLayoutProperty(
+                'markers',
+                'icon-image',
+                [
+                    'match',
+                    ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            )
+            map.flyTo({
+                center: [lon, lat],
+                essential: true
+            });
+            // map.setLayoutProperty('layer-name', 'icon-image',
+            //     [
+            //         'match',
+            //         ['id'], // get the feature id (make sure your data has an id set or use generateIds for GeoJSON sources
+            //         e.features[0].id, 'image-selected', //image when id is the clicked feature id
+            //         'image-default' // default
+            //     ]
+            // )
+        }
+        map.on('click', 'markers', e => {
+            // console.log("e.features:", e.features);
+            const feature = e.features[0];
+            centerOn(feature);
+        })
+        map.on('rotate', function () {
+            console.log("map.getBearing():", map.getBearing());
+            // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
+            // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
+            // console.log('document.querySelector(#camera):', document.querySelector('#camera'));
+            camera = document.querySelector('#rig');
+            // camera.setAttribute('rotation', { x: 0, y: -map.getBearing(), z: 0 });
+
+
+
+            // camera.object3D.rotation.set(
+            //     THREE.Math.degToRad(0),
+            //     THREE.Math.degToRad(map.getBearing()),
+            //     THREE.Math.degToRad(0)
+            // );
+            // camera.object3D.rotation.x += Math.PI;
+
+            // // With three.js
+            // el.object3D.rotation.set(
+            //     THREE.Math.degToRad(15),
+            //     THREE.Math.degToRad(30),
+            //     THREE.Math.degToRad(90)
+            // );
+            // el.object3D.rotation.x += Math.PI;
+
+            // // With .setAttribute (less recommended).
+            // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
+            // // console.log('A rotate event occurred.');
+        });
+
         Split({
             rowGutters: [{
                 track: 1,
@@ -338,74 +411,6 @@
                     // });
                 }
             );
-        });
-        map.on('click', 'markers', e => {
-            // console.log("e.features:", e.features);
-            const feature = e.features[0];
-            const lon = feature.geometry.coordinates[0];
-            const lat = feature.geometry.coordinates[1];
-            panorama = document.querySelector('#panorama');
-            panorama.setAttribute('src', feature.properties.image);
-            // console.log('loading...')
-            // panorama.addEventListener('load', e => {
-            //     console.log('loaded!')
-            //     console.log('load:', e)
-            //     // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
-            //     //     img.classList.add('show');
-            //     // }
-            // });
-            map.setLayoutProperty(
-                'markers',
-                'icon-image',
-                [
-                    'match',
-                    ['get', 'image'],
-                    feature.properties.image,
-                    'marker_red',
-                    'marker_black'
-                ]
-            )
-            map.flyTo({
-                center: [lon, lat],
-                essential: true
-            });
-            // map.setLayoutProperty('layer-name', 'icon-image',
-            //     [
-            //         'match',
-            //         ['id'], // get the feature id (make sure your data has an id set or use generateIds for GeoJSON sources
-            //         e.features[0].id, 'image-selected', //image when id is the clicked feature id
-            //         'image-default' // default
-            //     ]
-            // )
-        })
-        map.on('rotate', function () {
-            console.log("map.getBearing():", map.getBearing());
-            // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-            // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-            // console.log('document.querySelector(#camera):', document.querySelector('#camera'));
-            camera = document.querySelector('#rig');
-            // camera.setAttribute('rotation', { x: 0, y: -map.getBearing(), z: 0 });
-
-
-
-            // camera.object3D.rotation.set(
-            //     THREE.Math.degToRad(0),
-            //     THREE.Math.degToRad(map.getBearing()),
-            //     THREE.Math.degToRad(0)
-            // );
-            // camera.object3D.rotation.x += Math.PI;
-
-            // // With three.js
-            // el.object3D.rotation.set(
-            //     THREE.Math.degToRad(15),
-            //     THREE.Math.degToRad(30),
-            //     THREE.Math.degToRad(90)
-            // );
-            // el.object3D.rotation.x += Math.PI;
-
-            // // With .setAttribute (less recommended).
-            // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
-            // // console.log('A rotate event occurred.');
         });
         // document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
         //     if (evt.name !== 'rotation') { return; }
