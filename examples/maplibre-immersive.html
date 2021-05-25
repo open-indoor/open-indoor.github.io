@@ -230,6 +230,8 @@
         map.addControl(new maplibregl.NavigationControl({ 'showCompass': false }));
         map.addControl(new maplibregl.FullscreenControl());
         map.dragRotate.disable();
+        map.touchZoomRotate.disableRotation();
+
 
         // map.on('click', 'layer-name', e => {
         //     map.setLayoutProperty('layer-name', 'icon-image',
