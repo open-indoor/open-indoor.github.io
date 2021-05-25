@@ -69,25 +69,13 @@
 
 <body>
     <script>
-        // window.THREE.TextureLoader.prototype.crossOrigin = '';
         AFRAME.registerComponent('rotation-reader', {
             tick: function() {
-
-                // // `this.el` is the element.
-                // // `object3D` is the three.js object.
-
-                // // `rotation` is a three.js Euler using radians. `quaternion` also available.
-                // console.log(this.el.object3D.rotation);
-
-                // // `position` is a three.js Vector3.
-                // console.log(this.el.object3D.position);
                 const newValue = this.el.getAttribute('rotation');
                 const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
                 if (this.lastValue !== stringCoords) {
-                    console.log(this.el.object3D.rotation);
                     map.setBearing(-this.el.object3D.rotation.y * 180 / Math.PI);
                     map.setPitch(90 + this.el.object3D.rotation.x * 180 / Math.PI);
-                    // console.log("this.el.object3D.rotation.x * 180 / Math.PI:", this.el.object3D.rotation.x * 180 / Math.PI)
                     this.lastValue = stringCoords;
                 }
 
@@ -96,32 +84,13 @@
     </script>
     <div class="grid">
         <div>
-            <!-- <iframe style="width:100%;height:100%;" allowfullscreen="yes" and allowvr="yes"> -->
             <a-scene class="aframebox" embedded>
-                <!-- <a-entity id='cameraWrapper' position="0 0 0">
-                    <a-camera></a-camera>
-                </a-entity> -->
-                <!-- <a-camera id="camera" position="0 2 8" rotate wasd-controls-enabled="false" look> -->
-                <!-- <a-cursor id="cursor" color="black"></a-cursor> -->
-                <!-- </a-camera> -->
-                <!-- <a-entity id="camera" camera look-controls rotation-reader position="0 1.6 0" rotation="0 0 0">
-                </a-entity> -->
                 <a-entity id="rig" position="25 10 0">
                     <a-entity id="camera" camera touch-look-controls="magicWindowTrackingEnabled: false;" rotation-reader></a-entity>
                 </a-entity>
-                <!-- <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" rotation="0 -130 0"> -->
                 <a-sky id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg">
                 </a-sky>
             </a-scene>
-            <!-- </iframe> -->
-
-            <!-- crossorigin="Anonymous" -->
-            <!-- <a-scene>
-                <a-assets>
-                    <img id="panorama" src="https://open-indoor.github.io/img/PANO_hall.jpg" crossorigin="anonymous">
-                </a-assets>
-                <a-sky src="#panorama"></a-sky>
-            </a-scene> -->
         </div>
         <div id="map"></div>
         <div class="horizontal-gutter"></div>
@@ -131,19 +100,6 @@
         function centerOn(feature) {
             console.log("coucou");
         }
-        // // window.THREE.TextureLoader.prototype.crossOrigin = '';
-        // AFRAME.registerComponent('rotation-reader', {
-        //     tick: function () {
-        //         // `this.el` is the element.
-        //         // `object3D` is the three.js object.
-
-        //         // `rotation` is a three.js Euler using radians. `quaternion` also available.
-        //         console.log(this.el.object3D.rotation);
-
-        //         // `position` is a three.js Vector3.
-        //         console.log(this.el.object3D.position);
-        //     }
-        // });
         Split({
             rowGutters: [{
                 track: 1,
@@ -152,10 +108,6 @@
             onDrag: function() {
                 map.resize();
                 window.dispatchEvent(new Event('resize'));
-
-                // let aScene = document.querySelector('#panorama');
-                // aScene.camera.aspect = aScene.clientWidth / aScene.clientHeight;
-                // aScene.camera.updateProjectionMatrix();
             }
         })
 
@@ -184,46 +136,35 @@
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
             "layers": [{
-                    "id": "background",
-                    "type": "background",
-                    "paint": {
-                        "background-color": "#e0dfdf"
-                    }
-                }, {
-                    "id": "simple-tiles",
-                    "type": "raster",
-                    "source": "raster-tiles"
-                }, {
-                    'id': 'peupliers_lines',
-                    'type': 'line',
-                    'source': 'peupliers',
-                    'layout': {},
-                    "paint": {
-                        "line-width": 1,
-                        "line-color": "#000000"
-                    }
-                }, {
-                    'id': 'peupliers_extrusion',
-                    'type': "fill-extrusion",
-                    'source': 'peupliers',
-                    'layout': {},
-                    "paint": {
-                        "fill-extrusion-height": 3,
-                        "fill-extrusion-color": "#000000",
-                        "fill-extrusion-opacity": 0.5
-                    }
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
                 }
-
-                //  {
-                //     'id': 'points',
-                //     'type': 'symbol',
-                //     'source': 'point', // reference the data source
-                //     'layout': {
-                //         'icon-image': 'cat', // reference the image
-                //         'icon-size': 0.25
-                //     }
-                // }
-            ],
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }, {
+                'id': 'peupliers_lines',
+                'type': 'line',
+                'source': 'peupliers',
+                'layout': {},
+                "paint": {
+                    "line-width": 1,
+                    "line-color": "#000000"
+                }
+            }, {
+                'id': 'peupliers_extrusion',
+                'type': "fill-extrusion",
+                'source': 'peupliers',
+                'layout': {},
+                "paint": {
+                    "fill-extrusion-height": 3,
+                    "fill-extrusion-color": "#000000",
+                    "fill-extrusion-opacity": 0.5
+                }
+            }],
             "id": "blank"
         }
         const map = new maplibregl.Map({
@@ -243,51 +184,12 @@
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
 
-
-        // map.on('click', 'layer-name', e => {
-        //     map.setLayoutProperty('layer-name', 'icon-image',
-        //         [
-        //             'match',
-        //             ['id'], // get the feature id (make sure your data has an id set or use generateIds for GeoJSON sources
-        //             e.features[0].id, 'image-selected', //image when id is the clicked feature id
-        //             'image-default' // default
-        //         ]
-        //     )
-        // })
-        // myLayer.on('click', function (e) {
-        //     resetColors();
-        //     e.layer.feature.properties['old-color'] = e.layer.feature.properties['marker-color'];
-        //     e.layer.feature.properties['marker-color'] = '#ff8888';
-        //     myLayer.setGeoJSON(geoJson);
-        // });
         map.on('load', function() {
-            // Load an image from an external URL.
             map.loadImage(
                 'https://open-indoor.github.io/img/marker_black.png',
                 function(error, image) {
                     if (error) throw error;
-
-                    // Add the image to the map style.
                     map.addImage('marker_black', image);
-
-                    // Add a data source containing one point feature.
-                    // map.addSource('point', {
-                    //     'type': 'geojson',
-                    //     'data': {
-                    //         'type': 'FeatureCollection',
-                    //         'features': [
-                    //             {
-                    //                 'type': 'Feature',
-                    //                 'geometry': {
-                    //                     'type': 'Point',
-                    //                     'coordinates': [-77.4144, 25.0759]
-                    //                 }
-                    //             }
-                    //         ]
-                    //     }
-                    // });
-
-                    // Add a layer to use the image to represent the data.
                     map.addLayer({
                         "id": "markers",
                         "interactive": true,
@@ -313,64 +215,19 @@
                 'https://open-indoor.github.io/img/marker_red.png',
                 function(error, image) {
                     if (error) throw error;
-
-                    // Add the image to the map style.
                     map.addImage('marker_red', image);
 
-                    // Add a data source containing one point feature.
-                    // map.addSource('point', {
-                    //     'type': 'geojson',
-                    //     'data': {
-                    //         'type': 'FeatureCollection',
-                    //         'features': [
-                    //             {
-                    //                 'type': 'Feature',
-                    //                 'geometry': {
-                    //                     'type': 'Point',
-                    //                     'coordinates': [-77.4144, 25.0759]
-                    //                 }
-                    //             }
-                    //         ]
-                    //     }
-                    // });
-
-                    // Add a layer to use the image to represent the data.
-                    // map.addLayer({
-                    //     "id": "markers",
-                    //     "interactive": true,
-                    //     "type": "symbol",
-                    //     "source": "peupliers",
-                    //     "filter": [
-                    //         "all",
-                    //         [
-                    //             "has",
-                    //             "image"
-                    //         ]
-                    //     ],
-                    //     "layout": {
-                    //         "icon-image": "marker_black"
-                    //     }
-                    // });
                 }
             );
         });
 
         map.on('click', 'markers', e => {
-            // console.log("e.features:", e.features);
             const feature = e.features[0];
             centerOn(feature);
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            // console.log('loading...')
-            // panorama.addEventListener('load', e => {
-            //     console.log('loaded!')
-            //     console.log('load:', e)
-            //     // if (img.src !== 'https://picsum.photos/200/300?placeholder') {
-            //     //     img.classList.add('show');
-            //     // }
-            // });
             map.setLayoutProperty(
                 'markers',
                 'icon-image', [
@@ -384,55 +241,10 @@
                 center: [lon, lat],
                 essential: true
             });
-            // map.setLayoutProperty('layer-name', 'icon-image',
-            //     [
-            //         'match',
-            //         ['id'], // get the feature id (make sure your data has an id set or use generateIds for GeoJSON sources
-            //         e.features[0].id, 'image-selected', //image when id is the clicked feature id
-            //         'image-default' // default
-            //     ]
-            // )
         })
         map.on('rotate', function() {
-            // console.log("map.getBearing():", map.getBearing());
-            // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-            // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
-            // console.log('document.querySelector(#camera):', document.querySelector('#camera'));
             camera = document.querySelector('#rig');
-            // camera.setAttribute('rotation', { x: 0, y: -map.getBearing(), z: 0 });
-
-
-
-            // camera.object3D.rotation.set(
-            //     THREE.Math.degToRad(0),
-            //     THREE.Math.degToRad(map.getBearing()),
-            //     THREE.Math.degToRad(0)
-            // );
-            // camera.object3D.rotation.x += Math.PI;
-
-            // // With three.js
-            // el.object3D.rotation.set(
-            //     THREE.Math.degToRad(15),
-            //     THREE.Math.degToRad(30),
-            //     THREE.Math.degToRad(90)
-            // );
-            // el.object3D.rotation.x += Math.PI;
-
-            // // With .setAttribute (less recommended).
-            // el.setAttribute('rotation', { x: 15, y: 30, z: 90 });
-            // // console.log('A rotate event occurred.');
         });
-        // document.querySelector('[camera]').addEventListener('componentchanged', function (evt) {
-        //     if (evt.name !== 'rotation') { return; }
-        //     // else {
-        //     console.log("evt:", evt)
-        //     // }
-        //     //   if (evt.newData.y < 180) { // ... }
-        // });
-
-        // document.querySelector('#camera').addEventListener('componentchanged', function (evt) {
-        //     console.log("evt:", evt)
-        // });
     </script>
 </body>
 
