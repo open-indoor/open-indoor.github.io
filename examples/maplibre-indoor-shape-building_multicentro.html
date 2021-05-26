@@ -108,6 +108,10 @@
         map.addControl(new maplibregl.NavigationControl());
         map.addControl(new maplibregl.FullscreenControl());
 
+        map.on("styleimagemissing", e => {
+            console.log("missing image: " + e.id);
+        });
+
         map.on('load', function() {
 
             map.addSource('indoor', {
