@@ -1,7 +1,6 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
+    "features": [{
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -11,7 +10,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_room_01.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_room_01.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
@@ -24,7 +26,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_hall.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_hall.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
@@ -37,7 +42,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_livingroom.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_livingroom.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
@@ -50,7 +58,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_pass.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_pass.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
@@ -63,7 +74,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_diningroom.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_diningroom.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
@@ -76,7 +90,10 @@
                 ]
             },
             "properties": {
-                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_kitchen.jpeg"
+                "image": "https://open-indoor.github.io/img/peupliers/peupliers_floor_00_kitchen.jpeg",
+                "direction": 0,
+                "indoor": "yes",
+                "tourism": "viewpoint"
             }
         },
         {
