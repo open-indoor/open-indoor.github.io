@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<!-- My indoor mapping (4 level mall) https://openlevelup.net/old/?lat=8.976473&lon=-79.517482&z=20&t=0&lvl=0&tcd=1&urd=0&bdg=0&pic=0&nte=0&ilv=0#20/39.75319/-105.00022 -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Draw GeoJSON points</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                },
+                'Presidence': {
+                    'type': 'geojson',
+                    'data': 'https://open-indoor.github.io/data/multicentro.geojson'
+                }
+            },
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                    "id": "background",
+                    "type": "background",
+                    "paint": {
+                        "background-color": "rgba(255,255,255,1)"
+                    }
+                },
+                // {
+                //     'id': 'Presidence',
+                //     'type': 'fill',
+                //     'source': 'Presidence',
+                //     'layout': {},
+                //     'paint': {
+                //         'fill-color': '#088',
+                //         'fill-opacity': 0.8
+                //     }
+                // },
+                {
+                    "id": "simple-tiles",
+                    "type": "raster",
+                    "source": "raster-tiles",
+                    "minzoom": 0,
+                    "maxzoom": 19,
+                    "raster-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        18,
+                        1,
+                        19,
+                        0
+                    ]
+                }
+            ],
+            "id": "blank"
+        }
+
+
+        // mapboxgl.accessToken = '';
+        let map = new maplibregl.Map({
+            'container': 'map',
+            'center': [-79.519172, 8.975596],
+            'pitch': 60, // pitch in degrees
+            'bearing': -60, // bearing in degrees
+            'zoom': 19,
+            'style': mapStyle
+        });
+
+        map.on('click', function(e) {
+            var features = map.queryRenderedFeatures(e.point);
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(JSON.stringify(features[0].properties))
+                .addTo(map);
+        });
+
+        map.addControl(new maplibregl.NavigationControl());
+        map.addControl(new maplibregl.FullscreenControl());
+
+        map.on('load', function() {
+
+            map.addSource('indoor', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/data/multicentro.geojson'
+            });
+            map.addSource('shape', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/data/multicentro.geojson'
+            });
+            map.addSource('building', {
+                'type': 'geojson',
+                'data': 'https://open-indoor.github.io/data/multicentro.geojson'
+            });
+
+            fetch("/style/indoorLayers.json").then(function(response) {
+                return response.json().then(function(json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
+            fetch("/style/shapeLayers.json").then(function(response) {
+                return response.json().then(function(json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
+            fetch("/style/buildingLayers.json").then(function(response) {
+                return response.json().then(function(json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
