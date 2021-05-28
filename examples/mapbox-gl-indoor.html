@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -12,15 +11,13 @@
     <script src="https://github.com/mapbox-gl-indoor/mapbox-gl-indoor/releases/download/0.0.4-rc1/mapbox-gl-indoor.js"></script>
     <script src='osmtogeojson.js'></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
-        type="text/css" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
     <style>
         body {
             margin: 0;
             padding: 0;
         }
-
+        
         #map {
             position: absolute;
             top: 0;
@@ -36,7 +33,6 @@
     <div id="map"></div>
 
     <script>
-
         // mapboxgl.accessToken = 'pk.eyJ1IjoiY2xlbWVudGlnb25ldCIsImEiOiJjazl2Z2hzcmkwYmF6M21zN3RqcHg5anU4In0.blXhwZzYBGSm6fJe0z0e-Q'
         var customData;
         var imap;
@@ -63,29 +59,27 @@
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
-            "layers": [
-                {
-                    "id": "background",
-                    "type": "background",
-                    "paint": { "background-color": "rgba(255,255,255,1)" }
-                },
-                {
-                    "id": "simple-tiles",
-                    "type": "raster",
-                    "source": "raster-tiles",
-                    "minzoom": 0,
-                    "maxzoom": 19,
-                    "raster-opacity": [
-                        "interpolate",
-                        ["linear"],
-                        ["zoom"],
-                        18,
-                        1,
-                        19,
-                        0
-                    ]
-                }                
-            ],
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "rgba(255,255,255,1)"
+                }
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles",
+                "minzoom": 0,
+                "maxzoom": 19,
+                "raster-opacity": [
+                    "interpolate", ["linear"],
+                    ["zoom"],
+                    18,
+                    1,
+                    19,
+                    0
+                ]
+            }],
             "id": "blank"
         }
 
@@ -99,14 +93,14 @@
         });
 
         // Create the indoor handler
-        var indoor = new mapboxgl_indoor.Indoor(map);    
+        var indoor = new mapboxgl_indoor.Indoor(map);
 
         map.addControl(new mapboxgl.FullscreenControl(), 'bottom-right');
 
         /**
          * Indoor specific
          */
-        map.on('load',()=>{
+        map.on('load', () => {
             loadIndoor();
             map.addControl(geocoder, 'top-right');
 
@@ -115,13 +109,13 @@
 
             // Add the specific control
             map.addControl(new mapboxgl_indoor.IndoorControl(indoor), 'top-right');
-        }) 
+        })
 
         map.on('dragend', function() {
             // loadIndoor();
         });
 
-        
+
         let geocoder = new MapboxGeocoder({
             localGeocoderOnly: true,
             localGeocoder: forwardGeocoder,
@@ -134,7 +128,7 @@
             console.log('result.result.properties:', result.result.properties);
             indoor.setLevel(parseInt(result.result.properties.level));
         })
-        
+
 
         function forwardGeocoder(query) {
             var matchingFeatures = [];
@@ -143,8 +137,8 @@
                 var feature = customData.features[i];
                 if (feature.properties.hasOwnProperty('name') &&
                     feature.properties['name']
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
+                    .toLowerCase()
+                    .search(query.toLowerCase()) !== -1
                 ) {
                     feature['place_name'] = feature.properties['name'];
                     feature['center'] = turf.centroid(feature).geometry.coordinates;
@@ -152,8 +146,8 @@
                     matchingFeatures.push(feature);
                 } else if (feature.properties.hasOwnProperty('name') &&
                     feature.properties.name
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
+                    .toLowerCase()
+                    .search(query.toLowerCase()) !== -1
                 ) {
                     feature['place_name'] = feature.properties.name;
                     feature['center'] = turf.centroid(feature).geometry.coordinates;
@@ -163,7 +157,8 @@
             }
             return matchingFeatures;
         }
-        function loadIndoor(){
+
+        function loadIndoor() {
             // Retrieve the geojson from the path and add the map
             // fetch('https://open-indoor.github.io/data/gare-de-l-est.geojson')
             let bb = map.getBounds();
@@ -176,7 +171,7 @@
                     imap = indoor.addMap(mapboxgl_indoor.IndoorMap.fromGeojson(geojson));
                     customData = geojson;
                 });
-                
+
         }
 
         function getQueryVariable(variable, defaultValue) {
@@ -191,10 +186,8 @@
             console.log('Query variable %s not found', variable);
             return defaultValue;
         }
-
     </script>
 
 </body>
 
 </html>
-
