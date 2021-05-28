@@ -208,15 +208,22 @@
                     if (error) throw error;
                     map.addImage('marker_black', image);
                     map.addLayer({
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [-74.0445489,
-                                40.6892609
+                        "id": "markers",
+                        "interactive": true,
+                        "type": "symbol",
+                        "source": "peupliers",
+                        "filter": [
+                            "all", [
+                                "has",
+                                "image"
+                            ],
+                            [
+                                "==", ["geometry-type"],
+                                "Point"
                             ]
-                        },
-                        "properties": {
-                            "image": "https://vegeta.openindoor.io/indoor/img/gallery/center.png"
+                        ],
+                        "layout": {
+                            "icon-image": "marker_black"
                         }
                     });
                 }
@@ -233,14 +240,12 @@
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [
-                        2.1012564,
-                        48.7018563
+                    "coordinates": [-74.0445489,
+                        40.6892609
                     ]
                 },
                 "properties": {
-                    "image": "https://vegeta.openindoor.io/indoor/img/WIPSE/WIPSE_outdoor_door.jpeg",
-                    "level": "0"
+                    "image": "https://vegeta.openindoor.io/indoor/img/gallery/center.png"
                 }
             });
         });
