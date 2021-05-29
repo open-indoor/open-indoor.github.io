@@ -250,7 +250,7 @@ AFRAME.registerComponent('touch-look-controls', {
         // Calculate rotation.
         yawObject.rotation.y -= movementX * 0.002;
         pitchObject.rotation.x -= movementY * 0.002;
-        pitchObject.rotation.x = Math.max(-PI_2 / 2, Math.min(PI_2 / 2, pitchObject.rotation.x));
+        pitchObject.rotation.x = Math.max(-PI_2 / 4, Math.min(PI_2 / 4, pitchObject.rotation.x));
     },
 
     /**
