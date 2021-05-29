@@ -38,7 +38,7 @@ var vrDisplay;
 var polyfilledVRDisplay;
 var POLYFILL_VRDISPLAY_ID = 'Cardboard VRDisplay (webvr-polyfill)';
 
-AFRAME.registerComponent('touch-look-controls', {
+AFRAME.registerComponent('gallery-touch-look-controls', {
     dependencies: ['position', 'rotation'],
 
     schema: {
