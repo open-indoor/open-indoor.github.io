@@ -84,20 +84,21 @@
     </script>
     <div class="grid">
         <div>
-            <a-scene class="aframebox" embedded>
-                <a-entity id="rig" position="25 10 0">
-                    <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
-                    <a-entity id="camera" camera look-controls rotation-reader></a-entity>
-                </a-entity>
-                <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
-                <a-text color="#000" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
-            </a-scene>
+            <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
 
-            <!-- <a-scene>
+            <!-- <a-scene class="aframebox" embedded>
+                <a-entity id="rig" position="25 10 0">
+            <a-entity id="camera" camera look-controls rotation-reader></a-entity>
+            </a-entity>
+            <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+            <a-text color="#000" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+            </a-scene> -->
+
+            <a-scene>
                 <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky>
 
                 <a-text color="#000" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
-            </a-scene> -->
+            </a-scene>
 
         </div>
         <div id="map"></div>
