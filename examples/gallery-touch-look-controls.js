@@ -5,8 +5,8 @@ var radToDeg = THREE.Math.radToDeg;
 
 var checkHasPositionalTracking = AFRAME.utils.device.checkHasPositionalTracking;
 
-function bind(fn, ctx/* , arg1, arg2 */) {
-    return (function (prependedArgs) {
+function bind(fn, ctx /* , arg1, arg2 */ ) {
+    return (function(prependedArgs) {
         return function bound() {
             // Concat the bound function arguments with those passed to original bind
             var args = prependedArgs.concat(Array.prototype.slice.call(arguments, 0));
@@ -18,7 +18,7 @@ function bind(fn, ctx/* , arg1, arg2 */) {
 function PolyfillControls(object) {
     var frameData;
     if (window.VRFrameData) { frameData = new window.VRFrameData(); }
-    this.update = function () {
+    this.update = function() {
         var pose;
         if (!vrDisplay || !polyfilledVRDisplay) { return; }
         vrDisplay.getFrameData(frameData);
@@ -49,7 +49,7 @@ AFRAME.registerComponent('touch-look-controls', {
         reverseMouseDrag: { default: false }
     },
 
-    init: function () {
+    init: function() {
         this.previousHMDPosition = new THREE.Vector3();
         this.hmdQuaternion = new THREE.Quaternion();
         this.hmdEuler = new THREE.Euler();
@@ -70,7 +70,7 @@ AFRAME.registerComponent('touch-look-controls', {
         if (this.el.sceneEl.is('vr-mode')) { this.onEnterVR(); }
     },
 
-    update: function (oldData) {
+    update: function(oldData) {
         var data = this.data;
 
         // Disable grab cursor classes if no longer enabled.
@@ -91,25 +91,25 @@ AFRAME.registerComponent('touch-look-controls', {
         }
     },
 
-    tick: function (t) {
+    tick: function(t) {
         var data = this.data;
         if (!data.enabled) { return; }
         this.updateOrientation();
     },
 
-    play: function () {
+    play: function() {
         this.addEventListeners();
     },
 
-    pause: function () {
+    pause: function() {
         this.removeEventListeners();
     },
 
-    remove: function () {
+    remove: function() {
         this.removeEventListeners();
     },
 
-    bindMethods: function () {
+    bindMethods: function() {
         this.onMouseDown = bind(this.onMouseDown, this);
         this.onMouseMove = bind(this.onMouseMove, this);
         this.onMouseUp = bind(this.onMouseUp, this);
@@ -125,7 +125,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Set up states and Object3Ds needed to store rotation data.
      */
-    setupMouseControls: function () {
+    setupMouseControls: function() {
         this.mouseDown = false;
         this.pitchObject = new THREE.Object3D();
         this.yawObject = new THREE.Object3D();
@@ -136,7 +136,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Add mouse and touch event listeners to canvas.
      */
-    addEventListeners: function () {
+    addEventListeners: function() {
         var sceneEl = this.el.sceneEl;
         var canvasEl = sceneEl.canvas;
 
@@ -171,7 +171,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Remove mouse and touch event listeners from canvas.
      */
-    removeEventListeners: function () {
+    removeEventListeners: function() {
         var sceneEl = this.el.sceneEl;
         var canvasEl = sceneEl && sceneEl.canvas;
 
@@ -201,7 +201,7 @@ AFRAME.registerComponent('touch-look-controls', {
      * Update orientation for mobile, mouse drag, and headset.
      * Mouse-drag only enabled if HMD is not active.
      */
-    updateOrientation: function () {
+    updateOrientation: function() {
         var hmdEuler = this.hmdEuler;
         var pitchObject = this.pitchObject;
         var yawObject = this.yawObject;
@@ -228,7 +228,7 @@ AFRAME.registerComponent('touch-look-controls', {
      * Dragging up and down rotates the camera around the X-axis (yaw).
      * Dragging left and right rotates the camera around the Y-axis (pitch).
      */
-    onMouseMove: function (event) {
+    onMouseMove: function(event) {
         var pitchObject = this.pitchObject;
         var yawObject = this.yawObject;
         var previousMouseEvent = this.previousMouseEvent;
@@ -250,13 +250,13 @@ AFRAME.registerComponent('touch-look-controls', {
         // Calculate rotation.
         yawObject.rotation.y -= movementX * 0.002;
         pitchObject.rotation.x -= movementY * 0.002;
-        pitchObject.rotation.x = Math.max(-PI_2, Math.min(PI_2, pitchObject.rotation.x));
+        pitchObject.rotation.x = Math.max(-PI_2 / 2, Math.min(PI_2 / 2, pitchObject.rotation.x));
     },
 
     /**
      * Register mouse down to detect mouse drag.
      */
-    onMouseDown: function (evt) {
+    onMouseDown: function(evt) {
         if (!this.data.enabled) { return; }
         // Handle only primary button.
         if (evt.button !== 0) { return; }
@@ -280,7 +280,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Register mouse up to detect release of mouse drag.
      */
-    onMouseUp: function () {
+    onMouseUp: function() {
         this.mouseDown = false;
         document.body.classList.remove(GRABBING_CLASS);
     },
@@ -288,7 +288,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Register touch down to detect touch drag.
      */
-    onTouchStart: function (evt) {
+    onTouchStart: function(evt) {
         if (evt.touches.length !== 1 || !this.data.touchEnabled) { return; }
         this.touchStart = {
             x: evt.touches[0].pageX,
@@ -300,7 +300,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Translate touch move to Y-axis rotation.
      */
-    onTouchMove: function (evt) {
+    onTouchMove: function(evt) {
         var canvas = this.el.sceneEl.canvas;
         var deltaX, deltaY;
         var pitchObject = this.pitchObject;
@@ -324,21 +324,21 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Register touch end to detect release of touch drag.
      */
-    onTouchEnd: function () {
+    onTouchEnd: function() {
         this.touchStarted = false;
     },
 
     /**
      * Save pose.
      */
-    onEnterVR: function () {
+    onEnterVR: function() {
         this.saveCameraPose();
     },
 
     /**
      * Restore the pose.
      */
-    onExitVR: function () {
+    onExitVR: function() {
         this.restoreCameraPose();
         this.previousHMDPosition.set(0, 0, 0);
     },
@@ -346,24 +346,25 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Update Pointer Lock state.
      */
-    onPointerLockChange: function () {
+    onPointerLockChange: function() {
         this.pointerLocked = !!(document.pointerLockElement || document.mozPointerLockElement);
     },
 
     /**
      * Recover from Pointer Lock error.
      */
-    onPointerLockError: function () {
+    onPointerLockError: function() {
         this.pointerLocked = false;
     },
 
     /**
      * Toggle the feature of showing/hiding the grab cursor.
      */
-    updateGrabCursor: function (enabled) {
+    updateGrabCursor: function(enabled) {
         var sceneEl = this.el.sceneEl;
 
         function enableGrabCursor() { sceneEl.canvas.classList.add('a-grab-cursor'); }
+
         function disableGrabCursor() { sceneEl.canvas.classList.remove('a-grab-cursor'); }
 
         if (!sceneEl.canvas) {
@@ -385,7 +386,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Save camera pose before entering VR to restore later if exiting.
      */
-    saveCameraPose: function () {
+    saveCameraPose: function() {
         var el = this.el;
         var position = el.getAttribute('position');
         var rotation = el.getAttribute('rotation');
@@ -401,7 +402,7 @@ AFRAME.registerComponent('touch-look-controls', {
     /**
      * Reset camera pose to before entering VR.
      */
-    restoreCameraPose: function () {
+    restoreCameraPose: function() {
         var el = this.el;
         var savedPose = this.savedPose;
         var hasPositionalTracking = this.hasPositionalTracking !== undefined ? this.hasPositionalTracking : checkHasPositionalTracking();
