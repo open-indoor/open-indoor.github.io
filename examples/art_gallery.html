@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" class="">
+    <title>Indoor Immersive</title>
+    <base href="https://open-indoor.github.io/">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
+    <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
+    <style>
+        html,
+        body,
+        .grid {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none;
+            background-color: #222;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-rows: 1fr 10px 1fr;
+        }
+        
+        .gutter {
+            width: 10px;
+            background-color: #000;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+        
+        .horizontal-gutter {
+            grid-area: 2 / 1 / 2 / 1;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+            background-repeat: no-repeat;
+            background-color: #000;
+            background: rgba(0, 0, 0, 0.4);
+            /* background-position: 50%; */
+            cursor: row-resize;
+        }
+        
+        #map {
+            background-color: #555;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .mapboxgl-ctrl-group>button {
+            width: 42px;
+            height: 42px;
+        }
+        
+        a.mapboxgl-ctrl-logo.mapboxgl-compact {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .aframebox {
+            height: 100%;
+            /* width: 500px; */
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        AFRAME.registerComponent('rotation-reader', {
+            tick: function() {
+                const newValue = this.el.getAttribute('rotation');
+                const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
+                if (this.lastValue !== stringCoords) {
+                    map.setBearing(-this.el.object3D.rotation.y * 180 / Math.PI);
+                    map.setPitch(90 + this.el.object3D.rotation.x * 180 / Math.PI);
+                    this.lastValue = stringCoords;
+                }
+
+            }
+        });
+    </script>
+    <div class="grid">
+        <div>
+            <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
+
+            <!-- <a-scene class="aframebox" embedded>
+                <a-entity id="rig" position="25 10 0">
+            <a-entity id="camera" camera look-controls rotation-reader></a-entity>
+            </a-entity>
+            <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+            <a-text color="#000" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+            </a-scene> -->
+
+            <!-- <a-scene> -->
+            <a-scene class="aframebox" embedded>
+                <a-entity id="rig">
+                    <a-entity id="camera" camera look-controls rotation-reader></a-entity>
+                    <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
+                </a-entity>
+                <!-- <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky> -->
+                <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+                <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                <a-entity rotation="0 45 0">
+                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                </a-entity>
+                <a-entity rotation="0 -45 0">
+                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                </a-entity>
+                <!-- <a-text color="#000 " font="kelsonsans " value="^ " width="6 " position="0 -1 -1 ""> -->
+                </a-text>
+            </a-scene>
+
+        </div>
+        <div id="map"></div>
+        <div class="horizontal-gutter"></div>
+    </div>
+
+    <script>
+        function centerOn(feature) {
+            const lon = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
+            panorama = document.querySelector('#panorama');
+            panorama.setAttribute('src', feature.properties.image);
+            // map.setLayoutProperty(
+            //     'markers',
+            //     'icon-image', [
+            //         'match', ['get', 'image'],
+            //         feature.properties.image,
+            //         'marker_red',
+            //         'marker_black'
+            //     ]
+            // );
+            map.flyTo({
+                center: [lon, lat],
+                essential: true
+            });
+        }
+        Split({
+            rowGutters: [{
+                track: 1,
+                element: document.querySelector('.horizontal-gutter'),
+            }],
+            onDrag: function() {
+                map.resize();
+                window.dispatchEvent(new Event('resize'));
+            }
+        })
+
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                },
+                'peupliers': {
+                    'type': 'geojson',
+                    'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson'
+                }
+            },
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
+                }
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }, {
+                'id': 'peupliers_lines',
+                'type': 'line',
+                'source': 'peupliers',
+                'layout': {},
+                "paint": {
+                    "line-width": 1,
+                    "line-color": "#000000"
+                }
+            }, {
+                'id': 'peupliers_extrusion',
+                'type': "fill-extrusion",
+                'source': 'peupliers',
+                'layout': {},
+                "paint": {
+                    "fill-extrusion-height": 3,
+                    "fill-extrusion-color": "#000000",
+                    "fill-extrusion-opacity": 0.5
+                }
+            }],
+            maxBounds: [
+                [-74.0452, 40.6886],
+                [-74.0439, 40.6897]
+            ],
+            "id": "blank"
+        }
+        const map = new maplibregl.Map({
+            'container': 'map',
+            'center': [-74.0445489, 40.6892609],
+            'pitch': 60,
+            'bearing': 0,
+            'zoom': 19,
+            'style': mapStyle
+        });
+
+        map.addControl(new maplibregl.GeolocateControl());
+        map.addControl(new maplibregl.NavigationControl({
+            'showCompass': false
+        }));
+        map.addControl(new maplibregl.FullscreenControl());
+        map.dragRotate.disable();
+        map.touchZoomRotate.disableRotation();
+
+        map.on('load', function() {
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_black.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_black', image);
+                    map.addLayer({
+                        "id": "markers",
+                        "interactive": true,
+                        "type": "symbol",
+                        "source": "peupliers",
+                        "filter": [
+                            "all", [
+                                "has",
+                                "image"
+                            ],
+                            [
+                                "==", ["geometry-type"],
+                                "Point"
+                            ]
+                        ],
+                        "layout": {
+                            "icon-image": "marker_black",
+                            "icon-anchor": "bottom",
+                            "icon-offset": [0, 10]
+                        }
+                    });
+                }
+            );
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_red.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_red', image);
+                    centerOn({
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-74.0549296,
+                                40.6864808
+                            ]
+                        },
+                        "properties": {
+                            "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/center.png",
+                            "tourism": "viewpoint"
+                        }
+                    });
+
+                }
+            );
+
+        });
+
+        map.on('click', 'markers', e => {
+            const feature = e.features[0];
+            centerOn(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
+            // const lon = feature.geometry.coordinates[0];
+            // const lat = feature.geometry.coordinates[1];
+            // panorama = document.querySelector('#panorama');
+            // panorama.setAttribute('src', feature.properties.image);
+            // map.setLayoutProperty(
+            //     'markers',
+            //     'icon-image', [
+            //         'match', ['get', 'image'],
+            //         feature.properties.image,
+            //         'marker_red',
+            //         'marker_black'
+            //     ]
+            // )
+            // map.flyTo({
+            //     center: [lon, lat],
+            //     essential: true
+            // });
+        })
+        map.on('rotate', function() {
+            camera = document.querySelector('#rig');
+        });
+    </script>
+</body>
+
+</html>
