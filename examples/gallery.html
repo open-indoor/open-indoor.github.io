@@ -260,19 +260,20 @@
                 function(error, image) {
                     if (error) throw error;
                     map.addImage('marker_red', image);
+                    centerOn({
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-74.0445489, 40.6892609]
+                        },
+                        "properties": {
+                            "image": "https://vegeta.openindoor.io/indoor/img/gallery/center.png"
+                        }
+                    });
 
                 }
             );
-            centerOn({
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-74.0445489, 40.6892609]
-                },
-                "properties": {
-                    "image": "https://vegeta.openindoor.io/indoor/img/gallery/center.png"
-                }
-            });
+
         });
 
         map.on('click', 'markers', e => {
