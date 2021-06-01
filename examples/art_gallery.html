@@ -91,14 +91,13 @@
 
             init: function() {
                 // var el = this.el;
-                var assetEl = this.data.src;
-                if (assetEl === undefined) {
-                    return;
+                // var assetEl = this.data.src;
+                if (src in this.data) {
+                    this.data.src.addEventListener('load', function() {
+                        console.log("load.")
+                    });
                 }
-                assetEl.addEventListener('load', function() {
-                    console.log("load.")
-                        // Do something with your element.
-                });
+
 
                 this.el.addEventListener("loaded", e => {
                     // grab the mesh
