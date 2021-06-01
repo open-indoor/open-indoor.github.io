@@ -99,6 +99,9 @@
                 }
 
 
+                this.el.addEventListener("load", e => {
+                    console.log("Load xxx")
+                })
                 this.el.addEventListener("loaded", e => {
                     // grab the mesh
                     var mesh = this.el.getObject3D("mesh")
