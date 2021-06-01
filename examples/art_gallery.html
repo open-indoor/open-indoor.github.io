@@ -81,6 +81,23 @@
 
             }
         });
+        // Do something on asset load.
+        AFRAME.registerComponent('do-on-asset-load', {
+            schema: {
+                src: {
+                    type: 'selector'
+                }
+            },
+
+            init: function() {
+                var el = this.el;
+                var assetEl = this.data.src;
+                assetEl.addEventListener('load', function() {
+                    console.log("load.")
+                        // Do something with your element.
+                });
+            }
+        });
     </script>
     <div class="grid">
         <div>
@@ -101,7 +118,16 @@
                     <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity>
                 </a-entity>
                 <!-- <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky> -->
-                <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+
+                <a-assets>
+                    <img id="panorama" src="" crossorigin="anonymous">
+                </a-assets>
+                <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky>
+
+                <!-- <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky> -->
+
+
+
                 <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 <a-entity rotation="0 45 0">
                     <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
