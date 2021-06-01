@@ -92,6 +92,9 @@
             init: function() {
                 var el = this.el;
                 var assetEl = this.data.src;
+                if (assetEl === undefined) {
+                    return;
+                }
                 assetEl.addEventListener('load', function() {
                     console.log("load.")
                         // Do something with your element.
