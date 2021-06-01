@@ -123,9 +123,9 @@
                 <!-- <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky> -->
 
                 <a-assets>
-                    <img id="panorama_img" src="" crossorigin="anonymous">
+                    <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets>
-                <a-sky id="panorama" src="#panorama_img" do-on-asset-load="#panorama_img" rotation="0 -90 0"></a-sky>
+                <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky>
 
                 <!-- <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky> -->
 
@@ -151,15 +151,8 @@
         function centerOn(feature) {
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
-            panorama_img = document.querySelector('#panorama_img');
-            panorama_img.setAttribute('src', feature.properties.image);
-            // panorama = document.querySelector('#panorama');
-            // pano_rotation = "0 -90 0";
-            // if ("orientation" in feature.properties) {
-            //     pano_rotation = "0 " + (Number(feature.properties.orientation) - 90) + " 0"
-            // }
-            // panorama.setAttribute('orientation', pano_rotation);
-
+            panorama = document.querySelector('#panorama');
+            panorama.setAttribute('src', feature.properties.image);
             // map.setLayoutProperty(
             //     'markers',
             //     'icon-image', [
