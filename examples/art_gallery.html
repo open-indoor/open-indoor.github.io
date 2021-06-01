@@ -92,7 +92,7 @@
             init: function() {
                 // var el = this.el;
                 // var assetEl = this.data.src;
-                if ("src" in this.data) {
+                if (this.data.src !== undefined) {
                     this.data.src.addEventListener('load', function() {
                         console.log("load.")
                     });
