@@ -153,12 +153,12 @@
             const lat = feature.geometry.coordinates[1];
             panorama_img = document.querySelector('#panorama_img');
             panorama_img.setAttribute('src', feature.properties.image);
-            panorama = document.querySelector('#panorama');
-            pano_rotation = "0 -90 0";
-            if ("orientation" in feature.properties) {
-                pano_rotation = "0 " + (Number(feature.properties.orientation) - 90) + " 0"
-            }
-            panorama.setAttribute('orientation', pano_rotation);
+            // panorama = document.querySelector('#panorama');
+            // pano_rotation = "0 -90 0";
+            // if ("orientation" in feature.properties) {
+            //     pano_rotation = "0 " + (Number(feature.properties.orientation) - 90) + " 0"
+            // }
+            // panorama.setAttribute('orientation', pano_rotation);
 
             // map.setLayoutProperty(
             //     'markers',
