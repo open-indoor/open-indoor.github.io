@@ -90,15 +90,27 @@
             },
 
             init: function() {
-                var el = this.el;
-                var assetEl = this.data.src;
-                if (assetEl === undefined) {
-                    return;
-                }
-                assetEl.addEventListener('load', function() {
-                    console.log("load.")
-                        // Do something with your element.
-                });
+                // var el = this.el;
+                // var assetEl = this.data.src;
+                // if (assetEl === undefined) {
+                //     return;
+                // }
+                // assetEl.addEventListener('load', function() {
+                //     console.log("load.")
+                //         // Do something with your element.
+                // });
+
+                this.el.addEventListener("loaded", e => {
+                    // grab the mesh
+                    var mesh = this.el.getObject3D("mesh")
+                        // expose the material
+                    this.material = mesh.material
+                })
+            },
+            tick: function() {
+                // when the material is exposed - set the update flag on each tick
+                if (!this.material) return;
+                this.material.map.needsUpdate = true
             }
         });
     </script>
@@ -131,7 +143,7 @@
                 <a-assets>
                     <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets>
-                <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
+                <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky>
 
 
                 <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
