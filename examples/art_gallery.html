@@ -158,7 +158,7 @@
             if ("orientation" in feature.properties) {
                 pano_rotation = "0 " + (Number(feature.properties.orientation) - 90) + " 0"
             }
-            panorama.setAttribute(pano_rotation);
+            panorama.setAttribute('orientation', pano_rotation);
 
             // map.setLayoutProperty(
             //     'markers',
