@@ -243,6 +243,12 @@
                 'type': "fill-extrusion",
                 'source': 'peupliers',
                 'layout': {},
+                "filter": [
+                    "all", [
+                        "has",
+                        "indoor"
+                    ]
+                ],
                 "paint": {
                     "fill-extrusion-height": 3,
                     "fill-extrusion-color": "#000000",
@@ -297,7 +303,8 @@
                             "icon-image": "marker_black",
                             "icon-anchor": "bottom",
                             "icon-offset": [0, 10],
-                            "icon-allow-overlap": true
+                            "icon-allow-overlap": true,
+                            // "icon-ignore-placement": true
                         }
                     });
                 }
