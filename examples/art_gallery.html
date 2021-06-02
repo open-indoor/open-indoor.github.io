@@ -212,7 +212,7 @@
                     "minzoom": 0,
                     "maxzoom": 19
                 },
-                'peupliers': {
+                'gallery': {
                     'type': 'geojson',
                     'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson'
                 }
@@ -230,25 +230,25 @@
                 "type": "raster",
                 "source": "raster-tiles"
             }, {
-                'id': 'peupliers_lines',
+                'id': 'gallery_lines',
                 'type': 'line',
-                'source': 'peupliers',
+                'source': 'gallery',
                 'layout': {},
                 "paint": {
                     "line-width": 1,
                     "line-color": "#000000"
                 }
             }, {
-                'id': 'peupliers_extrusion',
+                'id': 'gallery_extrusion',
                 'type': "fill-extrusion",
-                'source': 'peupliers',
+                'source': 'gallery',
                 'layout': {},
-                // "filter": [
-                //     "all", [
-                //         "==", ["get", "indoor"],
-                //         "wall"
-                //     ]
-                // ],
+                "filter": [
+                    "all", [
+                        "==", ["get", "indoor"],
+                        "wall"
+                    ]
+                ],
                 "paint": {
                     "fill-extrusion-height": 3,
                     "fill-extrusion-color": "#000000",
@@ -288,7 +288,7 @@
                         "id": "markers",
                         "interactive": true,
                         "type": "symbol",
-                        "source": "peupliers",
+                        "source": "gallery",
                         "filter": [
                             "all", [
                                 "has",
