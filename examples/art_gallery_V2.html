@@ -283,10 +283,12 @@
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
 
-        map.on('data', function listener() {
-            console.log('data')
-            if (map.loaded()) {
-                console.log('data + map loaded')
+        map.on('sourcedata', function listener() {
+            console.log('sourcedata')
+            if (map.getSource("gallery") && map.isSourceLoaded("gallery")) {
+
+                // if (map.loaded()) {
+                console.log('sourcedata + map loaded')
                 const features = map.querySourceFeatures("gallery", {
                     filter: [
                         "==", ["geometry-type"],
