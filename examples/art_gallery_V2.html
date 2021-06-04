@@ -300,10 +300,10 @@
                     marker.remove();
                 }
                 markers = [];
-                for (feature in features) {
-                    if (feature.geometry === undefined) {
-                        continue;
-                    }
+                for (feature of features) {
+                    // if (feature.geometry === undefined) {
+                    //     continue;
+                    // }
                     const lon = feature.geometry.coordinates[0];
                     const lat = feature.geometry.coordinates[1];
                     let marker = new maplibregl.Marker()
