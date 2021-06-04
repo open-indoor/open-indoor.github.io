@@ -165,7 +165,10 @@
     </div>
 
     <script>
-        let markers = [];
+        let featurePoints = [];
+        let featureWays = [];
+
+        // let markers = [];
         let currentFeature = {
             "type": "Feature",
             "geometry": {
@@ -314,13 +317,13 @@
 
                 // if (map.loaded()) {
                 // console.log('sourcedata + map loaded')
-                const featurePoints = map.querySourceFeatures("gallery", {
+                featurePoints = map.querySourceFeatures("gallery", {
                     filter: [
                         "==", ["geometry-type"],
                         "Point"
                     ]
                 });
-                const featureWays = map.querySourceFeatures("gallery", {
+                featureWays = map.querySourceFeatures("gallery", {
                     filter: [
                         "==", ["geometry-type"],
                         "LineString"
