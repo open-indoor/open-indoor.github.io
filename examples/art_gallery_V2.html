@@ -166,8 +166,22 @@
 
     <script>
         let markers = [];
+        let currentFeature = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-74.0549296, 40.6864808]
+            },
+            "properties": {
+                "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.png",
+                "indoor": "yes",
+                "orientation": "0",
+                "tourism": "viewpoint"
+            }
+        };
 
         function centerOn(feature) {
+            currentFeature = feature;
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
@@ -284,23 +298,54 @@
         map.touchZoomRotate.disableRotation();
 
         map.on('sourcedata', function listener() {
-            console.log('sourcedata')
+            // console.log('sourcedata')
             if (map.getSource("gallery") && map.isSourceLoaded("gallery")) {
 
                 // if (map.loaded()) {
-                console.log('sourcedata + map loaded')
-                const features = map.querySourceFeatures("gallery", {
+                // console.log('sourcedata + map loaded')
+                const featurePoints = map.querySourceFeatures("gallery", {
                     filter: [
                         "==", ["geometry-type"],
                         "Point"
                     ]
                 });
-                console.log('features:', features)
+                const featureWays = map
+                    .querySourceFeatures("gallery", {
+                        filter: [
+                            "==", ["geometry-type"],
+                            "LineString"
+                        ]
+                    });
+                let neighbourFeatures = [];
+                for (featureWay of featureWays) {
+                    for (let i; i < featureWay.geometry.coordinates.length; i++) {
+                        if (
+                            featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+                            featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+                        ) {
+                            if (i > 1) {
+                                neighbours.push(featurePoints.filter(featurePoint =>
+                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
+                                ));
+                            }
+                            if (i + 1 < featureWay.geometry.coordinates.length) {
+                                neighbours.push(featurePoints.filter(featurePoint =>
+                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
+                                ));
+                            }
+                        }
+                    }
+                }
+                // featuresWayFiltered = map(featuresWays,
+                //     featuresWay => currentPoint in featuresWay)
+                // console.log('features:', features)
                 for (marker of markers) {
                     marker.remove();
                 }
                 markers = [];
-                for (feature of features) {
+                for (feature of neighbourFeatures) {
                     // if (feature.geometry === undefined) {
                     //     continue;
                     // }
@@ -316,20 +361,7 @@
         });
 
         map.on('load', function() {
-            startFeature = {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-74.0549296, 40.6864808]
-                },
-                "properties": {
-                    "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.png",
-                    "indoor": "yes",
-                    "orientation": "0",
-                    "tourism": "viewpoint"
-                }
-            };
-            centerOn(startFeature);
+            centerOn(currentFeature);
 
         });
 
