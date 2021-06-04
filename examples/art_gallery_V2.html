@@ -284,13 +284,16 @@
         map.touchZoomRotate.disableRotation();
 
         map.on('data', function listener() {
+            console.log('data')
             if (map.loaded()) {
+                console.log('data + map loaded')
                 const features = map.querySourceFeatures("gallery", {
                     filter: [
                         "==", ["geometry-type"],
                         "Point"
                     ]
                 });
+                console.log('features:', features)
                 for (marker in markers) {
                     marker.remove();
                 }
