@@ -318,24 +318,24 @@
                 // if (map.loaded()) {
                 // console.log('sourcedata + map loaded')
                 featurePoints = map.querySourceFeatures("gallery", {
-                    filter: [
-                        "==", ["geometry-type"],
-                        "Point"
-                    ]
+                    // filter: [
+                    //     "==", ["geometry-type"],
+                    //     "Point"
+                    // ]
                 });
                 console.log('featurePoints:', featurePoints);
 
                 featureWays = map.querySourceFeatures("gallery", {
-                    filter: [
-                        "all", [
-                            "==", ["geometry-type"],
-                            "LineString"
-                        ]
-                        // , [
-                        //     "==", ["get", "highway"],
-                        //     "footway"
-                        // ]
-                    ]
+                    // filter: [
+                    //     "all", [
+                    //         "==", ["geometry-type"],
+                    //         "LineString"
+                    //     ]
+                    //     // , [
+                    //     //     "==", ["get", "highway"],
+                    //     //     "footway"
+                    //     // ]
+                    // ]
                 });
                 console.log('featureWays:', featureWays);
 
