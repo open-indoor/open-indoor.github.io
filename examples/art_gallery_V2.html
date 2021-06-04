@@ -325,8 +325,13 @@
                 });
                 featureWays = map.querySourceFeatures("gallery", {
                     filter: [
-                        "==", ["geometry-type"],
-                        "LineString"
+                        "all", [
+                            "==", ["geometry-type"],
+                            "LineString"
+                        ],
+                        ["==", ["get", "highway"],
+                            "footway"
+                        ]
                     ]
                 });
 
