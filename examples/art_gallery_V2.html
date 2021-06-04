@@ -165,6 +165,8 @@
     </div>
 
     <script>
+        let markers = [];
+
         function centerOn(feature) {
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
@@ -296,7 +298,24 @@
                 }
             };
             centerOn(startFeature);
-
+            const features = map.querySourceFeatures("peupliers", {
+                filter: [
+                    "==", ["geometry-type"],
+                    "Point"
+                ]
+            });
+            for (marker in markers) {
+                marker.remove();
+            }
+            markers = [];
+            for (feature in features) {
+                const lon = feature.geometry.coordinates[0];
+                const lat = feature.geometry.coordinates[1];
+                let marker = new maplibregl.Marker()
+                    .setLngLat([lon, lat])
+                    .addTo(map);
+                markers.push(marker)
+            }
         });
 
         map.on('click', 'markers', e => {
