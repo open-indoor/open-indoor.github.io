@@ -311,33 +311,38 @@
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
 
+        // map.on('data', function(e) {
+        //     if (e.dataType === 'source' && e.sourceId === 'gallery') {
+        //         document.getElementById("loader").style.visibility = "hidden";
+        //     }
+        // })
         map.on('sourcedata', function listener() {
             // console.log('sourcedata')
             if (map.getSource("gallery") && map.isSourceLoaded("gallery")) {
 
                 // if (map.loaded()) {
                 // console.log('sourcedata + map loaded')
-                featurePoints = map.querySourceFeatures("gallery", {
+                let featurePoints_ = map.querySourceFeatures("gallery", {
                     // filter: [
                     //     "==", ["geometry-type"],
                     //     "Point"
                     // ]
                 });
-                console.log('featurePoints:', featurePoints);
+                console.log('featurePoints_:', featurePoints_);
 
-                featureWays = map.querySourceFeatures("gallery", {
-                    // filter: [
-                    //     "all", [
-                    //         "==", ["geometry-type"],
-                    //         "LineString"
-                    //     ]
-                    //     // , [
-                    //     //     "==", ["get", "highway"],
-                    //     //     "footway"
-                    //     // ]
-                    // ]
-                });
-                console.log('featureWays:', featureWays);
+                // featureWays = map.querySourceFeatures("gallery", {
+                //     // filter: [
+                //     //     "all", [
+                //     //         "==", ["geometry-type"],
+                //     //         "LineString"
+                //     //     ]
+                //     //     // , [
+                //     //     //     "==", ["get", "highway"],
+                //     //     //     "footway"
+                //     //     // ]
+                //     // ]
+                // });
+                // console.log('featureWays:', featureWays);
 
                 // let neighbourFeatures = [];
                 // for (featureWay of featureWays) {
