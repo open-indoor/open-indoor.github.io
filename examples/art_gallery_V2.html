@@ -283,6 +283,30 @@
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
 
+        map.on('data', function listener() {
+            if (map.loaded()) {
+                const features = map.querySourceFeatures("gallery", {
+                    filter: [
+                        "==", ["geometry-type"],
+                        "Point"
+                    ]
+                });
+                for (marker in markers) {
+                    marker.remove();
+                }
+                markers = [];
+                for (feature in features) {
+                    const lon = feature.geometry.coordinates[0];
+                    const lat = feature.geometry.coordinates[1];
+                    let marker = new maplibregl.Marker()
+                        .setLngLat([lon, lat])
+                        .addTo(map);
+                    markers.push(marker)
+                }
+                // map.off('data', listener);
+            }
+        });
+
         map.on('load', function() {
             startFeature = {
                 "type": "Feature",
@@ -298,24 +322,7 @@
                 }
             };
             centerOn(startFeature);
-            const features = map.querySourceFeatures("peupliers", {
-                filter: [
-                    "==", ["geometry-type"],
-                    "Point"
-                ]
-            });
-            for (marker in markers) {
-                marker.remove();
-            }
-            markers = [];
-            for (feature in features) {
-                const lon = feature.geometry.coordinates[0];
-                const lat = feature.geometry.coordinates[1];
-                let marker = new maplibregl.Marker()
-                    .setLngLat([lon, lat])
-                    .addTo(map);
-                markers.push(marker)
-            }
+
         });
 
         map.on('click', 'markers', e => {
