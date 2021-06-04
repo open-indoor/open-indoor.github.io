@@ -186,7 +186,9 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            // var marker = new mapboxgl.Marker().addTo(map);
+            let marker = new maplibregl.Marker()
+                .setLngLat([lon, lat])
+                .addTo(map);
             // marker.remove();
 
             // map.setLayoutProperty(
@@ -309,53 +311,52 @@
                         "Point"
                     ]
                 });
-                const featureWays = map
-                    .querySourceFeatures("gallery", {
-                        filter: [
-                            "==", ["geometry-type"],
-                            "LineString"
-                        ]
-                    });
-                let neighbourFeatures = [];
-                for (featureWay of featureWays) {
-                    for (let i; i < featureWay.geometry.coordinates.length; i++) {
-                        if (
-                            featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
-                            featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
-                        ) {
-                            if (i > 1) {
-                                neighbours.push(featurePoints.filter(featurePoint =>
-                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
-                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
-                                ));
-                            }
-                            if (i + 1 < featureWay.geometry.coordinates.length) {
-                                neighbours.push(featurePoints.filter(featurePoint =>
-                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
-                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
-                                ));
-                            }
-                        }
-                    }
-                }
-                // featuresWayFiltered = map(featuresWays,
-                //     featuresWay => currentPoint in featuresWay)
-                // console.log('features:', features)
-                for (marker of markers) {
-                    marker.remove();
-                }
-                markers = [];
-                for (feature of neighbourFeatures) {
-                    // if (feature.geometry === undefined) {
-                    //     continue;
-                    // }
-                    const lon = feature.geometry.coordinates[0];
-                    const lat = feature.geometry.coordinates[1];
-                    let marker = new maplibregl.Marker()
-                        .setLngLat([lon, lat])
-                        .addTo(map);
-                    markers.push(marker)
-                }
+                const featureWays = map.querySourceFeatures("gallery", {
+                    filter: [
+                        "==", ["geometry-type"],
+                        "LineString"
+                    ]
+                });
+
+                // let neighbourFeatures = [];
+                // for (featureWay of featureWays) {
+                //     for (let i; i < featureWay.geometry.coordinates.length; i++) {
+                //         if (
+                //             featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+                //             featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+                //         ) {
+                //             if (i > 1) {
+                //                 neighbours.push(featurePoints.filter(featurePoint =>
+                //                     featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                //                     featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
+                //                 ));
+                //             }
+                //             if (i + 1 < featureWay.geometry.coordinates.length) {
+                //                 neighbours.push(featurePoints.filter(featurePoint =>
+                //                     featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+                //                     featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
+                //                 ));
+                //             }
+                //         }
+                //     }
+                // }
+
+                // for (marker of markers) {
+                //     marker.remove();
+                // }
+                // markers = [];
+                // for (feature of neighbourFeatures) {
+                //     // if (feature.geometry === undefined) {
+                //     //     continue;
+                //     // }
+                //     const lon = feature.geometry.coordinates[0];
+                //     const lat = feature.geometry.coordinates[1];
+                //     let marker = new maplibregl.Marker()
+                //         .setLngLat([lon, lat])
+                //         .addTo(map);
+                //     markers.push(marker)
+                // }
+
                 // map.off('data', listener);
             }
         });
