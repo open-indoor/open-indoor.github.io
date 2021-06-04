@@ -186,9 +186,18 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            let marker = new maplibregl.Marker()
+            let marker = new maplibregl.Marker({
+                    color: "#FF0000",
+                    draggable: true
+                })
                 .setLngLat([lon, lat])
                 .addTo(map);
+
+
+            // marker.getElement().addEventListener('click', () => {
+            //     alert("Clicked");
+            // });
+
             // marker.remove();
 
             // map.setLayoutProperty(
@@ -357,13 +366,12 @@
                 //     markers.push(marker)
                 // }
 
-                // map.off('data', listener);
+                map.off('sourcedata', listener);
             }
         });
 
         map.on('load', function() {
             centerOn(currentFeature);
-
         });
 
         map.on('click', 'markers', e => {
