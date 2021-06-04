@@ -322,12 +322,7 @@
 
                 // if (map.loaded()) {
                 // console.log('sourcedata + map loaded')
-                let featurePoints_ = map.querySourceFeatures("gallery", {
-                    // filter: [
-                    //     "==", ["geometry-type"],
-                    //     "Point"
-                    // ]
-                });
+                let featurePoints_ = map.querySourceFeatures("gallery");
                 console.log('featurePoints_:', featurePoints_);
 
                 // featureWays = map.querySourceFeatures("gallery", {
