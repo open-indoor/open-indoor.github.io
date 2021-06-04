@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+		<title>Visit AR</title>
+		<style>
+			body {margin: 0;}
+			canvas {width:100%; height:100%;}
+		</style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>  
+
+    <!-- Scripts -->
+    <script src="photosphere.js"></script>
+    <script src="script.js"></script>
+
+  </head>
+  <body style="background-color:powderblue;">
+    <a-scene>
+      <a-camera position="0 0 0" rotation="0 0 0" cursor="rayOrigin: mouse"></a-camera>
+      <a-sphere id="main-ps" position="0 0 0" rotation="0 -90 0" radius="1000" material="side:back"></a-sphere>
+    </a-scene>
+  </body>
+</html>
