@@ -329,11 +329,13 @@
                             "==", ["geometry-type"],
                             "LineString"
                         ],
-                        ["==", ["get", "highway"],
+                        [
+                            "==", ["get", "highway"],
                             "footway"
                         ]
                     ]
                 });
+                console.log('featureWays:', featureWays);
 
                 // let neighbourFeatures = [];
                 // for (featureWay of featureWays) {
