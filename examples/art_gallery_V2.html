@@ -186,22 +186,7 @@
 
         map.on('moveend', function(e) {
             console.log('moveend !')
-        });
-
-        function centerOn(feature) {
-            currentFeature = feature;
-            const lon = feature.geometry.coordinates[0];
-            const lat = feature.geometry.coordinates[1];
-            panorama = document.querySelector('#panorama');
-            panorama.setAttribute('src', feature.properties.image);
-            let marker = new maplibregl.Marker({
-                    color: "#FF0000",
-                    draggable: true
-                })
-                .setLngLat([lon, lat])
-                .addTo(map);
-
-            // Process neighbours
+                // Process neighbours
             let sourceId = 'gallery'
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
@@ -253,12 +238,21 @@
                     }
                     console.log("neighbours:", neighbours);
                 }
-
-
-
-
             }
+        });
 
+        function centerOn(feature) {
+            currentFeature = feature;
+            const lon = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
+            panorama = document.querySelector('#panorama');
+            panorama.setAttribute('src', feature.properties.image);
+            let marker = new maplibregl.Marker({
+                    color: "#FF0000",
+                    draggable: true
+                })
+                .setLngLat([lon, lat])
+                .addTo(map);
 
             // marker.getElement().addEventListener('click', () => {
             //     alert("Clicked");
