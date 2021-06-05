@@ -184,6 +184,10 @@
             }
         };
 
+        map.on('moveend', function(e) {
+            console.log('moveend !')
+        });
+
         function centerOn(feature) {
             currentFeature = feature;
             const lon = feature.geometry.coordinates[0];
