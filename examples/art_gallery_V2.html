@@ -198,30 +198,63 @@
                 .addTo(map);
 
             // Process neighbours
-            if (featurePoints.length > 0) {
-                for (featureWay of featureWays) {
-                    for (let i; i < featureWay.geometry.coordinates.length; i++) {
-                        if (
-                            featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
-                            featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
-                        ) {
-                            if (i > 1) {
-                                neighbours.push(featurePoints.filter(featurePoint =>
-                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
-                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
-                                ));
-                            }
-                            if (i + 1 < featureWay.geometry.coordinates.length) {
-                                neighbours.push(featurePoints.filter(featurePoint =>
-                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
-                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
-                                ));
+            let sourceId = 'gallery'
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+                console.log('sourceId:', sourceId);
+                // const features = map.querySourceFeatures(sourceId, {});
+                // console.log('features loaded:', features);
+                featurePoints = map.querySourceFeatures(sourceId, {
+                    filter: [
+                        "==", ["geometry-type"],
+                        "Point"
+                    ]
+                });
+                // console.log('featurePoints:', featurePoints);
+                featureWays = map.querySourceFeatures("gallery", {
+                    filter: [
+                        "all", [
+                            "==", ["geometry-type"],
+                            "LineString"
+                        ],
+                        [
+                            "==", ["get", "highway"],
+                            "footway"
+                        ]
+                    ]
+                });
+                // console.log('featureWays:', featureWays);
+                // Init neighbours
+
+                if (featurePoints.length > 0) {
+                    for (featureWay of featureWays) {
+                        for (let i; i < featureWay.geometry.coordinates.length; i++) {
+                            if (
+                                featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+                                featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+                            ) {
+                                if (i > 1) {
+                                    neighbours.push(featurePoints.filter(featurePoint =>
+                                        featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                                        featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
+                                    ));
+                                }
+                                if (i + 1 < featureWay.geometry.coordinates.length) {
+                                    neighbours.push(featurePoints.filter(featurePoint =>
+                                        featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+                                        featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
+                                    ));
+                                }
                             }
                         }
                     }
+                    console.log("neighbours:", neighbours);
                 }
-                console.log("neighbours:", neighbours);
+
+
+
+
             }
+
 
             // marker.getElement().addEventListener('click', () => {
             //     alert("Clicked");
@@ -343,38 +376,7 @@
         //     }
         // })
         // TRACE SOURCES LOADED
-        map.on('sourcedata', function() {
-            let sourceId = 'gallery'
-            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-                console.log('sourceId:', sourceId);
-                // const features = map.querySourceFeatures(sourceId, {});
-                // console.log('features loaded:', features);
-                featurePoints = map.querySourceFeatures(sourceId, {
-                    filter: [
-                        "==", ["geometry-type"],
-                        "Point"
-                    ]
-                });
-                // console.log('featurePoints:', featurePoints);
-                featureWays = map.querySourceFeatures("gallery", {
-                    filter: [
-                        "all", [
-                            "==", ["geometry-type"],
-                            "LineString"
-                        ],
-                        [
-                            "==", ["get", "highway"],
-                            "footway"
-                        ]
-                    ]
-                });
-                // console.log('featureWays:', featureWays);
-                // Init neighbours
-                if (neighbours.length === 0) {
-                    centerOn(currentFeature);
-                }
-            }
-        });
+        map.on('sourcedata', function() {});
 
         // map.on('sourcedata', function listener() {
         //     // console.log('sourcedata')
