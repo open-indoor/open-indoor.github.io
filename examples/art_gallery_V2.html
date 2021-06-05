@@ -321,8 +321,16 @@
             let sourceId = 'gallery'
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
-                const features = map.querySourceFeatures(sourceId, {});
-                console.log('features loaded:', features);
+                // const features = map.querySourceFeatures(sourceId, {});
+                // console.log('features loaded:', features);
+                featurePoints = map.querySourceFeatures(sourceId, {
+                    filter: [
+                        "==", ["geometry-type"],
+                        "Point"
+                    ]
+                });
+                console.log('featurePoints:', featurePoints);
+
             }
         });
 
