@@ -167,6 +167,7 @@
     <script>
         let featurePoints = [];
         let featureWays = [];
+        let neighbours = [];
 
         // let markers = [];
         let currentFeature = {
@@ -196,6 +197,31 @@
                 .setLngLat([lon, lat])
                 .addTo(map);
 
+            // Process neighbours
+            if (featurePoints.length > 0) {
+                for (featureWay of featureWays) {
+                    for (let i; i < featureWay.geometry.coordinates.length; i++) {
+                        if (
+                            featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+                            featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+                        ) {
+                            if (i > 1) {
+                                neighbours.push(featurePoints.filter(featurePoint =>
+                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
+                                ));
+                            }
+                            if (i + 1 < featureWay.geometry.coordinates.length) {
+                                neighbours.push(featurePoints.filter(featurePoint =>
+                                    featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+                                    featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
+                                ));
+                            }
+                        }
+                    }
+                }
+                console.log("neighbours:", neighbours);
+            }
 
             // marker.getElement().addEventListener('click', () => {
             //     alert("Clicked");
@@ -342,8 +368,11 @@
                         ]
                     ]
                 });
-                console.log('featureWays:', featureWays);
-
+                // console.log('featureWays:', featureWays);
+                // Init neighbours
+                if (neighbours.length === 0) {
+                    centerOn(currentFeature);
+                }
             }
         });
 
