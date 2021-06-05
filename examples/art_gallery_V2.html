@@ -329,7 +329,20 @@
                         "Point"
                     ]
                 });
-                console.log('featurePoints:', featurePoints);
+                // console.log('featurePoints:', featurePoints);
+                featureWays = map.querySourceFeatures("gallery", {
+                    filter: [
+                        "all", [
+                            "==", ["geometry-type"],
+                            "LineString"
+                        ],
+                        [
+                            "==", ["get", "highway"],
+                            "footway"
+                        ]
+                    ]
+                });
+                console.log('featureWays:', featureWays);
 
             }
         });
