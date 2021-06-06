@@ -376,12 +376,12 @@
                                 if (i > 1) {
                                     let prev = featureWay.geometry.coordinates[i - 1];
                                     console.log('add prev:', prev);
-                                    console('Looking for', featureWay.geometry.coordinates[i - 1]);
+                                    // console('Looking for', featureWay.geometry.coordinates[i - 1]);
                                     let prevFeature = featurePoints.find(
                                         function(featurePoint_) {
-                                            console.log("featurePoint_.geometry.coordinates:", featurePoint_.geometry.coordinates)
-                                            featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0];
-                                            featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
+                                            // console.log("featurePoint_.geometry.coordinates:", featurePoint_.geometry.coordinates)
+                                            return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                                                featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
                                         }
                                     );
                                     console.log('add previous feature:', prevFeature);
