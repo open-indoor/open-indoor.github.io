@@ -203,14 +203,15 @@
             // marker.on('dragend', function(e) {
             //     console.log(e.target.getLatLng());
             // });
-            // marker.getElement().addEventListener('click', (e) => {
-            //     console.log('click !');
-            //     console.log('e:', e);
-            //     console.log('this:', this);
-            //     // const feature = e.features[0];
-            //     // centerOn(feature);
-            //     // processNeighbours(feature);
-            // });
+            marker.getElement().addEventListener('click', (e) => {
+                console.log('marker:', marker.getLatLng())
+                    // console.log('click !');
+                    // console.log('e:', e);
+                    // console.log('this:', this);
+                    // const feature = e.features[0];
+                    // centerOn(feature);
+                    // processNeighbours(feature);
+            });
 
             // marker.remove();
 
