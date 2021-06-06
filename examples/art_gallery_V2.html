@@ -198,8 +198,12 @@
                 .setLngLat([lon, lat])
                 .addTo(map);
 
-            marker.getElement().addEventListener('click', () => {
-                alert("Clicked");
+            marker.getElement().addEventListener('click', (e) => {
+                console.log('click !')
+                console.log('e:', e)
+                    // const feature = e.features[0];
+                    // centerOn(feature);
+                    // processNeighbours(feature);
             });
 
             // marker.remove();
