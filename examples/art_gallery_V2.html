@@ -455,6 +455,7 @@
             console.log('click !')
             const feature = e.features[0];
             centerOn(feature);
+            processNeighbours(feature);
         })
         map.on('rotate', function() {
             camera = document.querySelector('#rig');
