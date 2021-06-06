@@ -21,19 +21,19 @@
             border: none;
             background-color: #222;
         }
-        
+
         .grid {
             display: grid;
             grid-template-rows: 1fr 10px 1fr;
         }
-        
+
         .gutter {
             width: 10px;
             background-color: #000;
             background-repeat: no-repeat;
             background-position: 50%;
         }
-        
+
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
@@ -43,23 +43,23 @@
             /* background-position: 50%; */
             cursor: row-resize;
         }
-        
+
         #map {
             background-color: #555;
             height: 100%;
             width: 100%;
         }
-        
+
         .mapboxgl-ctrl-group>button {
             width: 42px;
             height: 42px;
         }
-        
+
         a.mapboxgl-ctrl-logo.mapboxgl-compact {
             width: 32px;
             height: 32px;
         }
-        
+
         .aframebox {
             height: 100%;
             /* width: 500px; */
@@ -70,7 +70,7 @@
 <body>
     <script>
         AFRAME.registerComponent('rotation-reader', {
-            tick: function() {
+            tick: function () {
                 const newValue = this.el.getAttribute('rotation');
                 const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
                 if (this.lastValue !== stringCoords) {
@@ -89,11 +89,11 @@
                 }
             },
 
-            init: function() {
+            init: function () {
                 // var el = this.el;
                 // var assetEl = this.data.src;
                 if (this.data.src !== undefined) {
-                    this.data.src.addEventListener('load', function() {
+                    this.data.src.addEventListener('load', function () {
                         console.log("load.")
                     });
                 }
@@ -104,13 +104,13 @@
                 })
                 this.el.addEventListener("loaded", e => {
                     console.log("loaded !")
-                        // grab the mesh
+                    // grab the mesh
                     var mesh = this.el.getObject3D("mesh")
-                        // expose the material
+                    // expose the material
                     this.material = mesh.material
                 })
             },
-            tick: function() {
+            tick: function () {
                 // when the material is exposed - set the update flag on each tick
                 if (!this.material) return;
                 this.material.map.needsUpdate = true
@@ -192,12 +192,14 @@
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
             let marker = new maplibregl.Marker({
-                    color: "#FF0000",
-                    draggable: true
-                })
+                color: "#FF0000",
+                draggable: true
+            })
                 .setLngLat([lon, lat])
                 .addTo(map);
-
+            marker.on('dragend', function (e) {
+                console.log(e.target._latlng);
+            });
             marker.getElement().addEventListener('click', (e) => {
                 console.log('click !');
                 console.log('e:', e);
@@ -228,7 +230,7 @@
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
             }],
-            onDrag: function() {
+            onDrag: function () {
                 map.resize();
                 window.dispatchEvent(new Event('resize'));
             }
@@ -384,7 +386,7 @@
         }
         // );
 
-        map.on('sourcedata', function() {});
+        map.on('sourcedata', function () { });
 
         // map.on('sourcedata', function listener() {
         //     // console.log('sourcedata')
@@ -452,7 +454,7 @@
         //     }
         // });
 
-        map.on('load', function() {
+        map.on('load', function () {
             centerOn(currentFeature);
         });
 
@@ -462,11 +464,8 @@
             centerOn(feature);
             processNeighbours(feature);
         })
-        map.on('rotate', function() {
+        map.on('rotate', function () {
             camera = document.querySelector('#rig');
-        });
-        marker.on('dragend', function(e) {
-            console.log(e.target._latlng);
         });
     </script>
 </body>
