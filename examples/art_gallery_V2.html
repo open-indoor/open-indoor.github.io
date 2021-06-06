@@ -374,10 +374,25 @@
                                 featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
                             ) {
                                 if (i > 1) {
-                                    neighbours.push(featureWay.geometry.coordinates[i - 1]);
+                                    neighbours.push(
+                                        featurePoints.find(
+                                            function(featurePoint_) {
+                                                featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0];
+                                                featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
+                                            }
+                                        )
+                                    );
+
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
-                                    neighbours.push(featureWay.geometry.coordinates[i + 1]);
+                                    neighbours.push(
+                                        featurePoints.find(
+                                            function(featurePoint_) {
+                                                featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0];
+                                                featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1];
+                                            }
+                                        )
+                                    );
                                 }
                             }
                         }
