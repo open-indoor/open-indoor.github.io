@@ -362,7 +362,7 @@
                 });
                 console.log('featureWays:', featureWays);
                 // Init neighbours
-
+                let neighbours_ = [];
                 if (featurePoints.length > 0) {
                     console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
                     for (featureWay of featureWays) {
@@ -385,7 +385,7 @@
                                         }
                                     );
                                     console.log('add previous feature:', prevFeature);
-                                    neighbours.push(prevFeature);
+                                    neighbours_.push(prevFeature);
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
                                     let next = featureWay.geometry.coordinates[i - 1];
@@ -397,14 +397,23 @@
                                         }
                                     );
                                     console.log('add next feature:', nextFeature);
-                                    neighbours.push(nextFeature);
+                                    neighbours_.push(nextFeature);
                                 }
                             }
                         }
                     }
-                    console.log("neighbours:", neighbours);
+                    console.log("neighbours_:", neighbours_);
+                    neighbours = neighbours_;
                 }
             }
+            // Set all neighbour features as markers;
+            map.addSource('markers', {
+                'type': 'geojson',
+                'data': {
+                    "type": "FeatureCollection",
+                    "features": neighbours
+                }
+            })
         }
         // );
 
