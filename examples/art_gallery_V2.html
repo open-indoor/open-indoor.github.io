@@ -185,6 +185,7 @@
         };
 
         function centerOn(feature) {
+            console.log('centerOn')
             currentFeature = feature;
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
@@ -321,8 +322,8 @@
 
         // map.on('moveend',
         function processNeighbours() {
-            console.log('moveend !')
-                // Process neighbours
+            // console.log('moveend !')
+            // Process neighbours
             let sourceId = 'gallery'
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
@@ -451,6 +452,7 @@
         });
 
         map.on('click', 'markers', e => {
+            console.log('click !')
             const feature = e.features[0];
             centerOn(feature);
         })
