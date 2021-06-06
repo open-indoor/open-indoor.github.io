@@ -191,6 +191,7 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
+            processNeighbours(feature);
             // let marker = new maplibregl.Marker({
             //         color: "#FF0000",
             //         draggable: true
@@ -458,9 +459,9 @@
         //     }
         // });
 
-        map.on('load', function() {
-            centerOn(currentFeature);
-        });
+        // map.on('load', function() {
+        //     centerOn(currentFeature);
+        // });
 
         map.on('click', 'markers', e => {
             console.log('click !')
