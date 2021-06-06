@@ -472,6 +472,10 @@
             camera = document.querySelector('#rig');
         });
         map.on('load', function() {
+            map.addSource('markers', {
+                'type': 'geojson',
+                'data': currentFeature
+            })
             map.loadImage(
                 'https://open-indoor.github.io/img/marker_black.png',
                 function(error, image) {
@@ -481,7 +485,7 @@
                         "id": "markers",
                         "interactive": true,
                         "type": "symbol",
-                        "source": "gallery",
+                        "source": "markers",
                         "filter": [
                             "all", [
                                 "has",
