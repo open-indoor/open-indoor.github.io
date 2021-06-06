@@ -198,7 +198,7 @@
                 .setLngLat([lon, lat])
                 .addTo(map);
             marker.on('dragend', function(e) {
-                console.log(e.target..getLatLng());
+                console.log(e.target.getLatLng());
             });
             marker.getElement().addEventListener('click', (e) => {
                 console.log('click !');
