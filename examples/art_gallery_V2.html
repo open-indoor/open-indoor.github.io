@@ -191,27 +191,27 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            let marker = new maplibregl.Marker({
-                    color: "#FF0000",
-                    draggable: true
-                })
-                .setLngLat([lon, lat])
-                // .onClick(() => {
-                //     console.log('marker:', marker.getLatLng())
-                // })
-                .addTo(map);
+            // let marker = new maplibregl.Marker({
+            //         color: "#FF0000",
+            //         draggable: true
+            //     })
+            //     .setLngLat([lon, lat])
+            //     // .onClick(() => {
+            //     //     console.log('marker:', marker.getLatLng())
+            //     // })
+            //     .addTo(map);
             // marker.on('dragend', function(e) {
             //     console.log(e.target.getLatLng());
             // });
-            marker.getElement().addEventListener('click', (e) => {
-                console.log('marker:', marker._lngLat)
-                    // console.log('click !');
-                    // console.log('e:', e);
-                    // console.log('this:', this);
-                    // const feature = e.features[0];
-                    // centerOn(feature);
-                    // processNeighbours(feature);
-            });
+            // marker.getElement().addEventListener('click', (e) => {
+            //     console.log('marker:', marker._lngLat)
+            //         // console.log('click !');
+            //         // console.log('e:', e);
+            //         // console.log('this:', this);
+            //         // const feature = e.features[0];
+            //         // centerOn(feature);
+            //         // processNeighbours(feature);
+            // });
 
             // marker.remove();
 
@@ -471,6 +471,73 @@
         map.on('rotate', function() {
             camera = document.querySelector('#rig');
         });
+        map.on('load', function() {
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_black.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_black', image);
+                    map.addLayer({
+                        "id": "markers",
+                        "interactive": true,
+                        "type": "symbol",
+                        "source": "gallery",
+                        "filter": [
+                            "all", [
+                                "has",
+                                "image"
+                            ],
+                            [
+                                "==", ["geometry-type"],
+                                "Point"
+                            ]
+                        ],
+                        "layout": {
+                            "icon-image": "marker_black",
+                            "icon-anchor": "bottom",
+                            "icon-offset": [0, 10],
+                            "icon-allow-overlap": true,
+                            // "icon-ignore-placement": true
+                        }
+                    });
+                }
+            );
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_red.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_red', image);
+                    centerOn({
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-74.0549296, 40.6864808]
+                        },
+                        "properties": {
+                            "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.png",
+                            "indoor": "yes",
+                            "orientation": "0",
+                            "tourism": "viewpoint"
+                        }
+                    });
+                }
+            );
+
+        });
+
+        map.on('click', 'markers', e => {
+            const feature = e.features[0];
+            centerOn(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
+        })
     </script>
 </body>
 
