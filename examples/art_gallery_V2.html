@@ -199,11 +199,12 @@
                 .addTo(map);
 
             marker.getElement().addEventListener('click', (e) => {
-                console.log('click !')
-                console.log('e:', e)
-                    // const feature = e.features[0];
-                    // centerOn(feature);
-                    // processNeighbours(feature);
+                console.log('click !');
+                console.log('e:', e);
+                console.log('this:', this);
+                // const feature = e.features[0];
+                // centerOn(feature);
+                // processNeighbours(feature);
             });
 
             // marker.remove();
