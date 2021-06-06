@@ -465,6 +465,9 @@
         map.on('rotate', function() {
             camera = document.querySelector('#rig');
         });
+        marker.on('dragend', function(e) {
+            console.log(e.target._latlng);
+        });
     </script>
 </body>
 
