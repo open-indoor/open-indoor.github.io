@@ -364,11 +364,10 @@
                 // Init neighbours
 
                 if (featurePoints.length > 0) {
-                    console.log('featurePoints > 0');
-
                     for (featureWay of featureWays) {
                         console.log('featureWay');
                         for (let i; i < featureWay.geometry.coordinates.length; i++) {
+                            console.log('featureWay.geometry.coordinates[', i, ']:', featureWay.geometry.coordinates[i])
                             if (
                                 featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
                                 featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
