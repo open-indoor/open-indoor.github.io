@@ -319,7 +319,8 @@
         // TRACE SOURCES LOADED
 
 
-        map.on('moveend', function(e) {
+        // map.on('moveend',
+        function neighbours() {
             console.log('moveend !')
                 // Process neighbours
             let sourceId = 'gallery'
@@ -374,7 +375,8 @@
                     console.log("neighbours:", neighbours);
                 }
             }
-        });
+        }
+        // );
 
         map.on('sourcedata', function() {});
 
