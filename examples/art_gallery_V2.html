@@ -407,6 +407,8 @@
                 }
             }
             // Set all neighbour features as markers;
+            map.removeSource('markers'); // remove
+
             map.addSource('markers', {
                 'type': 'geojson',
                 'data': {
