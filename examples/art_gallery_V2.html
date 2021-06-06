@@ -196,18 +196,21 @@
                     draggable: true
                 })
                 .setLngLat([lon, lat])
+                .onClick(() => {
+                    console.log('marker:', marker.getLatLng())
+                })
                 .addTo(map);
-            marker.on('dragend', function(e) {
-                console.log(e.target.getLatLng());
-            });
-            marker.getElement().addEventListener('click', (e) => {
-                console.log('click !');
-                console.log('e:', e);
-                console.log('this:', this);
-                // const feature = e.features[0];
-                // centerOn(feature);
-                // processNeighbours(feature);
-            });
+            // marker.on('dragend', function(e) {
+            //     console.log(e.target.getLatLng());
+            // });
+            // marker.getElement().addEventListener('click', (e) => {
+            //     console.log('click !');
+            //     console.log('e:', e);
+            //     console.log('this:', this);
+            //     // const feature = e.features[0];
+            //     // centerOn(feature);
+            //     // processNeighbours(feature);
+            // });
 
             // marker.remove();
 
