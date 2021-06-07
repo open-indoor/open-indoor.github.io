@@ -408,7 +408,17 @@
             }
             // Set all neighbour features as markers;
             markersSource = map.getSource('markers');
-            markersSource.setData(neighbours);
+            markersSource.setData({
+                "type": "FeatureCollection",
+                "features": neighbours
+            });
+            // map.addSource('markers', {
+            //     'type': 'geojson',
+            //     'data': {
+            //         "type": "FeatureCollection",
+            //         "features": neighbours
+            //     }
+            // })
         }
         // );
 
