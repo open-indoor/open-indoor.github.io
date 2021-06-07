@@ -406,12 +406,13 @@
                     neighbours = neighbours_;
                 }
             }
+            let markers = {
+                "type": "FeatureCollection",
+                "features": [...neighbours, currentFeature]
+            };
             // Set all neighbour features as markers;
             markersSource = map.getSource('markers');
-            markersSource.setData({
-                "type": "FeatureCollection",
-                "features": neighbours
-            });
+            markersSource.setData(markers);
             // map.addSource('markers', {
             //     'type': 'geojson',
             //     'data': {
