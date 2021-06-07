@@ -17,7 +17,7 @@ AFRAME.registerComponent('cross', {
         addCrossOnPhotosphere(psList[data.index]);
       });
 
-      el.components.src = "assets/512512.png";
+      el.setAttribute("src", "assets/512512.png");
   },
 
   tick: function () {
