@@ -191,7 +191,7 @@
             currentFeature = feature;
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
-            panorama = document.querySelector('#panorama');
+            panorama = document.getElementById('panorama');
             panorama.setAttribute('src', feature.properties.image);
             // sky = document.querySelector('#sky');
             // sky.components.material.material.map.needsUpdate = true
