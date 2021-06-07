@@ -17,7 +17,7 @@ AFRAME.registerComponent('cross', {
         addCrossOnPhotosphere(psList[data.index]);
       });
 
-      el.components.src = "assets/512512.png";
+      el.setAttribute("src", "assets/512512.png");
   },
 
   tick: function () {
@@ -110,7 +110,7 @@ $.getJSON("ArtGallery.geojson", function(result){
         zref = currentValue.geometry.coordinates[1];
       }
 
-      x = Math.round((currentValue.geometry.coordinates[0] - xref) * factor);
+      x = -Math.round((currentValue.geometry.coordinates[0] - xref) * factor);
       z = Math.round((currentValue.geometry.coordinates[1] - zref) * factor);
 
       psList.push(new Photosphere(currentValue.geometry.coordinates[0], currentValue.geometry.coordinates[1], x, z, currentValue.properties.image));
