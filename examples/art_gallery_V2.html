@@ -147,7 +147,7 @@
                     <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets>
                 <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
-                <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
+                <a-sky id="sky" src="#panorama" rotation="0 -90 0"></a-sky>
 
                 <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 <a-entity rotation="0 45 0">
@@ -192,7 +192,8 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
-            a_sky.components.material.material.map.needsUpdate = true
+            sky = document.querySelector('#sky');
+            sky.components.material.material.map.needsUpdate = true
 
             // processNeighbours(feature);
             // let marker = new maplibregl.Marker({
