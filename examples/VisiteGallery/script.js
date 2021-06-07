@@ -96,7 +96,7 @@ function searchMatch(x, z){
   return curr;
 }
 
-$.getJSON("ArtGallery.geojson", function(result){
+$.getJSON("https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson", function(result){
   var xref, zref, x, z;
   var factor = 2000000;
   var data = result.features;
