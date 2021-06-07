@@ -82,40 +82,40 @@
             }
         });
         // Do something on asset load.
-        AFRAME.registerComponent('do-on-asset-load', {
-            schema: {
-                src: {
-                    type: 'selector'
-                }
-            },
+        // AFRAME.registerComponent('do-on-asset-load', {
+        //     schema: {
+        //         src: {
+        //             type: 'selector'
+        //         }
+        //     },
 
-            init: function() {
-                // var el = this.el;
-                // var assetEl = this.data.src;
-                if (this.data.src !== undefined) {
-                    this.data.src.addEventListener('load', function() {
-                        console.log("load.")
-                    });
-                }
+        //     init: function() {
+        //         // var el = this.el;
+        //         // var assetEl = this.data.src;
+        //         if (this.data.src !== undefined) {
+        //             this.data.src.addEventListener('load', function() {
+        //                 console.log("load.")
+        //             });
+        //         }
 
 
-                this.el.addEventListener("load", e => {
-                    console.log("load !")
-                })
-                this.el.addEventListener("loaded", e => {
-                    console.log("loaded !")
-                        // grab the mesh
-                    var mesh = this.el.getObject3D("mesh")
-                        // expose the material
-                    this.material = mesh.material
-                })
-            },
-            tick: function() {
-                // when the material is exposed - set the update flag on each tick
-                if (!this.material) return;
-                this.material.map.needsUpdate = true
-            }
-        });
+        //         this.el.addEventListener("load", e => {
+        //             console.log("load !")
+        //         })
+        //         this.el.addEventListener("loaded", e => {
+        //             console.log("loaded !")
+        //                 // grab the mesh
+        //             var mesh = this.el.getObject3D("mesh")
+        //                 // expose the material
+        //             this.material = mesh.material
+        //         })
+        //     },
+        //     tick: function() {
+        //         // when the material is exposed - set the update flag on each tick
+        //         if (!this.material) return;
+        //         this.material.map.needsUpdate = true
+        //     }
+        // });
     </script>
     <div class="grid">
         <div>
@@ -146,7 +146,8 @@
                 <a-assets>
                     <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets>
-                <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky>
+                <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
+                <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
 
                 <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 <a-entity rotation="0 45 0">
@@ -191,6 +192,8 @@
             const lat = feature.geometry.coordinates[1];
             panorama = document.querySelector('#panorama');
             panorama.setAttribute('src', feature.properties.image);
+            a_sky.components.material.material.map.needsUpdate = true
+
             // processNeighbours(feature);
             // let marker = new maplibregl.Marker({
             //         color: "#FF0000",
