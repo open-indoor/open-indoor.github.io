@@ -1,0 +1,86 @@
+
+{
+    "type": "FeatureCollection",
+    "generator": "JOSM",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/firstsphere.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11076616393,
+                    45.75990632414
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/thirdsphere.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11046616393,
+                    45.76015318093
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/fourthsphere.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11046616393,
+                    45.75990632414
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/secondsphere.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11076616393,
+                    45.76015318093
+                ]
+            }
+        },
+                {
+            "type": "Feature",
+            "properties": {
+                "highway": "footway"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        3.11046616393,
+                        45.75990632414
+                    ],
+                    [
+                        3.11046616393,
+                        45.76015318093
+                    ],
+                    [
+                        3.11076616393,
+                        45.76015318093
+                    ],
+                    [
+                        3.11076616393,
+                        45.75990632414
+                    ]
+                ]
+            }
+        }
+    ]
+}

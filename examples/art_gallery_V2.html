@@ -150,7 +150,7 @@
 
                 <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
 
-                <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                <!-- <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 <a-entity rotation="0 45 0">
                     <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 </a-entity>
@@ -158,7 +158,7 @@
                     <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
                 </a-entity>
                 <!-- <a-text color="#000 " font="kelsonsans " value="^ " width="6 " position="0 -1 -1 ""> -->
-                </a-text>
+                </a-text> -->
             </a-scene>
 
         </div>
@@ -179,7 +179,7 @@
                 "coordinates": [-74.0549296, 40.6864808]
             },
             "properties": {
-                "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.png",
+                "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
                 "indoor": "yes",
                 "orientation": "0",
                 "tourism": "viewpoint"
@@ -192,6 +192,7 @@
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
             panorama = document.getElementById('panorama');
+            console.log('feature.properties.image:', feature.properties.image);
             panorama.setAttribute('src', feature.properties.image);
             // sky = document.querySelector('#sky');
             // sky.components.material.material.map.needsUpdate = true
