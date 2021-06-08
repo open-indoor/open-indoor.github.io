@@ -414,17 +414,17 @@
 
 
                     // Debug: process bearings
-                    neighbours.forEach(neighbour_ => {
-                        let bearing = turf.bearing(neighbour_, currentFeature);
-                        scene = document.querySelector("a-scene");
-                        var cross = document.createElement("a-box");
-                        cross.setAttribute("id", "cross__" + index)
-                        cross.setAttribute("position", "4 0 4");
-                        cross.setAttribute("scale", "3 3 3");
-                        cross.setAttribute("rotation", "45 45 0");
-                        cross.setAttribute("cross", "index: " + index);
-                        scene.appendChild(cross);
-                    });
+                    // neighbours.forEach(neighbour_ => {
+                    //     let bearing = turf.bearing(neighbour_, currentFeature);
+                    //     scene = document.querySelector("a-scene");
+                    //     var cross = document.createElement("a-box");
+                    //     cross.setAttribute("id", "cross__" + index)
+                    //     cross.setAttribute("position", "4 0 4");
+                    //     cross.setAttribute("scale", "3 3 3");
+                    //     cross.setAttribute("rotation", "45 45 0");
+                    //     cross.setAttribute("cross", "index: " + index);
+                    //     scene.appendChild(cross);
+                    // });
 
                 }
             }
