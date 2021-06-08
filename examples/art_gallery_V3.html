@@ -421,8 +421,9 @@
                         let box = document.createElement("a-box");
                         // box.setAttribute("position", "" + distance + " -1.7 0");
                         box.setAttribute("position", "" + distance + " 0 0");
-                        box.setAttribute("scale", "1 0.5 1");
+                        box.setAttribute("scale", "1 1 1");
                         box.setAttribute("rotation", "-90 0 0");
+                        box.setAttribute("animation", "property: position; to: 1 8 -10; dur: 2000; easing: linear; loop: true");
                         // box.setAttribute("color", "#C00");
 
                         let circle = document.createElement("a-circle");
