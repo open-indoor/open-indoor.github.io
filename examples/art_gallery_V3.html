@@ -421,7 +421,7 @@
                         let box = document.createElement("a-box");
                         // box.setAttribute("position", "" + distance + " -1.7 0");
                         box.setAttribute("position", "" + distance + " 0 0");
-                        box.setAttribute("scale", "1 1 1");
+                        box.setAttribute("scale", "1 0.5 1");
                         box.setAttribute("rotation", "-90 0 0");
                         // box.setAttribute("color", "#C00");
 
@@ -431,13 +431,13 @@
                         circle.setAttribute("radius", "50");
                         circle.setAttribute("color", "#00C");
 
-                        let triangle = document.createElement("a-entity");
-                        circle.setAttribute("position", distance + " 0 0");
-                        triangle.setAttribute("geometry", "primitive: triangle");
-                        triangle.setAttribute("material", "side: double");
+                        // let triangle = document.createElement("a-entity");
+                        // circle.setAttribute("position", distance + " 0 0");
+                        // triangle.setAttribute("geometry", "primitive: triangle");
+                        // triangle.setAttribute("material", "side: double");
 
                         bearObj.appendChild(box);
-                        bearObj.appendChild(triangle);
+                        // bearObj.appendChild(triangle);
                         // bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
                     });
