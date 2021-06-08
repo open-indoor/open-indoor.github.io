@@ -416,7 +416,7 @@
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("position", "0 0 0");
                         // bearObj.setAttribute("rotation", "0 20 0");
-                        bearObj.setAttribute("rotation", "0 " + (bearing + 90) + " 0");
+                        bearObj.setAttribute("rotation", "0 " + (90 - bearing) + " 0");
 
                         let box = document.createElement("a-box");
                         box.setAttribute("position", "" + distance + " -1.7 0");
