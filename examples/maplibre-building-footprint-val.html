@@ -48,6 +48,7 @@
                     "tolerance": 0
                 }
             },
+
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
             "layers": [{
@@ -75,13 +76,12 @@
         }
         const map = new maplibregl.Map({
             'container': 'map',
-            'center': [-1.69651, 48.11931],
+            'center': [-1.700156, 48.120077],
             'pitch': 60,
             'bearing': -60,
-            'zoom': 18,
+            'zoom': 17,
             'style': mapStyle
         });
-
         // TRACE SOURCES LOADED
         // map.on('sourcedata', function () {
         //     let sourceId = 'building-footprint'
