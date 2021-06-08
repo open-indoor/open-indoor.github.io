@@ -416,6 +416,7 @@
                     // Debug: process bearings
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
+                        console.log("bearing:", bearing);
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("position", "0 0 0");
