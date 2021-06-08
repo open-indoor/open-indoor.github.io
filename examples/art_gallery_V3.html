@@ -425,7 +425,10 @@
                         box.setAttribute("rotation", "-90 0 0");
                         // box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
                         // box.setAttribute("color", "#C00");
-                        box.addEventListener('click', function(evt) {
+                        // box.addEventListener('click', function(evt) {
+                        //     console.log('xxx');
+                        // });
+                        box.addEventListener('collide', function(evt) {
                             console.log('xxx');
                         });
                         let circle = document.createElement("a-circle");
