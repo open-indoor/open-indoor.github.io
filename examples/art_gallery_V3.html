@@ -416,6 +416,7 @@
                     // Debug: process bearings
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
+                        let distance = turf.distance(neighbour_, currentFeature);
                         console.log("bearing:", bearing);
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
@@ -424,7 +425,8 @@
                         bearObj.setAttribute("rotation", "0 " + bearing + " 0");
                         let cross = document.createElement("a-box");
                         // cross.setAttribute("id", "cross__" + index)
-                        cross.setAttribute("position", "4 0 0");
+                        // cross.setAttribute("position", "4 0 0");
+                        cross.setAttribute("position", (distance * 1000) + " 0 0");
                         cross.setAttribute("scale", "1 1 1");
                         cross.setAttribute("rotation", "0 0 0");
                         // cross.setAttribute("cross", "index: " + index);
