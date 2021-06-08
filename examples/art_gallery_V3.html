@@ -148,18 +148,8 @@
                     <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets> -->
                 <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+                <a-entity id="markers"></a-entity>
 
-                <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
-
-                <!-- <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                <a-entity rotation="0 45 0">
-                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                </a-entity>
-                <a-entity rotation="0 -45 0">
-                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                </a-entity>
-                <!-- <a-text color="#000 " font="kelsonsans " value="^ " width="6 " position="0 -1 -1 ""> -->
-                </a-text> -->
             </a-scene>
 
         </div>
@@ -414,6 +404,10 @@
 
 
                     // Debug: process bearings
+                    let markerObjs = document.getElementById('markers');
+                    while (markerObjs.firstChild) {
+                        markerObjs.removeChild(markerObjs.firstChild);
+                    }
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
                         let distance = turf.distance(neighbour_, currentFeature) * 1000;
@@ -431,8 +425,9 @@
                         cross.setAttribute("rotation", "0 0 0");
                         // cross.setAttribute("cross", "index: " + index);
                         bearObj.appendChild(cross);
-                        scene.appendChild(bearObj);
+                        bearObjs.appendChild(bearObj);
                     });
+                    scene.appendChild(markerObjs);
                 }
             }
             let markers = {
