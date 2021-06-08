@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" class="">
     <title>Indoor Immersive</title>
     <base href="https://open-indoor.github.io/">
+    <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
@@ -410,6 +411,21 @@
                     }
                     console.log("neighbours_:", neighbours_);
                     neighbours = neighbours_;
+
+
+                    // Debug: process bearings
+                    neighbours.forEach(neighbour_ => {
+                        let bearing = turf.bearing(neighbour_, currentFeature);
+                        scene = document.querySelector("a-scene");
+                        var cross = document.createElement("a-box");
+                        cross.setAttribute("id", "cross__" + index)
+                        cross.setAttribute("position", "4 0 4");
+                        cross.setAttribute("scale", "3 3 3");
+                        cross.setAttribute("rotation", "45 45 0");
+                        cross.setAttribute("cross", "index: " + index);
+                        scene.appendChild(cross);
+                    });
+
                 }
             }
             let markers = {
