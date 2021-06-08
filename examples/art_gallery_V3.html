@@ -420,7 +420,8 @@
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("position", "0 0 0");
-                        bearObj.setAttribute("rotation", "0 20 0");
+                        // bearObj.setAttribute("rotation", "0 20 0");
+                        bearObj.setAttribute("rotation", "0 " + bearing + " 0");
                         let cross = document.createElement("a-box");
                         // cross.setAttribute("id", "cross__" + index)
                         cross.setAttribute("position", "4 0 0");
