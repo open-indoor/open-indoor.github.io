@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" class="">
+    <title>Indoor Immersive</title>
+    <base href="https://open-indoor.github.io/">
+    <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
+    <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
+    <style>
+        html,
+        body,
+        .grid {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none;
+            background-color: #222;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-rows: 1fr 10px 1fr;
+        }
+        
+        .gutter {
+            width: 10px;
+            background-color: #000;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+        
+        .horizontal-gutter {
+            grid-area: 2 / 1 / 2 / 1;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+            background-repeat: no-repeat;
+            background-color: #000;
+            background: rgba(0, 0, 0, 0.4);
+            /* background-position: 50%; */
+            cursor: row-resize;
+        }
+        
+        #map {
+            background-color: #555;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .mapboxgl-ctrl-group>button {
+            width: 42px;
+            height: 42px;
+        }
+        
+        a.mapboxgl-ctrl-logo.mapboxgl-compact {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .aframebox {
+            height: 100%;
+            /* width: 500px; */
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        AFRAME.registerComponent('rotation-reader', {
+            tick: function() {
+                const newValue = this.el.getAttribute('rotation');
+                const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
+                if (this.lastValue !== stringCoords) {
+                    map.setBearing(-this.el.object3D.rotation.y * 180 / Math.PI);
+                    map.setPitch(90 + this.el.object3D.rotation.x * 180 / Math.PI);
+                    this.lastValue = stringCoords;
+                }
+
+            }
+        });
+        // Do something on asset load.
+        // AFRAME.registerComponent('do-on-asset-load', {
+        //     schema: {
+        //         src: {
+        //             type: 'selector'
+        //         }
+        //     },
+
+        //     init: function() {
+        //         // var el = this.el;
+        //         // var assetEl = this.data.src;
+        //         if (this.data.src !== undefined) {
+        //             this.data.src.addEventListener('load', function() {
+        //                 console.log("load.")
+        //             });
+        //         }
+
+
+        //         this.el.addEventListener("load", e => {
+        //             console.log("load !")
+        //         })
+        //         this.el.addEventListener("loaded", e => {
+        //             console.log("loaded !")
+        //                 // grab the mesh
+        //             var mesh = this.el.getObject3D("mesh")
+        //                 // expose the material
+        //             this.material = mesh.material
+        //         })
+        //     },
+        //     tick: function() {
+        //         // when the material is exposed - set the update flag on each tick
+        //         if (!this.material) return;
+        //         this.material.map.needsUpdate = true
+        //     }
+        // });
+    </script>
+    <div class="grid">
+        <div>
+            <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
+
+            <!-- <a-scene class="aframebox" embedded>
+                <a-entity id="rig" position="25 10 0">
+            <a-entity id="camera" camera look-controls rotation-reader></a-entity>
+            </a-entity>
+            <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+            <a-text color="#000" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+            </a-scene> -->
+
+            <!-- <a-scene> -->
+            <a-scene class="aframebox" embedded>
+                <a-entity id="rig">
+                    <!-- <a-entity id="camera" camera look-controls rotation-reader></a-entity> -->
+                    <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity>
+                </a-entity>
+                <!-- <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky> -->
+
+                <!-- <a-assets>
+                    <img id="panorama" src="" crossorigin="anonymous">
+                </a-assets>
+                <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
+
+                <!-- <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky> -->
+                <!-- <a-assets>
+                    <img id="panorama" src="" crossorigin="anonymous">
+                </a-assets> -->
+                <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+
+                <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
+
+                <!-- <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                <a-entity rotation="0 45 0">
+                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                </a-entity>
+                <a-entity rotation="0 -45 0">
+                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
+                </a-entity>
+                <!-- <a-text color="#000 " font="kelsonsans " value="^ " width="6 " position="0 -1 -1 ""> -->
+                </a-text> -->
+            </a-scene>
+
+        </div>
+        <div id="map"></div>
+        <div class="horizontal-gutter"></div>
+    </div>
+
+    <script>
+        let featurePoints = [];
+        let featureWays = [];
+        let neighbours = [];
+
+        // let markers = [];
+        let currentFeature = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-74.0549296, 40.6864808]
+            },
+            "properties": {
+                "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
+                "indoor": "yes",
+                "orientation": "0",
+                "tourism": "viewpoint"
+            }
+        };
+
+        function centerOn(feature) {
+            console.log('centerOn')
+            currentFeature = feature;
+            const lon = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
+            panorama = document.getElementById('panorama');
+            console.log('feature.properties.image:', feature.properties.image);
+            panorama.setAttribute('src', feature.properties.image);
+            // sky = document.querySelector('#sky');
+            // sky.components.material.material.map.needsUpdate = true
+
+            // processNeighbours(feature);
+            // let marker = new maplibregl.Marker({
+            //         color: "#FF0000",
+            //         draggable: true
+            //     })
+            //     .setLngLat([lon, lat])
+            //     // .onClick(() => {
+            //     //     console.log('marker:', marker.getLatLng())
+            //     // })
+            //     .addTo(map);
+            // marker.on('dragend', function(e) {
+            //     console.log(e.target.getLatLng());
+            // });
+            // marker.getElement().addEventListener('click', (e) => {
+            //     console.log('marker:', marker._lngLat)
+            //         // console.log('click !');
+            //         // console.log('e:', e);
+            //         // console.log('this:', this);
+            //         // const feature = e.features[0];
+            //         // centerOn(feature);
+            //         // processNeighbours(feature);
+            // });
+
+            // marker.remove();
+
+            // map.setLayoutProperty(
+            //     'markers',
+            //     'icon-image', [
+            //         'match', ['get', 'image'],
+            //         feature.properties.image,
+            //         'marker_red',
+            //         'marker_black'
+            //     ]
+            // );
+            map.flyTo({
+                center: [lon, lat],
+                essential: true
+            });
+        }
+        Split({
+            rowGutters: [{
+                track: 1,
+                element: document.querySelector('.horizontal-gutter'),
+            }],
+            onDrag: function() {
+                map.resize();
+                window.dispatchEvent(new Event('resize'));
+            }
+        })
+
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                },
+                'gallery': {
+                    'type': 'geojson',
+                    'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson'
+                }
+            },
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
+                }
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }, {
+                'id': 'gallery_lines',
+                'type': 'line',
+                'source': 'gallery',
+                'layout': {},
+                "paint": {
+                    "line-width": 1,
+                    "line-color": "#000000"
+                }
+            }, {
+                'id': 'gallery_extrusion',
+                'type': "fill-extrusion",
+                'source': 'gallery',
+                'layout': {},
+                "filter": [
+                    "all", [
+                        "==", ["get", "indoor"],
+                        "wall"
+                    ]
+                ],
+                "paint": {
+                    "fill-extrusion-height": 3,
+                    "fill-extrusion-color": "#000000",
+                    "fill-extrusion-opacity": 0.5
+                }
+            }],
+            maxBounds: [
+                [-74.0452, 40.6886],
+                [-74.0439, 40.6897]
+            ],
+            "id": "blank"
+        }
+        const map = new maplibregl.Map({
+            'container': 'map',
+            'center': [-74.0445489, 40.6892609],
+            'pitch': 60,
+            'bearing': 0,
+            'zoom': 19,
+            'style': mapStyle
+        });
+
+        map.addControl(new maplibregl.GeolocateControl());
+        map.addControl(new maplibregl.NavigationControl({
+            'showCompass': false
+        }));
+        map.addControl(new maplibregl.FullscreenControl());
+        map.dragRotate.disable();
+        map.touchZoomRotate.disableRotation();
+
+        // map.on('data', function(e) {
+        //     if (e.dataType === 'source' && e.sourceId === 'gallery') {
+        //         document.getElementById("loader").style.visibility = "hidden";
+        //     }
+        // })
+        // TRACE SOURCES LOADED
+
+
+        // map.on('moveend',
+        function processNeighbours() {
+            // console.log('moveend !')
+            // Process neighbours
+            let sourceId = 'gallery'
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+                console.log('sourceId:', sourceId);
+                // const features = map.querySourceFeatures(sourceId, {});
+                // console.log('features loaded:', features);
+                featurePoints = map.querySourceFeatures(sourceId, {
+                    filter: [
+                        "==", ["geometry-type"],
+                        "Point"
+                    ]
+                });
+                console.log('featurePoints:', featurePoints);
+                featureWays = map.querySourceFeatures("gallery", {
+                    filter: [
+                        "all", [
+                            "==", ["geometry-type"],
+                            "LineString"
+                        ],
+                        [
+                            "==", ["get", "highway"],
+                            "footway"
+                        ]
+                    ]
+                });
+                console.log('featureWays:', featureWays);
+                // Init neighbours
+                let neighbours_ = [];
+                if (featurePoints.length > 0) {
+                    console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
+                    for (featureWay of featureWays) {
+                        // console.log('featureWay:', featureWay);
+                        for (let i = 0; i < featureWay.geometry.coordinates.length; i++) {
+                            // console.log('featureWay.geometry.coordinates[', i, ']:', featureWay.geometry.coordinates[i])
+                            if (
+                                featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+                                featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+                            ) {
+                                if (i >= 1) {
+                                    let prev = featureWay.geometry.coordinates[i - 1];
+                                    console.log('add prev:', prev);
+                                    // console('Looking for', featureWay.geometry.coordinates[i - 1]);
+                                    let prevFeature = featurePoints.find(
+                                        function(featurePoint_) {
+                                            // console.log("featurePoint_.geometry.coordinates:", featurePoint_.geometry.coordinates)
+                                            return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+                                                featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
+                                        }
+                                    );
+                                    console.log('add previous feature:', prevFeature);
+                                    neighbours_.push(prevFeature);
+                                }
+                                if (i + 1 < featureWay.geometry.coordinates.length) {
+                                    let next = featureWay.geometry.coordinates[i - 1];
+                                    console.log('add next:', next);
+                                    let nextFeature = featurePoints.find(
+                                        function(featurePoint_) {
+                                            return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+                                                featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1];
+                                        }
+                                    );
+                                    console.log('add next feature:', nextFeature);
+                                    neighbours_.push(nextFeature);
+                                }
+                            }
+                        }
+                    }
+                    console.log("neighbours_:", neighbours_);
+                    neighbours = neighbours_;
+
+
+                    // Debug: process bearings
+                    neighbours.forEach(neighbour_ => {
+                        let bearing = turf.bearing(neighbour_, currentFeature);
+                        scene = document.querySelector("a-scene");
+                        var cross = document.createElement("a-box");
+                        // cross.setAttribute("id", "cross__" + index)
+                        cross.setAttribute("position", "4 0 4");
+                        cross.setAttribute("scale", "3 3 3");
+                        cross.setAttribute("rotation", "45 45 0");
+                        // cross.setAttribute("cross", "index: " + index);
+                        scene.appendChild(cross);
+                    });
+
+                }
+            }
+            let markers = {
+                "type": "FeatureCollection",
+                "features": [...neighbours, currentFeature]
+            };
+            // Set all neighbour features as markers;
+            markersSource = map.getSource('markers');
+            markersSource.setData(markers);
+            // map.addSource('markers', {
+            //     'type': 'geojson',
+            //     'data': {
+            //         "type": "FeatureCollection",
+            //         "features": neighbours
+            //     }
+            // })
+        }
+        // );
+
+        map.on('sourcedata', function() {});
+
+        // map.on('sourcedata', function listener() {
+        //     // console.log('sourcedata')
+        //     if (map.getSource("gallery") && map.isSourceLoaded("gallery")) {
+
+        //         // if (map.loaded()) {
+        //         // console.log('sourcedata + map loaded')
+        //         let featurePoints_ = map.querySourceFeatures("gallery");
+        //         console.log('featurePoints_:', featurePoints_);
+
+        //         // featureWays = map.querySourceFeatures("gallery", {
+        //         //     // filter: [
+        //         //     //     "all", [
+        //         //     //         "==", ["geometry-type"],
+        //         //     //         "LineString"
+        //         //     //     ]
+        //         //     //     // , [
+        //         //     //     //     "==", ["get", "highway"],
+        //         //     //     //     "footway"
+        //         //     //     // ]
+        //         //     // ]
+        //         // });
+        //         // console.log('featureWays:', featureWays);
+
+        //         // let neighbourFeatures = [];
+        //         // for (featureWay of featureWays) {
+        //         //     for (let i; i < featureWay.geometry.coordinates.length; i++) {
+        //         //         if (
+        //         //             featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
+        //         //             featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
+        //         //         ) {
+        //         //             if (i > 1) {
+        //         //                 neighbours.push(featurePoints.filter(featurePoint =>
+        //         //                     featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
+        //         //                     featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1]
+        //         //                 ));
+        //         //             }
+        //         //             if (i + 1 < featureWay.geometry.coordinates.length) {
+        //         //                 neighbours.push(featurePoints.filter(featurePoint =>
+        //         //                     featurePoint.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
+        //         //                     featurePoint.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1]
+        //         //                 ));
+        //         //             }
+        //         //         }
+        //         //     }
+        //         // }
+
+        //         // for (marker of markers) {
+        //         //     marker.remove();
+        //         // }
+        //         // markers = [];
+        //         // for (feature of neighbourFeatures) {
+        //         //     // if (feature.geometry === undefined) {
+        //         //     //     continue;
+        //         //     // }
+        //         //     const lon = feature.geometry.coordinates[0];
+        //         //     const lat = feature.geometry.coordinates[1];
+        //         //     let marker = new maplibregl.Marker()
+        //         //         .setLngLat([lon, lat])
+        //         //         .addTo(map);
+        //         //     markers.push(marker)
+        //         // }
+
+        //         map.off('sourcedata', listener);
+        //     }
+        // });
+
+        // map.on('load', function() {
+        //     centerOn(currentFeature);
+        // });
+
+        map.on('click', 'markers', e => {
+            console.log('click !')
+            const feature = e.features[0];
+            centerOn(feature);
+            processNeighbours(feature);
+        })
+        map.on('rotate', function() {
+            camera = document.querySelector('#rig');
+        });
+        map.on('load', function() {
+            map.addSource('markers', {
+                'type': 'geojson',
+                'data': currentFeature
+            })
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_black.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_black', image);
+                    map.addLayer({
+                        "id": "markers",
+                        "interactive": true,
+                        "type": "symbol",
+                        "source": "markers",
+                        "filter": [
+                            "all", [
+                                "has",
+                                "image"
+                            ],
+                            [
+                                "==", ["geometry-type"],
+                                "Point"
+                            ]
+                        ],
+                        "layout": {
+                            "icon-image": "marker_black",
+                            "icon-anchor": "bottom",
+                            "icon-offset": [0, 10],
+                            "icon-allow-overlap": true,
+                            // "icon-ignore-placement": true
+                        }
+                    });
+                }
+            );
+            map.loadImage(
+                'https://open-indoor.github.io/img/marker_red.png',
+                function(error, image) {
+                    if (error) throw error;
+                    map.addImage('marker_red', image);
+                    centerOn(currentFeature);
+                }
+            );
+
+        });
+
+        map.on('click', 'markers', e => {
+            const feature = e.features[0];
+            centerOn(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
+        })
+    </script>
+</body>
+
+</html>
