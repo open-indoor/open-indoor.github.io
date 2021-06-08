@@ -417,16 +417,21 @@
                         bearObj.setAttribute("position", "0 0 0");
                         // bearObj.setAttribute("rotation", "0 20 0");
                         bearObj.setAttribute("rotation", "0 " + (bearing + 90) + " 0");
-                        let cross = document.createElement("a-circle");
-                        // cross.setAttribute("id", "cross__" + index)
-                        // cross.setAttribute("position", "4 0 0");
-                        cross.setAttribute("position", distance + " -1.7 0");
-                        // cross.setAttribute("scale", "1 1 1");
-                        cross.setAttribute("rotation", "-90 0 0");
-                        cross.setAttribute("radius", "50");
-                        cross.setAttribute("color", "#CCC");
-                        // cross.setAttribute("cross", "index: " + index);
-                        bearObj.appendChild(cross);
+
+                        let box = document.createElement("a-box");
+                        box.setAttribute("position", distance + " -1.7 0");
+                        box.setAttribute("scale", "1 0 1");
+                        box.setAttribute("rotation", "-90 0 0");
+                        box.setAttribute("color", "#C00");
+
+                        // let circle = document.createElement("a-circle");
+                        // circle.setAttribute("position", distance + " -1.7 0");
+                        // circle.setAttribute("rotation", "-90 0 0");
+                        // circle.setAttribute("radius", "50");
+                        // circle.setAttribute("color", "#00C");
+
+
+                        bearObj.appendChild(box);
                         markerObjs.appendChild(bearObj);
                     });
                     scene.appendChild(markerObjs);
