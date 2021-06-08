@@ -419,19 +419,20 @@
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
                         let box = document.createElement("a-box");
-                        box.setAttribute("position", "" + distance + " -1.7 0");
+                        // box.setAttribute("position", "" + distance + " -1.7 0");
+                        box.setAttribute("position", "" + distance + " 0 0");
                         box.setAttribute("scale", "1 1 1");
                         box.setAttribute("rotation", "-90 0 0");
                         // box.setAttribute("color", "#C00");
 
-                        // let circle = document.createElement("a-circle");
-                        // circle.setAttribute("position", distance + " -1.7 0");
-                        // circle.setAttribute("rotation", "-90 0 0");
-                        // circle.setAttribute("radius", "50");
-                        // circle.setAttribute("color", "#00C");
+                        let circle = document.createElement("a-circle");
+                        circle.setAttribute("position", distance + " -1.7 0");
+                        circle.setAttribute("rotation", "-90 0 0");
+                        circle.setAttribute("radius", "50");
+                        circle.setAttribute("color", "#00C");
 
                         bearObj.appendChild(box);
-                        // bearObj.appendChild(circle);
+                        bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
                     });
                     scene.appendChild(markerObjs);
