@@ -480,15 +480,15 @@
                         // box.addEventListener('click', function(evt) {
                         //     console.log('xxx');
                         // });
-                        box.addEventListener('collide', function(evt) {
-                            console.log('xxx');
-                        });
+                        // box.addEventListener('collide', function(evt) {
+                        //     console.log('xxx');
+                        // });
 
                         let circle = document.createElement("a-sphere");
                         // circle.setAttribute("position", distance + " -1.7 0");
                         circle.setAttribute("position", distance + " 0 0");
-                        circle.setAttribute("rotation", "-45 30 20");
-                        circle.setAttribute("radius", "1");
+                        circle.setAttribute("rotation", "0 0 0");
+                        // circle.setAttribute("radius", "1");
                         circle.setAttribute("color", "#00C");
                         // circle.setAttribute("material", "side:double;");
 
@@ -497,9 +497,9 @@
                         // triangle.setAttribute("geometry", "primitive: triangle");
                         // triangle.setAttribute("material", "side: double");
 
-                        bearObj.appendChild(box);
+                        // bearObj.appendChild(box);
                         // bearObj.appendChild(triangle);
-                        // bearObj.appendChild(circle);
+                        bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
                     });
                     scene.appendChild(markerObjs);
