@@ -70,6 +70,45 @@
 
 <body>
     <script>
+        AFRAME.registerComponent('cross', {
+
+            schema: {
+                index: {
+                    type: 'number',
+                    default: '-1'
+                }
+            },
+
+            init: function() {
+
+                var data = this.data;
+                var el = this.el;
+
+                el.addEventListener("click", function(event) {
+                    console.log('click');
+                    // psMain.setAttribute("src", psList[data.index].src);
+                    // addCrossOnPhotosphere(psList[data.index]);
+                });
+
+                // el.setAttribute("src", "assets/512512.png");
+            },
+
+            // tick: function() {
+            //     var el = this.el;
+            //     var rotationTmp = this.rotationTmp = this.rotationTmp || {
+            //         x: 0,
+            //         y: 0,
+            //         z: 0
+            //     };
+            //     var rotation = el.getAttribute('rotation');
+            //     rotationTmp.x = rotation.x + 0.5;
+            //     rotationTmp.y = rotation.y + 0.5;
+            //     rotationTmp.z = rotation.z + 0.5;
+            //     el.setAttribute('rotation', rotationTmp);
+            // }
+
+        });
+
         AFRAME.registerComponent('rotation-reader', {
             tick: function() {
                 const newValue = this.el.getAttribute('rotation');
@@ -426,6 +465,8 @@
                         box.setAttribute("position", "" + distance + " 0 0");
                         box.setAttribute("scale", "1 1 1");
                         box.setAttribute("rotation", "-90 0 0");
+                        box.setAttribute("cross", "");
+
                         // box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
                         // box.setAttribute("color", "#C00");
                         // box.addEventListener('click', function(evt) {
