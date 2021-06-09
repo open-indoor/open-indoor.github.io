@@ -86,6 +86,9 @@
 
                 el.addEventListener("click", function(event) {
                     console.log('feature:' + data.feature);
+                    feature = JSON.parse(data.feature);
+                    centerOn(feature);
+                    processNeighbours(feature);
                     // psMain.setAttribute("src", psList[data.index].src);
                     // addCrossOnPhotosphere(psList[data.index]);
                 });
