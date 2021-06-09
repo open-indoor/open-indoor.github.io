@@ -90,6 +90,15 @@
                     feature = JSON.parse(data.feature);
                     centerOn(feature);
                     processNeighbours(feature);
+                    map.setLayoutProperty(
+                        'markers',
+                        'icon-image', [
+                            'match', ['get', 'image'],
+                            feature.properties.image,
+                            'marker_red',
+                            'marker_black'
+                        ]
+                    );
                     // psMain.setAttribute("src", psList[data.index].src);
                     // addCrossOnPhotosphere(psList[data.index]);
                 });
@@ -595,11 +604,26 @@
         //     centerOn(currentFeature);
         // });
 
+        // map.on('click', 'markers', e => {
+        //     console.log('click !')
+        //     const feature = e.features[0];
+        //     centerOn(feature);
+        //     processNeighbours(feature);
+        // })
+
         map.on('click', 'markers', e => {
-            console.log('click !')
             const feature = e.features[0];
             centerOn(feature);
             processNeighbours(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
         })
         map.on('rotate', function() {
             camera = document.querySelector('#rig');
@@ -649,20 +673,6 @@
             );
 
         });
-
-        map.on('click', 'markers', e => {
-            const feature = e.features[0];
-            centerOn(feature);
-            map.setLayoutProperty(
-                'markers',
-                'icon-image', [
-                    'match', ['get', 'image'],
-                    feature.properties.image,
-                    'marker_red',
-                    'marker_black'
-                ]
-            );
-        })
     </script>
 </body>
 
