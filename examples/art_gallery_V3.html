@@ -73,9 +73,9 @@
         AFRAME.registerComponent('cross', {
 
             schema: {
-                index: {
-                    type: 'number',
-                    default: '-1'
+                feature: {
+                    type: 'string',
+                    default: ''
                 }
             },
 
@@ -85,7 +85,7 @@
                 var el = this.el;
 
                 el.addEventListener("click", function(event) {
-                    console.log('click');
+                    console.log('feature:' + feature);
                     // psMain.setAttribute("src", psList[data.index].src);
                     // addCrossOnPhotosphere(psList[data.index]);
                 });
@@ -465,7 +465,7 @@
                         box.setAttribute("position", "" + distance + " 0 0");
                         box.setAttribute("scale", "1 1 1");
                         box.setAttribute("rotation", "-90 0 0");
-                        box.setAttribute("cross", "");
+                        box.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
 
                         // box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
                         // box.setAttribute("color", "#C00");
