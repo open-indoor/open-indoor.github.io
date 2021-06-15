@@ -84,6 +84,7 @@
 
                 let data = this.data;
                 let el = this.el;
+                // entity.setAttribute('material', 'color', 'red');
 
                 el.addEventListener("click", function(event) {
                     console.log('feature:' + data.feature);
@@ -505,11 +506,14 @@
                         // circle.setAttribute("position", distance + " 0 0");
                         circle.setAttribute("rotation", "0 0 0");
                         // circle.setAttribute("radius", 1);
-                        circle.setAttribute("color", "#FFF");
+                        // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
                         console.log("circle.components:", circle.components);
-                        circle.components.geometry.radius = 0.4;
-                        circle.setAttribute('geometry', 'radius', '0.6');
+
+                        let sphere = scene.querySelector('a-sphere');
+                        entity.setAttribute('material', 'color', 'red');
+                        // circle.components.geometry.radius = 0.4;
+                        // circle.setAttribute('geometry', 'radius', '0.6');
 
                         // console.log("getAttribute radius:", circle.getAttribute("radius"));
                         // console.log("getAttributeS:", circle.getAttributeNames());
