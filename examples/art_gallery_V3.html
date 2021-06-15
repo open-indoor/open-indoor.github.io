@@ -482,16 +482,16 @@
                         // console.log("bearing:", bearing);
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
-                        bearObj.setAttribute("position", "0 0 0");
+                        // bearObj.setAttribute("position", "0 0 0");
                         // bearObj.setAttribute("rotation", "0 20 0");
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
-                        let box = document.createElement("a-box");
-                        box.setAttribute("position", "" + distance + " -1.7 0");
-                        // box.setAttribute("position", "" + distance + " 0 0");
-                        box.setAttribute("scale", "1 1 1");
-                        // box.setAttribute("rotation", "-90 0 0");
-                        box.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
+                        // let box = document.createElement("a-box");
+                        // box.setAttribute("position", "" + distance + " -1.7 0");
+                        // // box.setAttribute("position", "" + distance + " 0 0");
+                        // box.setAttribute("scale", "1 1 1");
+                        // // box.setAttribute("rotation", "-90 0 0");
+                        // box.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
 
                         // box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
                         // box.setAttribute("color", "#C00");
@@ -510,7 +510,7 @@
                         // let circle = document.createElement("a-circle");
                         circle.setAttribute("position", distance + " -1.7 0");
                         // circle.setAttribute("position", distance + " 0 0");
-                        circle.setAttribute("rotation", "0 0 0");
+                        // circle.setAttribute("rotation", "0 0 0");
                         // circle.setAttribute(
                         //     "geometry", {
                         //         'radius': 1
