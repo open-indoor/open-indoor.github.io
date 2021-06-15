@@ -427,7 +427,7 @@
                 // Init neighbours
                 let neighbours_ = [];
                 if (featurePoints.length > 0) {
-                    console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
+                    // console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
                     for (featureWay of featureWays) {
                         // console.log('featureWay:', featureWay);
                         for (let i = 0; i < featureWay.geometry.coordinates.length; i++) {
@@ -447,7 +447,7 @@
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
                                         }
                                     );
-                                    console.log('add previous feature:', prevFeature);
+                                    // console.log('add previous feature:', prevFeature);
                                     neighbours_.push(prevFeature);
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
@@ -459,7 +459,7 @@
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1];
                                         }
                                     );
-                                    console.log('add next feature:', nextFeature);
+                                    // console.log('add next feature:', nextFeature);
                                     neighbours_.push(nextFeature);
                                 }
                             }
@@ -477,7 +477,7 @@
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
                         let distance = turf.distance(neighbour_, currentFeature) * 1000;
-                        console.log("bearing:", bearing);
+                        // console.log("bearing:", bearing);
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("position", "0 0 0");
@@ -505,10 +505,10 @@
                         // circle.setAttribute("position", distance + " 0 0");
                         circle.setAttribute("rotation", "0 0 0");
                         // circle.setAttribute("radius", 1);
-                        console.log("getAttribute radius:", circle.getAttribute("radius"));
-                        console.log("getAttribute radius:", circle.getAttributeNames());
                         circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
+                        console.log("getAttribute radius:", circle.getAttribute("radius"));
+                        console.log("getAttributeS:", circle.getAttributeNames());
                         // circle.setAttribute("material", "side:double;");
 
                         // let triangle = document.createElement("a-entity");
