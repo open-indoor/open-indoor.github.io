@@ -440,7 +440,7 @@
                             ) {
                                 if (i >= 1) {
                                     let prev = featureWay.geometry.coordinates[i - 1];
-                                    console.log('add prev:', prev);
+                                    // console.log('add prev:', prev);
                                     // console('Looking for', featureWay.geometry.coordinates[i - 1]);
                                     let prevFeature = featurePoints.find(
                                         function(featurePoint_) {
@@ -454,7 +454,7 @@
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
                                     let next = featureWay.geometry.coordinates[i - 1];
-                                    console.log('add next:', next);
+                                    // console.log('add next:', next);
                                     let nextFeature = featurePoints.find(
                                         function(featurePoint_) {
                                             return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
@@ -509,7 +509,7 @@
                         circle.setAttribute("rotation", "0 0 0");
                         circle.setAttribute(
                             "geometry", {
-                                'radius': 1
+                                'radius': -1
                             });
                         // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
