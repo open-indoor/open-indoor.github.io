@@ -71,57 +71,57 @@
 
 <body>
     <script>
-        AFRAME.registerComponent('cross', {
+        // AFRAME.registerComponent('cross', {
 
-            schema: {
-                feature: {
-                    type: 'string',
-                    default: ''
-                }
-            },
+        //     schema: {
+        //         feature: {
+        //             type: 'string',
+        //             default: ''
+        //         }
+        //     },
 
-            init: function() {
+        //     init: function() {
 
-                let data = this.data;
-                let el = this.el;
-                // entity.setAttribute('material', 'color', 'red');
+        //         let data = this.data;
+        //         let el = this.el;
+        //         // entity.setAttribute('material', 'color', 'red');
 
-                el.addEventListener("click", function(event) {
-                    console.log('feature:' + data.feature);
-                    feature = JSON.parse(data.feature);
-                    centerOn(feature);
-                    processNeighbours(feature);
-                    map.setLayoutProperty(
-                        'markers',
-                        'icon-image', [
-                            'match', ['get', 'image'],
-                            feature.properties.image,
-                            'marker_red',
-                            'marker_black'
-                        ]
-                    );
-                    // psMain.setAttribute("src", psList[data.index].src);
-                    // addCrossOnPhotosphere(psList[data.index]);
-                });
+        //         el.addEventListener("click", function(event) {
+        //             console.log('feature:' + data.feature);
+        //             feature = JSON.parse(data.feature);
+        //             centerOn(feature);
+        //             processNeighbours(feature);
+        //             map.setLayoutProperty(
+        //                 'markers',
+        //                 'icon-image', [
+        //                     'match', ['get', 'image'],
+        //                     feature.properties.image,
+        //                     'marker_red',
+        //                     'marker_black'
+        //                 ]
+        //             );
+        //             // psMain.setAttribute("src", psList[data.index].src);
+        //             // addCrossOnPhotosphere(psList[data.index]);
+        //         });
 
-                // el.setAttribute("src", "assets/512512.png");
-            },
+        //         // el.setAttribute("src", "assets/512512.png");
+        //     },
 
-            // tick: function() {
-            //     var el = this.el;
-            //     var rotationTmp = this.rotationTmp = this.rotationTmp || {
-            //         x: 0,
-            //         y: 0,
-            //         z: 0
-            //     };
-            //     var rotation = el.getAttribute('rotation');
-            //     rotationTmp.x = rotation.x + 0.5;
-            //     rotationTmp.y = rotation.y + 0.5;
-            //     rotationTmp.z = rotation.z + 0.5;
-            //     el.setAttribute('rotation', rotationTmp);
-            // }
+        //     // tick: function() {
+        //     //     var el = this.el;
+        //     //     var rotationTmp = this.rotationTmp = this.rotationTmp || {
+        //     //         x: 0,
+        //     //         y: 0,
+        //     //         z: 0
+        //     //     };
+        //     //     var rotation = el.getAttribute('rotation');
+        //     //     rotationTmp.x = rotation.x + 0.5;
+        //     //     rotationTmp.y = rotation.y + 0.5;
+        //     //     rotationTmp.z = rotation.z + 0.5;
+        //     //     el.setAttribute('rotation', rotationTmp);
+        //     // }
 
-        });
+        // });
 
         AFRAME.registerComponent('rotation-reader', {
             tick: function() {
