@@ -8,7 +8,7 @@
     <base href="https://open-indoor.github.io/">
     <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script> -->
+    <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
     <!-- <script src="https://mayognaise.github.io/aframe-mouse-cursor-component/build.js"></script> -->
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
@@ -186,12 +186,12 @@
             <!-- <a-scene> -->
             <a-scene class="aframebox" embedded>
                 <a-entity id="rig">
-                    <!-- <a-entity id="camera" camera look-controls rotation-reader></a-entity> -->
-                    <a-entity id="camera" camera gallery-touch-look-controls rotation-reader>
-                        <a-cursor fuse="true" color="yellow" cursor="rayOrigin: mouse"></a-cursor>
-                    </a-entity>
+                    <a-entity id="camera" camera look-controls rotation-reader></a-entity>
+                    <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader> -->
+                    <a-cursor fuse="true" color="yellow" cursor="rayOrigin: mouse"></a-cursor>
+                </a-entity>
 
-                    <!-- <a-entity camera look-controls mouse-cursor>
+                <!-- <a-entity camera look-controls mouse-cursor>
                         <a-cursor fuse="true" color="yellow"></a-cursor>
                     </a-entity> -->
 
