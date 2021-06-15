@@ -508,7 +508,7 @@
                         circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
                         console.log("circle.components:", circle.components);
-                        // circle.components.geometry.geometry.parameters.radius = 0.5;
+                        circle.components.geometry.radius = 0.5;
                         circle.setAttribute('geometry', 'radius', '0.5');
 
                         // console.log("getAttribute radius:", circle.getAttribute("radius"));
