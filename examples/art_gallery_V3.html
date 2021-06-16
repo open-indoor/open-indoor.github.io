@@ -73,19 +73,19 @@
     <script>
         let degToRad = THREE.Math.degToRad;
 
-        AFRAME.registerComponent('mysphere', {
+        AFRAME.registerComponent('mycircle', {
             schema: {
                 radius: {
                     default: 1,
                     min: 0
                 },
-                phiLength: {
-                    default: 360
-                },
-                phiStart: {
-                    default: 0,
-                    min: 0
-                },
+                // phiLength: {
+                //     default: 360
+                // },
+                // phiStart: {
+                //     default: 0,
+                //     min: 0
+                // },
                 thetaLength: {
                     default: 180,
                     min: 0
@@ -93,12 +93,12 @@
                 thetaStart: {
                     default: 0
                 },
-                segmentsHeight: {
-                    default: 18,
-                    min: 2,
-                    type: 'int'
-                },
-                segmentsWidth: {
+                // segmentsHeight: {
+                //     default: 18,
+                //     min: 2,
+                //     type: 'int'
+                // },
+                segments: {
                     default: 36,
                     min: 3,
                     type: 'int'
@@ -111,9 +111,9 @@
                 var el = this.el;
 
                 // Create geometry.
-                this.geometry = new THREE.SphereGeometry(
-                    data.radius, data.segmentsWidth, data.segmentsHeight, degToRad(data.phiStart),
-                    degToRad(data.phiLength), degToRad(data.thetaStart), degToRad(data.thetaLength));
+                this.geometry = new THREE.CircleGeometry(
+                    data.radius, data.segments,
+                    degToRad(data.thetaStart), degToRad(data.thetaLength));
 
                 // Create material.
                 this.material = new THREE.MeshStandardMaterial({
@@ -586,7 +586,7 @@
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
                         let circle = document.createElement('a-entity');
-                        circle.setAttribute("mysphere", "radius: 0.5");
+                        circle.setAttribute("mycircle", "radius: 0.5");
                         circle.setAttribute("position", distance + " -1.7 0");
                         // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
