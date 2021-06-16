@@ -73,36 +73,15 @@
     <script>
         let degToRad = THREE.Math.degToRad;
 
-
-        AFRAME.registerComponent('mysphere', {
+        AFRAME.registerComponent('mycircle', {
             schema: {
                 radius: {
                     default: 1,
                     min: 0
                 },
-                phiLength: {
-                    default: 360
-                },
-                phiStart: {
-                    default: 0,
-                    min: 0
-                },
-                thetaLength: {
-                    default: 180,
-                    min: 0
-                },
-                thetaStart: {
-                    default: 0
-                },
-                segmentsHeight: {
-                    default: 18,
-                    min: 2,
-                    type: 'int'
-                },
-                segmentsWidth: {
-                    default: 36,
-                    min: 3,
-                    type: 'int'
+                color: {
+                    type: 'color',
+                    default: '#AAA'
                 }
             },
 
@@ -112,13 +91,15 @@
                 var el = this.el;
 
                 // Create geometry.
-                this.geometry = new THREE.SphereGeometry(
-                    data.radius, data.segmentsWidth, data.segmentsHeight, degToRad(data.phiStart),
-                    degToRad(data.phiLength), degToRad(data.thetaStart), degToRad(data.thetaLength));
+                // this.geometry = new THREE.SphereGeometry(
+                //     data.radius, 36, 18, degToRad(0),
+                //     degToRad(360), degToRad(0), degToRad(180));
+                this.geometry = new THREE.CircleGeometry(data.radius, 36);
 
                 // Create material.
                 this.material = new THREE.MeshStandardMaterial({
-                    color: data.color
+                    color: data.color,
+                    // side: THREE.DoubleSide
                 });
 
                 // Create mesh.
@@ -128,6 +109,7 @@
                 el.setObject3D('mesh', this.mesh);
             }
         });
+
 
         AFRAME.registerComponent('box', {
             schema: {
@@ -326,19 +308,35 @@
         let neighbours = [];
 
         // let markers = [];
+        // let currentFeature = {
+        //     "type": "Feature",
+        //     "geometry": {
+        //         "type": "Point",
+        //         "coordinates": [-74.0549296, 40.6864816]
+        //     },
+        //     "properties": {
+        //         "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
+        //         "indoor": "yes",
+        //         "orientation": "0",
+        //         "thumbnail": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01_thumbnail.jpg",
+        //         "tourism": "viewpoint"
+        //     }
+        // };
         let currentFeature = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [-74.0549296, 40.6864808]
+                "coordinates": [-74.0549304, 40.686461]
             },
             "properties": {
                 "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
                 "indoor": "yes",
                 "orientation": "0",
-                "tourism": "viewpoint"
+                "thumbnail": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01_thumbnail.jpg",
+                "tourism": "viewpoint",
+                "entrance": "yes"
             }
-        };
+        }
 
         function centerOn(feature) {
             console.log('centerOn')
@@ -421,7 +419,7 @@
                 },
                 'gallery': {
                     'type': 'geojson',
-                    'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson'
+                    'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery_V3.geojson'
                 }
             },
             "light": {
@@ -578,18 +576,19 @@
                     while (markerObjs.firstChild) {
                         markerObjs.removeChild(markerObjs.firstChild);
                     }
+                    scene = document.querySelector("a-scene");
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
                         let distance = turf.distance(neighbour_, currentFeature) * 1000;
                         // console.log("bearing:", bearing);
-                        scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
-                        // let circle = document.createElement('a-sphere');
                         let circle = document.createElement('a-entity');
-                        circle.setAttribute("mysphere", "radius: 0.5");
+                        circle.setAttribute("class", "cross");
+                        circle.setAttribute("mycircle", "radius: 1");
                         circle.setAttribute("position", distance + " -1.7 0");
+                        circle.setAttribute("rotation", "-90 0 0");
                         // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
                         bearObj.appendChild(circle);
@@ -597,7 +596,6 @@
 
                     });
                     scene.appendChild(markerObjs);
-                    scene.flushToDOM();
                 }
             }
             let markers = {
