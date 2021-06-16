@@ -79,22 +79,10 @@
                     default: 1,
                     min: 0
                 },
-                thetaLength: {
-                    default: 180,
-                    min: 0
-                },
-                thetaStart: {
-                    default: 0
-                },
                 color: {
                     default: "#FFF",
                     type: 'color'
                 },
-                segments: {
-                    default: 36,
-                    min: 3,
-                    type: 'int'
-                }
             },
 
             init: function(data) {
@@ -103,9 +91,7 @@
                 var el = this.el;
 
                 // Create geometry.
-                this.geometry = new THREE.CircleGeometry(
-                    data.radius, data.segments,
-                    degToRad(data.thetaStart), degToRad(data.thetaLength));
+                this.geometry = new THREE.CircleGeometry(data.radius, 32);
 
                 // Create material.
                 this.material = new THREE.MeshStandardMaterial({
