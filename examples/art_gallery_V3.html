@@ -73,29 +73,49 @@
     <script>
         let degToRad = THREE.Math.degToRad;
 
-        AFRAME.registerComponent('mycircle', {
+
+        AFRAME.registerComponent('mysphere', {
             schema: {
                 radius: {
                     default: 1,
                     min: 0
                 },
-                color: {
-                    type: 'color',
-                    default: '#AAA'
+                phiLength: {
+                    default: 360
+                },
+                phiStart: {
+                    default: 0,
+                    min: 0
+                },
+                thetaLength: {
+                    default: 180,
+                    min: 0
+                },
+                thetaStart: {
+                    default: 0
+                },
+                segmentsHeight: {
+                    default: 18,
+                    min: 2,
+                    type: 'int'
+                },
+                segmentsWidth: {
+                    default: 36,
+                    min: 3,
+                    type: 'int'
                 }
             },
 
-            init: function() {
+            init: function(data) {
 
                 var data = this.data;
                 var el = this.el;
 
                 // Create geometry.
-                // this.geometry = new THREE.CircleGeometry(data.radius, 32);
-                console.log("set geometry !")
                 this.geometry = new THREE.SphereGeometry(
-                    data.radius, 36, 18, degToRad(0),
-                    degToRad(0), degToRad(0), degToRad(180));
+                    data.radius, data.segmentsWidth, data.segmentsHeight, degToRad(data.phiStart),
+                    degToRad(data.phiLength), degToRad(data.thetaStart), degToRad(data.thetaLength));
+
                 // Create material.
                 this.material = new THREE.MeshStandardMaterial({
                     color: data.color
@@ -106,32 +126,6 @@
 
                 // Set mesh on entity.
                 el.setObject3D('mesh', this.mesh);
-            },
-            update: function(oldData) {
-                var data = this.data;
-                var el = this.el;
-
-                // If `oldData` is empty, then this means we're in the initialization process.
-                // No need to update.
-                if (Object.keys(oldData).length === 0) {
-                    return;
-                }
-
-                // Geometry-related properties changed. Update the geometry.
-                if (data.color !== oldData.color ||
-                    data.radius !== oldData.radius) {
-                    el.getObject3D('mesh').geometry = new THREE.SphereGeometry(
-                        data.radius, 36, 18, degToRad(0),
-                        degToRad(0), degToRad(0), degToRad(180));;
-                }
-
-                // Material-related properties changed. Update the material.
-                if (data.color !== oldData.color) {
-                    el.getObject3D('mesh').material.color = new THREE.Color(data.color);
-                }
-            },
-            remove: function() {
-                this.el.removeObject3D('mesh');
             }
         });
 
@@ -593,12 +587,10 @@
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
                         // let circle = document.createElement('a-sphere');
-                        let circle = document.createElement('a-sphere');
-                        // let circle = document.createElement('a-entity');
-                        // circle.setAttribute("mycircle", "radius: 1");
-                        circle.setAttribute("color", "#F00");
-                        // circle.setAttribute("radius", "0.4");
-                        circle.setAttribute("position", "" + distance + " -1.7 0");
+                        let circle = document.createElement('a-entity');
+                        circle.setAttribute("mysphere", "radius: 0.5");
+                        circle.setAttribute("position", distance + " -1.7 0");
+                        // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
                         bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
