@@ -1,10 +1,10 @@
 var psList = [];
-var scene, camera, psMain;
+var scene, psMain;
 
 AFRAME.registerComponent('cross', {
 
   schema: {
-    index: {type: 'number', default: '-1'}
+    index: {type: 'number', default: -1}
   },
 
   init: function() {
@@ -20,24 +20,15 @@ AFRAME.registerComponent('cross', {
       el.setAttribute("src", "assets/512512.png");
   },
 
-  tick: function () {
-    var el = this.el;
-    var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
-    var rotation = el.getAttribute('rotation');
-    rotationTmp.x = rotation.x + 0.5;
-    rotationTmp.y = rotation.y + 0.5;
-    rotationTmp.z = rotation.z + 0.5;
-    el.setAttribute('rotation', rotationTmp);
-  }
-
 });
 
 function addCrossOnPhotosphere(origin) {
-  //Move photosphere
-  psMain.setAttribute("position", origin.x + " 0 " + origin.z);
-  camera.setAttribute("position", origin.x + " 0 " + origin.z);
 
   //Remove ancient cross
+  var listCross = document.querySelectorAll("a-entity");
+  listCross.forEach(currentValue => {
+    currentValue.parentNode.removeChild(currentValue);
+  });
   var listCross = document.querySelectorAll("a-box");
   listCross.forEach(currentValue => {
     currentValue.parentNode.removeChild(currentValue);
@@ -46,22 +37,29 @@ function addCrossOnPhotosphere(origin) {
   //Add new cross
   origin.neighbourList.forEach(currentValue => {
     var index = psList.indexOf(currentValue);
-    var d = Math.sqrt(Math.pow((currentValue.x - origin.x), 2) + Math.pow((currentValue.z - origin.z), 2));
-    var x = Math.round(origin.x + (50/d)*(currentValue.x - origin.x));
-    var z = Math.round(origin.z + (50/d)*(currentValue.z - origin.z));
 
-    var cross = document.createElement("a-box");
+    var point1 = turf.point([origin.lat, origin.lon]);
+    var point2 = turf.point([currentValue.lat, currentValue.lon]);
+
+    var distance = turf.distance(point1, point2) * 1000; //distance en mètre
+    var bearing = turf.bearing(point1, point2);
+
+    var rot_box = document.createElement("a-entity");
+    rot_box.setAttribute("id", "rot_box__" + index)
+    rot_box.setAttribute("rotation", "0 " + (180 - bearing) + " 0");
+    scene.appendChild(rot_box);
+
+    var cross = document.createElement("a-circle");
     cross.setAttribute("id", "cross__" + index)
-    cross.setAttribute("position", x + " 0 " + z);
-    cross.setAttribute("scale", "3 3 3");
-    cross.setAttribute("rotation", "45 45 0");
+    cross.setAttribute("position", distance + " -1.8 0");
+    cross.setAttribute("rotation", "-90 0 0");
+    cross.setAttribute("radius", "0.5");
     cross.setAttribute("cross", "index: "+ index);
-    scene.appendChild(cross);
+    rot_box.appendChild(cross);
   });
 };
 
 function run() {
-  camera = document.querySelector("a-camera");
   psMain = document.getElementById("main-ps");
   psMain.setAttribute("src", psList[0].src);
   addCrossOnPhotosphere(psList[0])
@@ -81,7 +79,7 @@ function searchMatch(x, z){
   while(i < length && !isFound)
   {
     curr = psList[i];
-    if(curr.xdata == x && curr.zdata == z)
+    if(curr.lat == x && curr.lon == z)
     {
       isFound = true;
     }
@@ -97,29 +95,17 @@ function searchMatch(x, z){
 }
 
 $.getJSON("https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson", function(result){
-  var xref, zref, x, z;
-  var factor = 2000000;
+  var a, b, curr, prec, length;
   var data = result.features;
   data.forEach(currentValue => {
     if(currentValue.geometry.type == "Point" && currentValue.properties.image != undefined)
     {
-      //Traitement des coordonnées (Decimal degrees -> Useful coordinates)
-      if(psList.length == 0)
-      {
-        xref = currentValue.geometry.coordinates[0];
-        zref = currentValue.geometry.coordinates[1];
-      }
-
-      x = -Math.round((currentValue.geometry.coordinates[0] - xref) * factor);
-      z = Math.round((currentValue.geometry.coordinates[1] - zref) * factor);
-
-      psList.push(new Photosphere(currentValue.geometry.coordinates[0], currentValue.geometry.coordinates[1], x, z, currentValue.properties.image));
+      psList.push(new Photosphere(currentValue.geometry.coordinates[0], currentValue.geometry.coordinates[1], currentValue.properties.image));
     }
     else if(currentValue.geometry.type == "LineString" && currentValue.properties.highway == "footway")
     {
       //Traitement des chemins entre les points
-      var length = currentValue.geometry.coordinates.length;
-      var a, b, curr, prec;
+      length = currentValue.geometry.coordinates.length;
       for(var i = 1; i < length; i++)
       {
         prec = currentValue.geometry.coordinates[i-1];

@@ -1,10 +1,8 @@
 class Photosphere {
 
-    constructor(xdata, zdata, x, z, src){
-        this.xdata = xdata;
-        this.zdata = zdata;
-        this.x = x;
-        this.z = z;
+    constructor(lat, lon, src){
+        this.lat = lat;
+        this.lon = lon;
         this.src = src;
         this.neighbourList = [];
     }

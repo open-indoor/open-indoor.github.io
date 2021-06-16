@@ -10,6 +10,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>  
+    <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
 
     <!-- Scripts -->
     <script src="photosphere.js"></script>
@@ -19,8 +20,7 @@
   <body style="background-color:powderblue;">
     <a-scene>
       <a-camera position="0 0 0" rotation="0 0 0" cursor="rayOrigin: mouse"></a-camera>
-      <a-sky id="main-ps" rotation="0 90 0" radius="1000"></a-sky>
-      <!--<a-sphere id="main-ps" position="0 0 0" rotation="0 -90 0" radius="1000" material="side:back"></a-sphere>-->
+      <a-sky id="main-ps" rotation="0 0 0" radius="1000"></a-sky>
     </a-scene>
   </body>
 </html>
