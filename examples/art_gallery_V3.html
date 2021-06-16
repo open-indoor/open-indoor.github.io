@@ -603,14 +603,15 @@
                         //     console.log('xxx');
                         // });
                         // let circle = document.createElement("a-sphere");
-                        let circle = document.createElement('a-entity');
-                        circle.setAttribute("mysphere", "radius: 2");
-                        // let circle = document.createElement("a-sphere", {
-                        //     "class": "cross",
-                        //     "position": "" + distance + " -1.7 0",
-                        //     "cross": "feature: " + JSON.stringify(neighbour_),
-                        //     // radius: 1
-                        // });
+                        // let circle = document.createElement('a-entity');
+                        // circle.setAttribute("mysphere", "radius: 0.5");
+                        let circle = document.createElement("a-entity", {
+                            "mysphere": "radius: 0.5;",
+                            // "class": "cross",
+                            // "position": "" + distance + " -1.7 0",
+                            // "cross": "feature: " + JSON.stringify(neighbour_),
+                            // radius: 1
+                        });
 
                         // circle.setAttribute('geometry', my_geometry);
                         // circle.setAttribute("geometry", "primitive: sphere; radius: 2");
