@@ -583,67 +583,13 @@
                         // console.log("bearing:", bearing);
                         scene = document.querySelector("a-scene");
                         let bearObj = document.createElement("a-entity");
-                        // bearObj.setAttribute("position", "0 0 0");
-                        // bearObj.setAttribute("rotation", "0 20 0");
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
-                        // let box = document.createElement("a-box");
-                        // box.setAttribute("position", "" + distance + " -1.7 0");
-                        // // box.setAttribute("position", "" + distance + " 0 0");
-                        // box.setAttribute("scale", "1 1 1");
-                        // // box.setAttribute("rotation", "-90 0 0");
-                        // box.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
-
-                        // box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
-                        // box.setAttribute("color", "#C00");
-                        // box.addEventListener('click', function(evt) {
-                        //     console.log('xxx');
-                        // });
-                        // box.addEventListener('collide', function(evt) {
-                        //     console.log('xxx');
-                        // });
-                        // let circle = document.createElement("a-sphere");
-                        // let circle = document.createElement('a-entity');
-                        // circle.setAttribute("mysphere", "radius: 0.5");
-                        let circle = document.createElement("a-entity", {
-                            "mysphere": "radius: 0.5;",
-                            // "class": "cross",
-                            // "position": "" + distance + " -1.7 0",
-                            // "cross": "feature: " + JSON.stringify(neighbour_),
-                            // radius: 1
-                        });
-
-                        // circle.setAttribute('geometry', my_geometry);
-                        // circle.setAttribute("geometry", "primitive: sphere; radius: 2");
-                        // circle.setAttribute("material", "side: double");
-
-                        // circle.setAttribute("mysphere", "radius: 1;");
-                        // circle.setAttribute('geometry', {
-                        //     primitive: 'sphere',
-                        //     radius: 1.0
-                        // });
-                        // let circle = document.createElement("a-circle");
+                        let circle = document.createElement('a-entity');
+                        circle.setAttribute("mysphere", "radius: 0.5");
                         circle.setAttribute("position", distance + " -1.7 0");
-                        // circle.setAttribute("position", distance + " 0 0");
-                        // circle.setAttribute("radius", "1");
                         // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
-
-                        // let sphere = scene.querySelector('a-entity[sphere]');
-                        // sphere.setAttribute('material', 'color', 'red');
-                        // sphere.setAttribute('geometry', 'radius', '0.6');
-
-                        // circle.setAttribute('geometry', 'radius', '0.6');
-
-                        // circle.setAttribute("material", "side:double;");
-
-                        // let triangle = document.createElement("a-entity");
-                        // circle.setAttribute("position", distance + " 0 0");
-                        // triangle.setAttribute("geometry", "primitive: triangle");
-                        // triangle.setAttribute("material", "side: double");
-
-                        // bearObj.appendChild(box);
-                        // bearObj.appendChild(triangle);
                         bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
 
