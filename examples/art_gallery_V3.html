@@ -587,13 +587,13 @@
                         //     console.log('xxx');
                         // });
 
-                        // let circle = document.createElement("a-sphere");
-                        let circle = document.createElement('a-entity');
+                        let circle = document.createElement("a-sphere");
+                        // let circle = document.createElement('a-entity');
                         // let my_geometry = circle.getAttribute('geometry');
                         // my_geometry.radius = 1;
                         // circle.setAttribute('geometry', my_geometry);
-                        circle.setAttribute("geometry", "primitive: sphere; radius: 2");
-                        circle.setAttribute("material", "side: double");
+                        // circle.setAttribute("geometry", "primitive: sphere; radius: 2");
+                        // circle.setAttribute("material", "side: double");
 
                         // circle.setAttribute("mysphere", "radius: 1;");
                         // mysphere
@@ -604,7 +604,7 @@
                         // let circle = document.createElement("a-circle");
                         circle.setAttribute("position", distance + " -1.7 0");
                         // circle.setAttribute("position", distance + " 0 0");
-                        // circle.setAttribute("rotation", "0 0 0");
+                        circle.setAttribute("radius", "1");
                         // circle.setAttribute(
                         //     "geometry", {
                         //         'radius': 1
