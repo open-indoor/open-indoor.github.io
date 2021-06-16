@@ -129,6 +129,9 @@
                 if (data.color !== oldData.color) {
                     el.getObject3D('mesh').material.color = new THREE.Color(data.color);
                 }
+            },
+            remove: function() {
+                this.el.removeObject3D('mesh');
             }
         });
 
