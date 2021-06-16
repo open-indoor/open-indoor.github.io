@@ -586,7 +586,9 @@
                         // box.addEventListener('collide', function(evt) {
                         //     console.log('xxx');
                         // });
-                        let circle = document.createElement("a-sphere");
+                        // let circle = document.createElement("a-sphere");
+                        let circle = document.createElement('a-entity');
+                        let circle = document.setAttribute("mysphere");
                         // let circle = document.createElement("a-sphere", {
                         //     "class": "cross",
                         //     "position": "" + distance + " -1.7 0",
@@ -594,7 +596,6 @@
                         //     // radius: 1
                         // });
 
-                        // let circle = document.createElement('a-entity');
                         // circle.setAttribute('geometry', my_geometry);
                         // circle.setAttribute("geometry", "primitive: sphere; radius: 2");
                         // circle.setAttribute("material", "side: double");
@@ -607,7 +608,7 @@
                         // let circle = document.createElement("a-circle");
                         circle.setAttribute("position", distance + " -1.7 0");
                         // circle.setAttribute("position", distance + " 0 0");
-                        circle.setAttribute("radius", "1");
+                        // circle.setAttribute("radius", "1");
                         // circle.setAttribute("color", "#FFF");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
 
