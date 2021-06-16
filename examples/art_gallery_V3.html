@@ -10,6 +10,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
+    <!-- <script src="https://mayognaise.github.io/aframe-mouse-cursor-component/build.js"></script> -->
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
     <style>
@@ -70,6 +71,159 @@
 
 <body>
     <script>
+        let degToRad = THREE.Math.degToRad;
+
+
+        AFRAME.registerComponent('mysphere', {
+            schema: {
+                radius: {
+                    default: 1,
+                    min: 0
+                },
+                phiLength: {
+                    default: 360
+                },
+                phiStart: {
+                    default: 0,
+                    min: 0
+                },
+                thetaLength: {
+                    default: 180,
+                    min: 0
+                },
+                thetaStart: {
+                    default: 0
+                },
+                segmentsHeight: {
+                    default: 18,
+                    min: 2,
+                    type: 'int'
+                },
+                segmentsWidth: {
+                    default: 36,
+                    min: 3,
+                    type: 'int'
+                }
+            },
+
+            init: function(data) {
+
+                var data = this.data;
+                var el = this.el;
+
+                // Create geometry.
+                this.geometry = new THREE.SphereGeometry(
+                    data.radius, data.segmentsWidth, data.segmentsHeight, degToRad(data.phiStart),
+                    degToRad(data.phiLength), degToRad(data.thetaStart), degToRad(data.thetaLength));
+
+                // Create material.
+                this.material = new THREE.MeshStandardMaterial({
+                    color: data.color
+                });
+
+                // Create mesh.
+                this.mesh = new THREE.Mesh(this.geometry, this.material);
+
+                // Set mesh on entity.
+                el.setObject3D('mesh', this.mesh);
+            }
+        });
+
+        AFRAME.registerComponent('box', {
+            schema: {
+                width: {
+                    type: 'number',
+                    default: 1
+                },
+                height: {
+                    type: 'number',
+                    default: 1
+                },
+                depth: {
+                    type: 'number',
+                    default: 1
+                },
+                color: {
+                    type: 'color',
+                    default: '#AAA'
+                }
+            },
+
+            /**
+             * Initial creation and setting of the mesh.
+             */
+            init: function() {
+                var data = this.data;
+                var el = this.el;
+
+                // Create geometry.
+                this.geometry = new THREE.BoxBufferGeometry(data.width, data.height, data.depth);
+
+                // Create material.
+                this.material = new THREE.MeshStandardMaterial({
+                    color: data.color
+                });
+
+                // Create mesh.
+                this.mesh = new THREE.Mesh(this.geometry, this.material);
+
+                // Set mesh on entity.
+                el.setObject3D('mesh', this.mesh);
+            }
+        });
+
+        AFRAME.registerComponent('cross', {
+
+            schema: {
+                feature: {
+                    type: 'string',
+                    default: ''
+                }
+            },
+
+            init: function() {
+
+                let data = this.data;
+                let el = this.el;
+                // entity.setAttribute('material', 'color', 'red');
+
+                el.addEventListener("click", function(event) {
+                    console.log('feature:' + data.feature);
+                    feature = JSON.parse(data.feature);
+                    centerOn(feature);
+                    processNeighbours(feature);
+                    map.setLayoutProperty(
+                        'markers',
+                        'icon-image', [
+                            'match', ['get', 'image'],
+                            feature.properties.image,
+                            'marker_red',
+                            'marker_black'
+                        ]
+                    );
+                    // psMain.setAttribute("src", psList[data.index].src);
+                    // addCrossOnPhotosphere(psList[data.index]);
+                });
+
+                // el.setAttribute("src", "assets/512512.png");
+            },
+
+            // tick: function() {
+            //     var el = this.el;
+            //     var rotationTmp = this.rotationTmp = this.rotationTmp || {
+            //         x: 0,
+            //         y: 0,
+            //         z: 0
+            //     };
+            //     var rotation = el.getAttribute('rotation');
+            //     rotationTmp.x = rotation.x + 0.5;
+            //     rotationTmp.y = rotation.y + 0.5;
+            //     rotationTmp.z = rotation.z + 0.5;
+            //     el.setAttribute('rotation', rotationTmp);
+            // }
+
+        });
+
         AFRAME.registerComponent('rotation-reader', {
             tick: function() {
                 const newValue = this.el.getAttribute('rotation');
@@ -131,10 +285,19 @@
             </a-scene> -->
 
             <!-- <a-scene> -->
-            <a-scene class="aframebox" embedded>
+            <a-scene class="aframebox" debug embedded>
                 <a-entity id="rig">
-                    <!-- <a-entity id="camera" camera look-controls rotation-reader></a-entity> -->
-                    <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity>
+                    <!-- <a-entity id="camera" camera look-controls="magicWindowTrackingEnabled: false;" rotation-reader></a-entity> -->
+                    <a-entity id="camera" camera gallery-touch-look-controls rotation-reader>
+                        <!-- <a-cursor fuse="true" color="yellow" cursor="rayOrigin: mouse"></a-cursor> -->
+                        <a-cursor fuse="false" raycaster="objects: .cross" cursor="rayOrigin: mouse; mouseCursorStylesEnabled: false" material="visible: false">
+                        </a-cursor>
+                    </a-entity>
+
+                    <!-- <a-entity camera look-controls mouse-cursor>
+                        <a-cursor fuse="true" color="yellow"></a-cursor>
+                    </a-entity> -->
+
                 </a-entity>
                 <!-- <a-sky src="https://vegeta.openindoor.io/indoor/img/puydesancy.jpg" rotation="0 -130 0"></a-sky> -->
 
@@ -147,19 +310,9 @@
                 <!-- <a-assets>
                     <img id="panorama" src="" crossorigin="anonymous">
                 </a-assets> -->
-                <a-sky id="panorama" src="" rotation="0 -90 0"></a-sky>
+                <a-sky id="panorama" src="" radius="100" rotation="0 -90 0"></a-sky>
+                <a-entity id="markers"></a-entity>
 
-                <!-- <a-sky src="#panorama" do-on-asset-load="#panorama" rotation="0 -90 0"></a-sky> -->
-
-                <!-- <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                <a-entity rotation="0 45 0">
-                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                </a-entity>
-                <a-entity rotation="0 -45 0">
-                    <a-text color="#000" font="kelsonsans" value="^" width="6" position="0 -0.25 -0.5"></a-text>
-                </a-entity>
-                <!-- <a-text color="#000 " font="kelsonsans " value="^ " width="6 " position="0 -1 -1 ""> -->
-                </a-text> -->
             </a-scene>
 
         </div>
@@ -234,6 +387,7 @@
             // );
             map.flyTo({
                 center: [lon, lat],
+                zoom: 21,
                 essential: true
             });
         }
@@ -269,6 +423,12 @@
                     'type': 'geojson',
                     'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson'
                 }
+            },
+            "light": {
+                "anchor": "viewport",
+                "color": "white",
+                "intensity": 1,
+                "position": [1.15, 210, 30]
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
@@ -319,7 +479,7 @@
             'center': [-74.0445489, 40.6892609],
             'pitch': 60,
             'bearing': 0,
-            'zoom': 19,
+            'zoom': 21,
             'style': mapStyle
         });
 
@@ -371,7 +531,7 @@
                 // Init neighbours
                 let neighbours_ = [];
                 if (featurePoints.length > 0) {
-                    console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
+                    // console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
                     for (featureWay of featureWays) {
                         // console.log('featureWay:', featureWay);
                         for (let i = 0; i < featureWay.geometry.coordinates.length; i++) {
@@ -382,7 +542,7 @@
                             ) {
                                 if (i >= 1) {
                                     let prev = featureWay.geometry.coordinates[i - 1];
-                                    console.log('add prev:', prev);
+                                    // console.log('add prev:', prev);
                                     // console('Looking for', featureWay.geometry.coordinates[i - 1]);
                                     let prevFeature = featurePoints.find(
                                         function(featurePoint_) {
@@ -391,19 +551,19 @@
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
                                         }
                                     );
-                                    console.log('add previous feature:', prevFeature);
+                                    // console.log('add previous feature:', prevFeature);
                                     neighbours_.push(prevFeature);
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
                                     let next = featureWay.geometry.coordinates[i - 1];
-                                    console.log('add next:', next);
+                                    // console.log('add next:', next);
                                     let nextFeature = featurePoints.find(
                                         function(featurePoint_) {
                                             return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1];
                                         }
                                     );
-                                    console.log('add next feature:', nextFeature);
+                                    // console.log('add next feature:', nextFeature);
                                     neighbours_.push(nextFeature);
                                 }
                             }
@@ -414,18 +574,30 @@
 
 
                     // Debug: process bearings
-                    // neighbours.forEach(neighbour_ => {
-                    //     let bearing = turf.bearing(neighbour_, currentFeature);
-                    //     scene = document.querySelector("a-scene");
-                    //     var cross = document.createElement("a-box");
-                    //     cross.setAttribute("id", "cross__" + index)
-                    //     cross.setAttribute("position", "4 0 4");
-                    //     cross.setAttribute("scale", "3 3 3");
-                    //     cross.setAttribute("rotation", "45 45 0");
-                    //     cross.setAttribute("cross", "index: " + index);
-                    //     scene.appendChild(cross);
-                    // });
+                    let markerObjs = document.getElementById('markers');
+                    while (markerObjs.firstChild) {
+                        markerObjs.removeChild(markerObjs.firstChild);
+                    }
+                    neighbours.forEach(neighbour_ => {
+                        let bearing = turf.bearing(neighbour_, currentFeature);
+                        let distance = turf.distance(neighbour_, currentFeature) * 1000;
+                        // console.log("bearing:", bearing);
+                        scene = document.querySelector("a-scene");
+                        let bearObj = document.createElement("a-entity");
+                        bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
+                        // let circle = document.createElement('a-sphere');
+                        let circle = document.createElement('a-entity');
+                        circle.setAttribute("mysphere", "radius: 0.5");
+                        circle.setAttribute("position", distance + " -1.7 0");
+                        // circle.setAttribute("color", "#FFF");
+                        circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
+                        bearObj.appendChild(circle);
+                        markerObjs.appendChild(bearObj);
+
+                    });
+                    scene.appendChild(markerObjs);
+                    scene.flushToDOM();
                 }
             }
             let markers = {
@@ -517,11 +689,26 @@
         //     centerOn(currentFeature);
         // });
 
+        // map.on('click', 'markers', e => {
+        //     console.log('click !')
+        //     const feature = e.features[0];
+        //     centerOn(feature);
+        //     processNeighbours(feature);
+        // })
+
         map.on('click', 'markers', e => {
-            console.log('click !')
             const feature = e.features[0];
             centerOn(feature);
             processNeighbours(feature);
+            map.setLayoutProperty(
+                'markers',
+                'icon-image', [
+                    'match', ['get', 'image'],
+                    feature.properties.image,
+                    'marker_red',
+                    'marker_black'
+                ]
+            );
         })
         map.on('rotate', function() {
             camera = document.querySelector('#rig');
@@ -571,20 +758,6 @@
             );
 
         });
-
-        map.on('click', 'markers', e => {
-            const feature = e.features[0];
-            centerOn(feature);
-            map.setLayoutProperty(
-                'markers',
-                'icon-image', [
-                    'match', ['get', 'image'],
-                    feature.properties.image,
-                    'marker_red',
-                    'marker_black'
-                ]
-            );
-        })
     </script>
 </body>
 
