@@ -73,7 +73,7 @@
     <script>
         let degToRad = THREE.Math.degToRad;
 
-        AFRAME.registerGeometry('mysphere', {
+        AFRAME.registerComponent('mysphere', {
             schema: {
                 radius: {
                     default: 1,
@@ -106,9 +106,25 @@
             },
 
             init: function(data) {
+
+                var data = this.data;
+                var el = this.el;
+
+                // Create geometry.
                 this.geometry = new THREE.SphereGeometry(
                     data.radius, data.segmentsWidth, data.segmentsHeight, degToRad(data.phiStart),
                     degToRad(data.phiLength), degToRad(data.thetaStart), degToRad(data.thetaLength));
+
+                // Create material.
+                this.material = new THREE.MeshStandardMaterial({
+                    color: data.color
+                });
+
+                // Create mesh.
+                this.mesh = new THREE.Mesh(this.geometry, this.material);
+
+                // Set mesh on entity.
+                el.setObject3D('mesh', this.mesh);
             }
         });
 
@@ -587,8 +603,8 @@
                         //     console.log('xxx');
                         // });
                         // let circle = document.createElement("a-sphere");
-                        let circle = document.createElement('a-entity');
-                        circle.setAttribute("mysphere");
+                        let circle = document.createElement('mysphere');
+                        // circle.setAttribute("mysphere", "radius: 1");
                         // let circle = document.createElement("a-sphere", {
                         //     "class": "cross",
                         //     "position": "" + distance + " -1.7 0",
