@@ -545,9 +545,9 @@
 
                         let circle = document.createElement("a-sphere");
                         // let circle = document.createElement('a-entity');
-                        circle.setAttribute('geometry', {
-                            radius: 1
-                        });
+                        let my_geometry = circle.getAttribute('geometry');
+                        my_geometry.radius = 1;
+                        circle.setAttribute('geometry', my_geometry);
                         // circle.setAttribute("sphere");
                         // circle.setAttribute("mysphere", "radius: 1;");
                         // mysphere
