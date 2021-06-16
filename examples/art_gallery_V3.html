@@ -567,7 +567,7 @@
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
                         let circle = document.createElement('a-entity');
-                        circle.setAttribute("mycircle", "radius: 0.5");
+                        // circle.setAttribute("mycircle", "radius: 0.5");
                         circle.setAttribute("position", distance + " -1.7 0");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
                         bearObj.appendChild(circle);
