@@ -587,6 +587,9 @@
                         // bearObj.appendChild(triangle);
                         bearObj.appendChild(circle);
                         markerObjs.appendChild(bearObj);
+                        let my_geometry = circle.getAttribute('geometry');
+                        my_geometry.radius = 1;
+
                     });
                     scene.appendChild(markerObjs);
                 }
