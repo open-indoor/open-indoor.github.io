@@ -593,12 +593,10 @@
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
                         // let circle = document.createElement('a-sphere');
-                        let circle = document.createElement('a-sphere', {
-                            "radius": "0.4"
-                        });
+                        let circle = document.createElement('a-sphere');
                         // let circle = document.createElement('a-entity');
                         // circle.setAttribute("mycircle", "radius: 1");
-                        // circle.setAttribute("color", "#FFF");
+                        circle.setAttribute("color", "#F00");
                         // circle.setAttribute("radius", "0.4");
                         circle.setAttribute("position", "" + distance + " -1.7 0");
                         circle.setAttribute("cross", "feature: " + JSON.stringify(neighbour_));
