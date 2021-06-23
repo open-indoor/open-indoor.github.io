@@ -42,7 +42,7 @@
                     "minzoom": 0,
                     "maxzoom": 19
                 },
-                'building-footprint': {
+                'tours': {
                     'type': 'vector',
                     // "tiles": ["https://vegeta.openindoor.io/tegola-val/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
                     "tiles": ["https://api-mvt.openindoor.io/maps/tours/{z}/{x}/{y}.vector.pbf?"],
@@ -65,8 +65,8 @@
             }, {
                 'id': 'building-footprint',
                 'type': 'line',
-                'source': 'building-footprint',
-                'source-layer': 'building-footprint',
+                'source': 'tours',
+                'source-layer': 'tours',
                 'layout': {},
                 "paint": {
                     "line-width": 5,
