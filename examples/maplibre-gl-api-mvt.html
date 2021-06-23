@@ -84,14 +84,16 @@
             'style': mapStyle
         });
         // TRACE SOURCES LOADED
-        // map.on('sourcedata', function () {
-        //     let sourceId = 'building-footprint'
-        //     if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
-        //         console.log('sourceId:', sourceId);
-        //         const features = map.querySourceFeatures(sourceId, {'source-layer': 'building-footprint'});
-        //         console.log('features loaded:', features);
-        //     }
-        // });
+        map.on('sourcedata', function() {
+            let sourceId = 'tours'
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+                console.log('sourceId:', sourceId);
+                const features = map.querySourceFeatures(sourceId, {
+                    'source-layer': 'tours'
+                });
+                console.log('features loaded:', features);
+            }
+        });
     </script>
 
 </body>
