@@ -92,7 +92,7 @@
         map.addControl(new maplibregl.FullscreenControl());
 
         map.on('sourcedata', function() {
-            let sourceId = "openindoor"
+            let sourceId = "tours"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 // console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId, {
@@ -104,7 +104,7 @@
 
         map.on('load', function() {
 
-            map.addSource('openindoor', {
+            map.addSource('tours', {
                 'type': 'vector',
                 "tiles": ["https://api-mvt.openindoor.io/maps/tours/{z}/{x}/{y}.vector.pbf?"],
                 "tolerance": 0
@@ -154,7 +154,7 @@
                 return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source'] = 'openindoor'
+                        layer['source'] = 'tours'
                         layer['source-layer'] = 'tours'
                         map.addLayer(layer)
                     }
@@ -164,7 +164,7 @@
                 return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source'] = 'openindoor'
+                        layer['source'] = 'tours'
                         layer['source-layer'] = 'tours'
                         map.addLayer(layer)
                     }
@@ -174,7 +174,7 @@
                 return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
-                        layer['source'] = 'openindoor'
+                        layer['source'] = 'tours'
                         layer['source-layer'] = 'tours'
                         map.addLayer(layer)
                     }
