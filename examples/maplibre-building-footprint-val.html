@@ -89,7 +89,7 @@
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId, {
-                    'source-layer': 'building-footprint'
+                    // 'source-layer': 'building-footprint'
                 });
                 console.log('features loaded:', features);
             }
