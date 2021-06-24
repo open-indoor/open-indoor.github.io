@@ -85,11 +85,11 @@
         });
         // TRACE SOURCES LOADED
         map.on('sourcedata', function() {
-            let sourceId = 'tours'
+            let sourceId = 'openindoor'
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 console.log('sourceId:', sourceId);
                 const features = map.querySourceFeatures(sourceId, {
-                    // 'source-layer': 'tours'
+                    'source-layer': 'tours'
                 });
                 console.log('features loaded:', features);
             }
