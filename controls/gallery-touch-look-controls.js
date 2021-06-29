@@ -201,6 +201,9 @@ AFRAME.registerComponent('gallery-touch-look-controls', {
      * Update orientation for mobile, mouse drag, and headset.
      * Mouse-drag only enabled if HMD is not active.
      */
+    log: function() {
+        console.log('logger for touch-look-controls')
+    },
     updateOrientation: function() {
         var hmdEuler = this.hmdEuler;
         var pitchObject = this.pitchObject;
