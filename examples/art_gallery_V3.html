@@ -8,15 +8,14 @@
     <base href="https://open-indoor.github.io/">
     <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script>
-    <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
+    <!-- <script src="https://open-indoor.github.io/controls/gallery-touch-look-controls.js"></script> -->
+    <script src="controls/gallery-touch-look-controls.js"></script>
     <!-- <script src="https://mayognaise.github.io/aframe-mouse-cursor-component/build.js"></script> -->
     <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />∆
     <style>
         html,
-        body,
-        .grid {
+        body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -24,29 +23,19 @@
             background-color: #222;
         }
         
-        .grid {
-            display: grid;
-            grid-template-rows: 1fr 10px 1fr;
-        }
-        
-        .gutter {
-            width: 10px;
-            background-color: #000;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-        
-        .horizontal-gutter {
-            grid-area: 2 / 1 / 2 / 1;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
-            background-repeat: no-repeat;
-            background-color: #000;
-            background: rgba(0, 0, 0, 0.4);
-            /* background-position: 50%; */
-            cursor: row-resize;
-        }
-        
         #map {
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* background-color: #FFF; */
+            background-color: transparent;
+            height: 25%;
+            width: 25%;
+            opacity: 1;
+        }
+        
+        #vr {
+            position: absolute;
             background-color: #555;
             height: 100%;
             width: 100%;
@@ -66,6 +55,10 @@
             height: 100%;
             /* width: 500px; */
         }
+        /* div.a-enter-ar { */
+        /* div.a-enter-vr {
+            visibility: hidden;
+        } */
     </style>
 </head>
 
@@ -212,12 +205,13 @@
                 const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
                 if (this.lastValue !== stringCoords) {
                     map.setBearing(-this.el.object3D.rotation.y * 180 / Math.PI);
-                    map.setPitch(90 + this.el.object3D.rotation.x * 180 / Math.PI);
+                    // map.setPitch(90 + this.el.object3D.rotation.x * 180 / Math.PI);
                     this.lastValue = stringCoords;
                 }
 
             }
         });
+
         // Do something on asset load.
         // AFRAME.registerComponent('do-on-asset-load', {
         //     schema: {
@@ -254,8 +248,8 @@
         //     }
         // });
     </script>
-    <div class="grid">
-        <div>
+    <div id="container">
+        <div id="vr">
             <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader></a-entity> -->
 
             <!-- <a-scene class="aframebox" embedded>
@@ -267,13 +261,18 @@
             </a-scene> -->
 
             <!-- <a-scene> -->
-            <a-scene class="aframebox" debug embedded>
+            <a-scene class="aframebox" vr-mode-ui="enabled: false" embedded>
+                <!-- <a-scene class="aframebox" debug embedded> -->
                 <a-entity id="rig">
                     <!-- <a-entity id="camera" camera look-controls="magicWindowTrackingEnabled: false;" rotation-reader></a-entity> -->
-                    <a-entity id="camera" camera gallery-touch-look-controls rotation-reader>
-                        <!-- <a-cursor fuse="true" color="yellow" cursor="rayOrigin: mouse"></a-cursor> -->
-                        <a-cursor fuse="false" raycaster="objects: .cross" cursor="rayOrigin: mouse; mouseCursorStylesEnabled: false" material="visible: false">
-                        </a-cursor>
+                    <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader begin="flyTo" animation="property: rotation; to: 0 270 0; loop: false; dur: 100"> -->
+                    <a-entity id="camera-board" begin="flyTo" rotation="0 45 0" animation="property: rotation; to: 0 0 0; loop: false; dur: 1000">
+                        <a-entity id="camera" camera gallery-touch-look-controls rotation-reader>
+                            <!-- <a-entity id="camera" camera gallery-touch-look-controls rotation-reader animation="property: rotation; to: 0 360 0; loop: false; dur: 10000"> -->
+                            <!-- <a-cursor fuse="true" color="yellow" cursor="rayOrigin: mouse"></a-cursor> -->
+                            <a-cursor fuse="false" raycaster="objects: .cross" cursor="rayOrigin: mouse; mouseCursorStylesEnabled: false" material="visible: false">
+                            </a-cursor>
+                        </a-entity>
                     </a-entity>
 
                     <!-- <a-entity camera look-controls mouse-cursor>
@@ -299,7 +298,6 @@
 
         </div>
         <div id="map"></div>
-        <div class="horizontal-gutter"></div>
     </div>
 
     <script>
@@ -323,26 +321,31 @@
         //     }
         // };
         let currentFeature = {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-74.0549304, 40.686461]
-            },
-            "properties": {
-                "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
-                "indoor": "yes",
-                "orientation": "0",
-                "thumbnail": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01_thumbnail.jpg",
-                "tourism": "viewpoint",
-                "entrance": "yes"
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-74.0549304, 40.686461]
+                },
+                "properties": {
+                    "image": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg",
+                    "indoor": "yes",
+                    "orientation": "0",
+                    "thumbnail": "https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01_thumbnail.jpg",
+                    "tourism": "viewpoint",
+                    "entrance": "yes",
+                    "direction": "-90"
+                }
             }
-        }
+            // {"type":"Feature","geometry":{"type":"Point","coordinates":[-74.0549304,40.686461]},"properties":{"direction":"-90","entrance":"yes","image":"https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01.jpg","indoor":"yes","orientation":"0","thumbnail":"https://vegeta.openindoor.io/indoor/img/art_gallery/Art_Museum_Gallery_Interior_01_thumbnail.jpg","tourism":"viewpoint"}},
 
         function centerOn(feature) {
-            console.log('centerOn')
+            console.log('centerOn !');
             currentFeature = feature;
             const lon = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
+            const direction = feature.properties.direction;
+            // console.log("properties:", feature.properties);
+            // console.log("direction:", direction);
             panorama = document.getElementById('panorama');
             console.log('feature.properties.image:', feature.properties.image);
             panorama.setAttribute('src', feature.properties.image);
@@ -385,20 +388,26 @@
             // );
             map.flyTo({
                 center: [lon, lat],
-                zoom: 21,
-                essential: true
+                zoom: 18,
+                essential: true,
+                speed: 5
             });
-        }
-        Split({
-            rowGutters: [{
-                track: 1,
-                element: document.querySelector('.horizontal-gutter'),
-            }],
-            onDrag: function() {
-                map.resize();
-                window.dispatchEvent(new Event('resize'));
+
+            // console.log('Set attribute rotation');
+            if (direction !== undefined) {
+                camera = document.getElementById('camera');
+                camRot = camera.getAttribute('rotation');
+                // console.log('camera rotation:', camRot)
+                totalRot = direction - camRot.y;
+                cameraBoard = document.getElementById('camera-board');
+                cameraBoard.setAttribute('animation', {
+                    property: 'rotation',
+                    to: "0 " + totalRot + " 0",
+                    dur: 1000
+                });
+                cameraBoard.emit('flyTo');
             }
-        })
+        }
 
         mapStyle = {
             "version": 8,
@@ -406,17 +415,17 @@
             "center": [0, 0],
             "zoom": 0,
             "sources": {
-                "raster-tiles": {
-                    "type": "raster",
-                    "tiles": [
-                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    ],
-                    "tileSize": 256,
-                    "minzoom": 0,
-                    "maxzoom": 19
-                },
+                // "raster-tiles": {
+                //     "type": "raster",
+                //     "tiles": [
+                //         "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                //         "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                //         "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                //     ],
+                //     "tileSize": 256,
+                //     "minzoom": 0,
+                //     "maxzoom": 19
+                // },
                 'gallery': {
                     'type': 'geojson',
                     'data': 'https://vegeta.openindoor.io/indoor/data/ArtGallery_V3.geojson'
@@ -431,41 +440,52 @@
             "sprite": "https://open-indoor.github.io/sprite/sprite",
             "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
             "layers": [{
-                "id": "background",
-                "type": "background",
-                "paint": {
-                    "background-color": "#e0dfdf"
+                    "id": "background",
+                    "type": "background",
+                    "visibility": "none",
+                    "paint": {
+                        // "background-color": "#FFF",
+                        "background-opacity": 0.2,
+                    }
+                },
+                // {
+                //     "id": "simple-tiles",
+                //     "type": "raster",
+                //     "source": "raster-tiles"
+                // }, 
+                {
+                    'id': 'gallery_lines',
+                    'type': 'line',
+                    'source': 'gallery',
+                    'layout': {},
+                    "filter": [
+                        "all", [
+                            "==", ["get", "indoor"],
+                            "wall"
+                        ]
+                    ],
+                    "paint": {
+                        "line-width": 1,
+                        "line-color": "#000000"
+                    }
+                }, {
+                    'id': 'gallery_extrusion',
+                    'type': "fill-extrusion",
+                    'source': 'gallery',
+                    'layout': {},
+                    "filter": [
+                        "all", [
+                            "==", ["get", "indoor"],
+                            "wall"
+                        ]
+                    ],
+                    "paint": {
+                        "fill-extrusion-height": 3,
+                        "fill-extrusion-color": "#000000",
+                        "fill-extrusion-opacity": 0.5
+                    }
                 }
-            }, {
-                "id": "simple-tiles",
-                "type": "raster",
-                "source": "raster-tiles"
-            }, {
-                'id': 'gallery_lines',
-                'type': 'line',
-                'source': 'gallery',
-                'layout': {},
-                "paint": {
-                    "line-width": 1,
-                    "line-color": "#000000"
-                }
-            }, {
-                'id': 'gallery_extrusion',
-                'type': "fill-extrusion",
-                'source': 'gallery',
-                'layout': {},
-                "filter": [
-                    "all", [
-                        "==", ["get", "indoor"],
-                        "wall"
-                    ]
-                ],
-                "paint": {
-                    "fill-extrusion-height": 3,
-                    "fill-extrusion-color": "#000000",
-                    "fill-extrusion-opacity": 0.5
-                }
-            }],
+            ],
             maxBounds: [
                 [-74.0452, 40.6886],
                 [-74.0439, 40.6897]
@@ -474,20 +494,29 @@
         }
         const map = new maplibregl.Map({
             'container': 'map',
-            'center': [-74.0445489, 40.6892609],
-            'pitch': 60,
+            'center': [-74.0549304, 40.686461],
+            // "coordinates": [-74.0549304, 40.686461]
+            // 'pitch': 60,
             'bearing': 0,
-            'zoom': 21,
-            'style': mapStyle
+            'zoom': 19,
+            'style': mapStyle,
+            'maxBounds': [
+                [-74.055044, 40.686315], // Southwest coordinates
+                [-74.054747, 40.6866] // Northeast coordinates
+            ]
         });
 
-        map.addControl(new maplibregl.GeolocateControl());
+        // map.addControl(new maplibregl.GeolocateControl());
         map.addControl(new maplibregl.NavigationControl({
-            'showCompass': false
+            'showCompass': false,
+            'showZoom': false,
+            'visualizePitch': true
         }));
-        map.addControl(new maplibregl.FullscreenControl());
+        // map.addControl(new maplibregl.FullscreenControl());
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
+        // map.touchZoomRotate.disable();
+        map.scrollZoom.disable();
 
         // map.on('data', function(e) {
         //     if (e.dataType === 'source' && e.sourceId === 'gallery') {
@@ -499,6 +528,7 @@
 
         // map.on('moveend',
         function processNeighbours() {
+            console.log("currentFeature:", currentFeature);
             // console.log('moveend !')
             // Process neighbours
             let sourceId = 'gallery'
@@ -529,39 +559,30 @@
                 // Init neighbours
                 let neighbours_ = [];
                 if (featurePoints.length > 0) {
-                    // console.log('currentFeature.geometry.coordinates:', currentFeature.geometry.coordinates)
                     for (featureWay of featureWays) {
-                        // console.log('featureWay:', featureWay);
                         for (let i = 0; i < featureWay.geometry.coordinates.length; i++) {
-                            // console.log('featureWay.geometry.coordinates[', i, ']:', featureWay.geometry.coordinates[i])
                             if (
                                 featureWay.geometry.coordinates[i][0] === currentFeature.geometry.coordinates[0] &&
                                 featureWay.geometry.coordinates[i][1] === currentFeature.geometry.coordinates[1]
                             ) {
                                 if (i >= 1) {
                                     let prev = featureWay.geometry.coordinates[i - 1];
-                                    // console.log('add prev:', prev);
-                                    // console('Looking for', featureWay.geometry.coordinates[i - 1]);
                                     let prevFeature = featurePoints.find(
                                         function(featurePoint_) {
-                                            // console.log("featurePoint_.geometry.coordinates:", featurePoint_.geometry.coordinates)
                                             return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i - 1][0] &&
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i - 1][1];
                                         }
                                     );
-                                    // console.log('add previous feature:', prevFeature);
                                     neighbours_.push(prevFeature);
                                 }
                                 if (i + 1 < featureWay.geometry.coordinates.length) {
                                     let next = featureWay.geometry.coordinates[i - 1];
-                                    // console.log('add next:', next);
                                     let nextFeature = featurePoints.find(
                                         function(featurePoint_) {
                                             return featurePoint_.geometry.coordinates[0] === featureWay.geometry.coordinates[i + 1][0] &&
                                                 featurePoint_.geometry.coordinates[1] === featureWay.geometry.coordinates[i + 1][1];
                                         }
                                     );
-                                    // console.log('add next feature:', nextFeature);
                                     neighbours_.push(nextFeature);
                                 }
                             }
@@ -569,7 +590,6 @@
                     }
                     console.log("neighbours_:", neighbours_);
                     neighbours = neighbours_;
-
 
                     // Debug: process bearings
                     let markerObjs = document.getElementById('markers');
@@ -580,7 +600,6 @@
                     neighbours.forEach(neighbour_ => {
                         let bearing = turf.bearing(neighbour_, currentFeature);
                         let distance = turf.distance(neighbour_, currentFeature) * 1000;
-                        // console.log("bearing:", bearing);
                         let bearObj = document.createElement("a-entity");
                         bearObj.setAttribute("rotation", "0 " + (-90 - bearing) + " 0");
 
@@ -604,7 +623,15 @@
             };
             // Set all neighbour features as markers;
             markersSource = map.getSource('markers');
-            markersSource.setData(markers);
+            // if (markersSource === undefined) {
+            //     map.addSource('markers', {
+            //         'type': 'geojson',
+            //         'data': markers
+            //     })
+            // } else {
+            if (markersSource !== undefined) {
+                markersSource.setData(markers);
+            }
             // map.addSource('markers', {
             //     'type': 'geojson',
             //     'data': {
@@ -615,7 +642,44 @@
         }
         // );
 
-        map.on('sourcedata', function() {});
+        function onGallery(e) {
+            let sourceId = 'gallery';
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId) && e.sourceId === sourceId) {
+                // && map.querySourceFeatures(sourceId).length >= 0)
+                const features = map.querySourceFeatures(sourceId);
+                if (features.length > 0) {
+                    console.log("e:", e);
+                    console.log('sourceId:', sourceId);
+                    console.log('features loaded:', features);
+                    centerOn(currentFeature);
+                    processNeighbours();
+                    map.off('sourcedata', onGallery); //Unbind event here
+                }
+            }
+
+            // if (map.getSource('gallery') &&
+            //     map.isSourceLoaded('gallery') &&
+            //     e.isSourceLoaded) {
+            //     console.log('currentFeature:', currentFeature);
+            //     centerOn(currentFeature);
+            //     // processNeighbours();
+            //     const features = map.querySourceFeatures("gallery"); //get data using queryRenderedFeatures... etc..
+            //     console.log("features:", features);
+            // }
+        }
+
+        // map.on('sourcedata', function() {
+        //     let sourceId = 'building-footprint'
+        //     if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+        //         console.log('sourceId:', sourceId);
+        //         const features = map.querySourceFeatures(sourceId, {
+        //             'source-layer': 'building-footprint'
+        //         });
+        //         console.log('features loaded:', features);
+        //     }
+        // });
+
+        map.on('sourcedata', onGallery);
 
         // map.on('sourcedata', function listener() {
         //     // console.log('sourcedata')
@@ -717,7 +781,7 @@
                 'data': currentFeature
             })
             map.loadImage(
-                'https://open-indoor.github.io/img/marker_black.png',
+                'https://open-indoor.github.io/img/marker_black_48x48.png',
                 function(error, image) {
                     if (error) throw error;
                     map.addImage('marker_black', image);
@@ -747,11 +811,12 @@
                 }
             );
             map.loadImage(
-                'https://open-indoor.github.io/img/marker_red.png',
+                'https://open-indoor.github.io/img/marker_red_48x48.png',
                 function(error, image) {
                     if (error) throw error;
                     map.addImage('marker_red', image);
-                    centerOn(currentFeature);
+                    console.log('marker_red loaded !');
+                    // centerOn(currentFeature);
                 }
             );
 
