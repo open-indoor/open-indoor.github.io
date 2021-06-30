@@ -84,7 +84,7 @@
             'zoom': 17,
             'style': mapStyle,
             transformRequest: (url, resourceType) => {
-                if (resourceType === 'Source' && url.startsWith('https://indoor-data.p.rapidapi.com/maps')) {
+                if (url.startsWith('https://indoor-data.p.rapidapi.com/maps')) {
                     return {
                         url: url,
                         headers: {
