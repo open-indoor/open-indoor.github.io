@@ -124,6 +124,21 @@
             font-weight: 500;
             line-height: calc(var(--line-height) - 6px);
         }
+        
+        #contentWrapper {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 var(--panel-padding) var(--panel-padding) var(--panel-padding);
+        }
     </style>
 
 </head>
@@ -133,40 +148,42 @@
         <div id="pluginlist" class="child">
             <h1>OpenIndoor</h1>
             <h2>examples</h2>
-            <!-- <p><a href="examples/mapbox-gl-indoor.html" target="iframe_example">mapbox-gl-indoor</a></p>
+            <div id="contentWrapper">
+                <!-- <p><a href="examples/mapbox-gl-indoor.html" target="iframe_example">mapbox-gl-indoor</a></p>
             <p><a href="examples/mapboxium.html" target="iframe_example">mapboxium</a></p> -->
-            <div class="card">
-                <a href="examples/maplibre-gl-raster.html" target="iframe_example">
-                    <div class="cover">
-                        <img src="screenshots/raster.png" loading="lazy" width="400">
-                    </div>
-                    <div class="title">Raster tiles</div>
-                </a>
+                <div class="card">
+                    <a href="examples/maplibre-gl-raster.html" target="iframe_example">
+                        <div class="cover">
+                            <img src="screenshots/raster.png" loading="lazy" width="400">
+                        </div>
+                        <div class="title">Raster tiles</div>
+                    </a>
+                </div>
+
+                <p><a href="examples/maplibre-gl-raster.html" target="iframe_example">Raster tiles</a></p>
+                <p><a href="examples/maplibre-indoor.html" target="iframe_example">maplibre-indoor</a></p>
+                <p><a href="examples/maplibre-indoor-shape-building.html" target="iframe_example">indoor-shape-building
+                        layers</a></p>
+                <p><a href="examples/maplibre-indoor-shape-building_multicentro.html " target="iframe_example">Multicentro</a></p>
+                <p><a href="examples/mapbox-gl-openindoor.html" target="iframe_example">mapbox-gl-openindoor</a></p>
+                <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">Building Over</a>
+                </p>
+                <p><a href="examples/maplibre-gl-tegola.html" target="iframe_example">tegola</a></p>
+                <p><a href="examples/maplibre-immersive.html" target="iframe_example">V.R.</a></p>
+                <p><a href="examples/maplibre-WIPSE.html" target="iframe_example">WIPSE</a></p>
+                <!-- <p><a href="examples/maplibre-building-footprint.html" target="iframe_example">Building footprint (debian)</a></p> -->
+                <p><a href="examples/maplibre-building-footprint-val.html" target="iframe_example">Building footprint
+                        (val)</a></p>
+                <!-- <p><a href="examples/gallery.html" target="iframe_example">Gallery</a></p> -->
+                <p><a href="examples/art_gallery_V3.html" target="iframe_example">Gallery</a></p>
+                <p><a href="examples/aframe-mapbox-component.html" target="iframe_example">aframe-mapbox-component</a>
+                </p>
+                <p><a href="examples/uratutabaa.html" target="iframe_example">uratutabaa</a></p>
+                <p><a href="examples/VisiteGallery/index.html" target="iframe_example">Art Gallery (aframe)</a></p>
+                <!-- <p><a href="examples/maplibre-gl-api-mvt.html" target="iframe_example">api-mvt.openindoor.io</a></p> -->
+                <p><a href="examples/maplibre-gl-rapidapi.html" target="iframe_example">rapidapi</a></p>
+
             </div>
-
-            <p><a href="examples/maplibre-gl-raster.html" target="iframe_example">Raster tiles</a></p>
-            <p><a href="examples/maplibre-indoor.html" target="iframe_example">maplibre-indoor</a></p>
-            <p><a href="examples/maplibre-indoor-shape-building.html" target="iframe_example">indoor-shape-building
-                    layers</a></p>
-            <p><a href="examples/maplibre-indoor-shape-building_multicentro.html " target="iframe_example">Multicentro</a></p>
-            <p><a href="examples/mapbox-gl-openindoor.html" target="iframe_example">mapbox-gl-openindoor</a></p>
-            <p><a href="examples/maplibre-gl-building-over.html" target="iframe_example">Building Over</a>
-            </p>
-            <p><a href="examples/maplibre-gl-tegola.html" target="iframe_example">tegola</a></p>
-            <p><a href="examples/maplibre-immersive.html" target="iframe_example">V.R.</a></p>
-            <p><a href="examples/maplibre-WIPSE.html" target="iframe_example">WIPSE</a></p>
-            <!-- <p><a href="examples/maplibre-building-footprint.html" target="iframe_example">Building footprint (debian)</a></p> -->
-            <p><a href="examples/maplibre-building-footprint-val.html" target="iframe_example">Building footprint
-                    (val)</a></p>
-            <!-- <p><a href="examples/gallery.html" target="iframe_example">Gallery</a></p> -->
-            <p><a href="examples/art_gallery_V3.html" target="iframe_example">Gallery</a></p>
-            <p><a href="examples/aframe-mapbox-component.html" target="iframe_example">aframe-mapbox-component</a></p>
-            <p><a href="examples/uratutabaa.html" target="iframe_example">uratutabaa</a></p>
-            <p><a href="examples/VisiteGallery/index.html" target="iframe_example">Art Gallery (aframe)</a></p>
-            <!-- <p><a href="examples/maplibre-gl-api-mvt.html" target="iframe_example">api-mvt.openindoor.io</a></p> -->
-            <p><a href="examples/maplibre-gl-rapidapi.html" target="iframe_example">rapidapi</a></p>
-
-
 
             <!-- <p><a href="javascript:load_target('examples/maplibre-gl-tegola.html');">maplibre-gl-tegola</a></p>
             <p><a href="javascript:load_target('examples/maplibre-immersive.html');">maplibre-immersive</a></p>
