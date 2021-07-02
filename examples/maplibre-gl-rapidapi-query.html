@@ -44,7 +44,7 @@
                 },
                 'openindoor': {
                     'type': 'vector',
-                    "tiles": ["https://indoor-data.p.rapidapi.com/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                    "tiles": ["https://indoor-data.p.rapidapi.com/maps/openindoor/{z}/{x}/{y}.vector.pbf?rapidapi-key=974ea84d36msh2569a2933458f30p11439djsn341cf40e619d"],
                     "tolerance": 0
                 }
             },
@@ -85,16 +85,6 @@
             'bearing': -60,
             'zoom': 17,
             'style': mapStyle,
-            transformRequest: (url, resourceType) => {
-                if (url.startsWith('https://indoor-data.p.rapidapi.com/maps')) {
-                    return {
-                        url: url,
-                        headers: {
-                            'X-rapidapi-key': '974ea84d36msh2569a2933458f30p11439djsn341cf40e619d'
-                        }
-                    }
-                }
-            }
         });
 
         // TRACE SOURCES LOADED
