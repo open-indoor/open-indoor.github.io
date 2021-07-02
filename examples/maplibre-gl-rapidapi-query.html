@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Immersive page</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                },
+                'openindoor': {
+                    'type': 'vector',
+                    "tiles": ["https://indoor-data.p.rapidapi.com/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                    "tolerance": 0
+                }
+            },
+
+            // "tiles": ["https://vegeta.openindoor.io/tegola-val/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+            // "tiles": ["https://api-mvt.openindoor.io/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+
+
+            "sprite": "https://open-indoor.github.io/sprite/sprite",
+            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
+                }
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }, {
+                'id': 'building-footprint',
+                'type': 'line',
+                'source': 'openindoor',
+                'source-layer': 'tours',
+                'layout': {},
+                "paint": {
+                    "line-width": 5,
+                    "line-color": "#FF0000"
+                }
+            }],
+            "id": "blank"
+        }
+        const map = new maplibregl.Map({
+            'container': 'map',
+            'center': [0.69546, 47.38758],
+            'pitch': 60,
+            'bearing': -60,
+            'zoom': 17,
+            'style': mapStyle,
+            transformRequest: (url, resourceType) => {
+                if (url.startsWith('https://indoor-data.p.rapidapi.com/maps')) {
+                    return {
+                        url: url,
+                        headers: {
+                            'X-rapidapi-key': '974ea84d36msh2569a2933458f30p11439djsn341cf40e619d'
+                        }
+                    }
+                }
+            }
+        });
+
+        // TRACE SOURCES LOADED
+        map.on('sourcedata', function() {
+            let sourceId = 'openindoor'
+            if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
+                console.log('sourceId:', sourceId);
+                const features = map.querySourceFeatures(sourceId, {
+                    'source-layer': 'tours'
+                });
+                console.log('features loaded:', features);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
