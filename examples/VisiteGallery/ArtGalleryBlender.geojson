@@ -6,39 +6,14 @@
         {
             "type": "Feature",
             "properties": {
-                "image": "assets/firstsphere.jpg"
+                "image": "assets/firstsphere.jpg",
+                "POI": ["assets/Donut.png", "assets/firstsphere.jpg"]
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    3.11076616393,
-                    45.75990632414
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "image": "assets/thirdsphere.jpg"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    3.11046616393,
-                    45.76015318093
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "image": "assets/fourthsphere.jpg"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    3.11046616393,
-                    45.75990632414
+                    3.11076462385,
+                    45.75990578691
                 ]
             }
         },
@@ -50,12 +25,39 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    3.11076616393,
-                    45.76015318093
+                    3.11076411481,
+                    45.76004947057
                 ]
             }
         },
-                {
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/thirdsphere.jpg",
+                "POI": ["assets/secondsphere.jpg", "assets/thirdsphere.jpg"]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11049082390,
+                    45.76004999424
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "image": "assets/fourthsphere.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.11049056290,
+                    45.75990362444
+                ]
+            }
+        },
+        {
             "type": "Feature",
             "properties": {
                 "highway": "footway"
@@ -64,20 +66,20 @@
                 "type": "LineString",
                 "coordinates": [
                     [
-                        3.11046616393,
-                        45.75990632414
+                        3.11049056290,
+                        45.75990362444
                     ],
                     [
-                        3.11046616393,
-                        45.76015318093
+                        3.11049082390,
+                        45.76004999424
                     ],
                     [
-                        3.11076616393,
-                        45.76015318093
+                        3.11076411481,
+                        45.76004947057
                     ],
                     [
-                        3.11076616393,
-                        45.75990632414
+                        3.11076462385,
+                        45.75990578691
                     ]
                 ]
             }
