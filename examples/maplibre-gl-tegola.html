@@ -72,10 +72,10 @@
         // mapboxgl.accessToken = '';
         let map = new maplibregl.Map({
             'container': 'map',
-            'center': [-1.70106, 48.12006],
+            'center': [2.36186, 48.87805],
             'pitch': 60, // pitch in degrees
             'bearing': -60, // bearing in degrees
-            'zoom': 15,
+            'zoom': 17,
             'style': mapStyle
         });
 
@@ -106,7 +106,7 @@
 
             map.addSource('openindoor', {
                 'type': 'vector',
-                "tiles": ["https://vegeta.openindoor.io/tegola-val/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+                "tiles": ["https://tegola.openindoor.io/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
                 "tolerance": 0
             });
             // map.addLayer({
@@ -155,7 +155,7 @@
                     layers = json
                     for (layer of layers) {
                         layer['source'] = 'openindoor'
-                        layer['source-layer'] = 'building'
+                        layer['source-layer'] = 'footprint'
                         map.addLayer(layer)
                     }
                 });
@@ -165,7 +165,7 @@
                     layers = json
                     for (layer of layers) {
                         layer['source'] = 'openindoor'
-                        layer['source-layer'] = 'shape'
+                        layer['source-layer'] = 'indoor'
                         map.addLayer(layer)
                     }
                 });
