@@ -1,7 +1,8 @@
 var psList = [];
-var scene, psMain;
+var poiList = [];
+var scene, psMain, camera, imgLink, POI_button;
 
-AFRAME.registerComponent('cross', {
+AFRAME.registerComponent('displacement', {
 
   schema: {
     index: {type: 'number', default: -1}
@@ -16,8 +17,6 @@ AFRAME.registerComponent('cross', {
         psMain.setAttribute("src", psList[data.index].src);
         addCrossOnPhotosphere(psList[data.index]);
       });
-
-      el.setAttribute("src", "assets/512512.png");
   },
 
 });
@@ -25,14 +24,27 @@ AFRAME.registerComponent('cross', {
 function addCrossOnPhotosphere(origin) {
 
   //Remove ancient cross
-  var listCross = document.querySelectorAll("a-entity");
+  var listCross = document.querySelectorAll(".rot");
   listCross.forEach(currentValue => {
     currentValue.parentNode.removeChild(currentValue);
   });
-  var listCross = document.querySelectorAll("a-box");
+  var listCross = document.querySelectorAll(".cross");
   listCross.forEach(currentValue => {
     currentValue.parentNode.removeChild(currentValue);
   });
+  var listCross = document.querySelectorAll(".arrow");
+  listCross.forEach(currentValue => {
+    currentValue.parentNode.removeChild(currentValue);
+  });
+
+  //Bouton pour POI
+  imgLink = origin.POI;
+  if(imgLink == null)
+  {
+    POI_button.setAttribute("visible", "false")
+  } else {
+    POI_button.setAttribute("visible", "true")
+  }
 
   //Add new cross
   origin.neighbourList.forEach(currentValue => {
@@ -46,22 +58,42 @@ function addCrossOnPhotosphere(origin) {
 
     var rot_box = document.createElement("a-entity");
     rot_box.setAttribute("id", "rot_box__" + index)
+    rot_box.setAttribute("class", "rot")
     rot_box.setAttribute("rotation", "0 " + (180 - bearing) + " 0");
     scene.appendChild(rot_box);
 
-    var cross = document.createElement("a-circle");
+    var cross = document.createElement("a-obj-model");
     cross.setAttribute("id", "cross__" + index)
+    rot_box.setAttribute("class", "cross")
     cross.setAttribute("position", distance + " -1.8 0");
-    cross.setAttribute("rotation", "-90 0 0");
-    cross.setAttribute("radius", "0.5");
-    cross.setAttribute("cross", "index: "+ index);
+    cross.setAttribute("rotation", "0 0 0");
+    cross.setAttribute("scale", "0.5 0.5 0.5");
+    cross.setAttribute("displacement", "index: "+ index);
+    cross.setAttribute("src", "#marker");
     rot_box.appendChild(cross);
+
+    var arrow = document.createElement("a-obj-model");
+    arrow.setAttribute("id", "arrow__" + index)
+    rot_box.setAttribute("class", "arrow")
+    arrow.setAttribute("position", 1.5 + " -1.8 0");
+    arrow.setAttribute("rotation", "0 90 0");
+    arrow.setAttribute("scale", "0.3 0.3 0.3");
+    arrow.setAttribute("displacement", "index: "+ index);
+    arrow.setAttribute("src", "#arrow");
+    rot_box.appendChild(arrow);
   });
 };
 
 function run() {
+  camera = document.getElementById("camera");
   psMain = document.getElementById("main-ps");
   psMain.setAttribute("src", psList[0].src);
+  POI_button = document.querySelector('#refresh-button');
+  document.querySelector('#refresh-button').addEventListener('click', function() {
+    imgLink.forEach(element => {
+      window.open(element, '_blank', 'location=yes,height=windows.height,width=windows.width,scrollbars=yes,status=yes');
+    });
+  });
   addCrossOnPhotosphere(psList[0])
 };
 
@@ -94,13 +126,21 @@ function searchMatch(x, z){
   return curr;
 }
 
-$.getJSON("https://vegeta.openindoor.io/indoor/data/ArtGallery.geojson", function(result){
+//https://vegeta.openindoor.io/indoor/data/ArtGallery_V3.geojson
+//ArtGalleryBlender.geojson
+
+$.getJSON("https://vegeta.openindoor.io/indoor/data/ArtGallery_V3.geojson", function(result){
   var a, b, curr, prec, length;
   var data = result.features;
   data.forEach(currentValue => {
     if(currentValue.geometry.type == "Point" && currentValue.properties.image != undefined)
     {
-      psList.push(new Photosphere(currentValue.geometry.coordinates[0], currentValue.geometry.coordinates[1], currentValue.properties.image));
+      var POIdata = null;
+      if(currentValue.properties.POI != undefined)
+      {
+        POIdata = currentValue.properties.POI;
+      }
+      psList.push(new Photosphere(currentValue.geometry.coordinates[0], currentValue.geometry.coordinates[1], currentValue.properties.image, POIdata));
     }
     else if(currentValue.geometry.type == "LineString" && currentValue.properties.highway == "footway")
     {
