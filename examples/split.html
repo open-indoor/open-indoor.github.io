@@ -19,17 +19,17 @@
             border: none;
             background-color: #222;
         }
-
+        
         .grid {
             display: grid;
             grid-template-rows: 1fr 10px 1fr;
         }
-
+        
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background: rgba(0, 0, 0, 0.4);
         }
-
+        
         #map {
             background-color: #555;
             height: 100%;
@@ -65,7 +65,7 @@
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
             }],
-            onDragEnd: function () {
+            onDragEnd: function() {
                 map.resize()
             }
         })
@@ -93,31 +93,27 @@
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
-            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
-            "layers": [
-                {
-                    "id": "background",
-                    "type": "background",
-                    "paint": {
-                        "background-color": "#e0dfdf"
-                    }
-                },
-                {
-                    "id": "simple-tiles",
-                    "type": "raster",
-                    "source": "raster-tiles"
-                },
-                {
-                    'id': 'peupliersLayer',
-                    'type': 'line',
-                    'source': 'peupliers',
-                    'layout': {},
-                    "paint": {
-                        "line-width": 1,
-                        "line-color": "#000000"
-                    }
+            "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
                 }
-            ],
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }, {
+                'id': 'peupliersLayer',
+                'type': 'line',
+                'source': 'peupliers',
+                'layout': {},
+                "paint": {
+                    "line-width": 1,
+                    "line-color": "#000000"
+                }
+            }],
             "id": "blank"
         }
         const map = new maplibregl.Map({
@@ -128,7 +124,7 @@
             'zoom': 20,
             'style': mapStyle
         });
-        map.on('sourcedata', function () {
+        map.on('sourcedata', function() {
             let sourceId = "peupliers"
             if (map.getSource(sourceId) && map.isSourceLoaded(sourceId)) {
                 // console.log('sourceId:', sourceId);
@@ -145,15 +141,14 @@
                             .addTo(map)
                             .getElement().addEventListener('click', () => {
                                 console.log('load:', url_)
-                                // document.getElementById('panorama').src = url_;
-                                // a_sky.components.material.material.map.needsUpdate = true
+                                    // document.getElementById('panorama').src = url_;
+                                    // a_sky.components.material.material.map.needsUpdate = true
                                 document.querySelector('#panorama').setAttribute('src', feature.properties.image)
                             });
                     }
                 }
             }
         });
-
     </script>
 </body>
 

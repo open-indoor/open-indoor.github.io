@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         #map {
             position: absolute;
             top: 0;
@@ -48,12 +48,13 @@
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
-            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
-            "layers": [
-                {
+            "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
                     "id": "background",
                     "type": "background",
-                    "paint": { "background-color": "rgba(255,255,255,1)" }
+                    "paint": {
+                        "background-color": "rgba(255,255,255,1)"
+                    }
                 },
                 // {
                 //     'id': 'Presidence',
@@ -72,8 +73,7 @@
                     "minzoom": 0,
                     "maxzoom": 19,
                     "raster-opacity": [
-                        "interpolate",
-                        ["linear"],
+                        "interpolate", ["linear"],
                         ["zoom"],
                         18,
                         1,
@@ -89,14 +89,14 @@
         // mapboxgl.accessToken = '';
         let map = new maplibregl.Map({
             'container': 'map',
-            'center': [-1.7036094,48.1206919],
+            'center': [-1.7036094, 48.1206919],
             'pitch': 60, // pitch in degrees
             'bearing': -60, // bearing in degrees
             'zoom': 19,
             'style': mapStyle
         });
 
-        map.on('click', function (e) {
+        map.on('click', function(e) {
             var features = map.queryRenderedFeatures(e.point);
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
@@ -107,7 +107,7 @@
         map.addControl(new maplibregl.NavigationControl());
         map.addControl(new maplibregl.FullscreenControl());
 
-        map.on('load', function () {
+        map.on('load', function() {
 
             map.addSource('indoor', {
                 'type': 'geojson',
@@ -116,14 +116,14 @@
             map.addSource('shape', {
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/Presidence.geojson'
-            });            
+            });
             map.addSource('building', {
                 'type': 'geojson',
                 'data': 'https://open-indoor.github.io/data/Presidence.geojson'
             });
 
-            fetch("/style/indoorLayers.json").then(function (response) {
-                return response.json().then(function (json) {
+            fetch("/style/indoorLayers.json").then(function(response) {
+                return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
@@ -131,17 +131,8 @@
                     }
                 });
             });
-            fetch("/style/shapeLayers.json").then(function (response) {
-                return response.json().then(function (json) {
-                    layers = json
-                    for (layer of layers) {
-                        delete layer['source-layer']
-                        map.addLayer(layer)
-                    }
-                });
-            });                   
-            fetch("/style/buildingLayers.json").then(function (response) {
-                return response.json().then(function (json) {
+            fetch("/style/shapeLayers.json").then(function(response) {
+                return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
@@ -149,9 +140,17 @@
                     }
                 });
             });
-     
-        });
+            fetch("/style/buildingLayers.json").then(function(response) {
+                return response.json().then(function(json) {
+                    layers = json
+                    for (layer of layers) {
+                        delete layer['source-layer']
+                        map.addLayer(layer)
+                    }
+                });
+            });
 
+        });
     </script>
 
 </body>

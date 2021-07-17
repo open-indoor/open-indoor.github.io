@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         #map {
             position: absolute;
             top: 0;
@@ -48,30 +48,28 @@
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
-            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
-            "layers": [
-                {
-                    "id": "background",
-                    "type": "background",
-                    "paint": { "background-color": "rgba(255,255,255,1)" }
-                },
-                {
-                    "id": "simple-tiles",
-                    "type": "raster",
-                    "source": "raster-tiles",
-                    "minzoom": 0,
-                    "maxzoom": 19,
-                    "raster-opacity": [
-                        "interpolate",
-                        ["linear"],
-                        ["zoom"],
-                        18,
-                        1,
-                        19,
-                        0
-                    ]
+            "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "rgba(255,255,255,1)"
                 }
-            ],
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles",
+                "minzoom": 0,
+                "maxzoom": 19,
+                "raster-opacity": [
+                    "interpolate", ["linear"],
+                    ["zoom"],
+                    18,
+                    1,
+                    19,
+                    0
+                ]
+            }],
             "id": "blank"
         }
 
@@ -85,7 +83,7 @@
             'style': mapStyle
         });
 
-        map.on('click', 'fire', function (e) {
+        map.on('click', 'fire', function(e) {
             console.log(e.features[0].properties);
 
             new maplibregl.Popup()
@@ -97,7 +95,7 @@
         map.addControl(new maplibregl.NavigationControl());
         map.addControl(new maplibregl.FullscreenControl());
 
-        map.on('load', function () {
+        map.on('load', function() {
 
             map.addSource('indoor', {
                 'type': 'geojson',
@@ -112,8 +110,8 @@
                 'data': 'https://open-indoor.github.io/data/gare-de-l-est.geojson'
             });
 
-            fetch("/style/indoorLayers.json").then(function (response) {
-                return response.json().then(function (json) {
+            fetch("/style/indoorLayers.json").then(function(response) {
+                return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
@@ -121,17 +119,17 @@
                     }
                 });
             });
-            fetch("/style/shapeLayers.json").then(function (response) {
-                return response.json().then(function (json) {
+            fetch("/style/shapeLayers.json").then(function(response) {
+                return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
                         map.addLayer(layer)
                     }
                 });
-            });                   
-            fetch("/style/buildingLayers.json").then(function (response) {
-                return response.json().then(function (json) {
+            });
+            fetch("/style/buildingLayers.json").then(function(response) {
+                return response.json().then(function(json) {
                     layers = json
                     for (layer of layers) {
                         delete layer['source-layer']
@@ -140,7 +138,6 @@
                 });
             });
         });
-
     </script>
 
 </body>

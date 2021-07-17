@@ -6,8 +6,8 @@
         0,
         0
     ],
-    "sprite": "https://app.openindoor.io/sprite/sprite",
-    "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
+    "sprite": "https://open-indoor.github.io/sprite/sprite",
+    "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
     "sources": {
         "none": {
             "type": "vector",
@@ -22,7 +22,7 @@
             ],
             "tileSize": 256,
             "minzoom": 0,
-            "maxzoom": 19            
+            "maxzoom": 19
         },
         "building": {
             "type": "vector",
@@ -42,8 +42,7 @@
             "minzoom": 19
         }
     },
-    "layers": [
-        {
+    "layers": [{
             "id": "background",
             "type": "background",
             "paint": {
@@ -57,8 +56,7 @@
             "minzoom": 0,
             "maxzoom": 19,
             "raster-opacity": [
-                "interpolate",
-                [
+                "interpolate", [
                     "linear"
                 ],
                 [
@@ -78,10 +76,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "indoor"
                     ],
@@ -188,8 +184,7 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
+                "any", [
                     "has",
                     "shop"
                 ]
@@ -294,10 +289,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "amenity"
                     ],
@@ -404,10 +397,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "amenity"
                     ],
@@ -514,10 +505,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "amenity"
                     ],
@@ -624,10 +613,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "shop"
                     ],
@@ -734,10 +721,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "shop"
                     ],
@@ -844,10 +829,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "shop"
                     ],
@@ -954,10 +937,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "shop"
                     ],
@@ -1064,10 +1045,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "shop"
                     ],
@@ -1174,10 +1153,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "name"
                     ],
@@ -1284,10 +1261,8 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "any",
-                [
-                    "==",
-                    [
+                "any", [
+                    "==", [
                         "get",
                         "name"
                     ],
@@ -1393,10 +1368,8 @@
             "type": "fill-extrusion",
             "minzoom": 19,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "indoor"
                     ],
@@ -1417,10 +1390,8 @@
             "type": "fill-extrusion",
             "minzoom": 19,
             "filter": [
-                "all",
-                [
-                    "==",
-                    [
+                "all", [
+                    "==", [
                         "get",
                         "indoor"
                     ],
@@ -1441,8 +1412,7 @@
             "type": "fill-extrusion",
             "minzoom": 19,
             "filter": [
-                "all",
-                [
+                "all", [
                     "has",
                     "indoor"
                 ]
@@ -1462,8 +1432,7 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
+                "all", [
                     "has",
                     "highway"
                 ]
@@ -1481,14 +1450,12 @@
             "minzoom": 19,
             "interactive": true,
             "filter": [
-                "all",
-                [
+                "all", [
                     "has",
                     "highway"
                 ],
                 [
-                    "==",
-                    [
+                    "==", [
                         "get",
                         "highway"
                     ],
@@ -1508,8 +1475,7 @@
             "minzoom": 15,
             "maxzoom": 19,
             "filter": [
-                "all",
-                [
+                "all", [
                     "has",
                     "indoor"
                 ],
@@ -1518,22 +1484,17 @@
                     "level"
                 ],
                 [
-                    "==",
-                    [
+                    "==", [
                         "index-of",
-                        ";",
-                        [
+                        ";", [
                             "get",
                             "level"
                         ]
-                    ],
-                    -1
+                    ], -1
                 ],
                 [
-                    ">=",
-                    [
-                        "to-number",
-                        [
+                    ">=", [
+                        "to-number", [
                             "get",
                             "level"
                         ]
@@ -1543,19 +1504,15 @@
             ],
             "paint": {
                 "fill-extrusion-color": [
-                    "case",
-                    [
-                        "==",
-                        [
+                    "case", [
+                        "==", [
                             "feature-state",
                             "hover"
                         ],
                         null
                     ],
-                    "#6a615b",
-                    [
-                        "boolean",
-                        [
+                    "#6a615b", [
+                        "boolean", [
                             "feature-state",
                             "hover"
                         ]
@@ -1564,20 +1521,16 @@
                     "#6a615b"
                 ],
                 "fill-extrusion-height": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [
                         "zoom"
                     ],
-                    18,
-                    [
+                    18, [
                         "*",
-                        5,
-                        [
-                            "to-number",
-                            [
+                        5, [
+                            "to-number", [
                                 "get",
                                 "level"
                             ]
@@ -1587,20 +1540,16 @@
                     0
                 ],
                 "fill-extrusion-base": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [
                         "zoom"
                     ],
-                    18,
-                    [
+                    18, [
                         "*",
-                        5,
-                        [
-                            "to-number",
-                            [
+                        5, [
+                            "to-number", [
                                 "get",
                                 "level"
                             ]
@@ -1610,8 +1559,7 @@
                     0
                 ],
                 "fill-extrusion-opacity": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [
@@ -1632,8 +1580,7 @@
             "minzoom": 14,
             "maxzoom": 19,
             "filter": [
-                "any",
-                [
+                "any", [
                     "has",
                     "building:part"
                 ],
@@ -1645,23 +1592,19 @@
             "paint": {
                 "fill-extrusion-color": "#fcffe4",
                 "fill-extrusion-height": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [
                         "zoom"
                     ],
-                    18,
-                    [
-                        "case",
-                        [
+                    18, [
+                        "case", [
                             "has",
                             "height"
                         ],
                         [
-                            "to-number",
-                            [
+                            "to-number", [
                                 "get",
                                 "height"
                             ]
@@ -1672,23 +1615,19 @@
                     0
                 ],
                 "fill-extrusion-base": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [
                         "zoom"
                     ],
-                    18,
-                    [
-                        "case",
-                        [
+                    18, [
+                        "case", [
                             "has",
                             "min_height"
                         ],
                         [
-                            "to-number",
-                            [
+                            "to-number", [
                                 "get",
                                 "min_height"
                             ]
@@ -1699,8 +1638,7 @@
                     0
                 ],
                 "fill-extrusion-opacity": [
-                    "interpolate",
-                    [
+                    "interpolate", [
                         "linear"
                     ],
                     [

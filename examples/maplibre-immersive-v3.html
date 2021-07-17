@@ -19,19 +19,19 @@
             border: none;
             background-color: #222;
         }
-
+        
         .grid {
             display: grid;
             grid-template-rows: 1fr 10px 1fr;
         }
-
+        
         .gutter {
             width: 10px;
             background-color: #000;
             background-repeat: no-repeat;
             background-position: 50%;
         }
-
+        
         .horizontal-gutter {
             grid-area: 2 / 1 / 2 / 1;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
@@ -41,13 +41,13 @@
             /* background-position: 50%; */
             cursor: row-resize;
         }
-
+        
         #map {
             background-color: #555;
             height: 100%;
             width: 100%;
         }
-
+        
         .aframebox {
             height: 100%;
             /* width: 500px; */
@@ -59,7 +59,7 @@
     <script>
         // window.THREE.TextureLoader.prototype.crossOrigin = '';
         AFRAME.registerComponent('rotation-reader', {
-            tick: function () {
+            tick: function() {
 
                 // // `this.el` is the element.
                 // // `object3D` is the three.js object.
@@ -132,7 +132,7 @@
                 track: 1,
                 element: document.querySelector('.horizontal-gutter'),
             }],
-            onDrag: function () {
+            onDrag: function() {
                 map.resize();
                 window.dispatchEvent(new Event('resize'));
 
@@ -165,21 +165,18 @@
                 }
             },
             "sprite": "https://open-indoor.github.io/sprite/sprite",
-            "glyphs": "https://app.openindoor.io/fonts/{fontstack}/{range}.pbf",
-            "layers": [
-                {
+            "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
                     "id": "background",
                     "type": "background",
                     "paint": {
                         "background-color": "#e0dfdf"
                     }
-                },
-                {
+                }, {
                     "id": "simple-tiles",
                     "type": "raster",
                     "source": "raster-tiles"
-                },
-                {
+                }, {
                     'id': 'peupliers_lines',
                     'type': 'line',
                     'source': 'peupliers',
@@ -188,8 +185,7 @@
                         "line-width": 1,
                         "line-color": "#000000"
                     }
-                },
-                {
+                }, {
                     'id': 'peupliers_extrusion',
                     'type': "fill-extrusion",
                     'source': 'peupliers',
@@ -223,7 +219,9 @@
         });
 
         map.addControl(new maplibregl.GeolocateControl());
-        map.addControl(new maplibregl.NavigationControl({ 'showCompass': false }));
+        map.addControl(new maplibregl.NavigationControl({
+            'showCompass': false
+        }));
         map.addControl(new maplibregl.FullscreenControl());
         map.dragRotate.disable();
 
@@ -243,11 +241,11 @@
         //     e.layer.feature.properties['marker-color'] = '#ff8888';
         //     myLayer.setGeoJSON(geoJson);
         // });
-        map.on('load', function () {
+        map.on('load', function() {
             // Load an image from an external URL.
             map.loadImage(
                 'https://open-indoor.github.io/img/marker_black.png',
-                function (error, image) {
+                function(error, image) {
                     if (error) throw error;
 
                     // Add the image to the map style.
@@ -277,14 +275,12 @@
                         "type": "symbol",
                         "source": "peupliers",
                         "filter": [
-                            "all",
-                            [
+                            "all", [
                                 "has",
                                 "image"
                             ],
                             [
-                                "==",
-                                ["geometry-type"],
+                                "==", ["geometry-type"],
                                 "Point"
                             ]
                         ],
@@ -296,7 +292,7 @@
             );
             map.loadImage(
                 'https://open-indoor.github.io/img/marker_red.png',
-                function (error, image) {
+                function(error, image) {
                     if (error) throw error;
 
                     // Add the image to the map style.
@@ -347,8 +343,7 @@
 
             const features = map.querySourceFeatures("peupliers", {
                 filter: [
-                    "==",
-                    ["geometry-type"],
+                    "==", ["geometry-type"],
                     "Point"
                 ]
             });
@@ -379,10 +374,8 @@
             // });
             map.setLayoutProperty(
                 'markers',
-                'icon-image',
-                [
-                    'match',
-                    ['get', 'image'],
+                'icon-image', [
+                    'match', ['get', 'image'],
                     feature.properties.image,
                     'marker_red',
                     'marker_black'
@@ -401,7 +394,7 @@
             //     ]
             // )
         })
-        map.on('rotate', function () {
+        map.on('rotate', function() {
             console.log("map.getBearing():", map.getBearing());
             // document.querySelector('#panorama').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
             // document.querySelector('#camera').setAttribute('rotation', { x: 0, y: map.getBearing(), z: 0 });
