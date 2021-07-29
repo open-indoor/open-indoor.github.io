@@ -32,6 +32,7 @@ let mapStyle = {
         "openindoor": {
             'type': 'vector',
             "tiles": ["https://tegola.openindoor.io/maps/openindoor/{z}/{x}/{y}.vector.pbf?"],
+            cluster: true,
             "tolerance": 0
         }
     },
@@ -74,7 +75,7 @@ let map = new maplibregl.Map({
 let hoveredBuildingId = undefined;
 let oldBuildingId = undefined;
 
-map.on('mousemove', 'building-part-extrusion', function(e) {
+map.on('mousemove', 'building-extrusion', function(e) {
 
     if (e.features.length >= 1 && 'id' in e.features[0] && e.features[0].id !== oldBuildingId) {
         if (oldBuildingId !== undefined) {
@@ -121,6 +122,57 @@ map.on('sourcedata', function() {
         console.log('openindoor features loaded:', features);
     }
 });
+map.on('load', function() {
+    // map.addSource('markers', {
+    //     'type': 'geojson',
+    //     'data': currentFeature
+    // })
+    map.loadImage(
+        'https://open-indoor.github.io/img/marker_red_48x48.png',
+        function(error, image) {
+            if (error) throw error;
+            map.addImage('marker_red', image);
+            map.addLayer({
+                "id": "markers",
+                "interactive": true,
+                "type": "symbol",
+                "source": "openindoor",
+                "source-layer": "pins",
+                "filter": [
+                    "all", [
+                        "==", [
+                            "geometry-type"
+                        ],
+                        "Point"
+                    ],
+                    [
+                        "any", [
+                            "has",
+                            "building"
+                        ],
+                        [
+                            "has",
+                            "museum"
+                        ]
+                    ]
+                ],
+                "layout": {
+                    "icon-image": "marker_red",
+                    "icon-anchor": "bottom",
+                    "icon-offset": [0, 10],
+                    "icon-allow-overlap": true,
+                    // "icon-ignore-placement": true
+                    // get the title name from the source's "title" property
+                    "text-field": ["get", "name<"],
+                    "text-font": ["Open Sans Regular"],
+                    "text-offset": [0, 1.25],
+                    "text-anchor": "top"
+                }
+            });
+        }
+    );
+});
+
 
 map.on('load', function() {
 
@@ -178,6 +230,14 @@ map.on('load', function() {
             }
         });
     });
+    // fetch("./style/markerLayers.json").then(function(response) {
+    //     return response.json().then(function(json) {
+    //         let layers = json
+    //         for (let layer of layers) {
+    //             map.addLayer(layer)
+    //         }
+    //     });
+    // });
     fetch("./style/shapeLayers.json").then(function(response) {
         return response.json()
             .then(function(json) {

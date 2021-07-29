@@ -1,0 +1,12 @@
+[{
+    "id": "pins",
+    "type": "symbol",
+    "source": "pins",
+    "layout": {
+        "icon-image": "custom-marker",
+        "text-field": ["get", "title"],
+        "text-font": ["Open Sans Regular"],
+        "text-offset": [0, 1.25],
+        "text-anchor": "top"
+    }
+}]

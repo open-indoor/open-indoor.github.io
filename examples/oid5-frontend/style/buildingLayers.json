@@ -1,5 +1,5 @@
 [{
-    "id": "building-part-extrusion",
+    "id": "building-extrusion",
     "source-layer": "footprint",
     "source": "openindoor",
     "type": "fill-extrusion",
@@ -7,15 +7,13 @@
     "maxzoom": 19,
     "filter": [
         "all", [
-            "==", [
-                "geometry-type"
-            ],
-            "Polygon"
-        ],
-        [
             "any", [
                 "has",
                 "building"
+            ],
+            [
+                "has",
+                "museum"
             ]
         ]
     ],
