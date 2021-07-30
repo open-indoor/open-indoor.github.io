@@ -7,7 +7,7 @@
             "type": "Feature",
             "properties": {
                 "image": "assets/firstsphere.jpg",
-                "POI": ["assets/Donut.png", "assets/firstsphere.jpg"]
+                "POI": ["assets/Donut.png", "assets/cleo.jpg"]
             },
             "geometry": {
                 "type": "Point",
@@ -20,7 +20,8 @@
         {
             "type": "Feature",
             "properties": {
-                "image": "assets/secondsphere.jpg"
+                "image": "assets/secondsphere.jpg",
+                "POI": ["assets/La_liberté_guidant_le_peuple.jpg", "assets/van gogh.jpg", "assets/Subnautica.jpg"]
             },
             "geometry": {
                 "type": "Point",
@@ -34,7 +35,7 @@
             "type": "Feature",
             "properties": {
                 "image": "assets/thirdsphere.jpg",
-                "POI": ["assets/secondsphere.jpg", "assets/thirdsphere.jpg"]
+                "POI": ["assets/nyan.jpg"]
             },
             "geometry": {
                 "type": "Point",
@@ -47,7 +48,8 @@
         {
             "type": "Feature",
             "properties": {
-                "image": "assets/fourthsphere.jpg"
+                "image": "assets/fourthsphere.jpg",
+                "POI": ["assets/visage.jpg", "assets/worldcyber.jpg", "assets/octane.png"]
             },
             "geometry": {
                 "type": "Point",

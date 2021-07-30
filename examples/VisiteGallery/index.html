@@ -11,20 +11,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>  
     <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
     <!-- Scripts -->
     <script src="photosphere.js"></script>
     <script src="script.js"></script>
 
   </head>
-  <body style="background-color: white;">
+  <body style="background-color:  red;">
     <a-scene>
       <a-assets>
-        <a-asset-item id="marker" src="assets/cross.obj"></a-asset-item>
-        <a-asset-item id="arrow" src="assets/arrow.obj"></a-asset-item>
+        <a-asset-item id="marker" src="assets/cross2.obj"></a-asset-item>
+        <a-asset-item id="arrow" src="assets/arrow2.obj"></a-asset-item>
       </a-assets>
-      <a-camera id="camera" position="0 0 0" rotation="0 0 0" cursor="rayOrigin: mouse">
-        <a-entity id="refresh-button" visible="true" geometry="primitive: box" material="color: black" position="2.5 -1.2 -2" scale="0.5 0.2 0"></a-entity>
+      <a-camera id="camera" wasd-controls-enabled="false" position="0 0 0" rotation="0 0 0" cursor="rayOrigin: mouse">
+        <a-entity id="text" text="value: Hello!" position="0 0 -1" visible="false"></a-entity>
+        <a-entity id="refresh-button-1" visible="true" geometry="primitive: box" position="2.8 -1.2 -2" scale="0.3 0.3 0"></a-entity>
+        <a-entity id="refresh-button-2" visible="true" geometry="primitive: box" position="2.4 -1.2 -2" scale="0.3 0.3 0"></a-entity>
+        <a-entity id="refresh-button-3" visible="true" geometry="primitive: box" position="2.6 -0.8 -2" scale="0.3 0.3 0"></a-entity>
       </a-camera>
       <a-sky id="main-ps" rotation="0 0 0" radius="1000"></a-sky>
     </a-scene>
