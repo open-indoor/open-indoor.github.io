@@ -31,7 +31,7 @@ let mapStyle = {
         },
         "openindoor": {
             'type': 'vector',
-            "tiles": ["https://tegola.openindoor.io/maps/openindoor/{z}/{x}/{y}.vector.pbf?token=xxx"],
+            "tiles": ["https://tegola.openindoor.io/maps/openindoor/{z}/{x}/{y}.vector.pbf?token=kjGxKVMZcXAao1mtOOALxWY3"],
             cluster: true,
             "tolerance": 0
         }
