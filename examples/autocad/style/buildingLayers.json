@@ -1,0 +1,163 @@
+[{
+        "id": "aby-parois",
+        "source-layer": "aby-parois",
+        "source": "openindoor",
+        "type": "fill-extrusion",
+        "minzoom": 14,
+        "maxzoom": 19,
+        "paint": {
+            "fill-extrusion-color": [
+                "case", [
+                    "==", [
+                        "feature-state",
+                        "hover"
+                    ],
+                    null
+                ],
+                "#fcffe4", [
+                    "boolean", [
+                        "feature-state",
+                        "hover"
+                    ]
+                ],
+                "#ff0000",
+                "#fcffe4"
+            ],
+            "fill-extrusion-height": [
+                "interpolate", [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                18,
+                40,
+                19,
+                0
+            ],
+            "fill-extrusion-base": 0,
+            "fill-extrusion-opacity": [
+                "interpolate", [
+                    "linear"
+                ],
+                [
+                    "zoom"
+                ],
+                14.5,
+                0,
+                16,
+                0.5
+            ]
+        }
+    },
+    {
+        "id": "aby-parois-fill",
+        "source-layer": "aby-parois",
+        "source": "openindoor",
+        "type": "fill",
+        "minzoom": 14,
+        "maxzoom": 19,
+        "paint": {
+            "fill-color": "#ff0000"
+        }
+    },
+    {
+        "id": "texte-general",
+        "type": "symbol",
+        "source-layer": "texte-general",
+        "source": "openindoor",
+        "minzoom": 15,
+        "interactive": true,
+        "layout": {
+            "text-line-height": 1.2,
+            "icon-size": {
+                "base": 1,
+                "stops": [
+                    [
+                        15,
+                        0.5
+                    ],
+                    [
+                        20,
+                        1
+                    ]
+                ]
+            },
+            "text-size": {
+                "base": 1,
+                "stops": [
+                    [
+                        15,
+                        11
+                    ],
+                    [
+                        20,
+                        13
+                    ]
+                ]
+            },
+            "text-allow-overlap": false,
+            "icon-image": "",
+            "icon-anchor": "center",
+            "text-ignore-placement": false,
+            "text-max-angle": 38,
+            "symbol-spacing": 250,
+            "text-font": [
+                "Open Sans Regular"
+            ],
+            "symbol-placement": "point",
+            "text-padding": 2,
+            "visibility": "visible",
+            "text-offset": [
+                0,
+                1
+            ],
+            "icon-optional": false,
+            "text-rotation-alignment": "viewport",
+            "text-anchor": "top",
+            "text-field": "{Text}",
+            "text-letter-spacing": 0.02,
+            "text-max-width": 8,
+            "icon-allow-overlap": true
+        },
+        "paint": {
+            "text-color": "#000000",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 1,
+            "text-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        15,
+                        0
+                    ],
+                    [
+                        17,
+                        0.5
+                    ],
+                    [
+                        19,
+                        1
+                    ]
+                ]
+            },
+            "icon-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        15,
+                        0
+                    ],
+                    [
+                        17,
+                        0.5
+                    ],
+                    [
+                        19,
+                        1
+                    ]
+                ]
+            }
+        }
+    }
+]
