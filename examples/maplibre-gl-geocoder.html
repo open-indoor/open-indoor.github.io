@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Raster tiles</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.2.0/dist/maplibre-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.2.0/dist/maplibre-gl-geocoder.css" type="text/css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Load the `mapbox-gl-geocoder` plugin. -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    <div id="map"></div>
+    <script>
+        mapStyle = {
+            "version": 8,
+            "name": "Blank",
+            "center": [0, 0],
+            "zoom": 0,
+            "sources": {
+                "raster-tiles": {
+                    "type": "raster",
+                    "tiles": [
+                        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    ],
+                    "tileSize": 256,
+                    "minzoom": 0,
+                    "maxzoom": 19
+                }
+            },
+            "glyphs": "https://open-indoor.github.io/fonts/{fontstack}/{range}.pbf",
+            "layers": [{
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#e0dfdf"
+                }
+            }, {
+                "id": "simple-tiles",
+                "type": "raster",
+                "source": "raster-tiles"
+            }],
+            "id": "blank"
+        }
+        const map = new maplibregl.Map({
+            'container': 'map',
+            'center': [2.3596569, 48.8765734],
+            'pitch': 60,
+            'bearing': -60,
+            'zoom': 19,
+            'style': mapStyle
+        });
+
+        var geocoder_api = {
+            forwardGeocode: async(config) => {
+                const features = []
+                try {
+                    let request = "https://nominatim.openstreetmap.org/search?q=" + config.query + "&format=geojson&polygon_geojson=1&addressdetails=1"
+                    const response = await fetch(request);
+                    const geojson = await response.json();
+                    for (let feature of geojson.features) {
+                        let center = [
+                            feature.bbox[0] + (feature.bbox[2] - feature.bbox[0]) / 2,
+                            feature.bbox[1] + (feature.bbox[3] - feature.bbox[1]) / 2
+                        ];
+                        let point = {
+                            type: "Feature",
+                            geometry: {
+                                type: "Point",
+                                coordinates: center
+                            },
+                            place_name: feature.properties.display_name,
+                            properties: feature.properties,
+                            text: feature.properties.display_name,
+                            place_type: ["place"],
+                            center: center
+                        }
+                        features.push(point)
+                    }
+                } catch (e) {
+                    console.error(`Failed to forwardGeocode with error: ${e}`);
+                }
+
+                return {
+                    features: features,
+                }
+            }
+        };
+
+        map.addControl(
+            new MaplibreGeocoder(
+                geocoder_api, {
+                    maplibregl: maplibregl
+                }
+            )
+        );
+    </script>
+
+</body>
+
+</html>
