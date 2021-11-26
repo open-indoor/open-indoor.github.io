@@ -1,0 +1,65 @@
+{
+  "door_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 0,
+    "y": 0
+  },
+  "door_filled_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 0
+  },
+  "door_restricted_key_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 0,
+    "y": 128
+  },
+  "door_restricted_lock_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 128
+  },
+  "door_restricted_sign_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 256,
+    "y": 0
+  },
+  "elevator_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 0
+  },
+  "escalator_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 256,
+    "y": 128
+  },
+  "stairs_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 128
+  },
+  "toilets_64": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 0,
+    "y": 256
+  }
+}
