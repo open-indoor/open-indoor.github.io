@@ -1370,10 +1370,10 @@
 
     stepSize  :  0.00001, // distance parcourue en un pas
 
-    keyUp : [38,90], // avancer
-    keyDown : [40,83], // reculer
-    keyRight  : [39,68], // aller a droite
-    keyLeft : [37,81], // aller a gauche
+    keyUp : [38,90,87], // avancer
+    keyDown : [40,83,83], // reculer
+    keyRight  : [39,68,68], // aller a droite
+    keyLeft : [37,81,65], // aller a gauche
 
     keyToChangeViewMode : 67, // touche pour changer de mode de vue
 
@@ -1490,22 +1490,22 @@
       northAngle = northAngle * (Math.PI/180);
       
 
-      if(e.keyCode == CameraParam.keyUp[0] || e.keyCode == CameraParam.keyUp[1]){
+        if (e.keyCode == CameraParam.keyUp[0] || e.keyCode == CameraParam.keyUp[1] || e.keyCode == CameraParam.keyUp[2]){
 
         CameraParam.x0+=CameraParam.stepSize*Math.sin(northAngle);
         CameraParam.y0+=CameraParam.stepSize*Math.cos(northAngle); 
 
-      }else if(e.keyCode == CameraParam.keyDown[0] || e.keyCode == CameraParam.keyDown[1]){
+        } else if (e.keyCode == CameraParam.keyDown[0] || e.keyCode == CameraParam.keyDown[1] || e.keyCode == CameraParam.keyDown[2]){
 
         CameraParam.x0-=CameraParam.stepSize*Math.sin(northAngle);
         CameraParam.y0-=CameraParam.stepSize*Math.cos(northAngle); 
 
-      }else if(e.keyCode == CameraParam.keyRight[0] || e.keyCode == CameraParam.keyRight[1]){
+        } else if (e.keyCode == CameraParam.keyRight[0] || e.keyCode == CameraParam.keyRight[1] || e.keyCode == CameraParam.keyRight[2]){
 
         CameraParam.y0-=CameraParam.stepSize*Math.sin(northAngle);
         CameraParam.x0+=CameraParam.stepSize*Math.cos(northAngle);
 
-      }else if(e.keyCode == CameraParam.keyLeft[0] || e.keyCode == CameraParam.keyLeft[1]){
+        } else if (e.keyCode == CameraParam.keyLeft[0] || e.keyCode == CameraParam.keyLeft[1] || e.keyCode == CameraParam.keyLeft[2]){
 
         CameraParam.y0+=CameraParam.stepSize*Math.sin(northAngle);
         CameraParam.x0-=CameraParam.stepSize*Math.cos(northAngle);
