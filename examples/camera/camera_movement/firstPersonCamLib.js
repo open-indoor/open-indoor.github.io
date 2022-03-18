@@ -263,7 +263,7 @@ var idpied=0;
     
     if(CameraParam.cameraPremierePersonne == 1){
 
-      if(e.buttons == 2){// 1 => click gauche
+      if(e.buttons == 1){// 1 => click gauche
 
         var XpositionMouseDifference = CameraParam.XmousePositionSaved-e.x;
 
