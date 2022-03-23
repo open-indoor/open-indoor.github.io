@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Kingconf-rh</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <meta name="theme-color" content="white" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- <link rel="apple-touch-icon" href="images/hello-icon-152.png"> -->
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kingconf-rh">
+    <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script src="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.css" rel="stylesheet" />
+
+    <script src="https://app.openindoor.io/openindoor.js"></script>
+
+    <style>
+        /* body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <script>
+        // navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        //     for (let registration of registrations) {
+        //         registration.unregister()
+        //     }
+        // })
+        let map = new openindoor();
+
+        // let map = new openindoor({
+        //     container: 'map',
+        //     center: [2.289114, 48.829535],
+        //     zoom: 17,
+        //     bearing: 88,
+        //     layer: "https://kingconf-rh.openindoor.io/indoor-kingconf-rh.json",
+        //     // source: 'https://kingconf-rh.openindoor.io/kingconf-rh.geojson',
+        //     // source: 'https://kingconf-rh.openindoor.io/PLAN_GENERAL-btouleau.geojson',
+        //     //source: 'https://kingconf-rh.openindoor.io/PLAN_GENERAL-btouleau-20220314_01.geojson',
+        //     source: 'https://kingconf-rh.openindoor.io/PLAN_GENERAL-btouleau-20220314_02.geojson',
+            
+        //     // source: 'PLAN_GENERAL-btouleau-20220310_1jWELZ2LJMWqu-0iJRfGaes8ri6-PeTLx.geojson',
+        //     // source: 'https://drive.google.com/uc?export=download&id=1jWELZ2LJMWqu-0iJRfGaes8ri6-PeTLx',
+
+        //     state: 'indoor_state',
+        //     bbox: [
+        //         [2.285074801,48.8278821578],
+        //         [2.293121428,48.8311875524]
+        //     ],
+        //     feature_key: "ref",
+        //     search_keys: ["name", "ref"],
+        //     search_filter: {
+        //         properties: {
+        //             category: ["exhibition"]
+        //         }
+        //     },
+        //     info: ["name", "image", "desc", "url"],
+        //     // bbox: [
+        //     //     [2.28851, 48.82722],
+        //     //     [2.29324, 48.83109]
+        //     // ],
+        //     modal: true,
+        //     popup: false,
+        //     feedback_control: "none",
+        //     info_control: "none",
+        //     mode_control: "none",
+        //     icon_tags: {
+        //         icon_url: "icon-image",
+        //         icon_name: "icon-name",
+        //         filter: {
+        //             layer_id: "indoor-stand_name-symbol",
+        //             rules: ["!", [
+        //                 "has",
+        //                 "icon-name"
+        //             ]]
+        //         }
+        //     }
+        // });
+
+        // window.onload = () => {
+        //     'use strict';
+        //     if ('serviceWorker' in navigator) {
+        //         navigator.serviceWorker
+        //             .register('./sw.js');
+        //     }
+        // }
+    </script>
+
+</body>
+
+</html>

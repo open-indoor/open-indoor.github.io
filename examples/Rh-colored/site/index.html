@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Kingconf-rh</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <meta name="theme-color" content="white" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/hello-icon-152.png">
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kingconf-rh">
+    <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script src="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.css" rel="stylesheet" />
+
+    <script src="https://app.openindoor.io/openindoor.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        //     for (let registration of registrations) {
+        //         registration.unregister()
+        //     }
+        // })
+        let map = new openindoor({
+            container: 'map', 
+            center: [2.289114, 48.829535],
+            zoom: 15.8,
+            bearing: 88,
+            //bounds:[2.275916,48.82194,2.301021,48.836278], 
+            layer: "/site/indoor-kingconf-rh.json",
+            source: '/site/Plan_20220323.geojson',
+            
+
+            state: 'indoor_state',
+            bbox: [
+                [2.2868392426,48.8270550481],
+                [2.2911200482,48.8321402642]
+            ],
+
+            
+            feature_key: "ref",
+            search_keys: ["name", "ref"],
+            search_filter: {
+                properties: {
+                    category: ["exhibition"]
+                }
+            },
+            info: ["name", "image", "desc", "url", "ref"],
+            // bbox: [
+            //     [2.28851, 48.82722],
+            //     [2.29324, 48.83109]
+            // ],
+            modal: false,
+            popup: false,
+            feedback_control: "none",
+            info_control: "none",
+            mode_control: "none",
+            icon_tags: {
+                icon_url: "icon-image",
+                icon_name: "icon-name",
+                filter: {
+                    layer_id: "indoor-stand_name-symbol",
+                    rules: ["!", [
+                        "has",
+                        "icon-name"
+                    ]]
+                }
+            }
+        });
+
+        // window.onload = () => {
+        //     'use strict';
+        //     if ('serviceWorker' in navigator) {
+        //         navigator.serviceWorker
+        //             .register('./sw.js');
+        //     }
+        // }
+    </script>
+
+</body>
+
+</html>
