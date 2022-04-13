@@ -45,7 +45,8 @@ function start(data){
   correctionResize()
   setCursorPosition();
   paramOn();
-  //ttt();
+  yy();
+
 
   var y = document.getElementById("ammo");
   y.innerHTML=GameParam.munIn;
@@ -499,8 +500,15 @@ function paramOn(){
 }
 
 
-document.addEventListener('keydown', function (e){
 
+
+
+
+
+
+document.addEventListener('keyup', function (e){
+
+  //console.log(e)
   if(e.keyCode==GameParam.touchePause){
 
     paramOn()         
