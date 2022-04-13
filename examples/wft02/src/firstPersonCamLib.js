@@ -33,6 +33,8 @@
 
     keyToChangeViewMode : 67, // touche pour changer de mode de vue
 
+    keyboard: {}
+
   };
 
 
@@ -335,63 +337,90 @@ var idpied=0;
   });
 
 
+
+  /*
+
+
+var keyboard = {};
+
+window.addEventListener('keydown', function(e){
+  keyboard[e.keyCode] = e.type == 'keydown';
+  //console.log(keyboard)
+});
+window.addEventListener('keyup', function(e){
+    keyboard[e.keyCode] = false;   
+});
+
+
+  */
+
+
   document.addEventListener('keydown', function (e){
 
     if(CameraParam.cameraPremierePersonne == 1){
 
-      var xSave = CameraParam.x0;
-      var ySave = CameraParam.y0;
+      CameraParam.keyboard[e.keyCode] = e.type == 'keydown';
 
-        var incrementSin = CameraParam.stepSize*Math.sin(getBearingRadian());
-        var incrementCos = CameraParam.stepSize*Math.cos(getBearingRadian()); 
+      
+
+        
         //console.log(CameraParam.stepSize)
 
-      for(var i = 0 ; i < CameraParam.keyUp.length ; i++){
-        switch (e.keyCode) {
-          case CameraParam.keyUp[i]:
-            CameraParam.x0+=incrementSin*CorrectionLatitude();
-            CameraParam.y0+=incrementCos;
-            break;
-          case CameraParam.keyDown[i]:
-            CameraParam.x0-=incrementSin*CorrectionLatitude();
-            CameraParam.y0-=incrementCos;
-            break;
-          case CameraParam.keyRight[i]:
-            CameraParam.x0+=incrementCos*CorrectionLatitude();
-            CameraParam.y0-=incrementSin;
-            break;
-          case CameraParam.keyLeft[i]:
-            CameraParam.x0-=incrementCos*CorrectionLatitude();
-            CameraParam.y0+=incrementSin; 
-            break;
-          case CameraParam.keyToChangeViewMode:
-            //resetFirstPersonCamera(map);
-            break;
-          case 102:
-            rotateCamera(1);
-            break;
-          case 100:
-            rotateCamera(-1);
-            break;
+      
 
-          }
-        }
-
-
-     if(!testCollision(CameraParam.x0+incrementSin*CorrectionLatitude()*3,CameraParam.y0+incrementCos*3) || CameraParam.collision == 0){
-        rotateCamera(0);
-     }else{
-        CameraParam.x0 = xSave ;
-        CameraParam.y0 = ySave ;
-        rotateCamera(0)
-        
-     } 
+     
      
     }else if(e.keyCode == CameraParam.keyToChangeViewMode){
       initializeFirstPersonCamera(map,map.getCenter());
     }
 
   });
+
+  window.addEventListener('keyup', function(e){
+    CameraParam.keyboard[e.keyCode] = false; 
+    //yy();  
+  });
+
+  function yy(){
+
+    var xSave = CameraParam.x0;
+      var ySave = CameraParam.y0;
+
+    var incrementSin = CameraParam.stepSize*Math.sin(getBearingRadian());
+        var incrementCos = CameraParam.stepSize*Math.cos(getBearingRadian()); 
+
+    for(var i = 0 ; i < CameraParam.keyUp.length ; i++){
+
+      if(CameraParam.keyboard[CameraParam.keyUp[i]]==true){
+        CameraParam.x0+=incrementSin*CorrectionLatitude();
+        CameraParam.y0+=incrementCos;
+      }
+      if(CameraParam.keyboard[CameraParam.keyDown[i]]==true){
+        CameraParam.x0-=incrementSin*CorrectionLatitude();
+        CameraParam.y0-=incrementCos;
+      }
+      if(CameraParam.keyboard[CameraParam.keyRight[i]]==true){
+        CameraParam.x0+=incrementCos*CorrectionLatitude();
+        CameraParam.y0-=incrementSin;
+      }
+      if(CameraParam.keyboard[CameraParam.keyLeft[i]]==true){
+        CameraParam.x0-=incrementCos*CorrectionLatitude();
+        CameraParam.y0+=incrementSin;
+      }
+
+    }
+
+    if(!testCollision(CameraParam.x0+incrementSin*CorrectionLatitude()*3,CameraParam.y0+incrementCos*3) || CameraParam.collision == 0){
+      rotateCamera(0);
+   }else{
+      CameraParam.x0 = xSave ;
+      CameraParam.y0 = ySave ;
+      rotateCamera(0)
+      
+   } 
+
+   setTimeout(function(){yy()}, 10);
+  }
 
   window.addEventListener('resize', correctionZoom);
 
