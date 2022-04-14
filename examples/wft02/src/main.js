@@ -37,6 +37,7 @@ var GameParam ={
 var tirVide = new Audio('audio/armeVide.mp3'); 
  
 var tempoTir = 1;
+var tempoRecharge =1;
 var tempoPorte = 1;
 
 function start(data){
@@ -64,8 +65,10 @@ function start(data){
     if(tempoTir == 1 && GameParam.arme!=0){
       if(GameParam.munIn<1){
         GameParam.munIn=0;
-        
+        //alert("ee")
         tirVide.play();
+        if(tempoRecharge&&GameParam.munOut>0)recharge();
+  
       }else{
         click(getCenterScreen())
         tir();   
@@ -207,7 +210,13 @@ const click = (coordCenter) => {
 
 function delayTir(){
   tempoTir = 0;
-  setTimeout(function(){tempoTir = 1}, 10);
+  setTimeout(function(){tempoTir = 1}, 80);
+
+}
+
+function delayRecharge(){
+  tempoRecharge = 0;
+  setTimeout(function(){tempoRecharge = 1}, 2000);
 
 }
 
@@ -243,40 +252,54 @@ window.addEventListener('resize', correctionResize);
 
 function tir(){
   if(GameParam.pause==0){
-  
-    var d = document.getElementById("calcArme");
-    d.style.backgroundImage="url('./textures/armeTir01.png')"
-    var tir = new Audio('audio/tir01.mp3');
-    tir.play();
-    var y = document.getElementById("ammo");
-    GameParam.munIn--; 
-    y.innerHTML=GameParam.munIn+'/'+GameParam.munOut;
-    var ti=20;
-    setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir02.png')"}, ti); 
-    setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir03.png')"}, ti*2); 
-    setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir04.png')"}, ti*3); 
-    setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir05.png')"}, ti*4); 
-    setTimeout(function(){d.style.backgroundImage="url('./textures/arme.png')"}, ti*5); 
 
-    if(GameParam.munIn==0 && GameParam.munOut>0){
-      setTimeout(function(){d.style.backgroundImage="url('./textures/main.png')"}, ti*6);
-      setTimeout(function(){
-        if(GameParam.munOut>=GameParam.chargeur){
-          GameParam.munIn=GameParam.chargeur;
-          GameParam.munOut-=GameParam.chargeur;
-        }else{
-          GameParam.munIn=GameParam.munOut;
-          GameParam.munOut=0;
-        }
-        
-        y.innerHTML=GameParam.munIn+'/'+GameParam.munOut;
-        var sound = new Audio('audio/rechargeGun.mp3');
-        sound.play();
-      }, 500);
-      setTimeout(function(){d.style.backgroundImage="url('./textures/arme.png')"}, 1000);
-    }
+    
+  if(GameParam.munIn>0){
+      var d = document.getElementById("calcArme");
+      d.style.backgroundImage="url('./textures/armeTir01.png')"
+      var tir = new Audio('audio/tir01.mp3');
+      tir.play();
+      var y = document.getElementById("ammo");
+      GameParam.munIn--; 
+      y.innerHTML=GameParam.munIn+'/'+GameParam.munOut;
+      var ti=20;
+      setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir02.png')"}, ti); 
+      setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir03.png')"}, ti*2); 
+      setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir04.png')"}, ti*3); 
+      setTimeout(function(){d.style.backgroundImage="url('./textures/armeTir05.png')"}, ti*4); 
+      setTimeout(function(){d.style.backgroundImage="url('./textures/arme.png')"}, ti*5); 
+  }
+      if(GameParam.munIn==0 && GameParam.munOut>0){
+        if(tempoRecharge)recharge();
+      }
   }
 }
+
+
+function recharge(){
+  var ti=20;
+  var d = document.getElementById("calcArme");
+  var y = document.getElementById("ammo");
+
+    
+  setTimeout(function(){d.style.backgroundImage="url('./textures/main.png')"}, ti*6);
+  setTimeout(function(){
+    if(GameParam.munOut>=GameParam.chargeur){
+      GameParam.munIn=GameParam.chargeur;
+      GameParam.munOut-=GameParam.chargeur;
+    }else{
+      GameParam.munIn=GameParam.munOut;
+      GameParam.munOut=0;
+    }
+    
+    y.innerHTML=GameParam.munIn+'/'+GameParam.munOut;
+    var sound = new Audio('audio/rechargeGun.mp3');
+    sound.play();
+  }, 500);
+  setTimeout(function(){d.style.backgroundImage="url('./textures/arme.png')"}, 1000);
+  delayRecharge();
+}
+
 
 
 
