@@ -385,6 +385,9 @@ window.addEventListener('keyup', function(e){
 
     var xSave = CameraParam.x0;
       var ySave = CameraParam.y0;
+    
+    var collisionX=0;
+    var collisionY=0;
 
     var incrementSin = CameraParam.stepSize*Math.sin(getBearingRadian());
         var incrementCos = CameraParam.stepSize*Math.cos(getBearingRadian()); 
@@ -394,23 +397,35 @@ window.addEventListener('keyup', function(e){
       if(CameraParam.keyboard[CameraParam.keyUp[i]]==true){
         CameraParam.x0+=incrementSin*CorrectionLatitude();
         CameraParam.y0+=incrementCos;
+
+        collisionX=CameraParam.x0+incrementSin*CorrectionLatitude()*3;
+        collisionY=CameraParam.y0+incrementCos*3;
       }
       if(CameraParam.keyboard[CameraParam.keyDown[i]]==true){
         CameraParam.x0-=incrementSin*CorrectionLatitude();
         CameraParam.y0-=incrementCos;
+
+        collisionX=CameraParam.x0-incrementSin*CorrectionLatitude()*3;
+        collisionY=CameraParam.y0-incrementCos*3;
       }
       if(CameraParam.keyboard[CameraParam.keyRight[i]]==true){
         CameraParam.x0+=(incrementCos*CorrectionLatitude())/2;
         CameraParam.y0-=incrementSin/2;
+
+        collisionX=CameraParam.x0+((incrementSin*CorrectionLatitude())/2)*3;
+        collisionY=CameraParam.y0-(incrementCos/2)*3;
       }
       if(CameraParam.keyboard[CameraParam.keyLeft[i]]==true){
         CameraParam.x0-=(incrementCos*CorrectionLatitude())/2;
         CameraParam.y0+=incrementSin/2;
+
+        collisionX=CameraParam.x0+((incrementSin*CorrectionLatitude())/2)*3;
+        collisionY=CameraParam.y0-(incrementCos/2)*3;
       }
 
     }
 
-    if(!testCollision(CameraParam.x0+incrementSin*CorrectionLatitude()*3,CameraParam.y0+incrementCos*3) || CameraParam.collision == 0){
+    if(!testCollision(collisionX,collisionY) || CameraParam.collision == 0){
       rotateCamera(0);
    }else{
       CameraParam.x0 = xSave ;
