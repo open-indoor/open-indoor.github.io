@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Teeeeeest</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://unpkg.com/maplibre-gl@2.1.7/dist/maplibre-gl.js"></script>
+    <script src="script/turf.min.js" charset="utf-8"></script>
+    <script src="script/transform.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.1.7/dist/maplibre-gl.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="src/main.css"> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .maplibregl-popup{
+            max-width: 400px;
+            /* border-color: black; */
+            
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+        .maplibregl-popup-content{
+            background-color: #9DCBF8;
+            /* anchor-color: #9DCBF8; */
+            color: white;
+        }
+        /* #menu {
+            position: absolute;
+            right:0px;
+            background: #fff;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <!-- <div id="menu">
+        <div class="slidecontainer">
+            <input type="range" min="3" max="20" value="10" class="slider">
+            <label>You chose <span class="limit"></span></label>
+        </div> -->
+    <script>
+        // console.log("union",unions);on bien recupere l'union
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                "id": "raster",
+                "version": 8,
+                "name": "Raster tiles",
+                "center": [0, 0],
+                "zoom": 0,
+                "sources": {
+                    "raster-tiles": {
+                        "type": "raster",
+                        "tiles": [
+                            "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        ],
+                        "tileSize": 256,
+                        "minzoom": 0,
+                        "maxzoom": 19
+                    }
+                },
+                "layers": [{
+                    "id": "background",
+                    "type": "background",
+                    "paint": {
+                        "background-color": "#e0dfdf"
+                    }
+                }, {
+                    "id": "simple-tiles",
+                    "type": "raster",
+                    "source": "raster-tiles"
+                }]
+            },
+            // center: ccenter.geometry.coordinates,
+            // zoom: zzoom,
+            bounds: turf.bbox(footprint),
+            pitch: 45,
+            bearing: 20,
+            maxPitch: 80,
+            antialias: true,
+            light: {
+                "anchor": "viewport",
+                "color": "white",
+                "intensity": 0.4
+            }
+        });
+
+        var nav = new maplibregl.NavigationControl();
+        map.addControl(nav, 'top-left');
+
+        let markerHeight = 10, markerRadius = 10, linearOffset = 100;
+        let popupOffsets = {
+        'top': [0, 0],
+        'top-left': [0,0],
+        'top-right': [0,0],
+        'bottom': [0, -markerHeight],
+        'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'left': [markerRadius, (markerHeight - markerRadius) * -1],
+        'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+        };
+        // let popup = new maplibregl.Popup({offset: popupOffsets, className: 'my-class',closeOnMove: true})
+        // .setLngLat(ccenter.geometry.coordinates)
+        // .setHTML("<h1>Hello World!</h1>")
+        // .setMaxWidth("300px")
+        // .addTo(map);
+
+        var HeightLevel = 11;
+        var HeightSpace = 1;
+        let couleur_negatif = ["#7C456D","#9C6088"];
+        let couleur = ["#FFFFFF","#FEFEE2"];
+
+        var hoveredStateId = null;
+        var preSelectedStateId = null;
+        var old_level;
+        var goal_level = Number(footprint.properties.max_level) + 3;
+        var current_level = goal_level;
+        var counter;
+        var steps;
+        map.on('load', function () {
+            map.addSource('footprint', {
+                'type': 'geojson',
+                'data': footprint
+            });
+            if (map.getZoom() > 18) {
+                map.setZoom(18);
+            }
+            // console.log('couleur',level,((Number(level) < 0) ? couleur_negatif[(-Number(level)-1 ) % 3] : couleur[Number(level) % 3]));
+            map.addLayer({
+                'id': 'footprint-level-extrusion',
+                'type': 'fill-extrusion',
+                'source': 'footprint',
+                'visibility': 'visible',
+                'paint': {                  
+                    'fill-extrusion-color': ['case',['boolean', ['feature-state', 'preselected'], false],
+                                                '#9DCBF8',//light blue
+                                                ['case',['boolean', ['feature-state', 'hover'], false],
+                                                    'blue',
+                                                    ['let','level',['%',['abs',['to-number',['get','level']]],2],
+                                                        ['case',['>=', ['to-number',['get','level']], 0],
+                                                            ['case',
+                                                                ['==',['var','level'],0],
+                                                                couleur[0],
+                                                                couleur[1]
+                                                            ],
+                                                            ['case',
+                                                                ['==',['var','level'],0],
+                                                                couleur_negatif[0],
+                                                                couleur_negatif[1]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ],
+                    // 'fill-extrusion-height': ['-',['*',['+',['to-number',['get','level']],1-Number(footprint.properties.min_level)],HeightLevel],HeightSpace],
+                    // 'fill-extrusion-height': ['interpolate', ['exponential', 0.5],['to-number',['get','level']],
+                    //                             Number(footprint.properties.min_level),
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*100+10],
+                    //                             Number(footprint.properties.min_level)+(Number(footprint.properties.max_level)-Number(footprint.properties.min_level))/2,
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*200+10],
+                    //                             Number(footprint.properties.max_level),
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*100+10]
+                    //                         ],
+                    // 'fill-extrusion-base': ['interpolate', ['exponential', 0.5],['to-number',['get','level']],
+                    //                             Number(footprint.properties.min_level),
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*100],
+                    //                             Number(footprint.properties.min_level)+(Number(footprint.properties.max_level)-Number(footprint.properties.min_level))/2,
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*200],
+                    //                             Number(footprint.properties.max_level),
+                    //                             ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],HeightSpace*100]
+                    //                         ],
+                    // 'fill-extrusion-base': ['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],
+                    //                             ['interpolate', ['cubic-bezier', 0.66, 0, 0.33, 1],['to-number',['get','level']],
+                    //                                 level-1.9,
+                    //                                 0,
+                    //                                 level+1.9,
+                    //                                 200
+                    //                             ]
+                    //                         ],
+                    // 'fill-extrusion-height': ['+',['+',['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],
+                    //                             ['interpolate', ['cubic-bezier',  0.66, 0, 0.33, 1],['to-number',['get','level']],
+                    //                                 level-1.9,
+                    //                                 0,
+                    //                                 level+1.9,
+                    //                                 200
+                    //                             ],10]
+                    //                         ],//https://yisibl.github.io/cubic-bezier/#.66,0,.33,1
+                    // 'fill-extrusion-height': ['case',['boolean', ['feature-state', 'preselected'], false],
+                    //                             ['-',['*',['+',['to-number',['get','level']],1-Number(footprint.properties.min_level)],HeightLevel],HeightSpace-10],
+                    //                             ['-',['*',['+',['to-number',['get','level']],1-Number(footprint.properties.min_level)],HeightLevel],HeightSpace],
+                    //                         ],
+                    'fill-extrusion-base': ['get','base_height'],
+                    'fill-extrusion-height': ['+',['get','base_height'],HeightLevel-HeightSpace],
+                    // 'fill-extrusion-base': ['*',['+',['to-number',['get','level']],-Number(footprint.properties.min_level)],HeightLevel],
+                    'fill-extrusion-vertical-gradient': true,//je ne vois pas l'effet sur la carte
+                    // 'fill-extrusion-opacity': ['+',['to-number','-1.5'],2] // il arive à récupérer les demi levels
+                    'fill-extrusion-opacity': 0.9
+                }
+            });
+            let popup = new maplibregl.Popup({offset: popupOffsets, className: 'my-class',closeOnMove: true,closeButton: false});
+            map.on('mousemove', 'footprint-level-extrusion', function (e) {
+                // map.getCanvas().style.cursor = 'pointer';
+                // console.log(e);
+                if (e.features.length > 0) {
+                    if (hoveredStateId) {
+                        map.setFeatureState(
+                            { source: 'footprint', id: hoveredStateId },
+                            { hover: false }
+                        );
+                    }
+                    if (hoveredStateId != e.features[0].id){
+                        // .setLngLat(e.lngLat)
+                        // .setHTML("<h1>" + e.features[0].properties.level + "</h1>")
+                        // .setMaxWidth("300px")
+                        if (!navigator.userAgentData.mobile){
+                            popup.setLngLat(e.lngLat).setHTML("<h1>" + e.features[0].properties.level + "</h1>").addTo(map).trackPointer();
+                        }
+                        
+                    }
+                    hoveredStateId = e.features[0].id;
+                    // console.log("id (étage + min +1) ",hoveredStateId,"correspond au level ",e.features[0].properties.level);
+                    map.setFeatureState(
+                        { source: 'footprint', id: hoveredStateId },
+                        { hover: true }
+                    );
+                }
+            });
+                
+            // When the mouse leaves the state-fill layer, update the feature state of the
+            // previously hovered feature.
+            map.on('mouseleave', 'footprint-level-extrusion', function () {
+                popup.remove();
+                // map.getCanvas().style.cursor = '';//marche pas
+                if (hoveredStateId) {
+                    map.setFeatureState(
+                        { source: 'footprint', id: hoveredStateId },
+                        { hover: false }
+                    );
+                }
+                // console.log(hoveredStateId);
+                hoveredStateId = null;
+                // console.log(hoveredStateId);
+            });
+
+            map.on('click', function (e) {
+                // console.log(e);
+                // Find all features at a point
+                // console.log(map.getCanvas().style.cursor); 
+                let features = map.queryRenderedFeatures(
+                    e.point,
+                    { layers: ['footprint-level-extrusion'] }
+                );
+                // console.log('ff',features,features.length);
+                if ((features.length === 0) && (preSelectedStateId != null)){
+                    // console.log('ff xddd',features,features.length);
+                    map.setFeatureState(
+                        { source: 'footprint', id: preSelectedStateId },
+                        { preselected: false }
+                    );
+                    preSelectedStateId = null;
+                    console.log('click dehors',preSelectedStateId);
+                    preAnimate(Number(footprint.properties.max_level)+3);
+                    animate(counter);
+                }
+            });
+            map.on('click', 'footprint-level-extrusion', function (e) {
+                // console.log(e);
+                // console.log(e.point);
+                // rotateCamera(0);
+                // console.log("xdddd", turf.centroid(e.features[0].geometry).geometry.coordinates);
+                // map.flyTo({
+                //         center: turf.center(e.features[0].geometry).geometry.coordinates,
+                //         speed: 0.1
+                    
+                //     });
+                // console.log("end flying");//je peux faire une autre animation alors que ça continu de fly
+                popup.setLngLat(e.lngLat).setHTML("<h1>" + e.features[0].properties.level + "</h1>").addTo(map);
+                console.log(popup);
+                if (e.features.length > 0) {
+                    if (preSelectedStateId === e.features[0].id) {
+                        console.log("CHOIX DE L'éTAGE:", e.features[0].properties.level);
+                        alert("CHOIX DE L'éTAGE:",e.features[0].properties.level);
+                    } else {
+                        console.log("preselect choix de l'étage :", e.features[0].properties.level);
+                        if (preSelectedStateId) {
+                            map.setFeatureState(
+                                { source: 'footprint', id: preSelectedStateId },
+                                { preselected: false }
+                            );
+                        }
+                        preSelectedStateId = e.features[0].id;
+                        map.setFeatureState(
+                            { source: 'footprint', id: preSelectedStateId },
+                            { preselected: true }
+                            );
+                        preAnimate(Number(e.features[0].properties.level));
+                        animate();
+                    }
+                }
+            });
+            function preAnimate(goal){
+                counter = 0;
+                old_level = current_level;
+                goal_level = goal;
+                steps = 6*Math.abs(goal_level-old_level)+50;
+                console.log('steps',steps);
+            }
+            function animate() {
+                counter = counter + 1;
+                if (counter <= steps) {
+                    //calcul
+                    //il faut une fonction qui à une aire de 1 entre 0 et steps
+                    // current_level += (goal_level - old_level)/steps;//pas constant
+                    if (counter < steps*.5){//pas châpeau
+                        current_level += (goal_level-old_level) * counter / ((steps*.5)**2);
+                    } else {
+                        current_level += (goal_level-old_level) * ((steps -counter) / ((steps*.5)**2));
+                    }
+                    // current_level += (goal_level-old_level) * ((steps -counter) / ((steps*.5)**2)/2);//deb vite /fin doux
+                    // if (counter < steps*.5){//pas bizarre (const deb et fin doux)
+                    //     current_level += (goal_level - old_level)*4/(3*steps);//cst
+                    // } else {
+                    //     current_level += (goal_level-old_level) * ((steps -counter)*2 / (3*(steps*.5)**2));
+                    // }
+                    // if (counter < steps*.25){//pas châpeau lent fin
+                    //     current_level += (goal_level-old_level) * counter*2 / ((steps*.5)**2);
+                    // } else {
+                    //     current_level += (goal_level-old_level) * ((steps -counter)*2 / (3*(steps*.5)**2));
+                    // }
+
+                    
+                    // console.log('goal', goal_level,'current', current_level,'step',step);
+                    let min = current_level - 2.9;
+                    let max = current_level + 2.9;
+                    // let p1=0;//2eme
+                    // let p2=0;//3eme
+                    // let p3=1;//1er
+                    // let p4=1;//4eme
+                    for(let i = 0;i<footprint.features.length;++i){
+                        //calcul de base
+                        footprint.features[i].properties.base_height = (Number(footprint.features[i].properties.level) - Number(footprint.properties.min_level))*HeightLevel;
+                        //ajout de l'interpolation
+                        let t = (Number(footprint.features[i].properties.level) - min)/(max-min);
+                        if (t < 0 ){
+                            //il ne faut rien rajouter
+                        } else if (t > 1){
+                            //il faut rajouter 200
+                            footprint.features[i].properties.base_height += 200;
+                        } else {
+                            //il faut rajouter l'interpolation
+                            // footprint.features[i].properties.base_height += 200*t;//linéaire
+                            //il faut un t entre 0 et 1
+                            //https://javascript.info/bezier-curve
+                            // footprint.features[i].properties.base_height += 200 * (p1*((1-t)**3) + 3*p2*((1-t)**2) + 3*p3*((1-t)*t**2) + p4*(t**3));//marche mais bof
+                            footprint.features[i].properties.base_height += 200 * (.5 * Math.atan(16*(t-0.5)) / Math.atan(16/2)  +.5);//ez math et facilement modifiable
+                            // if (footprint.features[i].id === preSelectedStateId){
+                            //     popup.remove();
+                            //     markerHeight = 10 + 200 * (.5 * Math.atan(16*(t-0.5)) / Math.atan(16/2)  +.5);//ez math et facilement modifiable
+                            //     popupOffsets = {
+                            //         'top': [0, 0],
+                            //         'top-left': [0,0],
+                            //         'top-right': [0,0],
+                            //         'bottom': [0, -markerHeight],
+                            //         'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+                            //         'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+                            //         'left': [markerRadius, (markerHeight - markerRadius) * -1],
+                            //         'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+                            //     };
+                            //     let oui = popup.getLngLat();
+                            //     popup = new maplibregl.Popup({offset: popupOffsets, className: 'my-class',closeOnMove: true,closeButton: false});
+                            //     popup.setLngLat(oui).setHTML("<h1>" +footprint.features[i].properties.level +"</h1>").addTo(map);
+                            //     console.log(popup);
+                            // }
+                        }
+                    }
+                    map.getSource('footprint').setData(footprint);
+                    // map.triggerRepaint();
+                    // map.redraw();
+                    // console.log(footprint.features[0].properties.base_height,current_level);
+                    requestAnimationFrame(animate);
+                    // map.triggerRepaint();
+                    // map.redraw();
+                    
+                } else {
+                    current_level = goal_level;
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
