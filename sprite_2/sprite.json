@@ -1,317 +1,324 @@
 {
-  "bakery_64": {
+  "bag_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 0,
+    "y": 0
+  },
+  "bakery_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
     "y": 0
   },
   "beauty_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
-    "y": 0
+    "x": 0,
+    "y": 64
   },
   "books_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
+    "x": 64,
     "y": 64
   },
   "boutique_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
-    "y": 64
+    "x": 128,
+    "y": 0
   },
   "bureau_de_change_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
+    "x": 192,
     "y": 0
   },
   "cafe_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 0
+    "x": 128,
+    "y": 64
   },
   "chocolate_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
+    "x": 192,
     "y": 64
   },
   "classroom_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 64
+    "x": 0,
+    "y": 128
   },
   "clothes_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
+    "x": 64,
     "y": 128
   },
   "convenience_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
+    "x": 128,
     "y": 128
   },
   "conveying_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
+    "x": 192,
     "y": 128
   },
   "cosmetics_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 128
+    "x": 0,
+    "y": 192
   },
   "door_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
+    "x": 64,
     "y": 192
   },
   "door_filled_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
+    "x": 128,
     "y": 192
   },
   "door_restricted_key_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
+    "x": 192,
     "y": 192
   },
   "door_restricted_lock_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 192
+    "x": 256,
+    "y": 0
   },
   "door_restricted_sign_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
+    "x": 320,
     "y": 0
   },
   "elevator_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
+    "x": 384,
     "y": 0
   },
   "fast_food_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
+    "x": 448,
     "y": 0
   },
   "gift_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 0
+    "x": 256,
+    "y": 64
   },
   "houseware_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
+    "x": 320,
     "y": 64
   },
   "information_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
+    "x": 384,
     "y": 64
   },
   "interior_decoration_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
+    "x": 448,
     "y": 64
   },
   "jewelry_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 64
+    "x": 256,
+    "y": 128
   },
   "left_luggage_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
+    "x": 320,
     "y": 128
   },
   "luggage_locker_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
+    "x": 384,
     "y": 128
   },
   "mobile_phone_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
+    "x": 448,
     "y": 128
   },
   "newsagent_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 128
+    "x": 256,
+    "y": 192
   },
   "office_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
+    "x": 320,
     "y": 192
   },
   "optician_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
+    "x": 384,
     "y": 192
   },
   "parcel_pickup_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
+    "x": 448,
     "y": 192
   },
   "perfumery_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 192
+    "x": 0,
+    "y": 256
   },
   "pharmacy_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
+    "x": 64,
     "y": 256
   },
   "post_office_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
+    "x": 128,
     "y": 256
   },
   "reception_desk_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
+    "x": 192,
     "y": 256
   },
   "restaurant_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
+    "x": 256,
     "y": 256
   },
   "shoes_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
+    "x": 320,
     "y": 256
   },
   "shop_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
+    "x": 384,
     "y": 256
   },
   "stairs_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
+    "x": 448,
     "y": 256
   },
   "tea_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 256
-  },
-  "ticket_64": {
-    "height": 64,
-    "pixelRatio": 1,
-    "width": 64,
     "x": 0,
     "y": 320
   },
-  "toilets_64": {
+  "ticket_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 64,
     "y": 320
   },
-  "travel_agency_64": {
+  "toilets_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 128,
     "y": 320
   },
-  "variety_store_64": {
+  "travel_agency_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 192,
     "y": 320
   },
-  "waiting_64": {
+  "variety_store_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 256,
+    "y": 320
+  },
+  "waiting_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 320,
     "y": 320
   }
 }
