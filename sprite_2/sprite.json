@@ -48,277 +48,382 @@
     "x": 128,
     "y": 64
   },
-  "chocolate_64": {
+  "chemist_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 192,
     "y": 64
   },
-  "classroom_64": {
+  "chocolate_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 0,
+    "y": 128
+  },
+  "classroom_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
     "y": 128
   },
   "clothes_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
+    "x": 128,
     "y": 128
+  },
+  "coffee_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 192,
+    "y": 128
+  },
+  "communication_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 192
+  },
+  "confectionery_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 192
   },
   "convenience_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 128,
-    "y": 128
+    "y": 192
   },
   "conveying_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 192,
-    "y": 128
+    "y": 192
   },
   "cosmetics_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
-    "y": 192
+    "x": 256,
+    "y": 0
+  },
+  "deli_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 320,
+    "y": 0
   },
   "door_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
-    "y": 192
+    "x": 384,
+    "y": 0
   },
   "door_filled_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
-    "y": 192
+    "x": 448,
+    "y": 0
   },
   "door_restricted_key_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 192
+    "x": 256,
+    "y": 64
   },
   "door_restricted_lock_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 0
+    "x": 320,
+    "y": 64
   },
   "door_restricted_sign_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 0
+    "x": 384,
+    "y": 64
   },
   "elevator_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
-    "y": 0
+    "x": 448,
+    "y": 64
+  },
+  "fan_shop": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 256,
+    "y": 128
   },
   "fast_food_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 0
+    "x": 320,
+    "y": 128
   },
   "gift_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 64
+    "x": 384,
+    "y": 128
+  },
+  "hairdresser_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 448,
+    "y": 128
   },
   "houseware_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 64
+    "x": 256,
+    "y": 192
   },
   "information_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
-    "y": 64
+    "x": 320,
+    "y": 192
   },
   "interior_decoration_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 64
+    "x": 384,
+    "y": 192
   },
   "jewelry_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 128
+    "x": 448,
+    "y": 192
+  },
+  "kitchen_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 256
+  },
+  "leather_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 256
   },
   "left_luggage_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 128
+    "x": 128,
+    "y": 256
   },
   "luggage_locker_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
-    "y": 128
+    "x": 192,
+    "y": 256
   },
   "mobile_phone_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 128
+    "x": 256,
+    "y": 256
   },
   "newsagent_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 192
+    "x": 320,
+    "y": 256
   },
   "office_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 192
+    "x": 384,
+    "y": 256
   },
   "optician_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
-    "y": 192
+    "x": 448,
+    "y": 256
+  },
+  "outdoor_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 320
   },
   "parcel_pickup_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 192
+    "x": 64,
+    "y": 320
   },
   "perfumery_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
-    "y": 256
+    "x": 128,
+    "y": 320
   },
   "pharmacy_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
-    "y": 256
+    "x": 192,
+    "y": 320
+  },
+  "photo_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 256,
+    "y": 320
   },
   "post_office_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
-    "y": 256
+    "x": 320,
+    "y": 320
   },
   "reception_desk_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 256
+    "x": 384,
+    "y": 320
   },
   "restaurant_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 256
+    "x": 448,
+    "y": 320
   },
   "shoes_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 256
+    "x": 0,
+    "y": 384
   },
   "shop_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 384,
-    "y": 256
+    "x": 64,
+    "y": 384
+  },
+  "sports_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 128,
+    "y": 384
   },
   "stairs_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 448,
-    "y": 256
+    "x": 192,
+    "y": 384
+  },
+  "stationery_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 256,
+    "y": 384
+  },
+  "supermarket_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 320,
+    "y": 384
   },
   "tea_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 0,
-    "y": 320
+    "x": 384,
+    "y": 384
   },
   "ticket_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 64,
-    "y": 320
+    "x": 448,
+    "y": 384
   },
   "toilets_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 128,
-    "y": 320
+    "x": 0,
+    "y": 448
   },
   "travel_agency_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 192,
-    "y": 320
+    "x": 64,
+    "y": 448
   },
   "variety_store_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 256,
-    "y": 320
+    "x": 128,
+    "y": 448
+  },
+  "video_games_64": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 192,
+    "y": 448
   },
   "waiting_64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 320,
-    "y": 320
+    "x": 256,
+    "y": 448
   }
 }
